@@ -1,0 +1,417 @@
+[
+  {
+    "id": "drawer",
+    "prompt": "Make a frontal close-up photograph of ONLY the SAME broad closed wooden desk drawer in this reference. Landscape16:9. Drawer front spans x12%-88%,y22%-84%, scratched dark lacquer, TWO bronze cup handles at x28% and72%,y69%, small brass keyhole at x50%,y51%. A strip of desk top visible across upper edge, all joins and hardware match reference. Drawer CLOSED and no tools. Warm lamp from upper-left, realistic wood/brass macro detail, no extra drawers, no text.",
+    "source": "C:\\Users\\kawau\\.codex\\generated_images\\01a0ba30-de75-7b40-a770-22321b967a82\\exec-f1789170-9b98-4303-99ac-723f8d2b26a4.png"
+  },
+  {
+    "id": "key",
+    "prompt": "Extreme close-up photograph of the SAME small brass keyhole escutcheon at center of this desk drawer. One vertical keyhole-shaped brass plate, tarnished gold, screw above and below, surrounding scratched dark wood. Frontal camera, plate centered x50%,y48%, occupies about24% width and55% height of16:9 frame. Keyhole completely EMPTY and dark inside. No key inserted, no hands or tools, no numbers. Preserve reference hardware style and warm upper-left light. Real macro photograph, not a drawing.",
+    "source": "C:\\Users\\kawau\\.codex\\generated_images\\01a0ba30-de75-7b40-a770-22321b967a82\\exec-f1093885-e5a0-4490-96e6-b3969ef24deb.png"
+  },
+  {
+    "id": "strainer",
+    "prompt": "Photoreal close-up of the SAME low iron strainer hatch on right wall of this pump room, landscape16:9. The small hinged outer hatch is open to left, revealing a deep rectangular dark intake opening behind a fixed sturdy square grid. Grid and opening occupy x22%-79%,y14%-81%. A tangled old gray cloth is visibly caught several inches behind grid, across center x42%-65%,y40%-66%. Nothing else stuck inside. Wet salty iron, dark flowing water below opening, warm lamp upper-right, realistic depth; a hand cannot reach past grid but a long hook can pass. No tools, no text, no people. Grid spacing wide enough to see cloth clearly.",
+    "source": "C:\\Users\\kawau\\.codex\\generated_images\\01a0ba30-de75-7b40-a770-22321b967a82\\exec-c5dd100c-1756-455f-b791-4a4f13bf4702.png"
+  },
+  {
+    "id": "patch",
+    "prompt": "Straight-on photoreal close-up of the cracked dark steel pontoon wall in reference, landscape16:9. A vertical irregular crack centered x50%, spanning y30%-65%. FOUR round bolt holes around crack, at x39%,y26%; x61%,y26%; x39%,y67%; x61%,y67%, forming a tall rectangle. No plate attached. At RIGHT x78%-87%,y28%-58% a small empty dark-glass inspection window in a bronze frame into pontoon tank, glass contains no water yet (water will be layered for states). At x80%,y77% an old small pull-type drain plug with a round ring handle. Damp salty black steel, barnacles at lower edge, restrained amber light from upper-right, readable real textures, no people or symbols.",
+    "source": "C:\\Users\\kawau\\.codex\\generated_images\\01a0ba30-de75-7b40-a770-22321b967a82\\exec-b813decb-20f1-456b-ad38-7096a71b18c2.png"
+  },
+  {
+    "id": "rings",
+    "prompt": "Frontal close-up of the SAME closed weathered wooden ship equipment case with bronze corner straps,16:9 photograph. Case front fills x14%-86%,y20%-87%. Its center at x50%,y46% has a large EMPTY circular dark bronze lock recess, diameter36% of image width, prepared for three nested locking-ring sprites. There are NO rings inside recess yet, no keyhole. A small vertical removable retaining tongue enters the top of the recess at x50%,y16%-28%. Lid and rusty hinges clearly visible, case still closed. Warm inspection light upper-left, coastal salt and woodgrain, no text, no tools or contents visible.",
+    "source": "C:\\Users\\kawau\\.codex\\generated_images\\01a0ba30-de75-7b40-a770-22321b967a82\\exec-b02d74d2-19b2-4ea1-b5bf-408a5afaab93.png"
+  },
+  {
+    "id": "rack",
+    "prompt": "Close-up frontal photograph of the EMPTY middle wooden shelf of the workshop rack in reference.16:9. A single large empty shelf compartment spans x22%-80%,y18%-81%; worn warm brown wood, rusty corner fittings, dark mottled plaster behind it. A few ordinary small timber offcuts only at far margins outside central compartment. No metal repair plate on shelf yet (will be added as a sprite); no tools, no writing, no text. Same warm upper-right lamp, photoreal high detail.",
+    "source": "C:\\Users\\kawau\\.codex\\generated_images\\01a0ba30-de75-7b40-a770-22321b967a82\\exec-2b64c95f-6da7-47dc-85a7-f5c9f67fa20f.png"
+  },
+  {
+    "id": "hook",
+    "prompt": "Assemble these exact two photographed parts into ONE long boat hook. Image1 is the straight wooden rod, image2 is J-shaped threaded iron head. Attach the head's socket onto rod's top threaded fitting so the threads are no longer exposed and there is a continuous strong joint. Preserve the same wood, steel ferrule at bottom, hook shape and patina. Entire assembled hook vertical in tall portrait frame with full object visible, real photographic materials, no background or floor, genuine transparent alpha, no halo, no other objects, no text. Keep pole straight and iron hook curving to left.",
+    "source": "C:\\Users\\kawau\\.codex\\generated_images\\01a0ba30-de75-7b40-a770-22321b967a82\\exec-132e7e41-64ba-429d-93e9-bb2e3bbab654.png"
+  },
+  {
+    "id": "drawer-open",
+    "prompt": "Edit this exact game photograph. Pull the wooden drawer fully open toward viewer. Preserve camera, wood grain, two cup handles, brass lock, lighting and desk sides. Its drawer front is now near bottom edge, exposing the broad EMPTY dark wooden interior at center. No contents, tools, or extra drawers. 16:9 photoreal.",
+    "source": "C:\\Users\\kawau\\.codex\\generated_images\\01a0ba30-de75-7b40-a770-22321b967a82\\exec-eb358393-e1fb-4347-a376-973b4b71873e.png"
+  },
+  {
+    "id": "strainer-clear",
+    "prompt": "Edit only the rag: completely remove the clogged cloth behind the fixed metal grille, revealing dark open pipe passage through the grid. Preserve every bar, open cover left, camera, bolts and lighting. Same 16:9 photoreal game state.",
+    "source": "C:\\Users\\kawau\\.codex\\generated_images\\01a0ba30-de75-7b40-a770-22321b967a82\\exec-58d79ebd-039e-4786-a000-04dd91d587c5.png"
+  },
+  {
+    "id": "rings-open",
+    "prompt": "Edit exact case: open its lid backward, exposing a broad EMPTY interior lined with worn dark green felt. Keep fixed camera, surrounding dockwork, color and case location. Its front brass circular lock stays visible below the open cavity. No items, no text. 16:9 photoreal.",
+    "source": "C:\\Users\\kawau\\.codex\\generated_images\\01a0ba30-de75-7b40-a770-22321b967a82\\exec-73813780-73fe-461f-9cf1-d8f735be076e.png"
+  },
+  {
+    "id": "belt-base",
+    "prompt": "Edit exact machinery photograph: remove all four circular pulley wheels/discs completely, leaving their dark machine mounting wall and small axle mounting holes. Preserve everything else, composition, pump body, lighting, wood and metal. No belts and no wheels. 16:9 photoreal background for interactive wheels.",
+    "source": "C:\\Users\\kawau\\.codex\\generated_images\\01a0ba30-de75-7b40-a770-22321b967a82\\exec-27eee1ba-2668-43f7-b74b-a59e6172d3e9.png"
+  },
+  {
+    "id": "pulley",
+    "prompt": "One vintage dark iron grooved belt pulley, strictly front-on orthographic circle, centered, full object with small margin. Double dark grooved rim and solid weathered central disc with small axle nut. Photoreal aged marine machinery, warm light upper left, dark teal shadows. Transparent background, true alpha, no backdrop, no ground, no cast shadow outside object. Square image.",
+    "source": "C:\\Users\\kawau\\.codex\\generated_images\\01a0ba30-de75-7b40-a770-22321b967a82\\exec-ef163145-8eeb-4069-83e3-32a8bf3d1b0c.png"
+  },
+  {
+    "id": "locking-ring",
+    "prompt": "Single photoreal aged brass circular locking annulus, strictly front-on, centered filling square. One radial rectangular notch CUT entirely through annulus at twelve o'clock, from outer edge to hollow transparent center. Modest tarnish, fine brushed metal, warm light upper left. Transparent background and transparent center. No text, no extra objects. Game rotating lock sprite.",
+    "source": "C:\\Users\\kawau\\.codex\\generated_images\\01a0ba30-de75-7b40-a770-22321b967a82\\exec-2298513d-1322-47cc-aace-bdd2baa6c6ac.png"
+  },
+  {
+    "id": "patch-item",
+    "prompt": "Photoreal game inventory object on transparent background: single flat rectangular dark teal steel repair plate, straight front-on, landscape aspect ratio 1.3:1, four circular bolt holes located inset 20 percent from each corner. Plain moderately weathered marine metal, warm light upper left, sharp edges, no writing, no bolts installed, no additional hardware. Entire plate centered filling image with 5% margin. Transparent alpha through all holes, no floor, no shadow outside. Square canvas.",
+    "source": "C:\\Users\\kawau\\.codex\\generated_images\\01a0ba30-de75-7b40-a770-22321b967a82\\exec-15d3e849-d03f-4f1a-956c-9f07dffb36b3.png"
+  },
+  {
+    "id": "boat-kit",
+    "prompt": "Photoreal game inventory objects on transparent background. Two matching compact rectangular brass and dark rubber hull repair pads, side by side with clear gap. Each pad is the size of a hand, dark rubber backing and weathered bronze pressure plate, left has a single captive central threaded bolt projecting slightly; right has matching wingnut. The two clamp together on opposite sides of a leaking wooden hull. Orthographic front three-quarter slight view, warm side light, entire two objects visible. No tools, no words, transparent background.",
+    "source": "C:\\Users\\kawau\\.codex\\generated_images\\01a0ba30-de75-7b40-a770-22321b967a82\\exec-506d161e-8194-4166-b9ae-d9a7f49fcb2f.png"
+  },
+  {
+    "id": "lens-clean",
+    "prompt": "Edit lens glass only: remove all white fog/haze and silvery opaque rings, make the entire interior optically clear transparent glass with only fine faint Fresnel grooves and a very subtle edge reflection. Preserve exact old brass circular rim and shape. True transparent alpha background and clear glass interior, no white fill, no metal disc appearance. Inventory lens after cleaning.",
+    "source": "C:\\Users\\kawau\\.codex\\generated_images\\01a0ba30-de75-7b40-a770-22321b967a82\\exec-c11d0fdf-6613-4c42-95db-db4b69c9be7e.png"
+  },
+  {
+    "id": "concourse-high-held",
+    "prompt": "Edit exact photo, preserve camera and every structure. Raise water ONLY to just below the cabin floor edge (at about y=60% image), so the lower dark pontoon nearly disappears. Cabin itself remains at same low vertical position, its floor and sloped gangway unchanged, because held by maintenance clamps. The upper door stays inaccessible well above cabin. No new structures, people, vehicles. Photoreal 16:9 night.",
+    "source": "C:\\Users\\kawau\\.codex\\generated_images\\01a0ba30-de75-7b40-a770-22321b967a82\\exec-cf96b898-e883-41e3-8685-0c26b5bae541.png"
+  },
+  {
+    "id": "waiting-rear-high",
+    "prompt": "Edit exact waiting cabin interior photo to high-water raised cabin state: preserve entire interior camera and objects. Through the window, the nearby concrete wall and black guidepost outside have moved DOWN relative to cabin by 1.5m. Through the rear doorway on right-center, the formerly high shore threshold now aligns flush with this cabin floor, revealing a short safe gangway leading into the upper lookout. No stairs, no ladder, no people. Photoreal 16:9.",
+    "source": "C:\\Users\\kawau\\.codex\\generated_images\\01a0ba30-de75-7b40-a770-22321b967a82\\exec-e3c24553-08ec-4e3d-a79c-f684b08964ef.png"
+  },
+  {
+    "id": "office-open",
+    "prompt": "Edit exact room overview: pull the wide desk drawer forward into an OPEN position. Preserve camera and all objects, desk top paper blank, cup handles and wood grain. Drawer cavity is EMPTY, open front at lower image edge. Do not add tools or paper or change any room features. Photoreal 16:9.",
+    "source": "C:\\Users\\kawau\\.codex\\generated_images\\01a0ba30-de75-7b40-a770-22321b967a82\\exec-e9ff9f8e-4b9a-493b-8671-760e966f1384.png"
+  },
+  {
+    "id": "key-broken",
+    "prompt": "Edit exact keyhole photograph. In the ROUND upper part of keyhole at x50% y33%, show the rough fractured end of a real small brass skeleton-key shaft lodged INSIDE lock, pointing toward camera. It fills a modest central part of circular opening, appears a short broken metal stump with irregular fracture and realistic shadow. Lower rectangular slot remains mostly dark. Keep everything else EXACTLY. Photoreal 16:9.",
+    "source": "C:\\Users\\kawau\\.codex\\generated_images\\01a0ba30-de75-7b40-a770-22321b967a82\\exec-13b7065a-ca77-4256-a8bf-cac58c6f130f.png"
+  },
+  {
+    "id": "lens-final",
+    "prompt": "Photoreal antique boat lamp glass insert on TRUE transparent background, square image. A thin weathered bronze circular rim containing a CLEAR round flat glass pane. The glass is fully transparent with subtle green edges and just one faint narrow white reflection at upper left. Most of the round interior is transparent alpha, as clear glass. No concentric white rings, no milky glass, no hole, no backdrop. Entire object centered, fills90% square.",
+    "source": "C:\\Users\\kawau\\.codex\\generated_images\\01a0ba30-de75-7b40-a770-22321b967a82\\exec-b8e22d8a-bc07-4c01-ba2f-d42bcb1e2713.png"
+  },
+  {
+    "id": "waiting-rear-high-v2",
+    "prompt": "Edit ONLY view through windows and doorway. This wooden waiting cabin has risen on its pontoon by1.5m. Keep entire INTERIOR pixel matched. Outside is still the SAME nearby concrete retaining wall, black guidepost, and shore building attached to that wall. In the doorway, previously high CONCRETE threshold is now LEVEL with cabin floor; a very short metal bridge reaches the SAME doorway in concrete wall. Window still shows concrete wall and black guidepost, shifted DOWN, with the wall top lower and more sky above. Do not replace concrete shore with water or add a detached wooden hut. Preserve rainy blue night and warm interior.",
+    "source": "C:\\Users\\kawau\\.codex\\generated_images\\01a0ba30-de75-7b40-a770-22321b967a82\\exec-66d00bae-81c5-44ec-8c17-96a1d0ca14ac.png"
+  },
+  {
+    "id": "service-pins-out",
+    "prompt": "Edit exact wide maintenance walkway photograph: remove the two horizontal retaining pins/bolts from the two heavy black pontoon support brackets, leaving visible circular empty sockets. Keep screw jacks fully retracted and cabin resting on fixed cradles. Preserve all geometry, camera, lighting, pontoon, crack on right, walkway and architecture. No new objects. Photoreal16:9.",
+    "source": "C:\\Users\\kawau\\.codex\\generated_images\\01a0ba30-de75-7b40-a770-22321b967a82\\exec-1cdd60ac-123e-4720-9edf-11c81a70249c.png"
+  },
+  {
+    "id": "service-end-open",
+    "prompt": "Edit exact wide maintenance walkway photograph: open the lid of the wooden brass reinforced case at lower left, hinged backward, showing EMPTY dark green lining. Its front has small circular brass lock. Keep every other object, arch, stairs, light, camera and composition. Photoreal16:9.",
+    "source": "C:\\Users\\kawau\\.codex\\generated_images\\01a0ba30-de75-7b40-a770-22321b967a82\\exec-7578a513-0d7d-40ca-a673-af8bf8423014.png"
+  },
+  {
+    "id": "waiting-rear-high-v3",
+    "prompt": "Keep this exact photograph identical EXCEPT through the windows: shift the nearby concrete wall and black guidepost/cable DOWN by one third of the window height, revealing more sky above. This cabin rose vertically. Keep wooden DOOR COMPLETELY CLOSED exactly as reference. Preserve all interior pixels, furniture, windows, light and camera. 16:9.",
+    "source": "C:\\Users\\kawau\\.codex\\generated_images\\01a0ba30-de75-7b40-a770-22321b967a82\\exec-1ffe7371-edcc-47d3-b2e1-0d01108659d4.png"
+  },
+  {
+    "id": "dock-mid",
+    "prompt": "Edit exact dock overview: introduce shallow dark seawater covering the concrete basin floor, submerging just the lower half of the wooden spare cradle in foreground. The SAME wooden boat still rests on the SAME fixed blocks, keel above this medium water level. Preserve fixed shore and gate, boat, camera, rails and staff. Blue night amber light. Photoreal16:9.",
+    "source": "C:\\Users\\kawau\\.codex\\generated_images\\01a0ba30-de75-7b40-a770-22321b967a82\\exec-f9e9a2e6-1e87-4ca1-bca7-addb2c358c5a.png"
+  },
+  {
+    "id": "dock-high",
+    "prompt": "Edit exact dock overview to high tide inside basin. Water now covers entire lower basin and wooden cradles, reaching near the dry shore walkway. SAME small wooden boat floats higher on this water in same location/orientation, bottom half of hull submerged. Shore rim, rails, gate, staff unchanged. No people. Photoreal16:9.",
+    "source": "C:\\Users\\kawau\\.codex\\generated_images\\01a0ba30-de75-7b40-a770-22321b967a82\\exec-50f40e6b-af57-4a4c-9f4a-f2a95b7d42fc.png"
+  },
+  {
+    "id": "boat-outside",
+    "prompt": "Create CLOSE-UP view of this SAME wooden boat resting in dry basin, camera low beside hull. Weathered dark wooden plank hull fills image width, old timber cradle supports beneath. Small visible leaking vertical crack at center x50 y48, width2% height14%, between planks low near keel. Entire keel and spare wooden hull-section template at farleft background. Small metal bailing scoop hangs from gunwale far right at x83 y60. Warm docklight, quiet blue night, no writing or people. Photoreal16:9.",
+    "source": "C:\\Users\\kawau\\.codex\\generated_images\\01a0ba30-de75-7b40-a770-22321b967a82\\exec-7880025f-8889-457f-aa9a-573a094c90d2.png"
+  },
+  {
+    "id": "boat-inside",
+    "prompt": "Photoreal16:9 CLOSE-UP looking down inside SAME small old wooden boat in reference. Warm amber dock light, dark blue shadows. Wooden ribs and planks, thin pool of dirty water at bottom. Small crack in bottom hull plank clearly at x50 y52. Two transverse simple wooden seats frame top and bottom. Small metal bailing scoop rests at right x83 y68. No tools otherwise, no repair pad, no writing, no person.",
+    "source": "C:\\Users\\kawau\\.codex\\generated_images\\01a0ba30-de75-7b40-a770-22321b967a82\\exec-d101fdd9-0ba1-4cb8-9f34-d6c4f93ca623.png"
+  },
+  {
+    "id": "lookout-window",
+    "prompt": "Photoreal16:9 reverse view inside same small upper harbor observation room. Face wide waist-high observation window spanning image, worn wooden frame, simple horizontal brass sliding observation rail on sill at y80. Outside quiet dark blue nighttime water and distant low shoreline. Empty water center, no boats or landmarks to be composited later. Amber lamplight at edge, spare quiet room, no text, no people.",
+    "source": "C:\\Users\\kawau\\.codex\\generated_images\\01a0ba30-de75-7b40-a770-22321b967a82\\exec-892f0317-48fc-4466-8efc-5c9bda99f1a5.png"
+  },
+  {
+    "id": "survey-sea",
+    "prompt": "Photoreal16:9 close view looking through large old observation window across empty dark blue harbor at night. Sea horizon at exactly y35%, distant low dark coastline, no landmarks, no posts, no boats, no buildings or lights on water. Worn dark wooden window frame only at left/right outer5%, warm brass sill along bottom10%. Broad uninterrupted water for compositing navigation marks. Subtle natural rain on edges of glass, center optically clear.",
+    "source": "C:\\Users\\kawau\\.codex\\generated_images\\01a0ba30-de75-7b40-a770-22321b967a82\\exec-26f3b4b1-ae96-4956-8667-11cd924a30cd.png"
+  },
+  {
+    "id": "shore-low",
+    "prompt": "Photoreal16:9 close view looking THROUGH same low arched channel outlet, camera under arch. At low tide the shallow muddy channel is exposed. A massive fallen dark iron beam lies horizontally ACROSS entire narrow channel, from left stone wall to right stone wall, a physical submerged obstacle exposed by drained water. Two distant small landmarks beyond: jagged low rock left, tiny pine islet right. Night blue and amber spill from behind viewer, no text or people.",
+    "source": "C:\\Users\\kawau\\.codex\\generated_images\\01a0ba30-de75-7b40-a770-22321b967a82\\exec-9d064960-b6f2-4e83-84e7-d6e1d5d209d4.png"
+  },
+  {
+    "id": "dock-high-v2",
+    "prompt": "Edit ONLY lower foreground: remove wooden U-shaped spare cradle entirely because submerged at high water. Replace its area with dark water continuous with basin. Keep SAME boat, camera, stone shore margin in lower left, gate, staff, lighting. Do not move or change anything else.16:9.",
+    "source": "C:\\Users\\kawau\\.codex\\generated_images\\01a0ba30-de75-7b40-a770-22321b967a82\\exec-70e1e60f-6c0c-4b78-9eb0-db0761982b80.png"
+  },
+  {
+    "id": "boat-outside-v2",
+    "prompt": "Edit exact image: remove hanging round scoop on right (boat's real scoop is inside), restore continuous original wooden planking there. Make central vertical crack SHORTER: only length about8% of image height centered x50% y45%, all other crack segments repaired back to original uninterrupted planks. Keep original aged wood, whole boat and camera, support frames. No installed repair pad yet.16:9.",
+    "source": "C:\\Users\\kawau\\.codex\\generated_images\\01a0ba30-de75-7b40-a770-22321b967a82\\exec-09ce860f-4d14-47eb-908a-f6686603b9fb.png"
+  },
+  {
+    "id": "lens-dirty-v2",
+    "prompt": "Edit ONLY clear glass interior of this lens: add cloudy salt residue and fingerprints across the entire glass, visibly hazy/milky but still recognizably glass. Keep identical bronze rim, four screws, proportions and transparent alpha background. Game item before wiping. No change to rim.",
+    "source": "C:\\Users\\kawau\\.codex\\generated_images\\01a0ba30-de75-7b40-a770-22321b967a82\\exec-993e326f-c902-4277-b006-c21b46486b58.png"
+  },
+  {
+    "id": "belt-base-v2",
+    "prompt": "Edit machine photo only near left motor and nearest bearing. Add a compact dark iron RIGHT-ANGLE GEARBOX coupling the horizontal motor shaft ending around x30% y54% directly into the front-facing axle at x37.7% y56.5%. A continuous solid gearbox housing bridges the gap, visibly transmits drive. Keep exact four axle center positions, no pulley discs or belt added. Preserve all other pixels, lighting and scene.16:9.",
+    "source": "C:\\Users\\kawau\\.codex\\generated_images\\01a0ba30-de75-7b40-a770-22321b967a82\\exec-1168e63f-6764-464d-822c-d695a53641cb.png"
+  },
+  {
+    "id": "gate",
+    "prompt": "Photoreal16:9 macro game scene, old maritime lock control on dark timber gate, weathered bronze horizontal drawbar centered x50 y57 stretching fromx32tox70. Bar visibly captured by iron sleeve. Two vertical rectangular glass water-level sight windows side by side above it: centers x42 andx60, each width8% image,height32%, top13%. Empty dark transparent glass, native water fills composited later. Tiny physical boat-shaped engraving below left, wave-shaped engraving below right, no letters/digits. Warm dock lamplight on wet iron/wood, blue night shadows. Camera straight-on, plausible mechanical latch, no people.",
+    "source": "C:\\Users\\kawau\\.codex\\generated_images\\01a0ba30-de75-7b40-a770-22321b967a82\\exec-a3886e9f-88a3-4f17-9191-9dbaa0e34022.png"
+  },
+  {
+    "id": "lantern",
+    "prompt": "Photoreal16:9 close-up of an antique small boat electric bow lamp mounted on worn wooden gunwale, harbor blue darkness behind. Bronze cylindrical housing with circular front facing camera, glass INSERT MISSING, open circular recess centered x50 y42 outer diameter30% imagewidth, small unlit bulb visible inside. Small rotary brass switch at x67% y76%. Tarnished metal, warm side light, no text, no flames, no extra objects. Quiet realistic game scene.",
+    "source": "C:\\Users\\kawau\\.codex\\generated_images\\01a0ba30-de75-7b40-a770-22321b967a82\\exec-0e1b1b3b-93a0-48c4-bbd4-ccb9a6ca8991.png"
+  },
+  {
+    "id": "landward",
+    "prompt": "Photoreal16:9 night view from an abandoned small Japanese ferry terminal toward the mainland. A short wooden access footbridge has collapsed in its MIDDLE, a clearly visible wide missing span separates foreground from shore. Splintered timbers lie in dark water below; distant village and warm lights beyond, no alternative path or boat. Foreground rusted railing, wet boards, warning rope torn, no readable text. Blue night, subdued amber lamplight, atmospheric eerie but physically credible.",
+    "source": "C:\\Users\\kawau\\.codex\\generated_images\\01a0ba30-de75-7b40-a770-22321b967a82\\exec-97f7cc52-573a-418b-b965-d5cb3ba45b85.png"
+  },
+  {
+    "id": "ending",
+    "prompt": "Photoreal16:9 quiet ending scene of night escape by small wooden rowboat. View from rowboat toward a distant abandoned Japanese harbor receding behind; single warm lamp shining from small wooden ferry waiting hut, reflected in dark blue water. Faint dawn grey far horizon, no people visible, no words. Wet dark wooden boat edge in lowest5%, vast calm sea, natural low light, slightly eerie, restrained composition with dark clear space left for title.",
+    "source": "C:\\Users\\kawau\\.codex\\generated_images\\01a0ba30-de75-7b40-a770-22321b967a82\\exec-afe5d58d-07e0-4b58-88e6-8a43c41440bb.png"
+  },
+  {
+    "id": "marker-twin",
+    "prompt": "Photoreal navigation landmark sprite on TRUE transparent background. Two parallel slim weathered white-painted harbor posts of equal height, joined only by a low dark horizontal brace, broad clearly empty gap between upper posts. Slight barnacles at base, standing upright, viewed front-on from across dark sea. Blue night illumination, readable pale silhouettes. Entire object full height, centered, no water, no horizon, no text, no ground, transparent gap.",
+    "source": "C:\\Users\\kawau\\.codex\\generated_images\\01a0ba30-de75-7b40-a770-22321b967a82\\exec-61077c8f-43f3-4280-b81f-fb7a9f5dec2c.png"
+  },
+  {
+    "id": "marker-ring",
+    "prompt": "Photoreal harbor navigation landmark on TRUE transparent background: tall rusted iron pole with a large pale weathered circular OPEN RING mounted at top, ring's hollow center fully transparent, no plate. Slender dark post, barnacled base. View front-on from boat, cool blue night side light with pale grey ring legible. Entire isolated object centered tall portrait, no water, no landscape, no text.",
+    "source": "C:\\Users\\kawau\\.codex\\generated_images\\01a0ba30-de75-7b40-a770-22321b967a82\\exec-137c1453-4fb7-4483-a4ab-346ae8397ec0.png"
+  },
+  {
+    "id": "marker-triangle",
+    "prompt": "Photoreal marine navigation landmark on TRUE transparent background. A weathered ivory solid TRIANGLE pointing upward mounted atop a slim dark iron post, simple distinct silhouette, base barnacles. Front-on view at distant sea, blue night lighting, entire object visible centered tall portrait. No water, ground, horizon, digits or text.",
+    "source": "C:\\Users\\kawau\\.codex\\generated_images\\01a0ba30-de75-7b40-a770-22321b967a82\\exec-00c1c021-831a-48ba-8c6a-d510cc84c491.png"
+  },
+  {
+    "id": "marker-gate",
+    "prompt": "Photoreal distant navigation landmark isolated on TRUE transparent background: a simple small pale stone gate made from two straight vertical posts and one flat horizontal lintel, rectangular OPEN central gap, no curved torii roof, no inscriptions. Weathered pale stone, dark wet barnacled bases, blue night light, front view, entire object visible, no landscape or water.",
+    "source": "C:\\Users\\kawau\\.codex\\generated_images\\01a0ba30-de75-7b40-a770-22321b967a82\\exec-783f70b2-7458-439d-9114-3b232a358c20.png"
+  },
+  {
+    "id": "marker-rock",
+    "prompt": "Photoreal isolated low jagged black basalt sea rock, asymmetric sharp peak at left and lower notch right, blue night lighting with subtle wet highlights, whole rock visible. TRUE transparent background, no sea, no horizon, no ground shadow, no words. Landscape sprite.",
+    "source": "C:\\Users\\kawau\\.codex\\generated_images\\01a0ba30-de75-7b40-a770-22321b967a82\\exec-36839205-50f3-4526-aa4b-741473ef7b71.png"
+  },
+  {
+    "id": "marker-islet",
+    "prompt": "Photoreal isolated tiny rocky islet silhouette with exactly three windswept Japanese pine trees. Low dark wet granite mound base, blue night illumination, tree silhouettes distinct. Whole object visible centered, TRUE transparent background, no water, no horizon, no sky, no text. Landscape sprite.",
+    "source": "C:\\Users\\kawau\\.codex\\generated_images\\01a0ba30-de75-7b40-a770-22321b967a82\\exec-225e77a4-00a8-42c7-9a65-76d8e84d786d.png"
+  },
+  {
+    "id": "marker-light",
+    "prompt": "Photoreal small antique white harbor lighthouse beacon on a short narrow black stone pedestal, one warm amber light in simple square metal lantern at top, slim cylindrical pale tower. Blue night side light, full isolated object centered upright. TRUE transparent background, no horizon, no water, no surrounding glow beyond modest bulb glow, no words.",
+    "source": "C:\\Users\\kawau\\.codex\\generated_images\\01a0ba30-de75-7b40-a770-22321b967a82\\exec-b056aaf7-c1fb-4640-8edb-620ca2923fb5.png"
+  },
+  {
+    "id": "patch-v2",
+    "prompt": "Edit ONLY crack in exact metal wall photograph. Shorten it to lie entirely WITHIN rectangle formed by four bolt holes: top end y24%, bottom end y47%, center x49%. Restore all previous crack outside that small central area to matching intact metal. Keep four holes absolutely unchanged and tank window, drain, lighting, camera identical.16:9.",
+    "source": "C:\\Users\\kawau\\.codex\\generated_images\\01a0ba30-de75-7b40-a770-22321b967a82\\exec-e4d0055d-91d8-480c-ac80-88f6b7deb073.png"
+  },
+  {
+    "id": "boat-inside-dry",
+    "prompt": "Edit exact boat interior photo: remove puddles and water from floor, leaving damp wood and SAME crack still visible because separate repair pad overlay will cover it. Preserve every rib, scoop, seats, camera, lighting. No repair pad added, no other change.16:9.",
+    "source": "C:\\Users\\kawau\\.codex\\generated_images\\01a0ba30-de75-7b40-a770-22321b967a82\\exec-7db65d4e-d658-4cfb-abc6-700f941e4b3b.png"
+  },
+  {
+    "id": "gate-open",
+    "prompt": "Edit exact gate-control close-up: slide the horizontal brass latch bar LEFT far enough to release right-hand receiver, exposing empty right sleeve. Keep both vertical glass level windows at EXACT same positions and all timber/control housing fixed. This is the unlocked mechanism state, no change to surrounding gate leaf positions. Same camera16:9.",
+    "source": "C:\\Users\\kawau\\.codex\\generated_images\\01a0ba30-de75-7b40-a770-22321b967a82\\exec-8f295d60-f2dc-44f3-a03d-8b536335dac4.png"
+  },
+  {
+    "id": "lantern-glass",
+    "prompt": "First photo is edit target. Fit the circular clear glass insert from second reference into the lamp's front opening, matching perspective and scale. Four small fastening screws on lens rim, subtle transparent glass, bulb visible UNLIT behind. Also replace pale inner boat paint at bottom left with weathered dark wood matching gunwale. Preserve camera, lamp location, switch, harbor.16:9.",
+    "source": "C:\\Users\\kawau\\.codex\\generated_images\\01a0ba30-de75-7b40-a770-22321b967a82\\exec-f309d150-7973-4ea1-af6f-950c3ffc27dc.png"
+  },
+  {
+    "id": "dock-high-flooded",
+    "prompt": "Edit exact high-water dock scene to unrepaired boat: SAME boat has filled with water and sits MUCH LOWER, its water-filled hull resting on submerged cradles. Only its upper gunwale and seats remain above water, visible interior water at same surface as basin. Preserve camera and all surroundings, waterlevel, gate and lighting. No damage added to infrastructure.16:9.",
+    "source": "C:\\Users\\kawau\\.codex\\generated_images\\01a0ba30-de75-7b40-a770-22321b967a82\\exec-f82f2f8b-5172-4caf-b79b-d39c239d25ba.png"
+  },
+  {
+    "id": "pump-v2",
+    "prompt": "Edit first wide pump-room photo preserving room camera. Replace lower right two-wheel machinery with SMALL version of second reference machine: motor+right-angle gearbox, pump body, rectangular mounting backplate, FOUR equal circular dark pulleys at the four axle positions, NO BELT. Replace left control panel with third reference layout in same area: three valves and three sight tubes, lower water selector and pushbutton. Open the small grille cover at far right on its left hinge to reveal fixed inner grille and clogged dark rag behind. Preserve room architecture, windows and lighting. All devices must be physically mounted and photoreal, not pasted rectangles.16:9.",
+    "source": "C:\\Users\\kawau\\.codex\\generated_images\\01a0ba30-de75-7b40-a770-22321b967a82\\exec-26daad26-ca89-4883-8618-6ba2be8fa8c9.png"
+  },
+  {
+    "id": "ending-v2",
+    "prompt": "Photoreal16:9 ending view FROM SEA, looking back from far away at this exact ferry waiting cabin and tall guideposts beside concrete shore wall. Preserve recognizable small cabin on floating pontoon between two dark vertical guideposts, upper walkway on right. Camera now 60 meters offshore, whole terminal occupies small right quarter of frame, single amber lamp glows. Vast dark calm sea foreground, blue grey predawn sky left, no other boats or new houses. Minimal wooden rowboat edge bottom. Same location, distant reverse viewpoint.",
+    "source": "C:\\Users\\kawau\\.codex\\generated_images\\01a0ba30-de75-7b40-a770-22321b967a82\\exec-9dfaf470-4eb2-40cc-ab86-5e41706a45d6.png"
+  },
+  {
+    "id": "trace",
+    "prompt": "Photoreal16:9 close-up of the spare U-shaped wooden boat cradle from this reference. Strictly front-on, upright broad concave U, worn wood grain and iron bolts, on low exposed concrete basin floor. Top two ends at x16% and84% y16%; deepest middle of upper concave surface at x50% y73%. Broad curved cradle follows a symmetric rounded hull cross-section, not pointed V. Empty space above curve, no boat resting in this spare cradle. Small metal datum nail at each upper end. Background dry dock, amber night light. No text, ruler or numbers.",
+    "source": "C:\\Users\\kawau\\.codex\\generated_images\\01a0ba30-de75-7b40-a770-22321b967a82\\exec-18b4d42f-910b-405e-ac9d-99a9751bb07b.png"
+  },
+  {
+    "id": "gate-open-v2",
+    "prompt": "Edit ONLY bare horizontal brass SHAFT of latch: slide shaft left by30% image width, so most of its LEFT end is now OUTSIDE LEFT IMAGE EDGE. Its right rounded end now at x63%, leaving right receiver empty. Keep central bolted sleeve EXACTLY at x50%, do not move or shrink any bolted mounting plate or receiver. Keep total shaft length physically unchanged, merely translated and cropped by frame. Glass windows, timber, camera unchanged.16:9.",
+    "source": "C:\\Users\\kawau\\.codex\\generated_images\\01a0ba30-de75-7b40-a770-22321b967a82\\exec-7ef89ba5-5975-4f69-9d82-dc9e313383f6.png"
+  },
+  {
+    "id": "lantern-lit",
+    "prompt": "Turn on the electric bulb in this EXACT lamp photograph. Warm amber bulb filament glows brightly through same clear glass, natural warm light on bronze rim and nearby wooden gunwale, preserve camera and every object. Modest bloom, not blinding.16:9.",
+    "source": "C:\\Users\\kawau\\.codex\\generated_images\\01a0ba30-de75-7b40-a770-22321b967a82\\exec-115f8252-2ccf-4f61-9376-7b88e97de91b.png"
+  },
+  {
+    "id": "lantern-bare-v2",
+    "prompt": "Remove ONLY the fitted glass insert and its four screw rim from lamp opening, leave empty front recess with unlit bulb inside. Keep wooden gunwale exactly, all surroundings/camera/lamp body/side switch unchanged. Four vacant mounting holes cardinally arranged, matching removed insert.16:9.",
+    "source": "C:\\Users\\kawau\\.codex\\generated_images\\01a0ba30-de75-7b40-a770-22321b967a82\\exec-aaa1c987-eede-46f4-ac6a-95055d18121b.png"
+  },
+  {
+    "id": "pump-clear",
+    "prompt": "Remove ONLY clogged cloth behind the small fixed strainer grille at FAR RIGHT of this exact wide pump room photo. Keep open outer cover, all metal bars, machinery, three control valves, lights and camera unchanged. Dark clear pipe behind grille.16:9.",
+    "source": "C:\\Users\\kawau\\.codex\\generated_images\\01a0ba30-de75-7b40-a770-22321b967a82\\exec-991f3f5c-b477-40e6-b864-8f6e6fd38c49.png"
+  },
+  {
+    "id": "dock-high-open",
+    "prompt": "Open only the two wooden sea-gate leaves at rear center of this exact dock photo, swing each outward into sea along its sidewall. Clear navigable dark-water opening under arch. Preserve foreground boat at exact same position, waterline, dryshore, light and camera, no extra objects.16:9.",
+    "source": "C:\\Users\\kawau\\.codex\\generated_images\\01a0ba30-de75-7b40-a770-22321b967a82\\exec-ec682719-c961-4148-8957-a24041076b22.png"
+  },
+  {
+    "id": "trace-submerged",
+    "prompt": "Raise basin water to submerge the ENTIRE wooden U-shaped cradle in this exact view. Water covers foreground up to above cradle upper tips; U-shaped wood barely discernible through dark water below. Keep camera, distant gate and walls, same night light. No wooden parts moved to dry shore.16:9.",
+    "source": "C:\\Users\\kawau\\.codex\\generated_images\\01a0ba30-de75-7b40-a770-22321b967a82\\exec-0829015a-a4fa-4e80-a866-489884c3b91f.png"
+  },
+  {
+    "id": "boat-lamp",
+    "prompt": "Extract the complete bronze boat lamp from this reference as a single full isolated photoreal sprite. Same circular clear lens, cylindrical bronze body, base flange, unlit bulb, side switch. NO wood, no harbor, no background, no ground shadow, no haze, no bloom. True transparent alpha everywhere outside lamp, hard clean silhouette edges. Slight three-quarter view same orientation, entire lamp visible with margin.",
+    "source": "C:\\Users\\kawau\\.codex\\generated_images\\01a0ba30-de75-7b40-a770-22321b967a82\\exec-a3966dc1-ee0d-4a1d-b620-5603698a2d6f.png"
+  },
+  {
+    "id": "boat-floating",
+    "prompt": "Photoreal16:9 close view directly FACING THE BROAD STERN of the same wooden rowboat floating in high dock water. Strictly straight-on symmetric cross-section. Stern gunwale upper corners at x13% and87% y30%, upper edge horizontal. Hull below curves in a broad rounded U consistent with the second reference cradle. Current waterline at y52% across hull, keel hidden under opaque water would be at y66%. Two small bronze datum nails at upper corners. Quiet blue harbor water, amber side light, detailed wood, no text or numbers. This view is for comparing cradle shape with current waterline, precise framing.",
+    "source": "C:\\Users\\kawau\\.codex\\generated_images\\01a0ba30-de75-7b40-a770-22321b967a82\\exec-0e1fb3ac-aed0-420a-8c8e-59cc3fe5e314.png"
+  },
+  {
+    "id": "boat-outside-repaired",
+    "prompt": "First photo edit target. Install ONE exterior brass/rubber repair pad from second reference FLUSH AGAINST wooden hull, properly conforming to hull plane and perspective, fully covering small vertical crack at x49% y34%. Show flat bolt head outside; threaded shank goes THROUGH wood to inside, not protruding toward camera. Pad about12% image width. Preserve entire rest of photo, no floating object. Photoreal physically mounted repair,16:9.",
+    "source": "C:\\Users\\kawau\\.codex\\generated_images\\01a0ba30-de75-7b40-a770-22321b967a82\\exec-9480813f-358b-40d9-963c-13e15eebe15f.png"
+  },
+  {
+    "id": "boat-inside-repaired",
+    "prompt": "First photo edit target. Install the matching interior brass/rubber repair pad with wingnut from second reference FLAT on the bottom wooden floor planks, fully covering crack x48% y60%. It lies flush along inclined floor surface, viewed from above, NOT standing upright. Central wingnut tightened onto bolt through hull, rubber compressed against wood. Leave surrounding shallow puddles for player to bail. Preserve scoop, ribs, seats, camera and light.16:9.",
+    "source": "C:\\Users\\kawau\\.codex\\generated_images\\01a0ba30-de75-7b40-a770-22321b967a82\\exec-db0faac8-94c2-497e-a31d-4c5267f62e10.png"
+  },
+  {
+    "id": "boat-inside-final",
+    "prompt": "First photo edit target. Install matching interior brass/rubber repair pad with wingnut from second reference FLAT on bottom wood floor, covers ALL crack x48% y60%. Lies flush along floor plane, viewed obliquely FROM ABOVE, never standing upright. Central wingnut tightened onto bolt through hull, rubber compressed. Floor stays DRY. Preserve all other objects/camera/light.16:9.",
+    "source": "C:\\Users\\kawau\\.codex\\generated_images\\01a0ba30-de75-7b40-a770-22321b967a82\\exec-f15142aa-f68a-4107-9d30-f0265578bca5.png"
+  },
+  {
+    "id": "boat-floating-v2",
+    "prompt": "Correct water opacity. Keep boat's upper visible stern and background exactly. Replace EVERYTHING BELOW horizontal y52% with OPAQUE dark harbor water in the foreground, continuous realistic small surface ripples. Entire lower hull and keel must be completely HIDDEN under water; no wood visible below y52%, no transparent cross-section, no line drawn across exposed hull. Waterline meets stern at52%. Upper boat remains unchanged, datum corner nails visible.16:9.",
+    "source": "C:\\Users\\kawau\\.codex\\generated_images\\01a0ba30-de75-7b40-a770-22321b967a82\\exec-180e6a3a-d149-4511-9726-8850e4fccffa.png"
+  },
+  {
+    "id": "dock-mid-v2",
+    "prompt": "First image edit target, second shows original foreground. The spare U-shaped wooden cradle is on the DRY SHORE side of foreground stone rim. Restore its entire base and foreground dry stone exactly as second reference; keep shallow water ONLY in basin behind rim. Preserve boat resting on supports, gate and camera. Cradle never moves or floats.16:9.",
+    "source": "C:\\Users\\kawau\\.codex\\generated_images\\01a0ba30-de75-7b40-a770-22321b967a82\\exec-00bbde07-798c-497f-9d97-2dfcc34d879c.png"
+  },
+  {
+    "id": "trace-mid",
+    "prompt": "Keep entire wooden U-shaped cradle and FOREGROUND stone floor completely unchanged and dry: cradle stands on dry shore outside basin rim. Increase water ONLY in distant basin BEHIND cradle to medium low level, wet reflecting surface. No water over foreground or cradle, no object moved.16:9.",
+    "source": "C:\\Users\\kawau\\.codex\\generated_images\\01a0ba30-de75-7b40-a770-22321b967a82\\exec-8aacf708-c391-46fc-84fd-2fd0d516109a.png"
+  },
+  {
+    "id": "trace-high",
+    "prompt": "Keep entire wooden U-shaped cradle and FOREGROUND stone floor completely unchanged and dry: cradle stands on dry shore outside basin rim. Fill ONLY the distant basin BEHIND cradle to high water, near rear gate lower cross brace, reflecting amber lamps. No water over foreground or cradle, no object moved.16:9.",
+    "source": "C:\\Users\\kawau\\.codex\\generated_images\\01a0ba30-de75-7b40-a770-22321b967a82\\exec-18fcf0e2-7199-46d8-b54f-8c90ca49bfd7.png"
+  },
+  {
+    "id": "marker-twin-clean",
+    "prompt": "Remove ALL blue-grey aura, haze and background from this isolated pair of posts. Set all space outside posts and brace, especially entire gap between posts, to fully TRANSPARENT alpha zero. Preserve posts exact shape and material, no added glow or soft shadow. Crisp clean cutout with true transparent background.",
+    "source": "C:\\Users\\kawau\\.codex\\generated_images\\01a0ba30-de75-7b40-a770-22321b967a82\\exec-7b26da7d-5372-4c60-ab43-a4b7d0eddf6c.png"
+  },
+  {
+    "id": "marker-ring-clean",
+    "prompt": "Remove ALL blue-grey aura, haze and background from this isolated ring on pole. Outside object AND entire round HOLE inside ring must be FULLY transparent alpha zero. Preserve exact metal object shape, material, no extra glow, no soft background. Clean cutout.",
+    "source": "C:\\Users\\kawau\\.codex\\generated_images\\01a0ba30-de75-7b40-a770-22321b967a82\\exec-51f58da4-847b-403f-97c1-5dc5a03cfeca.png"
+  },
+  {
+    "id": "boat-floating-guide",
+    "prompt": "Create a PHOTOREAL photograph. First reference is STRICT GEOMETRY LAYOUT ONLY: preserve exact curved stern silhouette and waterline at52% image height, datum bronze nail positions at13.25% and86.75% x,29.78% y. Second reference provides REAL photographic wood material, boat details, harbor background and lighting. Replace diagram colors with realistic old wooden boat stern and opaque dark blue harbor water, photoreal not illustration. Boat side curves inward to meet water at positions shown guide. Upper gunwale horizontal, two bronze nails at corners. ALL below52% water, keel hidden. Do not reproduce drawn outlines or flat colors.16:9.",
+    "source": "C:\\Users\\kawau\\.codex\\generated_images\\01a0ba30-de75-7b40-a770-22321b967a82\\exec-7a7703ac-7901-4017-b860-7374612bf47a.png"
+  },
+  {
+    "id": "boat-inside-wet-final",
+    "prompt": "Edit exact repaired boat interior photograph only to BEFORE BAILING: add a shallow pool of water on the floor around the installed repair pad. Preserve pad EXACT shape, size, position, wingnut and every object. No visible crack outside pad, water has stopped leaking but needs scooping out. Scoop unchanged.16:9.",
+    "source": "C:\\Users\\kawau\\.codex\\generated_images\\01a0ba30-de75-7b40-a770-22321b967a82\\exec-a6f3ba3d-a4ed-4a9e-a039-03114d4c363d.png"
+  },
+  {
+    "id": "marker-landing",
+    "prompt": "Photoreal isolated tiny old Japanese wooden ferry landing shelter with two upright pier posts and a short wooden platform, one dim warm lamp under pitched roof. Weathered dark wood, night blue side light, whole object centered on TRUE transparent background, no water, no backdrop, no fog or bloom outside object. Looks seen from across sea. Landscape sprite.",
+    "source": "C:\\Users\\kawau\\.codex\\generated_images\\01a0ba30-de75-7b40-a770-22321b967a82\\exec-26bd4a7b-fad9-4272-820f-f83f9d729d3c.png"
+  },
+  {
+    "id": "rod-marked",
+    "prompt": "Preserve exact wooden threaded-end pole and its proportions. Add fine pale engraved measuring notches at regular intervals along the front of the wooden shaft, like an old marine sounding rod, one longer notch every fifth mark. Small notches wrap halfway around shaft, no numerals or text. Preserve metal ends, wood and shape. Remove background glow entirely, true transparent background. Game item.",
+    "source": "C:\\Users\\kawau\\.codex\\generated_images\\01a0ba30-de75-7b40-a770-22321b967a82\\exec-eef4ef0a-f831-4c47-af50-5773e10f5493.png"
+  },
+  {
+    "id": "hook-marked",
+    "prompt": "Preserve exact long pole with hooked end. Add the SAME style of fine pale engraved measurement notches at regular intervals down the wooden shaft, one longer every fifth notch. No digits, no text. Preserve hook and every material and proportion. True transparent background with no aura or halo.",
+    "source": "C:\\Users\\kawau\\.codex\\generated_images\\01a0ba30-de75-7b40-a770-22321b967a82\\exec-9de89e3a-ed68-4ca1-8ee5-e40c8c7a3956.png"
+  },
+  {
+    "id": "boat-floating-shaped",
+    "prompt": "Transform this layout guide into a photoreal nighttime harbor photograph. STRICTLY retain the EXACT geometry: wooden boat stern's upper corners at x13.25% and86.75%, y29.78%; its sides curve inward EXACTLY like guide, and meet opaque seawater at y52%. Do not make sides vertical. Upper edge perfectly horizontal. Two small bronze nails mark upper corners. Replace brown flat shape with highly detailed aged dark wooden stern planks and subtle bronze fasteners, replace blue lower area with realistic opaque dark water and small ripples, grey upper background with blurred wet stone harbor walls and distant amber lamps. Entire lower hull below y52% stays hidden. This is a REAL photograph, not a diagram, no lines or annotations. Precise geometry crucial for matching a hull template.16:9.",
+    "source": "C:\\Users\\kawau\\.codex\\generated_images\\01a0ba30-de75-7b40-a770-22321b967a82\\exec-9b8f52b4-126e-47a1-a410-936de757b90b.png"
+  },
+  {
+    "id": "boat-floating-final",
+    "prompt": "Edit only the distant blurry BACKGROUND of this exact photograph. Remove the moored yacht/other boat and its two tall masts at upper right. Replace them with empty dark harbor water and a low wet stone wall with a single dim amber lamp. Absolutely preserve foreground wooden boat silhouette, both bronze nails, every plank, waterline, and opaque foreground water exactly. No camera change, no shift or resizing of foreground boat.16:9.",
+    "source": "C:\\Users\\kawau\\.codex\\generated_images\\01a0ba30-de75-7b40-a770-22321b967a82\\exec-85181453-9c76-405b-be4f-6705e121b4c1.png"
+  },
+  {
+    "id": "empty-desk",
+    "prompt": "Remove ONLY all parchment/paper from this exact overhead desk photo, revealing continuous old wooden tabletop under it. Preserve camera, light, wood grain perspective and scene edges. Completely empty desk surface, no paper, no objects added.16:9.",
+    "source": "C:\\Users\\kawau\\.codex\\generated_images\\01a0ba30-de75-7b40-a770-22321b967a82\\exec-948b92e8-4c53-47f1-ac83-57cd5f661da7.png"
+  },
+  {
+    "id": "waiting-front-open-high",
+    "prompt": "Edit exact waiting cabin interior, preserve all interior pixels and open front door. Cabin has risen0.8m. Through open doorway ONLY, change the gangway to be almost LEVEL with this cabin floor and fixed shore landing, no steep slope. Keep outside shore structure unchanged, same direction and railings. Through windows shift outside fixed posts and wall downward relative to cabin by0.8m. No objects added, no people. Same16:9 camera.",
+    "source": "C:\\Users\\kawau\\.codex\\generated_images\\01a0ba30-de75-7b40-a770-22321b967a82\\exec-2e52751d-c7a8-4bf4-844f-bbd3f984e003.png"
+  },
+  {
+    "id": "lantern-dirty",
+    "prompt": "Edit ONLY the fitted front glass of this exact unlit boat lamp: glass is cloudy with dense salt residue and fingerprints, substantially obscures bulb, still same bronze rim/four screws. Preserve camera, lamp, switch and wooden gunwale exactly.16:9.",
+    "source": "C:\\Users\\kawau\\.codex\\generated_images\\01a0ba30-de75-7b40-a770-22321b967a82\\exec-9cc5ec54-b75e-4e2a-a22c-942c44065b99.png"
+  },
+  {
+    "id": "trace-high-open",
+    "prompt": "Open ONLY distant wooden sea gate in background of exact photo: swing leaves outward into sea, exposing open dark water through arch. Keep foreground wooden U cradle and ground EXACTLY unchanged, no movement or change in waterlevel.16:9.",
+    "source": "C:\\Users\\kawau\\.codex\\generated_images\\01a0ba30-de75-7b40-a770-22321b967a82\\exec-33ee046b-ced1-4dd1-8838-edc097e2c634.png"
+  }
+]

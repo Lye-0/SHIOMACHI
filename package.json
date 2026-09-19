@@ -4,7 +4,9 @@
   "private": true,
   "type": "module",
   "packageManager": "pnpm@11.19.0",
-  "engines": { "node": ">=24.19.0 <25" },
+  "engines": {
+    "node": ">=24.19.0 <25"
+  },
   "scripts": {
     "dev": "vite --host 127.0.0.1",
     "build": "tsc --noEmit && vite build",
@@ -12,15 +14,19 @@
     "test": "vitest run",
     "check:assets": "node scripts/audit-assets.mjs"
   },
-  "dependencies": { "react": "19.2.0", "react-dom": "19.2.0" },
+  "dependencies": {
+    "react": "19.2.0",
+    "react-dom": "19.2.0"
+  },
   "devDependencies": {
     "@types/node": "24.13.5",
     "@types/react": "19.2.0",
     "@types/react-dom": "19.2.0",
     "@vitejs/plugin-react": "5.0.4",
+    "prettier": "3.6.2",
+    "sharp": "0.34.5",
     "typescript": "5.9.3",
     "vite": "7.1.12",
-    "vitest": "3.2.4",
-    "sharp": "0.34.5"
+    "vitest": "3.2.4"
   }
 }

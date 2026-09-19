@@ -1,0 +1,972 @@
+{
+  "scenes/waiting-rear": {
+    "path": "assets/scenes/waiting-rear.webp",
+    "source": "exec-1934a41d-b984-4071-96c4-2f9f86e5af1d.png",
+    "generator": "built-in image_gen",
+    "sourceWidth": 1672,
+    "sourceHeight": 941,
+    "width": 1672,
+    "height": 941,
+    "status": "selected-and-reviewed"
+  },
+  "scenes/concourse-mid": {
+    "path": "assets/scenes/concourse-mid.webp",
+    "source": "exec-049f1e40-726b-4a76-a2c4-78a5dcfb8828.png",
+    "generator": "built-in image_gen",
+    "sourceWidth": 1672,
+    "sourceHeight": 941,
+    "width": 1672,
+    "height": 941,
+    "status": "selected-and-reviewed"
+  },
+  "scenes/concourse-high": {
+    "path": "assets/scenes/concourse-high.webp",
+    "source": "exec-e070dde7-cf85-4611-b884-ebd7813aff1c.png",
+    "generator": "built-in image_gen",
+    "sourceWidth": 1672,
+    "sourceHeight": 941,
+    "width": 1672,
+    "height": 941,
+    "status": "selected-and-reviewed"
+  },
+  "scenes/concourse-low": {
+    "path": "assets/scenes/concourse-low.webp",
+    "source": "exec-9545a755-888e-4ecc-b0f5-f9ad070b5548.png",
+    "generator": "built-in image_gen",
+    "sourceWidth": 1672,
+    "sourceHeight": 941,
+    "width": 1672,
+    "height": 941,
+    "status": "selected-and-reviewed"
+  },
+  "scenes/pump": {
+    "path": "assets/scenes/pump.webp",
+    "source": "exec-26daad26-ca89-4883-8618-6ba2be8fa8c9.png",
+    "generator": "built-in image_gen",
+    "sourceWidth": 1672,
+    "sourceHeight": 941,
+    "width": 1672,
+    "height": 941,
+    "status": "selected-and-reviewed"
+  },
+  "closeups/pipes": {
+    "path": "assets/closeups/pipes.webp",
+    "source": "exec-d0e034d1-56a7-4f1b-9736-0ad749754af6.png",
+    "generator": "built-in image_gen",
+    "sourceWidth": 1672,
+    "sourceHeight": 941,
+    "width": 1672,
+    "height": 941,
+    "status": "selected-and-reviewed"
+  },
+  "mechanisms/valve-wheel": {
+    "path": "assets/mechanisms/valve-wheel.webp",
+    "source": "exec-35dad980-0495-474e-a972-d7b0ff8b2690.png",
+    "generator": "built-in image_gen",
+    "sourceWidth": 1254,
+    "sourceHeight": 1254,
+    "width": 1254,
+    "height": 1254,
+    "status": "selected-and-reviewed"
+  },
+  "closeups/supports": {
+    "path": "assets/closeups/supports.webp",
+    "source": "exec-ed6644a4-2d92-479f-a5de-c474f8abe381.png",
+    "generator": "built-in image_gen",
+    "sourceWidth": 1672,
+    "sourceHeight": 941,
+    "width": 1672,
+    "height": 941,
+    "status": "selected-and-reviewed"
+  },
+  "closeups/supports-loaded": {
+    "path": "assets/closeups/supports-loaded.webp",
+    "source": "exec-a029896c-0991-4532-ba37-d4c2c95cda1a.png",
+    "generator": "built-in image_gen",
+    "sourceWidth": 1672,
+    "sourceHeight": 941,
+    "width": 1672,
+    "height": 941,
+    "status": "selected-and-reviewed"
+  },
+  "closeups/supports-released": {
+    "path": "assets/closeups/supports-released.webp",
+    "source": "exec-7ffdc3e9-023b-4433-9edb-cf8862334a06.png",
+    "generator": "built-in image_gen",
+    "sourceWidth": 1672,
+    "sourceHeight": 941,
+    "width": 1672,
+    "height": 941,
+    "status": "selected-and-reviewed"
+  },
+  "closeups/supports-free": {
+    "path": "assets/closeups/supports-free.webp",
+    "source": "exec-06a2bd97-f6b6-469b-830d-36c8b2023656.png",
+    "generator": "built-in image_gen",
+    "sourceWidth": 1672,
+    "sourceHeight": 941,
+    "width": 1672,
+    "height": 941,
+    "status": "selected-and-reviewed"
+  },
+  "items/crank": {
+    "path": "assets/items/crank.webp",
+    "source": "exec-6014612f-d204-4f66-9605-645b5211e550.png",
+    "generator": "built-in image_gen",
+    "sourceWidth": 1254,
+    "sourceHeight": 1254,
+    "width": 1254,
+    "height": 1254,
+    "status": "selected-and-reviewed"
+  },
+  "scenes/waiting-front": {
+    "path": "assets/scenes/waiting-front.webp",
+    "source": "exec-b994b705-d2f2-47fd-9ece-0a23a463e7b5.png",
+    "generator": "built-in image_gen",
+    "sourceWidth": 1672,
+    "sourceHeight": 941,
+    "width": 1672,
+    "height": 941,
+    "status": "selected-and-reviewed"
+  },
+  "scenes/office": {
+    "path": "assets/scenes/office.webp",
+    "source": "exec-bbf2fc72-55b2-47d4-b490-c79df241c502.png",
+    "generator": "built-in image_gen",
+    "sourceWidth": 1672,
+    "sourceHeight": 941,
+    "width": 1672,
+    "height": 941,
+    "status": "selected-and-reviewed"
+  },
+  "scenes/workshop": {
+    "path": "assets/scenes/workshop.webp",
+    "source": "exec-f3ccc9fb-a85d-4438-af07-6c5ab8dfebc2.png",
+    "generator": "built-in image_gen",
+    "sourceWidth": 1672,
+    "sourceHeight": 941,
+    "width": 1672,
+    "height": 941,
+    "status": "selected-and-reviewed"
+  },
+  "scenes/service": {
+    "path": "assets/scenes/service.webp",
+    "source": "exec-314fea4b-d527-44d4-a11c-ad7156694e37.png",
+    "generator": "built-in image_gen",
+    "sourceWidth": 1672,
+    "sourceHeight": 941,
+    "width": 1672,
+    "height": 941,
+    "status": "selected-and-reviewed"
+  },
+  "closeups/shutter-base": {
+    "path": "assets/closeups/shutter-base.webp",
+    "source": "exec-b9c0bfbb-7e3a-4535-a86e-07361a5ce590.png",
+    "generator": "built-in image_gen",
+    "sourceWidth": 1672,
+    "sourceHeight": 941,
+    "width": 1672,
+    "height": 941,
+    "status": "selected-and-reviewed"
+  },
+  "closeups/tray": {
+    "path": "assets/closeups/tray.webp",
+    "source": "exec-dfc831fb-678e-4a3e-a74b-3e0f3404ddb3.png",
+    "generator": "built-in image_gen",
+    "sourceWidth": 1672,
+    "sourceHeight": 941,
+    "width": 1672,
+    "height": 941,
+    "status": "selected-and-reviewed"
+  },
+  "closeups/paper-desk": {
+    "path": "assets/closeups/paper-desk.webp",
+    "source": "exec-3ce3841c-34c8-43fe-9d88-fcfa2a806fd1.png",
+    "generator": "built-in image_gen",
+    "sourceWidth": 1672,
+    "sourceHeight": 941,
+    "width": 1672,
+    "height": 941,
+    "status": "selected-and-reviewed"
+  },
+  "mechanisms/wood-block": {
+    "path": "assets/mechanisms/wood-block.webp",
+    "source": "exec-5cb56db7-628d-4f6a-bce6-5a78ab5eb951.png",
+    "generator": "built-in image_gen",
+    "sourceWidth": 2172,
+    "sourceHeight": 724,
+    "width": 2048,
+    "height": 683,
+    "status": "selected-and-reviewed"
+  },
+  "mechanisms/slide-bolt": {
+    "path": "assets/mechanisms/slide-bolt.webp",
+    "source": "exec-1c7b0857-1d87-4678-af28-fcf8d802691e.png",
+    "generator": "built-in image_gen",
+    "sourceWidth": 2172,
+    "sourceHeight": 724,
+    "width": 2048,
+    "height": 683,
+    "status": "selected-and-reviewed"
+  },
+  "items/pliers": {
+    "path": "assets/items/pliers.webp",
+    "source": "exec-97e1ba0d-f718-4682-a1c0-7b396fbac840.png",
+    "generator": "built-in image_gen",
+    "sourceWidth": 1254,
+    "sourceHeight": 1254,
+    "width": 1254,
+    "height": 1254,
+    "status": "selected-and-reviewed"
+  },
+  "items/belt": {
+    "path": "assets/items/belt.webp",
+    "source": "exec-3ff66313-eb3a-4e1e-b25f-814b8c5787a9.png",
+    "generator": "built-in image_gen",
+    "sourceWidth": 1536,
+    "sourceHeight": 1024,
+    "width": 1536,
+    "height": 1024,
+    "status": "selected-and-reviewed"
+  },
+  "items/rod": {
+    "path": "assets/items/rod.webp",
+    "source": "exec-eef4ef0a-f831-4c47-af50-5773e10f5493.png",
+    "generator": "built-in image_gen",
+    "sourceWidth": 1024,
+    "sourceHeight": 1536,
+    "width": 1024,
+    "height": 1536,
+    "status": "selected-and-reviewed"
+  },
+  "items/hook-tip": {
+    "path": "assets/items/hook-tip.webp",
+    "source": "exec-c58a4855-ad0b-4824-ba72-eb02e87908c6.png",
+    "generator": "built-in image_gen",
+    "sourceWidth": 1254,
+    "sourceHeight": 1254,
+    "width": 1254,
+    "height": 1254,
+    "status": "selected-and-reviewed"
+  },
+  "items/chalk": {
+    "path": "assets/items/chalk.webp",
+    "source": "exec-e7c2be3e-2a89-4da9-bd8a-23a09647edc8.png",
+    "generator": "built-in image_gen",
+    "sourceWidth": 1254,
+    "sourceHeight": 1254,
+    "width": 1254,
+    "height": 1254,
+    "status": "selected-and-reviewed"
+  },
+  "items/lens": {
+    "path": "assets/items/lens.webp",
+    "source": "exec-993e326f-c902-4277-b006-c21b46486b58.png",
+    "generator": "built-in image_gen",
+    "sourceWidth": 1254,
+    "sourceHeight": 1254,
+    "width": 1254,
+    "height": 1254,
+    "status": "selected-and-reviewed"
+  },
+  "items/key-parts": {
+    "path": "assets/items/key-parts.webp",
+    "source": "exec-94ddcd48-982e-4a48-914e-d6433af9ed12.png",
+    "generator": "built-in image_gen",
+    "sourceWidth": 2172,
+    "sourceHeight": 724,
+    "width": 2048,
+    "height": 683,
+    "status": "selected-and-reviewed"
+  },
+  "items/key-jig": {
+    "path": "assets/items/key-jig.webp",
+    "source": "exec-8fb1ca9d-1da4-44d1-989c-de48b8b7f7a9.png",
+    "generator": "built-in image_gen",
+    "sourceWidth": 1254,
+    "sourceHeight": 1254,
+    "width": 1254,
+    "height": 1254,
+    "status": "selected-and-reviewed"
+  },
+  "scenes/waiting-front-open": {
+    "path": "assets/scenes/waiting-front-open.webp",
+    "source": "exec-d4a7a868-f003-430d-9593-5ecdd6e65197.png",
+    "generator": "built-in image_gen",
+    "sourceWidth": 1672,
+    "sourceHeight": 941,
+    "width": 1672,
+    "height": 941,
+    "status": "selected-and-reviewed"
+  },
+  "scenes/concourse-doors": {
+    "path": "assets/scenes/concourse-doors.webp",
+    "source": "exec-84b21b4a-2b03-468c-9e55-dba0827be6c5.png",
+    "generator": "built-in image_gen",
+    "sourceWidth": 1672,
+    "sourceHeight": 941,
+    "width": 1672,
+    "height": 941,
+    "status": "selected-and-reviewed"
+  },
+  "scenes/office-shelves": {
+    "path": "assets/scenes/office-shelves.webp",
+    "source": "exec-c1b06ed4-1ada-4e1f-9e3a-de8ced72a0c1.png",
+    "generator": "built-in image_gen",
+    "sourceWidth": 1672,
+    "sourceHeight": 941,
+    "width": 1672,
+    "height": 941,
+    "status": "selected-and-reviewed"
+  },
+  "scenes/workshop-rack": {
+    "path": "assets/scenes/workshop-rack.webp",
+    "source": "exec-299b588c-942c-44c4-bdaa-d4f78b501546.png",
+    "generator": "built-in image_gen",
+    "sourceWidth": 1672,
+    "sourceHeight": 941,
+    "width": 1672,
+    "height": 941,
+    "status": "selected-and-reviewed"
+  },
+  "scenes/pump-back": {
+    "path": "assets/scenes/pump-back.webp",
+    "source": "exec-b053570a-db26-48a0-b501-6d2cbd379371.png",
+    "generator": "built-in image_gen",
+    "sourceWidth": 1672,
+    "sourceHeight": 941,
+    "width": 1672,
+    "height": 941,
+    "status": "selected-and-reviewed"
+  },
+  "scenes/service-end": {
+    "path": "assets/scenes/service-end.webp",
+    "source": "exec-77329643-0c8b-4025-a939-180533d9384f.png",
+    "generator": "built-in image_gen",
+    "sourceWidth": 1672,
+    "sourceHeight": 941,
+    "width": 1672,
+    "height": 941,
+    "status": "selected-and-reviewed"
+  },
+  "scenes/lookout": {
+    "path": "assets/scenes/lookout.webp",
+    "source": "exec-46277a82-7040-4e9a-9a6f-be5541b9b95e.png",
+    "generator": "built-in image_gen",
+    "sourceWidth": 1672,
+    "sourceHeight": 941,
+    "width": 1672,
+    "height": 941,
+    "status": "selected-and-reviewed"
+  },
+  "scenes/dock-low": {
+    "path": "assets/scenes/dock-low.webp",
+    "source": "exec-3874d077-11b7-494f-8cf2-398be813db8f.png",
+    "generator": "built-in image_gen",
+    "sourceWidth": 1672,
+    "sourceHeight": 941,
+    "width": 1672,
+    "height": 941,
+    "status": "selected-and-reviewed"
+  },
+  "scenes/sea-night": {
+    "path": "assets/scenes/sea-night.webp",
+    "source": "exec-1a1fe6e0-6d32-4b50-8db9-39eb930840bf.png",
+    "generator": "built-in image_gen",
+    "sourceWidth": 1672,
+    "sourceHeight": 941,
+    "width": 1672,
+    "height": 941,
+    "status": "selected-and-reviewed"
+  },
+  "closeups/drawer": {
+    "path": "assets/closeups/drawer.webp",
+    "source": "exec-f1789170-9b98-4303-99ac-723f8d2b26a4.png",
+    "generator": "built-in image_gen",
+    "sourceWidth": 1672,
+    "sourceHeight": 941,
+    "width": 1672,
+    "height": 941,
+    "status": "selected-and-reviewed"
+  },
+  "closeups/key": {
+    "path": "assets/closeups/key.webp",
+    "source": "exec-f1093885-e5a0-4490-96e6-b3969ef24deb.png",
+    "generator": "built-in image_gen",
+    "sourceWidth": 1672,
+    "sourceHeight": 941,
+    "width": 1672,
+    "height": 941,
+    "status": "selected-and-reviewed"
+  },
+  "closeups/strainer": {
+    "path": "assets/closeups/strainer.webp",
+    "source": "exec-c5dd100c-1756-455f-b791-4a4f13bf4702.png",
+    "generator": "built-in image_gen",
+    "sourceWidth": 1672,
+    "sourceHeight": 941,
+    "width": 1672,
+    "height": 941,
+    "status": "selected-and-reviewed"
+  },
+  "closeups/patch": {
+    "path": "assets/closeups/patch.webp",
+    "source": "exec-e4d0055d-91d8-480c-ac80-88f6b7deb073.png",
+    "generator": "built-in image_gen",
+    "sourceWidth": 1672,
+    "sourceHeight": 941,
+    "width": 1672,
+    "height": 941,
+    "status": "selected-and-reviewed"
+  },
+  "closeups/rings": {
+    "path": "assets/closeups/rings.webp",
+    "source": "exec-b02d74d2-19b2-4ea1-b5bf-408a5afaab93.png",
+    "generator": "built-in image_gen",
+    "sourceWidth": 1672,
+    "sourceHeight": 941,
+    "width": 1672,
+    "height": 941,
+    "status": "selected-and-reviewed"
+  },
+  "closeups/rack": {
+    "path": "assets/closeups/rack.webp",
+    "source": "exec-2b64c95f-6da7-47dc-85a7-f5c9f67fa20f.png",
+    "generator": "built-in image_gen",
+    "sourceWidth": 1672,
+    "sourceHeight": 941,
+    "width": 1672,
+    "height": 941,
+    "status": "selected-and-reviewed"
+  },
+  "items/hook": {
+    "path": "assets/items/hook.webp",
+    "source": "exec-9de89e3a-ed68-4ca1-8ee5-e40c8c7a3956.png",
+    "generator": "built-in image_gen",
+    "sourceWidth": 1024,
+    "sourceHeight": 1536,
+    "width": 1024,
+    "height": 1536,
+    "status": "selected-and-reviewed"
+  },
+  "closeups/drawer-open": {
+    "path": "assets/closeups/drawer-open.webp",
+    "source": "exec-eb358393-e1fb-4347-a376-973b4b71873e.png",
+    "generator": "built-in image_gen",
+    "sourceWidth": 1672,
+    "sourceHeight": 941,
+    "width": 1672,
+    "height": 941,
+    "status": "selected-and-reviewed"
+  },
+  "closeups/strainer-clear": {
+    "path": "assets/closeups/strainer-clear.webp",
+    "source": "exec-58d79ebd-039e-4786-a000-04dd91d587c5.png",
+    "generator": "built-in image_gen",
+    "sourceWidth": 1672,
+    "sourceHeight": 941,
+    "width": 1672,
+    "height": 941,
+    "status": "selected-and-reviewed"
+  },
+  "closeups/rings-open": {
+    "path": "assets/closeups/rings-open.webp",
+    "source": "exec-73813780-73fe-461f-9cf1-d8f735be076e.png",
+    "generator": "built-in image_gen",
+    "sourceWidth": 1672,
+    "sourceHeight": 941,
+    "width": 1672,
+    "height": 941,
+    "status": "selected-and-reviewed"
+  },
+  "closeups/belt-base": {
+    "path": "assets/closeups/belt-base.webp",
+    "source": "exec-1168e63f-6764-464d-822c-d695a53641cb.png",
+    "generator": "built-in image_gen",
+    "sourceWidth": 1672,
+    "sourceHeight": 941,
+    "width": 1672,
+    "height": 941,
+    "status": "selected-and-reviewed"
+  },
+  "mechanisms/pulley": {
+    "path": "assets/mechanisms/pulley.webp",
+    "source": "exec-ef163145-8eeb-4069-83e3-32a8bf3d1b0c.png",
+    "generator": "built-in image_gen",
+    "sourceWidth": 1254,
+    "sourceHeight": 1254,
+    "width": 1254,
+    "height": 1254,
+    "status": "selected-and-reviewed"
+  },
+  "mechanisms/locking-ring": {
+    "path": "assets/mechanisms/locking-ring.webp",
+    "source": "exec-2298513d-1322-47cc-aace-bdd2baa6c6ac.png",
+    "generator": "built-in image_gen",
+    "sourceWidth": 1254,
+    "sourceHeight": 1254,
+    "width": 1254,
+    "height": 1254,
+    "status": "selected-and-reviewed"
+  },
+  "items/patch": {
+    "path": "assets/items/patch.webp",
+    "source": "exec-15d3e849-d03f-4f1a-956c-9f07dffb36b3.png",
+    "generator": "built-in image_gen",
+    "sourceWidth": 1254,
+    "sourceHeight": 1254,
+    "width": 1254,
+    "height": 1254,
+    "status": "selected-and-reviewed"
+  },
+  "items/boat-kit": {
+    "path": "assets/items/boat-kit.webp",
+    "source": "exec-506d161e-8194-4166-b9ae-d9a7f49fcb2f.png",
+    "generator": "built-in image_gen",
+    "sourceWidth": 1536,
+    "sourceHeight": 1024,
+    "width": 1536,
+    "height": 1024,
+    "status": "selected-and-reviewed"
+  },
+  "scenes/concourse-high-held": {
+    "path": "assets/scenes/concourse-high-held.webp",
+    "source": "exec-cf96b898-e883-41e3-8685-0c26b5bae541.png",
+    "generator": "built-in image_gen",
+    "sourceWidth": 1672,
+    "sourceHeight": 941,
+    "width": 1672,
+    "height": 941,
+    "status": "selected-and-reviewed"
+  },
+  "scenes/office-open": {
+    "path": "assets/scenes/office-open.webp",
+    "source": "exec-e9ff9f8e-4b9a-493b-8671-760e966f1384.png",
+    "generator": "built-in image_gen",
+    "sourceWidth": 1672,
+    "sourceHeight": 941,
+    "width": 1672,
+    "height": 941,
+    "status": "selected-and-reviewed"
+  },
+  "closeups/key-broken": {
+    "path": "assets/closeups/key-broken.webp",
+    "source": "exec-13b7065a-ca77-4256-a8bf-cac58c6f130f.png",
+    "generator": "built-in image_gen",
+    "sourceWidth": 1672,
+    "sourceHeight": 941,
+    "width": 1672,
+    "height": 941,
+    "status": "selected-and-reviewed"
+  },
+  "items/lens-clean": {
+    "path": "assets/items/lens-clean.webp",
+    "source": "exec-b8e22d8a-bc07-4c01-ba2f-d42bcb1e2713.png",
+    "generator": "built-in image_gen",
+    "sourceWidth": 1254,
+    "sourceHeight": 1254,
+    "width": 1254,
+    "height": 1254,
+    "status": "selected-and-reviewed"
+  },
+  "scenes/service-pins-out": {
+    "path": "assets/scenes/service-pins-out.webp",
+    "source": "exec-1cdd60ac-123e-4720-9edf-11c81a70249c.png",
+    "generator": "built-in image_gen",
+    "sourceWidth": 1672,
+    "sourceHeight": 941,
+    "width": 1672,
+    "height": 941,
+    "status": "selected-and-reviewed"
+  },
+  "scenes/service-end-open": {
+    "path": "assets/scenes/service-end-open.webp",
+    "source": "exec-7578a513-0d7d-40ca-a673-af8bf8423014.png",
+    "generator": "built-in image_gen",
+    "sourceWidth": 1672,
+    "sourceHeight": 941,
+    "width": 1672,
+    "height": 941,
+    "status": "selected-and-reviewed"
+  },
+  "scenes/waiting-rear-high": {
+    "path": "assets/scenes/waiting-rear-high.webp",
+    "source": "exec-1ffe7371-edcc-47d3-b2e1-0d01108659d4.png",
+    "generator": "built-in image_gen",
+    "sourceWidth": 1672,
+    "sourceHeight": 941,
+    "width": 1672,
+    "height": 941,
+    "status": "selected-and-reviewed"
+  },
+  "scenes/dock-mid": {
+    "path": "assets/scenes/dock-mid.webp",
+    "source": "exec-00bbde07-798c-497f-9d97-2dfcc34d879c.png",
+    "generator": "built-in image_gen",
+    "sourceWidth": 1672,
+    "sourceHeight": 941,
+    "width": 1672,
+    "height": 941,
+    "status": "selected-and-reviewed"
+  },
+  "closeups/boat-inside": {
+    "path": "assets/closeups/boat-inside.webp",
+    "source": "exec-d101fdd9-0ba1-4cb8-9f34-d6c4f93ca623.png",
+    "generator": "built-in image_gen",
+    "sourceWidth": 1672,
+    "sourceHeight": 941,
+    "width": 1672,
+    "height": 941,
+    "status": "selected-and-reviewed"
+  },
+  "scenes/lookout-window": {
+    "path": "assets/scenes/lookout-window.webp",
+    "source": "exec-892f0317-48fc-4466-8efc-5c9bda99f1a5.png",
+    "generator": "built-in image_gen",
+    "sourceWidth": 1672,
+    "sourceHeight": 941,
+    "width": 1672,
+    "height": 941,
+    "status": "selected-and-reviewed"
+  },
+  "scenes/survey-sea": {
+    "path": "assets/scenes/survey-sea.webp",
+    "source": "exec-26f3b4b1-ae96-4956-8667-11cd924a30cd.png",
+    "generator": "built-in image_gen",
+    "sourceWidth": 1672,
+    "sourceHeight": 941,
+    "width": 1672,
+    "height": 941,
+    "status": "selected-and-reviewed"
+  },
+  "scenes/shore-low": {
+    "path": "assets/scenes/shore-low.webp",
+    "source": "exec-9d064960-b6f2-4e83-84e7-d6e1d5d209d4.png",
+    "generator": "built-in image_gen",
+    "sourceWidth": 1672,
+    "sourceHeight": 941,
+    "width": 1672,
+    "height": 941,
+    "status": "selected-and-reviewed"
+  },
+  "scenes/dock-high": {
+    "path": "assets/scenes/dock-high.webp",
+    "source": "exec-50f40e6b-af57-4a4c-9f4a-f2a95b7d42fc.png",
+    "generator": "built-in image_gen",
+    "sourceWidth": 1672,
+    "sourceHeight": 941,
+    "width": 1672,
+    "height": 941,
+    "status": "selected-and-reviewed"
+  },
+  "closeups/boat-outside": {
+    "path": "assets/closeups/boat-outside.webp",
+    "source": "exec-09ce860f-4d14-47eb-908a-f6686603b9fb.png",
+    "generator": "built-in image_gen",
+    "sourceWidth": 1672,
+    "sourceHeight": 941,
+    "width": 1672,
+    "height": 941,
+    "status": "selected-and-reviewed"
+  },
+  "closeups/gate": {
+    "path": "assets/closeups/gate.webp",
+    "source": "exec-a3886e9f-88a3-4f17-9191-9dbaa0e34022.png",
+    "generator": "built-in image_gen",
+    "sourceWidth": 1672,
+    "sourceHeight": 941,
+    "width": 1672,
+    "height": 941,
+    "status": "selected-and-reviewed"
+  },
+  "closeups/lantern": {
+    "path": "assets/closeups/lantern.webp",
+    "source": "exec-aaa1c987-eede-46f4-ac6a-95055d18121b.png",
+    "generator": "built-in image_gen",
+    "sourceWidth": 1672,
+    "sourceHeight": 941,
+    "width": 1672,
+    "height": 941,
+    "status": "selected-and-reviewed"
+  },
+  "scenes/landward": {
+    "path": "assets/scenes/landward.webp",
+    "source": "exec-97f7cc52-573a-418b-b965-d5cb3ba45b85.png",
+    "generator": "built-in image_gen",
+    "sourceWidth": 1672,
+    "sourceHeight": 941,
+    "width": 1672,
+    "height": 941,
+    "status": "selected-and-reviewed"
+  },
+  "mechanisms/marker-twin": {
+    "path": "assets/mechanisms/marker-twin.webp",
+    "source": "exec-61077c8f-43f3-4280-b81f-fb7a9f5dec2c.png",
+    "generator": "built-in image_gen",
+    "sourceWidth": 1024,
+    "sourceHeight": 1536,
+    "width": 1024,
+    "height": 1536,
+    "status": "selected-and-reviewed"
+  },
+  "mechanisms/marker-ring": {
+    "path": "assets/mechanisms/marker-ring.webp",
+    "source": "exec-137c1453-4fb7-4483-a4ab-346ae8397ec0.png",
+    "generator": "built-in image_gen",
+    "sourceWidth": 1024,
+    "sourceHeight": 1536,
+    "width": 1024,
+    "height": 1536,
+    "status": "selected-and-reviewed"
+  },
+  "mechanisms/marker-triangle": {
+    "path": "assets/mechanisms/marker-triangle.webp",
+    "source": "exec-00c1c021-831a-48ba-8c6a-d510cc84c491.png",
+    "generator": "built-in image_gen",
+    "sourceWidth": 1024,
+    "sourceHeight": 1536,
+    "width": 1024,
+    "height": 1536,
+    "status": "selected-and-reviewed"
+  },
+  "mechanisms/marker-gate": {
+    "path": "assets/mechanisms/marker-gate.webp",
+    "source": "exec-783f70b2-7458-439d-9114-3b232a358c20.png",
+    "generator": "built-in image_gen",
+    "sourceWidth": 1295,
+    "sourceHeight": 1214,
+    "width": 1295,
+    "height": 1214,
+    "status": "selected-and-reviewed"
+  },
+  "mechanisms/marker-rock": {
+    "path": "assets/mechanisms/marker-rock.webp",
+    "source": "exec-36839205-50f3-4526-aa4b-741473ef7b71.png",
+    "generator": "built-in image_gen",
+    "sourceWidth": 1536,
+    "sourceHeight": 1024,
+    "width": 1536,
+    "height": 1024,
+    "status": "selected-and-reviewed"
+  },
+  "mechanisms/marker-islet": {
+    "path": "assets/mechanisms/marker-islet.webp",
+    "source": "exec-225e77a4-00a8-42c7-9a65-76d8e84d786d.png",
+    "generator": "built-in image_gen",
+    "sourceWidth": 1536,
+    "sourceHeight": 1024,
+    "width": 1536,
+    "height": 1024,
+    "status": "selected-and-reviewed"
+  },
+  "mechanisms/marker-light": {
+    "path": "assets/mechanisms/marker-light.webp",
+    "source": "exec-b056aaf7-c1fb-4640-8edb-620ca2923fb5.png",
+    "generator": "built-in image_gen",
+    "sourceWidth": 1024,
+    "sourceHeight": 1536,
+    "width": 1024,
+    "height": 1536,
+    "status": "selected-and-reviewed"
+  },
+  "closeups/lantern-glass": {
+    "path": "assets/closeups/lantern-glass.webp",
+    "source": "exec-f309d150-7973-4ea1-af6f-950c3ffc27dc.png",
+    "generator": "built-in image_gen",
+    "sourceWidth": 1672,
+    "sourceHeight": 941,
+    "width": 1672,
+    "height": 941,
+    "status": "selected-and-reviewed"
+  },
+  "scenes/dock-high-flooded": {
+    "path": "assets/scenes/dock-high-flooded.webp",
+    "source": "exec-f82f2f8b-5172-4caf-b79b-d39c239d25ba.png",
+    "generator": "built-in image_gen",
+    "sourceWidth": 1672,
+    "sourceHeight": 941,
+    "width": 1672,
+    "height": 941,
+    "status": "selected-and-reviewed"
+  },
+  "scenes/ending": {
+    "path": "assets/scenes/ending.webp",
+    "source": "exec-9dfaf470-4eb2-40cc-ab86-5e41706a45d6.png",
+    "generator": "built-in image_gen",
+    "sourceWidth": 1672,
+    "sourceHeight": 941,
+    "width": 1672,
+    "height": 941,
+    "status": "selected-and-reviewed"
+  },
+  "closeups/trace": {
+    "path": "assets/closeups/trace.webp",
+    "source": "exec-18b4d42f-910b-405e-ac9d-99a9751bb07b.png",
+    "generator": "built-in image_gen",
+    "sourceWidth": 1672,
+    "sourceHeight": 941,
+    "width": 1672,
+    "height": 941,
+    "status": "selected-and-reviewed"
+  },
+  "closeups/gate-open": {
+    "path": "assets/closeups/gate-open.webp",
+    "source": "exec-7ef89ba5-5975-4f69-9d82-dc9e313383f6.png",
+    "generator": "built-in image_gen",
+    "sourceWidth": 1672,
+    "sourceHeight": 941,
+    "width": 1672,
+    "height": 941,
+    "status": "selected-and-reviewed"
+  },
+  "closeups/lantern-lit": {
+    "path": "assets/closeups/lantern-lit.webp",
+    "source": "exec-115f8252-2ccf-4f61-9376-7b88e97de91b.png",
+    "generator": "built-in image_gen",
+    "sourceWidth": 1672,
+    "sourceHeight": 941,
+    "width": 1672,
+    "height": 941,
+    "status": "selected-and-reviewed"
+  },
+  "scenes/pump-clear": {
+    "path": "assets/scenes/pump-clear.webp",
+    "source": "exec-991f3f5c-b477-40e6-b864-8f6e6fd38c49.png",
+    "generator": "built-in image_gen",
+    "sourceWidth": 1672,
+    "sourceHeight": 941,
+    "width": 1672,
+    "height": 941,
+    "status": "selected-and-reviewed"
+  },
+  "scenes/dock-high-open": {
+    "path": "assets/scenes/dock-high-open.webp",
+    "source": "exec-ec682719-c961-4148-8957-a24041076b22.png",
+    "generator": "built-in image_gen",
+    "sourceWidth": 1672,
+    "sourceHeight": 941,
+    "width": 1672,
+    "height": 941,
+    "status": "selected-and-reviewed"
+  },
+  "mechanisms/boat-lamp": {
+    "path": "assets/mechanisms/boat-lamp.webp",
+    "source": "exec-a3966dc1-ee0d-4a1d-b620-5603698a2d6f.png",
+    "generator": "built-in image_gen",
+    "sourceWidth": 1375,
+    "sourceHeight": 1144,
+    "width": 1375,
+    "height": 1144,
+    "status": "selected-and-reviewed"
+  },
+  "closeups/boat-outside-repaired": {
+    "path": "assets/closeups/boat-outside-repaired.webp",
+    "source": "exec-9480813f-358b-40d9-963c-13e15eebe15f.png",
+    "generator": "built-in image_gen",
+    "sourceWidth": 1672,
+    "sourceHeight": 941,
+    "width": 1672,
+    "height": 941,
+    "status": "selected-and-reviewed"
+  },
+  "closeups/boat-inside-final": {
+    "path": "assets/closeups/boat-inside-final.webp",
+    "source": "exec-f15142aa-f68a-4107-9d30-f0265578bca5.png",
+    "generator": "built-in image_gen",
+    "sourceWidth": 1672,
+    "sourceHeight": 941,
+    "width": 1672,
+    "height": 941,
+    "status": "selected-and-reviewed"
+  },
+  "closeups/trace-mid": {
+    "path": "assets/closeups/trace-mid.webp",
+    "source": "exec-8aacf708-c391-46fc-84fd-2fd0d516109a.png",
+    "generator": "built-in image_gen",
+    "sourceWidth": 1672,
+    "sourceHeight": 941,
+    "width": 1672,
+    "height": 941,
+    "status": "selected-and-reviewed"
+  },
+  "closeups/trace-high": {
+    "path": "assets/closeups/trace-high.webp",
+    "source": "exec-18fcf0e2-7199-46d8-b54f-8c90ca49bfd7.png",
+    "generator": "built-in image_gen",
+    "sourceWidth": 1672,
+    "sourceHeight": 941,
+    "width": 1672,
+    "height": 941,
+    "status": "selected-and-reviewed"
+  },
+  "closeups/boat-inside-repaired": {
+    "path": "assets/closeups/boat-inside-repaired.webp",
+    "source": "exec-a6f3ba3d-a4ed-4a9e-a039-03114d4c363d.png",
+    "generator": "built-in image_gen",
+    "sourceWidth": 1672,
+    "sourceHeight": 941,
+    "width": 1672,
+    "height": 941,
+    "status": "selected-and-reviewed"
+  },
+  "mechanisms/marker-landing": {
+    "path": "assets/mechanisms/marker-landing.webp",
+    "source": "exec-26bd4a7b-fad9-4272-820f-f83f9d729d3c.png",
+    "generator": "built-in image_gen",
+    "sourceWidth": 1536,
+    "sourceHeight": 1024,
+    "width": 1536,
+    "height": 1024,
+    "status": "selected-and-reviewed"
+  },
+  "closeups/boat-floating": {
+    "path": "assets/closeups/boat-floating.webp",
+    "source": "exec-85181453-9c76-405b-be4f-6705e121b4c1.png",
+    "generator": "built-in image_gen",
+    "sourceWidth": 1672,
+    "sourceHeight": 941,
+    "width": 1672,
+    "height": 941,
+    "status": "selected-and-reviewed"
+  },
+  "closeups/empty-desk": {
+    "path": "assets/closeups/empty-desk.webp",
+    "source": "exec-948b92e8-4c53-47f1-ac83-57cd5f661da7.png",
+    "generator": "built-in image_gen",
+    "sourceWidth": 1672,
+    "sourceHeight": 941,
+    "width": 1672,
+    "height": 941,
+    "status": "selected-and-reviewed"
+  },
+  "scenes/waiting-front-open-high": {
+    "path": "assets/scenes/waiting-front-open-high.webp",
+    "source": "exec-2e52751d-c7a8-4bf4-844f-bbd3f984e003.png",
+    "generator": "built-in image_gen",
+    "sourceWidth": 1672,
+    "sourceHeight": 941,
+    "width": 1672,
+    "height": 941,
+    "status": "selected-and-reviewed"
+  },
+  "closeups/lantern-dirty": {
+    "path": "assets/closeups/lantern-dirty.webp",
+    "source": "exec-9cc5ec54-b75e-4e2a-a22c-942c44065b99.png",
+    "generator": "built-in image_gen",
+    "sourceWidth": 1672,
+    "sourceHeight": 941,
+    "width": 1672,
+    "height": 941,
+    "status": "selected-and-reviewed"
+  },
+  "closeups/trace-high-open": {
+    "path": "assets/closeups/trace-high-open.webp",
+    "source": "exec-33ee046b-ced1-4dd1-8838-edc097e2c634.png",
+    "generator": "built-in image_gen",
+    "sourceWidth": 1672,
+    "sourceHeight": 941,
+    "width": 1672,
+    "height": 941,
+    "status": "selected-and-reviewed"
+  }
+}
