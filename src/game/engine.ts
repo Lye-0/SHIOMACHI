@@ -1,0 +1,131 @@
+import { blocks, boatReady, canSlide, channels, draining, filling, has, itemNames, newGame, raised, ringAligned, roomNames, type Action, type Game, type Item, type Result } from './model';
+
+export function act(previous: Game, action: Action): Result {
+  const g = structuredClone(previous);
+  const result: Result = { game: g, message: '' };
+  const say = (message: string, sound: Result['sound'] = 'metal') => { result.message = message; result.sound = sound; };
+  const use = (item: Item) => has(g, item);
+  const remember = (id: string) => { if (!g.seen.includes(id)) g.seen.push(id); };
+  const badIndex = (index: number, length: number) => !Number.isInteger(index) || index < 0 || index >= length;
+  if (action.type === 'tick') { g.elapsed += Math.max(0, Math.min(action.seconds, 10)); return result; }
+  g.moves++;
+  switch (action.type) {
+    case 'start': g.started = true; break;
+    case 'visit':
+      if (action.room !== 'waiting' && !g.shutterOpen) { say('戸が閉じている。'); break; }
+      if (action.room === 'service' && g.water !== 0) { say('下の通路は、水の中だ。', 'water'); break; }
+      if (action.room === 'lookout' && !raised(g)) { say('向こうの敷居には、まだ届かない。'); break; }
+      g.room = action.room; g.face = 0; g.detail = null; if (!g.visited.includes(g.room)) g.visited.push(g.room); break;
+    case 'face': g.face = g.face === 0 ? 1 : 0; g.detail = null; break;
+    case 'inspect': g.detail = action.detail; remember(action.detail); break;
+    case 'back': g.detail = null; break;
+    case 'record': remember(action.id); say('記録に挟んだ。', 'wood'); break;
+    case 'take': {
+      const place = g.items[action.item];
+      const allowed = (place === 'tray' && g.trayOpen && g.detail === 'tray') || (place === 'drawer' && g.drawerOpen && g.detail === 'drawer') ||
+        (place === 'desk' && g.room === 'office') || (place === 'bench' && g.room === 'workshop') ||
+        (place === 'rack' && g.detail === 'rack') || (place === 'case' && g.caseOpen && g.detail === 'rings') || (place === 'shelf' && g.room === 'lookout');
+      if (allowed) { g.items[action.item] = 'inventory'; say(`${itemNames[action.item]}を手に取った。`, 'take'); } break;
+    }
+    case 'combine': {
+      if (!use(action.a) || !use(action.b)) break;
+      const pair = [action.a, action.b].sort().join('+');
+      if (pair === 'keyBow+keyTip' && use('keyJig')) { g.items.keyBow = g.items.keyTip = g.items.keyJig = 'installed'; g.items.key = 'inventory'; say('破断面を合わせ、保持具で支えた。', 'success'); }
+      else if (pair === 'hookTip+rod') { g.items.hookTip = g.items.rod = 'installed'; g.items.hook = 'inventory'; say('棒の先に、鉤を固定した。', 'success'); }
+      else say('この二つは、合わない。', 'wood'); break;
+    }
+    case 'separate': if (action.item === 'hook' && use('hook')) { g.items.hook = 'absent'; g.items.rod = g.items.hookTip = 'inventory'; say('鉤を外した。'); } break;
+    case 'shutter':
+      if (badIndex(action.index, 3) || g.shutterOpen) break;
+      if (action.index < 2 && !g.shutter[action.index + 1]) say('下の留め金が、重なっている。');
+      else { g.shutter[action.index] = !g.shutter[action.index]; result.sound = 'metal'; } break;
+    case 'openShutter': if (g.shutter.every(Boolean)) { g.shutterOpen = true; say('湿った風が、入ってきた。', 'wood'); } else say('留め金が残っている。'); break;
+    case 'slide': if (!g.trayOpen && canSlide(g.tray, action.index, action.value)) { g.tray[action.index] = action.value; result.sound = 'wood'; } break;
+    case 'openTray': if (g.tray[0] === 4) { g.trayOpen = true; say('受け台が抜けた。', 'wood'); } else say('横の取り出し口まで、通らない。', 'wood'); break;
+    case 'extractKey': if (action.tool === 'pliers' && use('pliers') && !g.keyExtracted) { g.keyExtracted = true; g.items.keyTip = 'inventory'; say('錠に残った先端を抜いた。', 'take'); } else say(g.keyExtracted ? '錠の中は空いている。' : '鍵の先端が、錠に残っている。'); break;
+    case 'turnKey': if (action.tool === 'key' && use('key')) { g.keyTurn = 1; say('錠が外れた。'); } else say('途中で折れた鍵が必要だ。'); break;
+    case 'openDrawer': if (g.keyTurn) { g.drawerOpen = !g.drawerOpen; result.sound = 'wood'; } else say('錠が掛かっている。'); break;
+    case 'paperRotate': if (!badIndex(action.index, 4)) g.paperTurns[action.index] = (g.paperTurns[action.index] + 1) % 4; break;
+    case 'paperSwap': if (!badIndex(action.a, 4) && !badIndex(action.b, 4)) { [g.papers[action.a], g.papers[action.b]] = [g.papers[action.b], g.papers[action.a]]; [g.paperTurns[action.a], g.paperTurns[action.b]] = [g.paperTurns[action.b], g.paperTurns[action.a]]; } break;
+    case 'beltPin': if (badIndex(action.index, 4) || g.beltTested) break; if (!use('belt') && !g.beltMounted) { say('溝に、ベルトがない。'); break; } if (g.beltRoute.length < 5) { g.beltRoute.push(action.index); g.beltMounted = true; g.items.belt = 'installed'; } break;
+    case 'beltReset': if (!g.beltTested) { g.beltRoute = []; g.beltMounted = false; if (g.items.belt === 'installed') g.items.belt = 'inventory'; } break;
+    case 'beltTest': {
+      const routes = ['0,2,1,3,0', '0,3,1,2,0', '1,2,0,3,1', '1,3,0,2,1', '2,0,3,1,2', '2,1,3,0,2', '3,0,2,1,3', '3,1,2,0,3'];
+      if (routes.includes(g.beltRoute.join(','))) { g.beltTested = true; say('軸が、引っ掛からずに回る。', 'success'); } else say('ベルトがたるむか、途中で擦れている。'); break;
+    }
+    case 'valve': if (!badIndex(action.index, 3)) { g.valves[action.index] = !g.valves[action.index]; result.sound = 'metal'; } break;
+    case 'target': if ([0, 1, 2].includes(action.value)) g.target = action.value; break;
+    case 'pump': {
+      if (g.room !== 'pump') break;
+      if (g.gateOpen) { say('海側が開いている。水位は、外の海と同じだ。', 'water'); break; }
+      const beforeRaised = raised(g), oldWater = g.water;
+      if (filling(g)) { g.water = g.target === 0 ? 1 : g.target; g.drive = false; say('注水管を、水が流れている。', 'water'); }
+      else if (!g.beltTested) say('駆動軸が、ポンプへつながっていない。');
+      else if (draining(g)) { g.drive = true; g.water = g.strainerClear ? Math.min(g.water, g.target) as Game['water'] : Math.max(1, g.water) as Game['water']; say(g.strainerClear ? '排水管へ、水が流れている。' : '吸込み口の奥で、何かが詰まっている。', 'water'); }
+      else { g.drive = !g.drive; say(g.valves[0] && g.valves[1] ? '水が、戻り管を巡っている。' : 'ポンプは回るが、水の行き先が閉じている。', 'water'); }
+      if (oldWater !== g.water) result.transition = !beforeRaised && raised(g) ? 'rise' : 'water'; break;
+    }
+    case 'clearStrainer': if (action.tool === 'hook' && use('hook')) { g.strainerClear = true; say('絡まった布を、引き抜いた。', 'water'); } else say(g.strainerClear ? '水が通っている。' : '手では、奥まで届かない。', 'water'); break;
+    case 'support': if (badIndex(action.index, 2) || g.water !== 0) break; if (action.tool !== 'crank' || !use('crank')) { say('四角い軸穴がある。'); break; } g.support[action.index] = Math.max(0, Math.min(2, g.support[action.index] + action.direction * 2)); result.sound = 'metal'; break;
+    case 'pin': if (badIndex(action.index, 2) || g.water !== 0) break; if (g.support[action.index] !== 2) say('荷重が掛かり、抜けない。'); else { g.pins[action.index] = !g.pins[action.index]; result.sound = 'metal'; } break;
+    case 'patchRotate': if (!g.patchMounted) g.patchTurn = (g.patchTurn + 1) % 4; break;
+    case 'mountPatch': if (g.water !== 0) break; if (action.tool !== 'patch' || !use('patch')) say('割れ目の周りに、四つの穴がある。'); else if (g.patchTurn !== 1) say('穴が、合わない。'); else { g.patchMounted = true; g.items.patch = 'installed'; say('補修板が、曲面に沿った。'); } break;
+    case 'patchBolt': if (g.water !== 0 || !g.patchMounted || badIndex(action.index, 4)) break; if (action.tool !== 'pliers' || !use('pliers')) say('ボルトは、まだ緩い。'); else { g.patchBolts[action.index] = !g.patchBolts[action.index]; result.sound = 'metal'; } break;
+    case 'drainTank': if (g.water !== 0) break; if (!g.patchMounted || !g.patchBolts.every(Boolean)) say('水を抜いても、割れ目から入ってしまう。', 'water'); else { g.tankDry = true; say('浮体の中から、水が抜けた。', 'water'); } break;
+    case 'ring': if (!g.caseOpen && !badIndex(action.index, 3)) { g.rings[action.index] = (g.rings[action.index] + action.direction + 8) % 8; result.sound = 'metal'; } break;
+    case 'openCase': if (ringAligned(g)) { g.caseOpen = true; say('留め爪が抜け、蓋が開いた。', 'wood'); } else say('切れ目が、そろっていない。'); break;
+    case 'boatPatch': if (g.water !== 0) { say('船が浮いている。下側へは届かない。', 'water'); break; } if (action.tool !== 'boatKit' || !use('boatKit')) { say('船の内と外を、挟む形の穴だ。'); break; } if (action.side === 'inside') g.boatInside = true; else g.boatOutside = true; if (g.boatInside && g.boatOutside) g.items.boatKit = 'installed'; say('曲がった板を、肋材に沿って固定した。'); break;
+    case 'bailBoat': if (!g.boatInside || !g.boatOutside) say('抜いた水が、傷から戻ってくる。', 'water'); else { g.boatDry = true; say('船底が、乾いていく。', 'water'); } break;
+    case 'cleanLens': if (use('lens')) { g.lensClean = true; say('ガラスの曇りを拭った。', 'wood'); } break;
+    case 'mountLamp': if (action.tool === 'lens' && use('lens')) { g.lampMounted = true; g.items.lens = 'installed'; say('ガラスを、船灯に戻した。'); } break;
+    case 'lightLamp': if (!g.lampMounted) say('ガラスの押さえが、外れている。'); else if (!g.lensClean) { g.lensClean = true; say('ガラスを拭いた。向こうの灯が透けて見える。', 'wood'); } else { g.lampLit = !g.lampLit; say(g.lampLit ? '細い光が、水面を照らした。' : '灯を落とした。', 'wood'); } break;
+    case 'mapTurn': g.mapTurn = (g.mapTurn + 1) % 4; break;
+    case 'surveyPosition': g.surveyPosition = Math.max(0, Math.min(4, action.value)); break;
+    case 'chartMark': g.chartMarks = g.chartMarks.includes(action.node) ? g.chartMarks.filter(n => n !== action.node) : [...g.chartMarks, action.node]; break;
+    case 'trace': if (g.water !== 0) say('船台の輪郭は、水の下だ。', 'water'); else if (action.tool !== 'chalk' || !use('chalk')) say('船底に沿った、深いくぼみがある。'); else { g.tracing = true; remember('tracing'); say('くぼみの輪郭を、紙に写した。', 'wood'); } break;
+    case 'rodMark': g.rodMark = Math.max(0, Math.min(8, action.value)); break;
+    case 'waterMark': g.waterMark = Math.max(0, Math.min(8, action.value)); break;
+    case 'gate': if (g.gateOpen) { g.gateOpen = false; say('水門が閉じた。'); } else if (g.water !== 2) say('閂に、水の圧力が掛かっている。', 'water'); else { g.gateOpen = true; say('内と外の水が、静かにつながった。', 'water'); } break;
+    case 'depart':
+      if (!boatReady(g)) say('船底に、水が溜まっている。', 'water');
+      else if (g.water !== 2) say('船の下に、まだ船台が触れている。');
+      else if (!g.gateOpen) say('海側の水門が閉じている。');
+      else if (!g.lampLit) say('標識が、闇に沈んでいる。');
+      else { g.atSea = true; g.detail = null; g.seaNode = 'S'; g.seaHistory = ['S']; result.transition = 'depart'; } break;
+    case 'sail': {
+      if (!g.atSea || g.ended) break;
+      const edge = channels.find(([a, b]) => (a === g.seaNode && b === action.node) || (b === g.seaNode && a === action.node));
+      if (!edge) break;
+      if (edge[3]) { say('水のすぐ下を、太い梁が塞いでいる。', 'water'); break; }
+      if (3 - edge[2] < 0.5) { say('棒の印より浅い。船を止め、引き返した。', 'water'); break; }
+      g.seaNode = action.node; g.seaHistory.push(action.node); result.sound = 'water';
+      if (action.node === 'T') { g.ended = true; say('岸の灯が、遠ざかる。', 'water'); } break;
+    }
+    case 'returnDock': g.atSea = false; g.seaNode = 'S'; g.seaHistory = ['S']; g.room = 'dock'; g.detail = null; break;
+  }
+  return result;
+}
+
+export function parseSave(raw: string | null): Game | null {
+  if (!raw) return null;
+  try {
+    const input: unknown = JSON.parse(raw);
+    if (!input || typeof input !== 'object' || Array.isArray(input)) return null;
+    const g = input as Game, base = newGame();
+    if (g.version !== 1 || !(g.room in roomNames) || ![0, 1, 2].includes(g.water) || ![0, 1].includes(g.face)) return null;
+    for (const key of Object.keys(base) as (keyof Game)[]) {
+      const expect = base[key], value = g[key];
+      if (expect === null) { if (value !== null && typeof value !== 'string') return null; }
+      else if (Array.isArray(expect)) { if (!Array.isArray(value) || value.length > 1000) return null; if (expect.length && !value.every(v => typeof v === typeof expect[0])) return null; }
+      else if (typeof value !== typeof expect) return null;
+    }
+    for (const key of ['shutter', 'valves', 'rings'] as const) if (g[key].length !== 3) return null;
+    for (const key of ['papers', 'paperTurns', 'patchBolts'] as const) if (g[key].length !== 4) return null;
+    if (g.support.length !== 2 || g.pins.length !== 2 || g.tray.length !== blocks.length) return null;
+    if (Object.keys(base.items).some(item => !['tray','lock','desk','drawer','bench','rack','case','shelf','inventory','installed','absent'].includes(g.items[item as Item]))) return null;
+    if (!Number.isFinite(g.elapsed) || !Number.isFinite(g.moves)) return null;
+    if (g.room === 'service' && g.water !== 0) { g.room = 'concourse'; g.detail = null; }
+    if (g.room === 'lookout' && !raised(g)) { g.room = 'waiting'; g.detail = null; }
+    return g;
+  } catch { return null; }
+}
