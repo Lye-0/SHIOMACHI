@@ -1,7 +1,13 @@
 import { SceneAction } from "./ActionBar";
 import { useRef, useState, type CSSProperties, type PointerEvent } from "react";
 import { closeup, itemImage, mechanism } from "../content/assets";
-import { blocks, itemNames, raised, type Item } from "../game/model";
+import {
+  blocks,
+  itemNames,
+  raised,
+  paperComplete,
+  type Item,
+} from "../game/model";
 import { Hit, Photo, Pickup } from "./Primitives";
 import type { ControlProps } from "./PumpControls";
 import { PontoonDrawing } from "./drawings";
@@ -291,6 +297,7 @@ export function Drawer({ game: g, send, selected }: ControlProps) {
 }
 export function Diagram({ game: g, send }: ControlProps) {
   const [picked, setPicked] = useState<number>();
+  const complete = paperComplete(g);
   return (
     <>
       <PaperSurface background={g.drawerOpen ? "office-open" : "office"} />
@@ -298,10 +305,11 @@ export function Diagram({ game: g, send }: ControlProps) {
         {g.papers.map((piece, index) => (
           <div
             key={index}
-            className={`paper-piece ${picked === index ? "picked" : ""}`}
+            className={`paper-piece ${!complete && picked === index ? "picked" : ""}`}
           >
             <button
               aria-label={`図面の紙片 ${index + 1} を選ぶ`}
+              disabled={complete}
               onClick={() => {
                 if (picked === undefined) setPicked(index);
                 else {
@@ -325,13 +333,15 @@ export function Diagram({ game: g, send }: ControlProps) {
                 </div>
               </div>
             </button>
-            <button
-              className="paper-rotate"
-              aria-label={`図面の紙片 ${index + 1} を回す`}
-              onClick={() => send({ type: "paperRotate", index })}
-            >
-              ↻
-            </button>
+            {!complete && (
+              <button
+                className="paper-rotate"
+                aria-label={`図面の紙片 ${index + 1} を回す`}
+                onClick={() => send({ type: "paperRotate", index })}
+              >
+                ↻
+              </button>
+            )}
           </div>
         ))}
       </div>

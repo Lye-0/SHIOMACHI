@@ -216,11 +216,15 @@ export function act(previous: Game, action: Action): Result {
       } else say("錠が掛かっている。");
       break;
     case "paperRotate":
-      if (!badIndex(action.index, 4))
+      if (!paperComplete(g) && !badIndex(action.index, 4))
         g.paperTurns[action.index] = (g.paperTurns[action.index] + 1) % 4;
       break;
     case "paperSwap":
-      if (!badIndex(action.a, 4) && !badIndex(action.b, 4)) {
+      if (
+        !paperComplete(g) &&
+        !badIndex(action.a, 4) &&
+        !badIndex(action.b, 4)
+      ) {
         [g.papers[action.a], g.papers[action.b]] = [
           g.papers[action.b],
           g.papers[action.a],

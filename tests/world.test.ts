@@ -326,6 +326,26 @@ describe("短問と出航", () => {
   });
 });
 describe("保存", () => {
+  it("完成した図面は保存再開後も回転・入れ替えできない", () => {
+    let g = newGame();
+    g.detail = "diagram";
+    g.papers = [0, 1, 2, 3];
+    g.paperTurns = [0, 0, 0, 3];
+    g = run(g, { type: "paperRotate", index: 3 });
+    expect(g.paperTurns).toEqual([0, 0, 0, 0]);
+    expect(g.records.diagram).toBeDefined();
+    const restored = parseSave(JSON.stringify(g))!;
+    const after = run(
+      restored,
+      { type: "paperRotate", index: 0 },
+      { type: "paperSwap", a: 0, b: 1 },
+      { type: "back" },
+      { type: "inspect", detail: "diagram" },
+      { type: "paperRotate", index: 3 },
+    );
+    expect(after.papers).toEqual([0, 1, 2, 3]);
+    expect(after.paperTurns).toEqual([0, 0, 0, 0]);
+  });
   it("範囲外の盤面や不正な画面名を拒否する", () => {
     const g = newGame();
     g.tray[0] = 9;
