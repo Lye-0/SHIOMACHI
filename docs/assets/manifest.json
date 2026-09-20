@@ -671,7 +671,7 @@
   },
   "closeups/gate": {
     "path": "assets/closeups/gate.webp",
-    "source": "exec-a3886e9f-88a3-4f17-9191-9dbaa0e34022.png",
+    "source": "exec-16f8f731-55d5-4625-9d75-c534ef655174.png",
     "generator": "built-in image_gen",
     "sourceWidth": 1672,
     "sourceHeight": 941,
@@ -822,16 +822,6 @@
   "scenes/pump-clear": {
     "path": "assets/scenes/pump-clear.webp",
     "source": "exec-991f3f5c-b477-40e6-b864-8f6e6fd38c49.png",
-    "generator": "built-in image_gen",
-    "sourceWidth": 1672,
-    "sourceHeight": 941,
-    "width": 1672,
-    "height": 941,
-    "status": "verified-integration"
-  },
-  "scenes/dock-high-open": {
-    "path": "assets/scenes/dock-high-open.webp",
-    "source": "exec-ec682719-c961-4148-8957-a24041076b22.png",
     "generator": "built-in image_gen",
     "sourceWidth": 1672,
     "sourceHeight": 941,
@@ -992,6 +982,36 @@
   "scenes/service-loaded": {
     "path": "assets/scenes/service-loaded.webp",
     "source": "exec-ea45212a-8869-4f72-bcf6-aea12f963597.png",
+    "generator": "built-in image_gen",
+    "sourceWidth": 1672,
+    "sourceHeight": 941,
+    "width": 1672,
+    "height": 941,
+    "status": "verified-integration"
+  },
+  "closeups/gate-low": {
+    "path": "assets/closeups/gate-low.webp",
+    "source": "exec-c078dd4d-b74f-4591-a264-b9e3728ba9e5.png",
+    "generator": "built-in image_gen",
+    "sourceWidth": 1672,
+    "sourceHeight": 941,
+    "width": 1672,
+    "height": 941,
+    "status": "verified-integration"
+  },
+  "closeups/gate-high": {
+    "path": "assets/closeups/gate-high.webp",
+    "source": "exec-f6aa1ce1-5c49-48eb-a334-e66b15ef777b.png",
+    "generator": "built-in image_gen",
+    "sourceWidth": 1672,
+    "sourceHeight": 941,
+    "width": 1672,
+    "height": 941,
+    "status": "verified-integration"
+  },
+  "closeups/gate-open": {
+    "path": "assets/closeups/gate-open.webp",
+    "source": "exec-a58ae7c7-837f-47a8-b970-a82f03732d18.png",
     "generator": "built-in image_gen",
     "sourceWidth": 1672,
     "sourceHeight": 941,

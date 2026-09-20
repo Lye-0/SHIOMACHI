@@ -4,6 +4,7 @@ import { boatReady, type Item } from "../game/model";
 import { Hit, Photo, Icon } from "./Primitives";
 import type { ControlProps } from "./PumpControls";
 import { PipeDrawing } from "./drawings";
+import { GateView } from "./GateView";
 import { DockView } from "./DockView";
 import { Draft } from "./Navigation";
 import { PaperSurface } from "./PaperSurface";
@@ -235,43 +236,30 @@ export function Lantern({ game: g, send, selected }: ControlProps) {
   );
 }
 export function Gate({ game: g, send }: ControlProps) {
-  if (g.gateOpen)
-    return (
-      <>
-        <DockView
-          game={g}
-          style={{ transform: "scale(1.8)", transformOrigin: "65% 22%" }}
-        />
+  return (
+    <>
+      <GateView game={g} />
+      {g.gateOpen ? (
         <button
           className="record-button"
           onClick={() => send({ type: "gate" })}
         >
           水門を閉める
         </button>
-      </>
-    );
-  return (
-    <>
-      <Photo src={closeup("gate")} alt="水門の閂と二つの水位窓" />
-      <div
-        className="gate-level inner"
-        style={{ "--fill": `${[8, 44, 80][g.water]}%` } as React.CSSProperties}
-      />
-      <div
-        className="gate-level outer"
-        style={{ "--fill": "80%" } as React.CSSProperties}
-      />
-      <Hit
-        label={g.gateOpen ? "水門を閉める" : "水門の閂を引く"}
-        x={34}
-        y={48}
-        w={44}
-        h={21}
-        onClick={() => send({ type: "gate" })}
-      />
+      ) : (
+        <Hit
+          label="水門の閂を引く"
+          x={39}
+          y={51}
+          w={22}
+          h={10}
+          onClick={() => send({ type: "gate" })}
+        />
+      )}
     </>
   );
 }
+
 export function Shore({ game: g, send }: ControlProps) {
   if (g.room === "service")
     return (

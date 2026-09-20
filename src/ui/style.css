@@ -109,12 +109,17 @@ img {
 }
 .gate-miniature {
   position: absolute;
-  left: 56%;
-  top: 16%;
-  width: 18%;
-  height: 18%;
+  left: 50.6%;
+  top: 5.7%;
+  width: 32%;
+  height: 35%;
   pointer-events: none;
-  filter: brightness(0.7);
+  clip-path: url(#gate-door-surface);
+  mask-image: linear-gradient(to bottom, black 83%, transparent 91%);
+  filter: brightness(0.82) blur(0.45px);
+}
+.gate-miniature > .photo {
+  object-fit: fill;
 }
 .room-patch-model {
   position: absolute;

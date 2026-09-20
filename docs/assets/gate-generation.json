@@ -1,0 +1,31 @@
+[
+  {
+    "prompt": "Create a dedicated high-resolution photoreal closer camera view of the EXACT double wooden water gate in the reference harbor photograph. 16:9 landscape, 2048x1152 or larger. The gate must be clearly a broad DOUBLE LEAF gate closing the stone arched opening, NOT a narrow wooden post or freestanding panel. Show the complete shallow stone arch above, both stone jambs with warm lamps, wet water at the foot, distant blue twilight sky/sea ONLY above the outer wall, NO sea or boats through sides of the CLOSED gate. Preserve dark vertical planks and diagonal X wooden bracing on BOTH leaves and heavy black central seam. Gate spans approximately x22%-78%, y15%-87%, making full silhouette readable, substantial contextual stonework around. Add realistically bolted small oxidized brass water sight glasses, one on each leaf symmetrically near upper center, dark EMPTY glass interior; a modest tarnished brass sliding horizontal bolt across the central seam below them. Hardware is physically mounted flush on wood with real contact shadows and same focus and illumination as gate, not oversized, not shiny. Tiny simple embossed boat under left glass and wave under right glass. Preserve the source gate's arched outline, dark wood, X braces, weathered stonework and warm side lamps, with camera now centered on gate from inside basin. No boat in foreground, no UI, no text, no new structures. Water is medium-low at bottom of gate.",
+    "source": "C:\\Users\\kawau\\.codex\\generated_images\\01a0ba30-de75-7b40-a770-22321b967a82\\exec-e9331d12-57ea-4de4-b2f9-df54330a5925.png",
+    "selection": "discarded"
+  },
+  {
+    "prompt": "Precise edit of this exact gate photograph. Preserve complete stone arch, double wooden leaves, X braces, side lamps, camera, wood texture, water and lighting pixel-aligned. Replace ONLY the two small circular portholes with two VERTICAL RECTANGULAR brass water sight gauges, each about 6% canvas width and 19% canvas height. Left clear interior centered x40.6%, right x59.3%, rectangles from y30% to49%. Both interiors dark empty glass (dynamic water added in game). Boat and wave emblems sit just below gauges. Make the horizontal brass sliding bolt below them a little larger, spanning x39% to61%, around y59%; mechanically fastened flush, same patina and focus. No circular portholes. No other changes. Same 16:9 framing.",
+    "source": "C:\\Users\\kawau\\.codex\\generated_images\\01a0ba30-de75-7b40-a770-22321b967a82\\exec-16f8f731-55d5-4625-9d75-c534ef655174.png",
+    "selection": "selected",
+    "asset": "closeups/gate"
+  },
+  {
+    "prompt": "Edit this EXACT photoreal gate photograph, 16:9. Lower ONLY basin water from bottom y83% to y96%; reveal the same gate's wet lower wood and wet stone threshold. Keep ALL gate hardware, arch, lamps, framing and camera exactly identical. Both sight glass interiors remain empty dark glass. No UI or text. Preserve all architecture and exact camera framing.",
+    "source": "C:\\Users\\kawau\\.codex\\generated_images\\01a0ba30-de75-7b40-a770-22321b967a82\\exec-c078dd4d-b74f-4591-a264-b9e3728ba9e5.png",
+    "selection": "selected",
+    "asset": "closeups/gate-low"
+  },
+  {
+    "prompt": "Edit this EXACT photoreal gate photograph, 16:9. Raise ONLY basin water from y83% to y70%; water now covers the lowest gate planks. Keep ALL gate hardware, arch, lamps, framing and camera exactly identical. Both sight glass interiors remain empty dark glass. No UI or text. Preserve all architecture and exact camera framing.",
+    "source": "C:\\Users\\kawau\\.codex\\generated_images\\01a0ba30-de75-7b40-a770-22321b967a82\\exec-f6aa1ce1-5c49-48eb-a334-e66b15ef777b.png",
+    "selection": "selected",
+    "asset": "closeups/gate-high"
+  },
+  {
+    "prompt": "Edit this EXACT photoreal gate photograph, 16:9. The same gate is now OPEN at HIGH water level y70%. Swing BOTH wooden leaves outward into the sea, leaving a clear navigable opening. Preserve the same arched stone opening, lamps, stonework, rails, camera, lighting. The bolt must be retracted and travel with its gate leaf; each brass gauge remains attached to its own opened leaf. Through opening show dark blue sea and tiny distant village lights and mountains, not a road. No new structures. Water across the threshold is continuous with sea. Never put a bolt floating across the open passage. No UI or text. Preserve all architecture and exact camera framing.",
+    "source": "C:\\Users\\kawau\\.codex\\generated_images\\01a0ba30-de75-7b40-a770-22321b967a82\\exec-a58ae7c7-837f-47a8-b970-a82f03732d18.png",
+    "selection": "selected",
+    "asset": "closeups/gate-open"
+  }
+]

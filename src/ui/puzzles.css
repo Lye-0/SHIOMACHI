@@ -368,24 +368,37 @@
 }
 .gate-level {
   position: absolute;
-  top: 6.7%;
-  width: 5.2%;
-  height: 34.8%;
+  top: 32.5%;
+  width: 2.1%;
+  height: 13.7%;
   pointer-events: none;
-  border-radius: 2px;
+  border-radius: 1px;
   background: linear-gradient(
     to top,
-    #487879a6 var(--fill),
+    #487879b0 var(--fill),
     transparent var(--fill)
   );
-  box-shadow: inset 3px 0 5px #0008;
+  box-shadow: inset 1px 0 2px #0008;
   mix-blend-mode: screen;
 }
 .gate-level.inner {
-  left: 34.7%;
+  left: 40.05%;
 }
 .gate-level.outer {
-  left: 59.9%;
+  left: 57.9%;
+}
+.gate-level.opened {
+  top: 35%;
+  width: 0.75%;
+  height: 11.5%;
+}
+.gate-level.inner.opened {
+  left: 29.65%;
+  transform: skewY(9deg);
+}
+.gate-level.outer.opened {
+  left: 69.1%;
+  transform: skewY(-9deg);
 }
 .book-dialog {
   width: min(1050px, 94vw);

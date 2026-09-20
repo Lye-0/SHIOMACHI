@@ -29,7 +29,6 @@
     "dock-mid",
     "dock-high",
     "dock-high-flooded",
-    "dock-high-open",
     "shore-low",
     "sea-night",
     "ending",
@@ -72,7 +71,10 @@
     "gauge-low",
     "gauge-mid",
     "gauge-high",
-    "supports-half"
+    "supports-half",
+    "gate-low",
+    "gate-high",
+    "gate-open"
   ],
   "items": [
     "pliers",
