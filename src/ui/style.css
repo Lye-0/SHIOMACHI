@@ -434,6 +434,64 @@ img {
   font-size: 25px;
   margin: 10px 0 30px;
 }
+.map-dialog {
+  width: 600px;
+}
+.map-location strong {
+  color: #f4dda5;
+  margin-left: 12px;
+}
+.area-map {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 360px;
+  margin: 20px 0;
+}
+.map-link {
+  color: #82978e;
+}
+.map-link path {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+}
+.map-link.closed path {
+  stroke-dasharray: 5 6;
+  opacity: 0.55;
+}
+.map-blocked {
+  fill: #e3bd85;
+  font-size: 25px;
+  text-anchor: middle;
+  paint-order: stroke;
+  stroke: #192528;
+  stroke-width: 7px;
+}
+.map-room rect {
+  fill: #1d2c2d;
+  stroke: #6e8980;
+}
+.map-room text {
+  fill: #ccd4c7;
+  font-size: 20px;
+}
+.map-room.current rect {
+  fill: #484631;
+  stroke: #e9d29a;
+  stroke-width: 2;
+}
+.map-room.current text,
+.map-room.current circle {
+  fill: #f9e2aa;
+}
+.map-room .map-you {
+  font-size: 16px;
+}
+.dialog .map-note {
+  font-size: 11px;
+  line-height: 1.8;
+}
 .dialog p {
   font-size: 12px;
   line-height: 2;

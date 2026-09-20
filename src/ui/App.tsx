@@ -16,6 +16,7 @@ import { Icon, Photo, ItemArt } from "./Primitives";
 import { Scene } from "./Scene";
 import { Details } from "./Details";
 import { Notebook } from "./Notebook";
+import { AreaMap } from "./AreaMap";
 import { HintPanel } from "./HintPanel";
 
 const SAVE_KEY =
@@ -58,9 +59,9 @@ function initialGame() {
 export function App() {
   const [g, setGame] = useState(initialGame),
     [selected, setSelected] = useState<Item>(),
-    [panel, setPanel] = useState<"menu" | "book" | "item" | "hint" | null>(
-      null,
-    );
+    [panel, setPanel] = useState<
+      "menu" | "book" | "map" | "item" | "hint" | null
+    >(null);
   const [inspected, setInspected] = useState<Item>(),
     [outlines, setOutlines] = useState(false),
     [sound, setSound] = useState(false),
@@ -315,13 +316,23 @@ export function App() {
                 </button>
               </div>
               <span className="room-name">{roomNames[g.room]}</span>
-              <button
-                className="icon-button"
-                aria-label="記録帳"
-                onClick={() => setPanel("book")}
-              >
-                <Icon name="book" />
-              </button>
+              <div className="hud-actions">
+                <button
+                  className="icon-button"
+                  aria-label="マップ"
+                  title="マップ"
+                  onClick={() => setPanel("map")}
+                >
+                  <Icon name="map" />
+                </button>
+                <button
+                  className="icon-button"
+                  aria-label="記録帳"
+                  onClick={() => setPanel("book")}
+                >
+                  <Icon name="book" />
+                </button>
+              </div>
             </header>
             {!g.detail && !g.atSea && (
               <>
@@ -441,17 +452,19 @@ export function App() {
       {panel && (
         <div className="scrim" onClick={() => setPanel(null)}>
           <section
-            className={`dialog ${panel === "book" ? "book-dialog" : ""}`}
+            className={`dialog ${panel === "book" ? "book-dialog" : panel === "map" ? "map-dialog" : ""}`}
             role="dialog"
             aria-modal="true"
             aria-label={
               panel === "menu"
                 ? "メニュー"
-                : panel === "book"
-                  ? "記録帳"
-                  : panel === "item"
-                    ? "持ち物を調べる"
-                    : "手がかり"
+                : panel === "map"
+                  ? "マップ"
+                  : panel === "book"
+                    ? "記録帳"
+                    : panel === "item"
+                      ? "持ち物を調べる"
+                      : "手がかり"
             }
             onClick={(e) => e.stopPropagation()}
           >
@@ -547,6 +560,7 @@ export function App() {
               </>
             )}
             {panel === "book" && <Notebook game={g} />}
+            {panel === "map" && <AreaMap game={g} />}
             {panel === "item" && inspected && (
               <>
                 <h2>{itemNames[inspected]}</h2>

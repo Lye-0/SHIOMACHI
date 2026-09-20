@@ -177,9 +177,19 @@ export function Wheel({
 export function Icon({
   name,
 }: {
-  name: "menu" | "book" | "back" | "left" | "right" | "sound" | "close" | "eye";
+  name:
+    | "menu"
+    | "book"
+    | "map"
+    | "back"
+    | "left"
+    | "right"
+    | "sound"
+    | "close"
+    | "eye";
 }) {
   const paths = {
+    map: "m3 5 6-2 6 2 6-2v16l-6 2-6-2-6 2ZM9 3v16M15 5v16",
     menu: "M4 7h16M4 12h16M4 17h16",
     book: "M12 5v15M12 6C8 3 4 4 3 5v14c3-1 6-1 9 1 3-2 6-2 9-1V5c-3-1-6-1-9 1",
     back: "m7 9 5 5 5-5",
