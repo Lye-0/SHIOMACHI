@@ -1,4 +1,9 @@
-import { scene, itemImage, mechanism } from "../content/assets";
+import {
+  scene,
+  itemImage,
+  mechanism,
+  waitingSceneName,
+} from "../content/assets";
 import { raised, boatReady, type Detail, type Room } from "../game/model";
 import { Hit, Photo, Pickup } from "./Primitives";
 import type { ControlProps } from "./PumpControls";
@@ -16,11 +21,7 @@ export function Scene({ game: g, send }: ControlProps) {
   const inspect = (detail: Detail) => () => send({ type: "inspect", detail });
   const go = (room: Room) => () => send({ type: "visit", room });
   const front: Record<Room, string> = {
-    waiting: g.shutterOpen
-      ? raised(g)
-        ? "waiting-front-open-high"
-        : "waiting-front-open"
-      : "waiting-front",
+    waiting: waitingSceneName(g, 0),
     concourse:
       g.water === 0
         ? "concourse-low"
@@ -44,7 +45,7 @@ export function Scene({ game: g, send }: ControlProps) {
           : "dock-mid",
   };
   const back: Record<Room, string> = {
-    waiting: raised(g) ? "waiting-rear-high" : "waiting-rear",
+    waiting: waitingSceneName(g, 1),
     concourse: "concourse-doors",
     office: "office-shelves",
     workshop: "workshop-rack",

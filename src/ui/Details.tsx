@@ -1,4 +1,4 @@
-import { closeup, scene } from "../content/assets";
+import { closeup, scene, waitingSceneName } from "../content/assets";
 import { Photo, Hit } from "./Primitives";
 import { Pipes, Supports, type ControlProps } from "./PumpControls";
 import {
@@ -59,8 +59,12 @@ export function Details(props: ControlProps) {
       <>
         {g.room === "waiting" ? (
           <Photo
-            src={scene(raised(g) ? "waiting-rear-high" : "waiting-rear")}
-            style={{ transform: "scale(2)", transformOrigin: "35% 30%" }}
+            src={scene(waitingSceneName(g))}
+            alt="選んだ窓から見える岸と水面"
+            style={{
+              transform: "scale(2.6)",
+              transformOrigin: g.face === 0 ? "22% 25%" : "27% 24%",
+            }}
           />
         ) : g.room === "pump" ? (
           <div

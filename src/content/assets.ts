@@ -1,3 +1,11 @@
+import { raised, type Game } from "../game/model";
+
+export function waitingSceneName(g: Game, face = g.face) {
+  if (face === 1) return raised(g) ? "waiting-rear-high" : "waiting-rear";
+  if (!g.shutterOpen) return "waiting-front";
+  return raised(g) ? "waiting-front-open-high" : "waiting-front-open";
+}
+
 const aliases: Record<string, string> = {
   "items/key-bow": "items/key-parts",
   "items/key-tip": "items/key-parts",
