@@ -282,24 +282,31 @@ export function SeaScene({ game: g, send }: ControlProps) {
             F: "voyage-islet",
             T: "voyage-light",
           }[g.seaNode] ?? "voyage-entrance");
-  if (g.atSea)
+  if (g.atSea && g.ended)
     return (
       <>
         <Photo
-          src={scene(g.ended ? "voyage-arrived" : failureImage)}
-          alt={
-            g.ended
-              ? "灯台を越え、開けた海へ出た船"
-              : "計画した航路の途中で止まった船"
-          }
+          src={scene("ending")}
+          alt="脱出した船から振り返る、灯のともった渡船場"
         />
+        <div className="ending-copy">
+          <span>潮待ち</span>
+          <p>灯がひとつ、遠ざかった。</p>
+          <button onClick={() => send({ type: "returnDock" })}>
+            出航前の渡船場へ
+          </button>
+        </div>
+      </>
+    );
+  if (g.atSea)
+    return (
+      <>
+        <Photo src={scene(failureImage)} alt="計画した航路の途中で止まった船" />
         <div className="voyage-result">
           <p>
-            {g.ended
-              ? "岩場が途切れた。目の前に、海が開けている。"
-              : g.voyageFailure === "beam"
-                ? "水面のすぐ下に、太い梁がある。ここは通れない。"
-                : "船底に、浅瀬が触れた。船を止めた。"}
+            {g.voyageFailure === "beam"
+              ? "水面のすぐ下に、太い梁がある。ここは通れない。"
+              : "船底に、浅瀬が触れた。船を止めた。"}
           </p>
         </div>
         <SceneAction
@@ -308,7 +315,7 @@ export function SeaScene({ game: g, send }: ControlProps) {
             send({ type: "returnDock" });
           }}
         >
-          {g.ended ? "出港前の渡船場へ" : "船着き場へ引き返す"}
+          船着き場へ引き返す
         </SceneAction>
       </>
     );

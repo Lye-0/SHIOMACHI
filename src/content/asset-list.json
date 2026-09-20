@@ -45,7 +45,8 @@
     "voyage-beam",
     "voyage-light",
     "voyage-entrance",
-    "voyage-arrived"
+    "voyage-arrived",
+    "ending"
   ],
   "closeups": [
     "shutter-base",

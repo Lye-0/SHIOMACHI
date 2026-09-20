@@ -1118,5 +1118,15 @@
     "width": 1672,
     "height": 941,
     "status": "verified-in-browser"
+  },
+  "scenes/ending": {
+    "path": "assets/scenes/ending.webp",
+    "source": "exec-b2d870c4-d962-4efc-9ac0-bb4e50808623.png",
+    "generator": "built-in image_gen",
+    "sourceWidth": 1672,
+    "sourceHeight": 941,
+    "width": 1672,
+    "height": 941,
+    "status": "verified-integration"
   }
 }

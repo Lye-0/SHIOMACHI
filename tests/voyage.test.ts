@@ -50,7 +50,7 @@ describe("一括航路", () => {
   it.each([
     [["S", "A", "T"], 0, "shallow", "A"],
     [["S", "B", "D", "T"], 1, "shallow", "D"],
-    [["S", "B", "C", "F", "T"], 2, "beam", "F"],
+    [["S", "B", "C", "F", "T"], 3, "shallow", "T"],
     [["S", "B", "C", "E", "F", "T"], 3, "shallow", "F"],
     [["S", "B", "C", "E", "G", "T"], 4, "shallow", "T"],
     [["X", "A", "T"], 0, "heading", "S"],

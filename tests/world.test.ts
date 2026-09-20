@@ -267,7 +267,7 @@ describe("短問と出航", () => {
     }
     expect(act(g, { type: "openTray" }).game.trayOpen).toBe(true);
   });
-  it("全条件で通れる航路は一本、異なる根拠を除けば複数になる", () => {
+  it("水深だけで通れる航路を一本に絞れ、梁の条件は不要", () => {
     function paths(ignoreDepth = false, ignoreBeam = false) {
       const found: string[] = [];
       function walk(at: string, visited: string[]) {
@@ -285,7 +285,8 @@ describe("短問と出航", () => {
       return found;
     }
     expect(paths()).toEqual(["SBCEGHT"]);
-    expect(paths(false, true)).toHaveLength(2);
+    expect(paths(false, true)).toEqual(["SBCEGHT"]);
+    expect(channels.every((edge) => !edge[3])).toBe(true);
     expect(paths(true, false).length).toBeGreaterThan(1);
   });
   it("出港後の連打では分岐を進めず、帰還して航路を引き直す", () => {

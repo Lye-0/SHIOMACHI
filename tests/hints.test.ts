@@ -110,7 +110,12 @@ describe("現在の進行から次の手がかりを選ぶ", () => {
     expect(hintFor(g).steps.join()).toContain("鉤の先端");
     expect(hintFor(g).steps.join()).not.toContain("クランク");
   });
-  it.each(["supports", "patch", "case", "boat", "beam"])(
+  it("梁の未観察を理由に出港前の排水を勧めない", () => {
+    const g = ready();
+    delete g.records["fallen-beam"];
+    expect(hintFor(g).id).toBe("depart");
+  });
+  it.each(["supports", "patch", "case", "boat"])(
     "%sが未完了なら高水位で作業させず、水門を閉じて排水へ導く",
     (task) => {
       let g = ready();
@@ -118,7 +123,6 @@ describe("現在の進行から次の手がかりを選ぶ", () => {
       if (task === "patch") g.tankDry = false;
       if (task === "case") g.items.boatKit = "case";
       if (task === "boat") g.boatOutside = false;
-      if (task === "beam") delete g.records["fallen-beam"];
       expect(hintFor(g).id).toBe("gate-close");
       g = act(g, { type: "gate" }).game;
       expect(hintFor(g).id).toBe("pipes");

@@ -118,7 +118,7 @@ export function hintFor(g: Game): Hint {
       "船上の測量図",
       "二本杭と輪の標が、船首の先に見える。",
       "見通し線で船着き場を確かめ、水深の断面を拡大して比べる。",
-      "割れた岬と松の小島の間には梁がある。沖の灯まで一本の航路を引いて出港する。",
+      "最後の区間まで水深を確かめ、沖の灯まで一本の航路を引いて出港する。",
     );
   if (!g.shutterOpen) {
     if (g.shutter.every(Boolean))
@@ -261,8 +261,7 @@ export function hintFor(g: Game): Hint {
     !g.caseOpen ||
     g.items.boatKit === "case" ||
     !g.boatInside ||
-    !g.boatOutside ||
-    !g.records["fallen-beam"];
+    !g.boatOutside;
   if (lowWork && g.water !== 0) {
     if (g.gateOpen)
       return stage(
@@ -347,14 +346,6 @@ export function hintFor(g: Game): Hint {
       "船底の内側と外側は塞がっている。",
       "修理前に入った水を、船内から出したい。",
       "船を調べて、水を汲み出す。",
-    );
-  if (!g.records["fallen-beam"])
-    return stage(
-      "beam-observe",
-      "低い通路の先",
-      "水を戻す前に、低い通路から見える水路を確かめたい。",
-      "待合室の床下の奥にある格子の外を見る。",
-      "水路を塞ぐ梁の位置は、自動で記録帳に残る。",
     );
   if (!paperComplete(g) && !g.records.diagram) return puzzle("diagram");
   if (!g.tracing) {
@@ -445,7 +436,7 @@ export function hintFor(g: Game): Hint {
     "depart",
     "出航の準備ができた",
     "船の補修、船灯、水門の準備は済んでいる。",
-    "記録帳の測量図で、深さと梁の位置を確かめる。",
+    "記録帳の測量図で、各区間の水深を確かめる。",
     "船に乗り、景色と測量図を照合して沖の灯まで航路を引く。",
   );
 }
