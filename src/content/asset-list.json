@@ -33,13 +33,14 @@
     "shore-low",
     "sea-night",
     "ending",
-    "landward"
+    "landward",
+    "service-loaded",
+    "waiting-rear-high-open"
   ],
   "closeups": [
     "shutter-base",
     "tray",
     "paper-desk",
-    "empty-desk",
     "key",
     "key-broken",
     "drawer",
@@ -63,15 +64,15 @@
     "boat-outside-repaired",
     "boat-floating",
     "trace",
-    "trace-mid",
-    "trace-high",
-    "trace-high-open",
     "lantern",
     "lantern-glass",
     "lantern-dirty",
     "lantern-lit",
     "gate",
-    "gate-open"
+    "gauge-low",
+    "gauge-mid",
+    "gauge-high",
+    "supports-half"
   ],
   "items": [
     "pliers",
@@ -102,6 +103,8 @@
     "marker-triangle",
     "marker-islet",
     "marker-light",
-    "marker-landing"
+    "marker-landing",
+    "cradle",
+    "boat-lamp-bare"
   ]
 }

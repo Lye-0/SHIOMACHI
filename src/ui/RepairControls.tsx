@@ -4,6 +4,9 @@ import { boatReady, type Item } from "../game/model";
 import { Hit, Photo, Icon } from "./Primitives";
 import type { ControlProps } from "./PumpControls";
 import { PipeDrawing } from "./drawings";
+import { DockView } from "./DockView";
+import { Draft } from "./Navigation";
+import { PaperSurface } from "./PaperSurface";
 
 export function Strainer({ game: g, send, selected }: ControlProps) {
   return (
@@ -33,6 +36,14 @@ export function Patch({ game: g, send, selected }: ControlProps) {
   ];
   return (
     <>
+      <svg width="0" height="0" aria-hidden="true">
+        <defs>
+          <clipPath id="patch-hardware" clipPathUnits="objectBoundingBox">
+            <rect x=".735" y=".115" width=".16" height=".5" />
+            <ellipse cx=".806" cy=".789" rx=".055" ry=".09" />
+          </clipPath>
+        </defs>
+      </svg>
       <Photo
         src={closeup(g.tankDry ? "patch-dry" : "patch")}
         alt="浮体の割れ目と取り付け穴"
@@ -107,19 +118,38 @@ export function Patch({ game: g, send, selected }: ControlProps) {
 }
 export function BoatRepair({ game: g, send, selected }: ControlProps) {
   const [side, setSide] = useState<"inside" | "outside">("outside");
+  const [stern, setStern] = useState(false);
+  if (g.water !== 0)
+    return (
+      <>
+        {stern && boatReady(g) ? (
+          <Draft game={g} send={send} selected={selected} />
+        ) : (
+          <DockView
+            game={g}
+            style={{ transform: "scale(1.45)", transformOrigin: "35% 47%" }}
+          />
+        )}
+        {g.water === 2 && boatReady(g) ? (
+          <button className="view-turn" onClick={() => setStern(!stern)}>
+            {stern ? "船の側面へ" : "船尾側へ回る"}
+            <Icon name="right" />
+          </button>
+        ) : (
+          <p className="observation-caption">
+            {g.water === 1
+              ? "船台へ降りる足場が、水に沈んでいる。"
+              : "船内まで、水が入り込んでいる。"}
+          </p>
+        )}
+      </>
+    );
   const repaired = side === "inside" ? g.boatInside : g.boatOutside;
-  const asset =
-    g.water === 2
-      ? boatReady(g)
-        ? "boat-floating"
-        : "boat-flooded"
-      : g.water === 1
-        ? "dock-mid"
-        : `boat-${side}${side === "inside" && g.boatDry ? "-final" : repaired ? "-repaired" : ""}`;
+  const asset = `boat-${side}${side === "inside" && g.boatDry ? "-final" : repaired ? "-repaired" : ""}`;
   return (
     <>
       <Photo
-        src={g.water === 1 ? scene(asset) : closeup(asset)}
+        src={closeup(asset)}
         alt={
           g.water === 0
             ? side === "inside"
@@ -161,16 +191,6 @@ export function BoatRepair({ game: g, send, selected }: ControlProps) {
           onClick={() => send({ type: "bailBoat" })}
         />
       )}
-      {boatReady(g) && g.water === 2 && (
-        <Hit
-          label="船の水線を記録する"
-          x={22}
-          y={39}
-          w={51}
-          h={30}
-          onClick={() => send({ type: "record", id: "waterline" })}
-        />
-      )}
     </>
   );
 }
@@ -190,12 +210,18 @@ export function Lantern({ game: g, send, selected }: ControlProps) {
         alt="船首の船灯"
       />
       <Hit
-        label="船灯にガラスを戻す"
+        label={g.lampMounted ? "船灯のガラスを拭く" : "船灯にガラスを戻す"}
         x={34}
         y={19}
         w={35}
         h={51}
-        onClick={() => send({ type: "mountLamp", tool: selected })}
+        onClick={() =>
+          send(
+            g.lampMounted
+              ? { type: "cleanLens" }
+              : { type: "mountLamp", tool: selected },
+          )
+        }
       />
       <Hit
         label="船灯のつまみを回す"
@@ -209,21 +235,24 @@ export function Lantern({ game: g, send, selected }: ControlProps) {
   );
 }
 export function Gate({ game: g, send }: ControlProps) {
+  if (g.gateOpen)
+    return (
+      <>
+        <DockView
+          game={g}
+          style={{ transform: "scale(1.8)", transformOrigin: "65% 22%" }}
+        />
+        <button
+          className="record-button"
+          onClick={() => send({ type: "gate" })}
+        >
+          水門を閉める
+        </button>
+      </>
+    );
   return (
     <>
-      <Photo
-        src={closeup(g.gateOpen ? "gate-open" : "gate")}
-        alt="水門の閂と二つの水位窓"
-      />
-      {g.gateOpen && (
-        <Photo
-          src={closeup("gate")}
-          style={{
-            clipPath: "polygon(11% 50%, 20% 50%, 20% 76%, 11% 76%)",
-            pointerEvents: "none",
-          }}
-        />
-      )}
+      <Photo src={closeup("gate")} alt="水門の閂と二つの水位窓" />
       <div
         className="gate-level inner"
         style={{ "--fill": `${[8, 44, 80][g.water]}%` } as React.CSSProperties}
@@ -263,7 +292,9 @@ export function Shore({ game: g, send }: ControlProps) {
     );
   return (
     <>
-      <Photo src={closeup("paper-desk")} />
+      <PaperSurface
+        background={g.room === "workshop" ? "workshop-rack" : "office-shelves"}
+      />
       <div className="document-ink">
         <PipeDrawing />
       </div>

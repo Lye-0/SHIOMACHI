@@ -22,7 +22,13 @@ export function Pipes({ game: g, send }: ControlProps) {
   const pump = () => {
     send({ type: "pump" });
     clearTimeout(timer.current);
-    setFlow(filling(g) || (g.beltTested && g.valves[0]));
+    setFlow(
+      !g.gateOpen &&
+        ((filling(g) && g.target > g.water) ||
+          (draining(g) &&
+            g.beltTested &&
+            Math.max(g.target, g.strainerClear ? 0 : 1) < g.water)),
+    );
     timer.current = setTimeout(() => setFlow(false), 3000);
   };
   return (
@@ -80,7 +86,7 @@ export function Pipes({ game: g, send }: ControlProps) {
         w={8}
         h={14}
         onClick={pump}
-        className={g.drive ? "pressed" : ""}
+        className={flow ? "pressed" : ""}
       />
       <div className="engraved-levels" aria-hidden="true">
         <span>Ⅰ</span>
@@ -88,7 +94,7 @@ export function Pipes({ game: g, send }: ControlProps) {
         <span>Ⅲ</span>
       </div>
       <span
-        className={`flow-status ${filling(g) || draining(g) ? "active" : ""}`}
+        className={`flow-status ${flow ? "active" : ""}`}
         aria-hidden="true"
       />
     </>
@@ -116,7 +122,9 @@ export function Supports({ game: g, send, selected }: ControlProps) {
     g.pins[i]
       ? g.support[i] === 2
         ? "supports-loaded"
-        : "supports"
+        : g.support[i] === 1
+          ? "supports-half"
+          : "supports"
       : g.support[i] === 2
         ? "supports-released"
         : "supports-free";

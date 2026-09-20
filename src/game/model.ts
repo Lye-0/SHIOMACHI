@@ -111,7 +111,13 @@ export interface Game {
   seen: string[];
   records: Record<
     string,
-    { water: Water; view: number; mapTurn: number; raised?: boolean }
+    {
+      water: Water;
+      view: number;
+      mapTurn: number;
+      raised?: boolean;
+      chartMarks?: string[];
+    }
   >;
   visited: Room[];
   elapsed: number;

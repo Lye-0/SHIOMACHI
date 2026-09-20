@@ -78,6 +78,7 @@ export function act(previous: Game, action: Action): Result {
         view: g.surveyPosition,
         mapTurn: g.mapTurn,
         raised: raised(g),
+        ...(action.id === "chart" ? { chartMarks: [...g.chartMarks] } : {}),
       };
       say("記録に挟んだ。", "wood");
       break;
@@ -364,7 +365,7 @@ export function act(previous: Game, action: Action): Result {
       }
       break;
     case "cleanLens":
-      if (use("lens")) {
+      if (use("lens") || g.lampMounted) {
         g.lensClean = true;
         say("ガラスの曇りを拭った。", "wood");
       }
@@ -379,8 +380,7 @@ export function act(previous: Game, action: Action): Result {
     case "lightLamp":
       if (!g.lampMounted) say("ガラスの押さえが、外れている。");
       else if (!g.lensClean) {
-        g.lensClean = true;
-        say("ガラスを拭いた。向こうの灯が透けて見える。", "wood");
+        say("ガラスが曇り、光が通らない。");
       } else {
         g.lampLit = !g.lampLit;
         say(
@@ -592,7 +592,13 @@ export function parseSave(raw: string | null): Game | null {
           r &&
           integer(r.water, 0, 2) &&
           integer(r.view, 0, 4) &&
-          integer(r.mapTurn, 0, 3),
+          integer(r.mapTurn, 0, 3) &&
+          (r.chartMarks === undefined ||
+            (Array.isArray(r.chartMarks) &&
+              r.chartMarks.every(
+                (node) =>
+                  typeof node === "string" && Object.hasOwn(seaNames, node),
+              ))),
       )
     )
       return null;

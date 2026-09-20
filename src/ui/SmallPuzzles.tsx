@@ -10,6 +10,7 @@ import {
 import { Hit, Photo, Pickup } from "./Primitives";
 import type { ControlProps } from "./PumpControls";
 import { PontoonDrawing } from "./drawings";
+import { PaperSurface } from "./PaperSurface";
 
 export function Shutter({ game: g, send }: ControlProps) {
   if (g.shutterOpen)
@@ -280,7 +281,7 @@ export function Diagram({ game: g, send }: ControlProps) {
   const [picked, setPicked] = useState<number>();
   return (
     <>
-      <Photo src={closeup("paper-desk")} alt="机上の破れた図面" />
+      <PaperSurface background={g.drawerOpen ? "office-open" : "office"} />
       <div className="paper-puzzle">
         {g.papers.map((piece, index) => (
           <div

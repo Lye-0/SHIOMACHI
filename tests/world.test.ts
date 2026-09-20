@@ -17,6 +17,33 @@ function run(g: Game, ...actions: Action[]) {
   return actions.reduce((state, a) => act(state, a).game, g);
 }
 describe("物理状態と情報を分離する", () => {
+  it("船灯のつまみはガラスを清掃せず、取り付け後もガラスを拭いて点灯できる", () => {
+    const g = newGame();
+    g.items.lens = "inventory";
+    const mounted = run(
+      g,
+      { type: "mountLamp", tool: "lens" },
+      { type: "lightLamp" },
+    );
+    expect(mounted.lensClean).toBe(false);
+    expect(mounted.lampLit).toBe(false);
+    const lit = run(mounted, { type: "cleanLens" }, { type: "lightLamp" });
+    expect(lit.lensClean).toBe(true);
+    expect(lit.lampLit).toBe(true);
+  });
+  it("地図の記録は後の線の消去で変わらず、保存再開と旧形式に対応する", () => {
+    const g = newGame();
+    g.chartMarks = ["A", "E", "B", "D"];
+    const recorded = act(g, { type: "record", id: "chart" }).game;
+    const cleared = act(recorded, { type: "chartClear" }).game;
+    expect(cleared.chartMarks).toEqual([]);
+    expect(cleared.records.chart.chartMarks).toEqual(["A", "E", "B", "D"]);
+    expect(
+      parseSave(JSON.stringify(cleared))?.records.chart.chartMarks,
+    ).toEqual(["A", "E", "B", "D"]);
+    delete cleared.records.chart.chartMarks;
+    expect(parseSave(JSON.stringify(cleared))).not.toBeNull();
+  });
   it("見通しの交点が二つの船着き場を区別し、それぞれの安全な最初の水路が異なる", () => {
     const onLine = (port: string, a: string, b: string) => {
       const p = chartPoints[port],

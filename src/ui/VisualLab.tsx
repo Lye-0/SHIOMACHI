@@ -189,6 +189,158 @@ const fixtures: Fixture[] = [
     patch: { atSea: true, ended: true, seaNode: "T" },
   },
 ];
+const rooms: Room[] = [
+  "waiting",
+  "concourse",
+  "office",
+  "workshop",
+  "pump",
+  "service",
+  "lookout",
+  "dock",
+];
+for (const room of rooms)
+  for (const face of [0, 1] as const)
+    for (const water of [0, 1, 2] as const) {
+      if (room === "service" && water !== 0) continue;
+      if (room === "lookout" && water !== 2) continue;
+      fixtures.push({
+        id: `audit-${room}-${face}-water${water}`,
+        room,
+        face,
+        patch: { water },
+        ready: room === "lookout",
+      });
+    }
+const detailRooms: Partial<Record<Detail, Room>> = {
+  shutter: "waiting",
+  tray: "workshop",
+  key: "office",
+  drawer: "office",
+  diagram: "office",
+  belt: "pump",
+  pipes: "pump",
+  strainer: "pump",
+  supports: "service",
+  patch: "service",
+  rings: "service",
+  rack: "workshop",
+  survey: "lookout",
+  chart: "lookout",
+  trace: "dock",
+  depth: "dock",
+  boat: "dock",
+  lantern: "dock",
+  gate: "dock",
+  landward: "concourse",
+};
+for (const [detail, room] of Object.entries(detailRooms) as [Detail, Room][])
+  fixtures.push({
+    id: `audit-detail-${detail}`,
+    room,
+    detail,
+    patch: room === "service" ? { water: 0 } : undefined,
+    ready: room === "lookout",
+  });
+for (const water of [0, 1, 2] as const)
+  for (const detail of ["boat", "depth", "trace"] as const) {
+    fixtures.push({
+      id: `audit-${detail}-water${water}-repaired`,
+      room: "dock",
+      detail,
+      ready: true,
+      patch: { water },
+    });
+  }
+fixtures.push(
+  {
+    id: "audit-support-mid",
+    room: "service",
+    detail: "supports",
+    patch: { water: 0, support: [1, 0] },
+    selected: "crank",
+  },
+  {
+    id: "audit-patch-one-bolt",
+    room: "service",
+    detail: "patch",
+    patch: {
+      water: 0,
+      patchMounted: true,
+      patchTurn: 1,
+      patchBolts: [true, false, false, false],
+    },
+    selected: "pliers",
+  },
+  {
+    id: "audit-draft-tools",
+    room: "dock",
+    detail: "boat",
+    ready: true,
+    patch: { tracing: true, items: { ...newGame().items, rod: "inventory" } },
+    selected: "rod",
+  },
+  {
+    id: "audit-case-taken",
+    room: "service",
+    detail: "rings",
+    patch: {
+      water: 0,
+      caseOpen: true,
+      rings: [0, 0, 0],
+      items: { ...newGame().items, boatKit: "inventory" },
+    },
+  },
+  {
+    id: "audit-drawer-one-taken",
+    room: "office",
+    detail: "drawer",
+    patch: {
+      drawerOpen: true,
+      items: { ...newGame().items, crank: "inventory" },
+    },
+  },
+  {
+    id: "audit-drawer-empty",
+    room: "office",
+    detail: "drawer",
+    patch: {
+      drawerOpen: true,
+      items: { ...newGame().items, crank: "inventory", hookTip: "inventory" },
+    },
+  },
+);
+fixtures.push(
+  {
+    id: "audit-waiting-rear-open",
+    room: "waiting",
+    face: 1,
+    ready: true,
+    patch: { visited: ["waiting", "lookout"] },
+  },
+  {
+    id: "audit-service-load-left",
+    room: "service",
+    patch: { water: 0, support: [2, 0] },
+  },
+  {
+    id: "audit-service-load-right",
+    room: "service",
+    patch: { water: 0, support: [0, 2] },
+  },
+  {
+    id: "audit-service-load-both",
+    room: "service",
+    patch: { water: 0, support: [2, 2] },
+  },
+);
+for (const seaNode of ["A", "D", "E", "F", "X"])
+  fixtures.push({
+    id: `audit-sea-${seaNode}`,
+    room: "dock",
+    ready: true,
+    patch: { atSea: true, seaNode, seaHistory: ["S", seaNode] },
+  });
 function create(f: Fixture) {
   const g = newGame();
   Object.assign(g, {
@@ -215,18 +367,23 @@ function create(f: Fixture) {
   return g;
 }
 export function VisualLab() {
+  const [message, setMessage] = useState("");
   const [index, setIndex] = useState(0),
     [g, setGame] = useState(() => create(fixtures[0]));
   const choose = (n: number) => {
     setIndex(n);
     setGame(create(fixtures[n]));
+    setMessage("");
   };
   const fixture = fixtures[index];
   const props = {
     game: g,
     selected: fixture.selected,
-    send: (a: Parameters<typeof act>[1]) =>
-      setGame((current) => act(current, a).game),
+    send: (a: Parameters<typeof act>[1]) => {
+      const result = act(g, a);
+      setGame(result.game);
+      setMessage(result.message);
+    },
   };
   return (
     <main className="app">
@@ -235,6 +392,20 @@ export function VisualLab() {
           <Details key={fixture.id} {...props} />
         ) : (
           <Scene {...props} />
+        )}
+        {g.detail && (
+          <button
+            className="nav back"
+            aria-label="部屋へ戻る"
+            onClick={() => props.send({ type: "back" })}
+          >
+            ⌄
+          </button>
+        )}
+        {message && (
+          <p className="toast" role="status">
+            {message}
+          </p>
         )}
       </section>
       <div

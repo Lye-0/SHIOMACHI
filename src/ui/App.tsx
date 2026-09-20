@@ -14,6 +14,8 @@ import { Soundscape } from "../game/audio";
 import { itemImage, scene } from "../content/assets";
 import { Icon, Photo, ItemArt } from "./Primitives";
 import { Scene } from "./Scene";
+import { DockView } from "./DockView";
+import { SeaScene } from "./Navigation";
 import { Details } from "./Details";
 import { Notebook } from "./Notebook";
 import { AreaMap } from "./AreaMap";
@@ -70,6 +72,7 @@ export function App() {
       kind: string;
       from: string;
       to: string;
+      departure?: Game;
     }>();
   const [home, setHome] = useState(true),
     [confirmReset, setConfirmReset] = useState(false),
@@ -149,6 +152,7 @@ export function App() {
         kind: r.transition,
         from: overview(previous),
         to: overview(r.game),
+        ...(r.transition === "depart" ? { departure: previous } : {}),
       });
       clearTimeout(transitionTimer.current);
       transitionTimer.current = setTimeout(
@@ -286,7 +290,10 @@ export function App() {
         </section>
       ) : (
         <>
-          <section className="stage" aria-label={roomNames[g.room]}>
+          <section
+            className="stage"
+            aria-label={g.atSea ? "水路" : roomNames[g.room]}
+          >
             {g.detail ? (
               <Details game={g} send={send} selected={selected} />
             ) : (
@@ -315,7 +322,9 @@ export function App() {
                   <Icon name="eye" />
                 </button>
               </div>
-              <span className="room-name">{roomNames[g.room]}</span>
+              <span className="room-name">
+                {g.atSea ? "水路" : roomNames[g.room]}
+              </span>
               <div className="hud-actions">
                 <button
                   className="icon-button"
@@ -368,8 +377,29 @@ export function App() {
             )}
             {transition && (
               <div className={`scene-transition ${transition.kind}`}>
-                <Photo src={scene(transition.from)} />
-                <Photo src={scene(transition.to)} className="after" />
+                {transition.departure ? (
+                  <>
+                    <DockView
+                      game={transition.departure}
+                      style={
+                        transition.departure.face
+                          ? {
+                              transform: "scale(1.5)",
+                              transformOrigin: "65% 35%",
+                            }
+                          : undefined
+                      }
+                    />
+                    <div className="world-frame after" inert aria-hidden="true">
+                      <SeaScene game={g} send={() => {}} />
+                    </div>
+                  </>
+                ) : (
+                  <>
+                    <Photo src={scene(transition.from)} />
+                    <Photo src={scene(transition.to)} className="after" />
+                  </>
+                )}
                 <button
                   className="transition-skip"
                   aria-label="場面の変化を閉じる"

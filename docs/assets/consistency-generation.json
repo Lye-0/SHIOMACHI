@@ -1,0 +1,219 @@
+[
+  {
+    "id": "waiting-front-open-island",
+    "prompt": "Edit image1, preserve its entire wooden room, windows, open door, camera, and foreground gangway pixel-for-pixel. Change ONLY scenery outside: this floating waiting cabin belongs to an isolated stone ferry compound surrounded by sea. The gangway ends at the SAME three-door service building shown in image2: office green door left, wooden workshop door center, metal pump door right. Show that facade at correct distance directly at the end of the gangway, with landing railings; it is an island facility, NOT a village shore. Through the left windows show seawater separating this facility from the tiny distant village on far shore at least300m away. Remove all nearby houses, hillside and contiguous mainland directly beyond windows. Preserve rain, night blue/warm light, 16:9 photorealism. No text. Do not change window or door frame positions.",
+    "source": "C:\\Users\\kawau\\.codex\\generated_images\\01a0ba30-de75-7b40-a770-22321b967a82\\exec-5787b6af-b868-4ec2-bd9e-6d40c8c6808f.png",
+    "publicAssets": ["assets/scenes/waiting-front-open.webp"],
+    "selection": "selected"
+  },
+  {
+    "id": "dock-mid-island",
+    "prompt": "Edit this photograph preserving EXACT camera and ALL elements below y18% including boat, cradle, stone walls, water level, gauge, gate, lamps, foreground U-shaped wooden frame. Change ONLY background above/behind the outer basin walls: REMOVE nearby village houses and hillside touching the harbor. This stone basin is part of an isolated old ferry station surrounded by open sea. Behind the walls show a broad band of blue sea and very distant dark mountains and tiny far village lights, no walkable connection to mainland, no nearby houses. Preserve all gate top and railings and lamps.16:9, realistic blue hour photograph.",
+    "source": "C:\\Users\\kawau\\.codex\\generated_images\\01a0ba30-de75-7b40-a770-22321b967a82\\exec-3f1f2959-d2ee-47bf-8dee-9a0ac343faed.png",
+    "publicAssets": [],
+    "selection": "discarded"
+  },
+  {
+    "id": "waiting-front-island",
+    "prompt": "Image1 is edit target, image2 the exact new exterior reference. Replace ONLY scenery seen through windows and closed door glass in image1 with image2's isolated ferry service building and distant sea/village. Keep room camera, wood, benches, CLOSED door and three slide bolts exactly as image1. No nearby houses. Match image2 exterior orientation and distances.16:9 photoreal.",
+    "source": "C:\\Users\\kawau\\.codex\\generated_images\\01a0ba30-de75-7b40-a770-22321b967a82\\exec-c24f52cd-7219-4889-87d6-27a80547c996.png",
+    "publicAssets": ["assets/scenes/waiting-front.webp"],
+    "selection": "selected"
+  },
+  {
+    "id": "waiting-high-island",
+    "prompt": "Same exact camera inside this floating cabin, now cabin has risen80cm relative to fixed service building outside. Preserve cabin interior, windows, open door, all planks exactly. Outside fixed three-door building appears lower in windows by corresponding amount; gangway from our door to building now less steep and almost level. Fixed building landing remains dry. Distant sea and tiny village remain. Edit only exterior view and gangway slope.16:9 realistic.",
+    "source": "C:\\Users\\kawau\\.codex\\generated_images\\01a0ba30-de75-7b40-a770-22321b967a82\\exec-1ca2dd25-f45e-41cf-b8d2-c87c3a6e6b28.png",
+    "publicAssets": ["assets/scenes/waiting-front-open-high.webp"],
+    "selection": "selected"
+  },
+  {
+    "id": "dock-low-island",
+    "prompt": "Image1 edit target state, image2 reference for NEW exterior. Keep image1 exact boat position, water level, basin walls, closed gate, lights, camera and foreground. Replace ONLY near village and hillside above outer walls with the sea and distant mountain/village horizon of image2. The stone basin is isolated offshore. Keep foreground wooden U-shaped spare cradle on DRY ledge exactly as image2, regardless of water level. No nearby mainland.16:9 photoreal, no text. Do not alter boat.",
+    "source": "C:\\Users\\kawau\\.codex\\generated_images\\01a0ba30-de75-7b40-a770-22321b967a82\\exec-4a21d7a2-fdc5-4629-aba2-9807f4de48d2.png",
+    "publicAssets": [],
+    "selection": "discarded"
+  },
+  {
+    "id": "dock-high-island",
+    "prompt": "Image1 edit target state, image2 reference for NEW exterior. Keep image1 exact boat position, water level, basin walls, closed gate, lights, camera and foreground. Replace ONLY near village and hillside above outer walls with the sea and distant mountain/village horizon of image2. The stone basin is isolated offshore. Keep foreground wooden U-shaped spare cradle on DRY ledge exactly as image2, regardless of water level. No nearby mainland.16:9 photoreal, no text. Do not alter boat.",
+    "source": "C:\\Users\\kawau\\.codex\\generated_images\\01a0ba30-de75-7b40-a770-22321b967a82\\exec-04f09610-fdf9-4c10-be00-7bb9b0975eea.png",
+    "publicAssets": [],
+    "selection": "discarded"
+  },
+  {
+    "id": "dock-high-flooded-island",
+    "prompt": "Image1 edit target state, image2 reference for NEW exterior. Keep image1 exact boat position, water level, basin walls, closed gate, lights, camera and foreground. Replace ONLY near village and hillside above outer walls with the sea and distant mountain/village horizon of image2. The stone basin is isolated offshore. Keep foreground wooden U-shaped spare cradle on DRY ledge exactly as image2, regardless of water level. No nearby mainland.16:9 photoreal, no text. Do not alter boat.",
+    "source": "C:\\Users\\kawau\\.codex\\generated_images\\01a0ba30-de75-7b40-a770-22321b967a82\\exec-15506782-8e6f-4c32-b622-813de4d5dd30.png",
+    "publicAssets": ["assets/scenes/dock-high-flooded.webp"],
+    "selection": "selected"
+  },
+  {
+    "id": "cradle-cutout",
+    "prompt": "Extract ONLY the entire foreground U-shaped wooden spare boat cradle from this reference photograph, preserving exact silhouette, groove curvature, wood grain, four rusted fasteners and perspective. Genuine transparent background including the large open U-shaped space above the curve and all surroundings. No stone floor, no harbor, no shadow rectangle. Keep object intact and centered, maximum detail,photoreal product cutout. This is SAME prop reused in game close-up.",
+    "source": "C:\\Users\\kawau\\.codex\\generated_images\\01a0ba30-de75-7b40-a770-22321b967a82\\exec-89a905ea-1a1c-426b-96c2-05e4e2166e26.png",
+    "publicAssets": ["assets/mechanisms/cradle.webp"],
+    "selection": "selected"
+  },
+  {
+    "id": "lamp-bare-cutout",
+    "prompt": "Edit image1 transparent boat lamp sprite to the state shown in image2: front glass cover and four screws removed, open round empty brass rim with four screw holes, visible unlit bulb. Preserve image1 exact outer silhouette, base, knob, top, camera angle and dimensions. Transparent background retained, no wood, no water, no addedobjects.",
+    "source": "C:\\Users\\kawau\\.codex\\generated_images\\01a0ba30-de75-7b40-a770-22321b967a82\\exec-533abcdb-60d6-48a7-b0d0-9f958a299c9b.png",
+    "publicAssets": ["assets/mechanisms/boat-lamp-bare.webp"],
+    "selection": "selected"
+  },
+  {
+    "id": "boat-outside-island",
+    "prompt": "Edit only upper-left distant background. Remove nearby village roof and hill behind basin wall, replace with open blue sea and very distant tiny mountains and village lights matching isolated offshore basin. Keep exact boat, vertical crack, cradle, foreground, lighting and perspective unchanged.16:9.",
+    "source": "C:\\Users\\kawau\\.codex\\generated_images\\01a0ba30-de75-7b40-a770-22321b967a82\\exec-62950d16-8aab-4642-90a4-60cee1722959.png",
+    "publicAssets": ["assets/closeups/boat-outside.webp"],
+    "selection": "selected"
+  },
+  {
+    "id": "gauge-close",
+    "prompt": "Photoreal dedicated close-up of the SAME narrow white/red vertical water-level staff bolted to the right stone pier in this image. Camera near staff, looking down along right edge of harbor, retain wet stone side at right and basin water at left, distant cropped boat on left, golden wall lamp glow. Framestaff at x64%, from y12% to85%, fills10%width. Water covers its lowerhalf at middle level. Preserve original stone and pipehandrail, red/white graduation style, no invented big numbers. Far wall and boat remain context.16:9.",
+    "source": "C:\\Users\\kawau\\.codex\\generated_images\\01a0ba30-de75-7b40-a770-22321b967a82\\exec-5169d4b3-7545-4201-80d0-c6e721286595.png",
+    "publicAssets": ["assets/closeups/gauge-mid.webp"],
+    "selection": "selected"
+  },
+  {
+    "id": "gauge-low",
+    "prompt": "Edit exact same photo to fully drained harbor basin. Only lower water down to wet stone basin floor. Expose whole staff down to lower end and submergedstone below. Keep staff, wall, camera, boat fixed in exact same coordinates. No new objects.16:9.",
+    "source": "C:\\Users\\kawau\\.codex\\generated_images\\01a0ba30-de75-7b40-a770-22321b967a82\\exec-ed1444c5-b92a-4a8d-85c3-9f205ea63acc.png",
+    "publicAssets": ["assets/closeups/gauge-low.webp"],
+    "selection": "selected"
+  },
+  {
+    "id": "gauge-high",
+    "prompt": "Edit exact same photo to high water. Raise waterline on vertical white staff from y77% to y43%. Opaque water submerges all below that level naturally; preserve staff/wall/camera/foregroundrail. Boat on left now floats slightly raised with keel hidden. No new objects.16:9.",
+    "source": "C:\\Users\\kawau\\.codex\\generated_images\\01a0ba30-de75-7b40-a770-22321b967a82\\exec-6be0c251-3bc4-4a08-8ee5-73b7dd093440.png",
+    "publicAssets": [],
+    "selection": "discarded"
+  },
+  {
+    "id": "supports-half",
+    "prompt": "Image1 target low screw-jack position; image2 fully raised contact position. Create exact intermediate screw position. Keep camera, beam, walls, pins and all metal bases unchanged. Extend each central threaded screw and square upper support pad halfway between positions in images1 and2, leaving a small visible gap to beam. Don't change horizontal pins.16:9 photoreal.",
+    "source": "C:\\Users\\kawau\\.codex\\generated_images\\01a0ba30-de75-7b40-a770-22321b967a82\\exec-474dcdb2-94fb-4e8b-8a3a-7585d28e75d7.png",
+    "publicAssets": ["assets/closeups/supports-half.webp"],
+    "selection": "selected"
+  },
+  {
+    "id": "waiting-rear-open-high",
+    "prompt": "Preserve exact room/camera/window/light in this photograph. Open ONLY wooden rear door at x57%-71% inward against rightwall. Through door show short metal threshold bridge to a fixed UPPER gallery at same floor level, with handrails and doorway into dim observation room. This is a floating cabin now raised level with upper gallery. No stairs descending to water and no wall blockingdoor. Neighbor concrete seawall throughwindows remains at same height.16:9.",
+    "source": "C:\\Users\\kawau\\.codex\\generated_images\\01a0ba30-de75-7b40-a770-22321b967a82\\exec-5d24d020-d294-4183-8218-788366be835b.png",
+    "publicAssets": [],
+    "selection": "discarded"
+  },
+  {
+    "id": "concourse-reversed",
+    "prompt": "Image1 edit target, image2 shows INSIDE SAME cabin looking out. Correct architecture of image1 exterior: swap the cabin FRONT DOOR and WIDE WINDOW horizontally, so door is at LEFT x24-31%, and wide two-pane window at RIGHT x34-50%. Move gangway's far-end connection to the LEFT door, preserving foreground end at bottom right. Gangway remains continuous and dry with handrails. Window must show plain wooden benches, NOT chairs or table (interior image2). Keep cabin roof/pontoon, guideposts, right fixed uppergallery, stone walls and water at exact same height. No people.16:9 realistic.",
+    "source": "C:\\Users\\kawau\\.codex\\generated_images\\01a0ba30-de75-7b40-a770-22321b967a82\\exec-5ca5598e-7c00-484f-8672-cb8287dd779f.png",
+    "publicAssets": [],
+    "selection": "discarded"
+  },
+  {
+    "id": "rear-gallery-corrected",
+    "prompt": "Edit image1 only the tiny distant room visible through opened door. Remove the invented telescope. At end of bridge show a slice of the SAME observation room as image2: plain wet plaster wall and edge of old wooden table with paper under warm light. No telescope anywhere. Preserve all foreground room, window, door, bridge geometry exactly.16:9.",
+    "source": "C:\\Users\\kawau\\.codex\\generated_images\\01a0ba30-de75-7b40-a770-22321b967a82\\exec-20384a73-82ca-443a-a3ac-9b5997db3c85.png",
+    "publicAssets": ["assets/scenes/waiting-rear-high-open.webp"],
+    "selection": "selected"
+  },
+  {
+    "id": "concourse-canonical",
+    "prompt": "Edit ONLY cabin door at x25%-32% y28%-50%. It is OPEN inward, showing warm plain wooden interior floor and a bench edge. Keep gangway connected to same left-hand doorway and everything else pixel-for-pixel. Do not add closed wooden panel across the entrance.16:9.",
+    "source": "C:\\Users\\kawau\\.codex\\generated_images\\01a0ba30-de75-7b40-a770-22321b967a82\\exec-40ac8e04-282c-47d5-8070-6a2d2d5de7d4.png",
+    "publicAssets": ["assets/scenes/concourse-mid.webp"],
+    "selection": "selected"
+  },
+  {
+    "id": "concourse-low-canonical",
+    "prompt": "Edit this exact exterior to low water: drain basin to wet stone floor, expose pontoon underside, two support columns, and low service walkway beneath fixed uppergallery on right. Do NOT move cabin, open door on LEFT, window on RIGHT, gangway endpoints, guideposts, camera or roof. Same night lighting.16:9.",
+    "source": "C:\\Users\\kawau\\.codex\\generated_images\\01a0ba30-de75-7b40-a770-22321b967a82\\exec-c699f3f4-f173-494a-8a3d-83004d48e59e.png",
+    "publicAssets": ["assets/scenes/concourse-low.webp"],
+    "selection": "selected"
+  },
+  {
+    "id": "concourse-held-canonical",
+    "prompt": "Edit only water to high level in this exact exterior, leaving cabin HELD at exact current height by fixing pins. Water rises almost to underside of wooden cabin platform but NEVER above floor or gangway walking surface. Cabin/open left door/right window and all structures remain exactly placed.16:9.",
+    "source": "C:\\Users\\kawau\\.codex\\generated_images\\01a0ba30-de75-7b40-a770-22321b967a82\\exec-fa5ad750-ccad-49ee-85f8-3043e0304456.png",
+    "publicAssets": ["assets/scenes/concourse-high-held.webp"],
+    "selection": "selected"
+  },
+  {
+    "id": "concourse-raised-canonical",
+    "prompt": "Exact same camera/exterior, now high water with repaired floating cabin rising80cm along tall black guideposts. Move cabin+pontoon UP relative to fixed wall and posts, approximately9% frameheight. Door stays OPEN atLEFT, wide windowRIGHT. Far end of foreground hinged gangway rises with cabin, foreground end staysfixed. Fixed uppergallery at right now meets cabin floor so passage becomes accessible. Water below raised pontoon. Preserve materials and camera.16:9.",
+    "source": "C:\\Users\\kawau\\.codex\\generated_images\\01a0ba30-de75-7b40-a770-22321b967a82\\exec-8a2c6d7c-c540-4a3c-bf34-262be2075ef1.png",
+    "publicAssets": ["assets/scenes/concourse-high.webp"],
+    "selection": "selected"
+  },
+  {
+    "id": "dock-low-crack-consistent",
+    "prompt": "Edit image1 only boat hull damage. The huge long horizontal gap at center of hull must instead be the SAME short VERTICAL crack shown on image2. Close the long black horizontal gap using continuous weathered original planking, then a short thin vertical split centered x43%,y50%, height4% of frame, width<0.5%. Keep all other planks, boat silhouette, water, cradle, island background, gate, lighting and camera exactly unchanged. Do not add any repair plate yet.16:9 photoreal.",
+    "source": "C:\\Users\\kawau\\.codex\\generated_images\\01a0ba30-de75-7b40-a770-22321b967a82\\exec-a5ce01a6-5773-4434-8b8b-22e1847a1beb.png",
+    "publicAssets": ["assets/scenes/dock-low.webp"],
+    "selection": "selected"
+  },
+  {
+    "id": "dock-mid-crack-consistent",
+    "prompt": "Edit image1 only boat hull damage. The huge long horizontal gap at center of hull must instead be the SAME short VERTICAL crack shown on image2. Close the long black horizontal gap using continuous weathered original planking, then a short thin vertical split centered x43%,y50%, height4% of frame, width<0.5%. Keep all other planks, boat silhouette, water, cradle, island background, gate, lighting and camera exactly unchanged. Do not add any repair plate yet.16:9 photoreal.",
+    "source": "C:\\Users\\kawau\\.codex\\generated_images\\01a0ba30-de75-7b40-a770-22321b967a82\\exec-e3c97840-79ef-4eca-8273-27280f9a208b.png",
+    "publicAssets": ["assets/scenes/dock-mid.webp"],
+    "selection": "selected"
+  },
+  {
+    "id": "dock-high-crack-consistent",
+    "prompt": "Edit image1 only boat hull damage. The huge long horizontal gap at center of hull must instead be the SAME short VERTICAL crack shown on image2. Close the long black horizontal gap using continuous weathered original planking, then a short thin vertical split centered x43%,y50%, height4% of frame, width<0.5%. Keep all other planks, boat silhouette, water, cradle, island background, gate, lighting and camera exactly unchanged. Do not add any repair plate yet.16:9 photoreal.",
+    "source": "C:\\Users\\kawau\\.codex\\generated_images\\01a0ba30-de75-7b40-a770-22321b967a82\\exec-5e2c8101-c720-4334-9168-92915dd60c81.png",
+    "publicAssets": ["assets/scenes/dock-high.webp"],
+    "selection": "selected"
+  },
+  {
+    "id": "gauge-high-dry-pier",
+    "prompt": "Edit exact photo high water version, but ALL right-hand dry walking ledge and handrail base remain ABOVE water. Raise waterline on staff from77% to61% imageheight only. Perspective water plane recedes toward far gate, stays below right walking ledge. Preserve camera, all fixtures, colors. Boat left floats at newlevel butwillbeoutsidefinalcrop.16:9.",
+    "source": "C:\\Users\\kawau\\.codex\\generated_images\\01a0ba30-de75-7b40-a770-22321b967a82\\exec-dd398b48-bcc3-40c1-9e2c-d8aeeab16f88.png",
+    "publicAssets": ["assets/closeups/gauge-high.webp"],
+    "selection": "selected"
+  },
+  {
+    "id": "ending-canonical",
+    "prompt": "Image1 ending photograph target. Replace ONLY the tiny cabin at right with same floating cabin exterior image2: open doorway LEFT, two-pane wide window RIGHT, simple wood benches inside, tall black guideposts, pontoon. Preserve image1 farcamera, boatforeground, sea,horizon,nightlight. Stone ferry island is isolated in water; mainland village absent nearby.16:9 photoreal.",
+    "source": "C:\\Users\\kawau\\.codex\\generated_images\\01a0ba30-de75-7b40-a770-22321b967a82\\exec-b2d870c4-d962-4efc-9ac0-bb4e50808623.png",
+    "publicAssets": ["assets/scenes/ending.webp"],
+    "selection": "selected"
+  },
+  {
+    "id": "survey-context",
+    "prompt": "Create a dedicated close-up by moving camera directly up to the glass of the observation window in reference. Preserve SAME outside panorama: wooded peninsula with small village lights along LEFT half of horizon, low dark hills continuing RIGHT, blue night water. Near-camera wooden frame only at extreme left/right edges, glass rain droplets, lower brass sill rail. Horizon y30%, water majority of frame. Do not invent or remove the left village shoreline. No boats, no marker poles, no islands added; poles are separately rendered by game.16:9 high detail realistic night photograph. This is reading/observing from SAME room, not a different ocean.",
+    "source": "C:\\Users\\kawau\\.codex\\generated_images\\01a0ba30-de75-7b40-a770-22321b967a82\\exec-9ab580bf-9f44-4c37-bb5b-ca416d1c2afc.png",
+    "publicAssets": ["assets/scenes/survey-sea.webp"],
+    "selection": "selected"
+  },
+  {
+    "id": "boat-repaired-island",
+    "prompt": "Edit target: this exact photoreal boat closeup. Change ONLY the small upper-left distant background above stone wall: replace nearby village buildings with distant blue sea and low distant hills, keeping wall/rail intact. The boat and brass repair plate, supports, dry stone floor, wooden U cradle, light, camera must remain pixel-aligned. No other changes.",
+    "source": "C:\\Users\\kawau\\.codex\\generated_images\\01a0ba30-de75-7b40-a770-22321b967a82\\exec-af854d75-b034-4d88-9bbc-1e05ea1ec0c2.png",
+    "publicAssets": ["assets/closeups/boat-outside-repaired.webp"],
+    "selection": "selected"
+  },
+  {
+    "id": "service-room-loaded",
+    "prompt": "Edit target exact same game room photograph. Both jack screw supports at x29% and x43% are now extended upward to contact underside of heavy metal beam and take its weight. Increase exposed threaded shaft length by lifting top pads slightly; preserve the two horizontal brass locking pins at same locations and beam location. This is subtle but visible loaded state. Keep camera, all architecture, crack, holes, foreground, light, background identical.",
+    "source": "C:\\Users\\kawau\\.codex\\generated_images\\01a0ba30-de75-7b40-a770-22321b967a82\\exec-c78bdf0a-6d33-44b3-8e0d-781ac4cc5e9a.png",
+    "publicAssets": [],
+    "selection": "discarded"
+  },
+  {
+    "id": "service-beam-room",
+    "prompt": "Edit target exact same game room photograph. In the small arched opening near center-right, show a fallen rusted iron beam spanning horizontally across the water passage about halfway up its opening. It is the same massive barnacle-covered horizontal beam seen close in second reference. Also through the opening show distant sea/rocks rather than a nearby closed seawall. Keep all other parts pixel-aligned, the CLOSED wooden chest unchanged, steps, lighting, walls, camera unchanged. Second image is supporting beam reference only.",
+    "source": "C:\\Users\\kawau\\.codex\\generated_images\\01a0ba30-de75-7b40-a770-22321b967a82\\exec-c1370ced-5614-4af0-aa0b-304b18242fab.png",
+    "publicAssets": ["assets/scenes/service-end.webp"],
+    "selection": "selected"
+  },
+  {
+    "id": "service-room-load-subtle",
+    "prompt": "Precise object edit of original game photograph. Keep heavy horizontal steel beam and entire room EXACTLY in place. Do NOT raise the beam. Only extend the SMALL circular contact pads at the very tops of the two screw jacks upward by about 15 pixels to close the tiny black gap beneath beam. This is a tiny mechanical adjustment. Original jack bases, locking pins, length of the room, all walls, holes, crack, lighting, camera completely unchanged. No other modifications.",
+    "source": "C:\\Users\\kawau\\.codex\\generated_images\\01a0ba30-de75-7b40-a770-22321b967a82\\exec-ea45212a-8869-4f72-bcf6-aea12f963597.png",
+    "publicAssets": ["assets/scenes/service-loaded.webp"],
+    "selection": "selected"
+  }
+]

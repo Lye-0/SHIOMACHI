@@ -92,6 +92,7 @@ export function Details(props: ControlProps) {
                     : "concourse-high-held"
                   : "concourse-mid",
             )}
+            style={{ transform: "scale(1.5)", transformOrigin: "18% 30%" }}
           />
         )}
         {g.room === "concourse" && (

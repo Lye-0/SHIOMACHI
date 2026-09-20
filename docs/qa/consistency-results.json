@@ -1,0 +1,1069 @@
+{
+  "date": "2026-09-20",
+  "renderer": "Chromium / Playwright MCP",
+  "normalPlay": {
+    "origin": "http://localhost:5198/",
+    "stateInjection": false,
+    "ending": true,
+    "reloadRestored": true,
+    "waterlineMark": 5
+  },
+  "production": {
+    "origin": "http://localhost:4197/",
+    "decodedAssets": 100,
+    "failedAssets": [],
+    "devUI": false
+  },
+  "fixtures": [
+    {
+      "label": "waiting-closed",
+      "sheet": "pair-states-00-0.jpg",
+      "quadrant": 0
+    },
+    {
+      "label": "waiting-open",
+      "sheet": "pair-states-00-0.jpg",
+      "quadrant": 1
+    },
+    {
+      "label": "waiting-raised",
+      "sheet": "pair-states-00-0.jpg",
+      "quadrant": 2
+    },
+    {
+      "label": "waiting-rear-raised",
+      "sheet": "pair-states-00-0.jpg",
+      "quadrant": 3
+    },
+    {
+      "label": "hub-low",
+      "sheet": "pair-states-01-0.jpg",
+      "quadrant": 0
+    },
+    {
+      "label": "hub-mid",
+      "sheet": "pair-states-01-0.jpg",
+      "quadrant": 1
+    },
+    {
+      "label": "hub-high-held",
+      "sheet": "pair-states-01-0.jpg",
+      "quadrant": 2
+    },
+    {
+      "label": "hub-high-raised",
+      "sheet": "pair-states-01-0.jpg",
+      "quadrant": 3
+    },
+    {
+      "label": "office-drawer-items",
+      "sheet": "pair-states-02-0.jpg",
+      "quadrant": 0
+    },
+    {
+      "label": "office-paper",
+      "sheet": "pair-states-02-0.jpg",
+      "quadrant": 1
+    },
+    {
+      "label": "office-shelves",
+      "sheet": "pair-states-02-0.jpg",
+      "quadrant": 2
+    },
+    {
+      "label": "workshop-tools",
+      "sheet": "pair-states-02-0.jpg",
+      "quadrant": 3
+    },
+    {
+      "label": "workshop-rack",
+      "sheet": "pair-states-03-0.jpg",
+      "quadrant": 0
+    },
+    {
+      "label": "pump-start",
+      "sheet": "pair-states-03-0.jpg",
+      "quadrant": 1
+    },
+    {
+      "label": "pump-running",
+      "sheet": "pair-states-03-0.jpg",
+      "quadrant": 2
+    },
+    {
+      "label": "pump-level-high",
+      "sheet": "pair-states-03-0.jpg",
+      "quadrant": 3
+    },
+    {
+      "label": "service-one-pin",
+      "sheet": "pair-states-04-0.jpg",
+      "quadrant": 0
+    },
+    {
+      "label": "service-repaired",
+      "sheet": "pair-states-04-0.jpg",
+      "quadrant": 1
+    },
+    {
+      "label": "supports-one-loaded",
+      "sheet": "pair-states-04-0.jpg",
+      "quadrant": 2
+    },
+    {
+      "label": "supports-one-released",
+      "sheet": "pair-states-04-0.jpg",
+      "quadrant": 3
+    },
+    {
+      "label": "case-closed",
+      "sheet": "pair-states-05-0.jpg",
+      "quadrant": 0
+    },
+    {
+      "label": "case-open",
+      "sheet": "pair-states-05-0.jpg",
+      "quadrant": 1
+    },
+    {
+      "label": "case-open-room",
+      "sheet": "pair-states-05-0.jpg",
+      "quadrant": 2
+    },
+    {
+      "label": "lookout-lens",
+      "sheet": "pair-states-05-0.jpg",
+      "quadrant": 3
+    },
+    {
+      "label": "lookout-window",
+      "sheet": "pair-states-06-0.jpg",
+      "quadrant": 0
+    },
+    {
+      "label": "survey-offset",
+      "sheet": "pair-states-06-0.jpg",
+      "quadrant": 1
+    },
+    {
+      "label": "survey-aligned",
+      "sheet": "pair-states-06-0.jpg",
+      "quadrant": 2
+    },
+    {
+      "label": "chart-bearings",
+      "sheet": "pair-states-06-0.jpg",
+      "quadrant": 3
+    },
+    {
+      "label": "dock-low",
+      "sheet": "pair-states-07-0.jpg",
+      "quadrant": 0
+    },
+    {
+      "label": "dock-mid",
+      "sheet": "pair-states-07-0.jpg",
+      "quadrant": 1
+    },
+    {
+      "label": "dock-high-flooded",
+      "sheet": "pair-states-07-0.jpg",
+      "quadrant": 2
+    },
+    {
+      "label": "dock-high-repaired",
+      "sheet": "pair-states-07-0.jpg",
+      "quadrant": 3
+    },
+    {
+      "label": "dock-gate-open",
+      "sheet": "pair-states-08-0.jpg",
+      "quadrant": 0
+    },
+    {
+      "label": "boat-outside-repaired",
+      "sheet": "pair-states-08-0.jpg",
+      "quadrant": 1
+    },
+    {
+      "label": "boat-floating",
+      "sheet": "pair-states-08-0.jpg",
+      "quadrant": 2
+    },
+    {
+      "label": "trace-low",
+      "sheet": "pair-states-08-0.jpg",
+      "quadrant": 3
+    },
+    {
+      "label": "trace-mid",
+      "sheet": "pair-states-09-0.jpg",
+      "quadrant": 0
+    },
+    {
+      "label": "trace-high",
+      "sheet": "pair-states-09-0.jpg",
+      "quadrant": 1
+    },
+    {
+      "label": "trace-gate-open",
+      "sheet": "pair-states-09-0.jpg",
+      "quadrant": 2
+    },
+    {
+      "label": "lamp-bare",
+      "sheet": "pair-states-09-0.jpg",
+      "quadrant": 3
+    },
+    {
+      "label": "lamp-dirty",
+      "sheet": "pair-states-10-0.jpg",
+      "quadrant": 0
+    },
+    {
+      "label": "lamp-clean",
+      "sheet": "pair-states-10-0.jpg",
+      "quadrant": 1
+    },
+    {
+      "label": "lamp-lit",
+      "sheet": "pair-states-10-0.jpg",
+      "quadrant": 2
+    },
+    {
+      "label": "gate-pressure",
+      "sheet": "pair-states-10-0.jpg",
+      "quadrant": 3
+    },
+    {
+      "label": "gate-equal",
+      "sheet": "pair-states-11-0.jpg",
+      "quadrant": 0
+    },
+    {
+      "label": "gate-open",
+      "sheet": "pair-states-11-0.jpg",
+      "quadrant": 1
+    },
+    {
+      "label": "sea-first",
+      "sheet": "pair-states-11-0.jpg",
+      "quadrant": 2
+    },
+    {
+      "label": "sea-branch",
+      "sheet": "pair-states-11-0.jpg",
+      "quadrant": 3
+    },
+    {
+      "label": "sea-beam",
+      "sheet": "pair-states-12-0.jpg",
+      "quadrant": 0
+    },
+    {
+      "label": "ending",
+      "sheet": "pair-states-12-0.jpg",
+      "quadrant": 1
+    },
+    {
+      "label": "audit-waiting-0-water0",
+      "sheet": "pair-states-12-0.jpg",
+      "quadrant": 2
+    },
+    {
+      "label": "audit-waiting-0-water1",
+      "sheet": "pair-states-12-0.jpg",
+      "quadrant": 3
+    },
+    {
+      "label": "audit-waiting-0-water2",
+      "sheet": "pair-states-13-0.jpg",
+      "quadrant": 0
+    },
+    {
+      "label": "audit-waiting-1-water0",
+      "sheet": "pair-states-13-0.jpg",
+      "quadrant": 1
+    },
+    {
+      "label": "audit-waiting-1-water1",
+      "sheet": "pair-states-13-0.jpg",
+      "quadrant": 2
+    },
+    {
+      "label": "audit-waiting-1-water2",
+      "sheet": "pair-states-13-0.jpg",
+      "quadrant": 3
+    },
+    {
+      "label": "audit-concourse-0-water0",
+      "sheet": "pair-states-14-0.jpg",
+      "quadrant": 0
+    },
+    {
+      "label": "audit-concourse-0-water1",
+      "sheet": "pair-states-14-0.jpg",
+      "quadrant": 1
+    },
+    {
+      "label": "audit-concourse-0-water2",
+      "sheet": "pair-states-14-0.jpg",
+      "quadrant": 2
+    },
+    {
+      "label": "audit-concourse-1-water0",
+      "sheet": "pair-states-14-0.jpg",
+      "quadrant": 3
+    },
+    {
+      "label": "audit-concourse-1-water1",
+      "sheet": "pair-states-15-0.jpg",
+      "quadrant": 0
+    },
+    {
+      "label": "audit-concourse-1-water2",
+      "sheet": "pair-states-15-0.jpg",
+      "quadrant": 1
+    },
+    {
+      "label": "audit-office-0-water0",
+      "sheet": "pair-states-15-0.jpg",
+      "quadrant": 2
+    },
+    {
+      "label": "audit-office-0-water1",
+      "sheet": "pair-states-15-0.jpg",
+      "quadrant": 3
+    },
+    {
+      "label": "audit-office-0-water2",
+      "sheet": "pair-states-16-0.jpg",
+      "quadrant": 0
+    },
+    {
+      "label": "audit-office-1-water0",
+      "sheet": "pair-states-16-0.jpg",
+      "quadrant": 1
+    },
+    {
+      "label": "audit-office-1-water1",
+      "sheet": "pair-states-16-0.jpg",
+      "quadrant": 2
+    },
+    {
+      "label": "audit-office-1-water2",
+      "sheet": "pair-states-16-0.jpg",
+      "quadrant": 3
+    },
+    {
+      "label": "audit-workshop-0-water0",
+      "sheet": "pair-states-17-0.jpg",
+      "quadrant": 0
+    },
+    {
+      "label": "audit-workshop-0-water1",
+      "sheet": "pair-states-17-0.jpg",
+      "quadrant": 1
+    },
+    {
+      "label": "audit-workshop-0-water2",
+      "sheet": "pair-states-17-0.jpg",
+      "quadrant": 2
+    },
+    {
+      "label": "audit-workshop-1-water0",
+      "sheet": "pair-states-17-0.jpg",
+      "quadrant": 3
+    },
+    {
+      "label": "audit-workshop-1-water1",
+      "sheet": "pair-states-18-0.jpg",
+      "quadrant": 0
+    },
+    {
+      "label": "audit-workshop-1-water2",
+      "sheet": "pair-states-18-0.jpg",
+      "quadrant": 1
+    },
+    {
+      "label": "audit-pump-0-water0",
+      "sheet": "pair-states-18-0.jpg",
+      "quadrant": 2
+    },
+    {
+      "label": "audit-pump-0-water1",
+      "sheet": "pair-states-18-0.jpg",
+      "quadrant": 3
+    },
+    {
+      "label": "audit-pump-0-water2",
+      "sheet": "pair-states-19-0.jpg",
+      "quadrant": 0
+    },
+    {
+      "label": "audit-pump-1-water0",
+      "sheet": "pair-states-19-0.jpg",
+      "quadrant": 1
+    },
+    {
+      "label": "audit-pump-1-water1",
+      "sheet": "pair-states-19-0.jpg",
+      "quadrant": 2
+    },
+    {
+      "label": "audit-pump-1-water2",
+      "sheet": "pair-states-19-0.jpg",
+      "quadrant": 3
+    },
+    {
+      "label": "audit-service-0-water0",
+      "sheet": "pair-states-20-0.jpg",
+      "quadrant": 0
+    },
+    {
+      "label": "audit-service-1-water0",
+      "sheet": "pair-states-20-0.jpg",
+      "quadrant": 1
+    },
+    {
+      "label": "audit-lookout-0-water2",
+      "sheet": "pair-states-20-0.jpg",
+      "quadrant": 2
+    },
+    {
+      "label": "audit-lookout-1-water2",
+      "sheet": "pair-states-20-0.jpg",
+      "quadrant": 3
+    },
+    {
+      "label": "audit-dock-0-water0",
+      "sheet": "pair-states-21-0.jpg",
+      "quadrant": 0
+    },
+    {
+      "label": "audit-dock-0-water1",
+      "sheet": "pair-states-21-0.jpg",
+      "quadrant": 1
+    },
+    {
+      "label": "audit-dock-0-water2",
+      "sheet": "pair-states-21-0.jpg",
+      "quadrant": 2
+    },
+    {
+      "label": "audit-dock-1-water0",
+      "sheet": "pair-states-21-0.jpg",
+      "quadrant": 3
+    },
+    {
+      "label": "audit-dock-1-water1",
+      "sheet": "pair-states-22-0.jpg",
+      "quadrant": 0
+    },
+    {
+      "label": "audit-dock-1-water2",
+      "sheet": "pair-states-22-0.jpg",
+      "quadrant": 1
+    },
+    {
+      "label": "audit-detail-shutter",
+      "sheet": "pair-states-22-0.jpg",
+      "quadrant": 2
+    },
+    {
+      "label": "audit-detail-tray",
+      "sheet": "pair-states-22-0.jpg",
+      "quadrant": 3
+    },
+    {
+      "label": "audit-detail-key",
+      "sheet": "pair-states-23-0.jpg",
+      "quadrant": 0
+    },
+    {
+      "label": "audit-detail-drawer",
+      "sheet": "pair-states-23-0.jpg",
+      "quadrant": 1
+    },
+    {
+      "label": "audit-detail-diagram",
+      "sheet": "pair-states-23-0.jpg",
+      "quadrant": 2
+    },
+    {
+      "label": "audit-detail-belt",
+      "sheet": "pair-states-23-0.jpg",
+      "quadrant": 3
+    },
+    {
+      "label": "audit-detail-pipes",
+      "sheet": "pair-states-24-0.jpg",
+      "quadrant": 0
+    },
+    {
+      "label": "audit-detail-strainer",
+      "sheet": "pair-states-24-0.jpg",
+      "quadrant": 1
+    },
+    {
+      "label": "audit-detail-supports",
+      "sheet": "pair-states-24-0.jpg",
+      "quadrant": 2
+    },
+    {
+      "label": "audit-detail-patch",
+      "sheet": "pair-states-24-0.jpg",
+      "quadrant": 3
+    },
+    {
+      "label": "audit-detail-rings",
+      "sheet": "pair-states-25-0.jpg",
+      "quadrant": 0
+    },
+    {
+      "label": "audit-detail-rack",
+      "sheet": "pair-states-25-0.jpg",
+      "quadrant": 1
+    },
+    {
+      "label": "audit-detail-survey",
+      "sheet": "pair-states-25-0.jpg",
+      "quadrant": 2
+    },
+    {
+      "label": "audit-detail-chart",
+      "sheet": "pair-states-25-0.jpg",
+      "quadrant": 3
+    },
+    {
+      "label": "audit-detail-trace",
+      "sheet": "pair-states-26-0.jpg",
+      "quadrant": 0
+    },
+    {
+      "label": "audit-detail-depth",
+      "sheet": "pair-states-26-0.jpg",
+      "quadrant": 1
+    },
+    {
+      "label": "audit-detail-boat",
+      "sheet": "pair-states-26-0.jpg",
+      "quadrant": 2
+    },
+    {
+      "label": "audit-detail-lantern",
+      "sheet": "pair-states-26-0.jpg",
+      "quadrant": 3
+    },
+    {
+      "label": "audit-detail-gate",
+      "sheet": "pair-states-27-0.jpg",
+      "quadrant": 0
+    },
+    {
+      "label": "audit-detail-landward",
+      "sheet": "pair-states-27-0.jpg",
+      "quadrant": 1
+    },
+    {
+      "label": "audit-boat-water0-repaired",
+      "sheet": "pair-states-27-0.jpg",
+      "quadrant": 2
+    },
+    {
+      "label": "audit-depth-water0-repaired",
+      "sheet": "pair-states-27-0.jpg",
+      "quadrant": 3
+    },
+    {
+      "label": "audit-trace-water0-repaired",
+      "sheet": "pair-states-28-0.jpg",
+      "quadrant": 0
+    },
+    {
+      "label": "audit-boat-water1-repaired",
+      "sheet": "pair-states-28-0.jpg",
+      "quadrant": 1
+    },
+    {
+      "label": "audit-depth-water1-repaired",
+      "sheet": "pair-states-28-0.jpg",
+      "quadrant": 2
+    },
+    {
+      "label": "audit-trace-water1-repaired",
+      "sheet": "pair-states-28-0.jpg",
+      "quadrant": 3
+    },
+    {
+      "label": "audit-boat-water2-repaired",
+      "sheet": "pair-states-29-0.jpg",
+      "quadrant": 0
+    },
+    {
+      "label": "audit-depth-water2-repaired",
+      "sheet": "pair-states-29-0.jpg",
+      "quadrant": 1
+    },
+    {
+      "label": "audit-trace-water2-repaired",
+      "sheet": "pair-states-29-0.jpg",
+      "quadrant": 2
+    },
+    {
+      "label": "audit-support-mid",
+      "sheet": "pair-states-29-0.jpg",
+      "quadrant": 3
+    },
+    {
+      "label": "audit-patch-one-bolt",
+      "sheet": "pair-states-30-0.jpg",
+      "quadrant": 0
+    },
+    {
+      "label": "audit-draft-tools",
+      "sheet": "pair-states-30-0.jpg",
+      "quadrant": 1
+    },
+    {
+      "label": "audit-case-taken",
+      "sheet": "pair-states-30-0.jpg",
+      "quadrant": 2
+    },
+    {
+      "label": "audit-drawer-one-taken",
+      "sheet": "pair-states-30-0.jpg",
+      "quadrant": 3
+    },
+    {
+      "label": "audit-drawer-empty",
+      "sheet": "pair-states-31-0.jpg",
+      "quadrant": 0
+    },
+    {
+      "label": "audit-waiting-rear-open",
+      "sheet": "pair-states-31-0.jpg",
+      "quadrant": 1
+    },
+    {
+      "label": "audit-service-load-left",
+      "sheet": "pair-states-31-0.jpg",
+      "quadrant": 2
+    },
+    {
+      "label": "audit-service-load-right",
+      "sheet": "pair-states-31-0.jpg",
+      "quadrant": 3
+    },
+    {
+      "label": "audit-service-load-both",
+      "sheet": "pair-states-32-0.jpg",
+      "quadrant": 0
+    },
+    {
+      "label": "audit-sea-A",
+      "sheet": "pair-states-32-0.jpg",
+      "quadrant": 1
+    },
+    {
+      "label": "audit-sea-D",
+      "sheet": "pair-states-32-0.jpg",
+      "quadrant": 2
+    },
+    {
+      "label": "audit-sea-E",
+      "sheet": "pair-states-32-0.jpg",
+      "quadrant": 3
+    },
+    {
+      "label": "audit-sea-F",
+      "sheet": "pair-states-33-0.jpg",
+      "quadrant": 0
+    },
+    {
+      "label": "audit-sea-X",
+      "sheet": "pair-states-33-0.jpg",
+      "quadrant": 1
+    }
+  ],
+  "sceneActions": [
+    {
+      "fixture": "audit-office-0-water1",
+      "i": 0,
+      "name": "連絡桟橋へ →",
+      "broken": []
+    },
+    {
+      "fixture": "audit-office-0-water1",
+      "i": 1,
+      "name": "机の鍵穴を調べる",
+      "broken": []
+    },
+    {
+      "fixture": "audit-office-0-water1",
+      "i": 2,
+      "name": "引き出しを調べる",
+      "broken": []
+    },
+    {
+      "fixture": "audit-office-0-water1",
+      "i": 3,
+      "name": "紙片を調べる",
+      "broken": []
+    },
+    {
+      "fixture": "audit-office-0-water1",
+      "i": 4,
+      "name": "折れた鍵を取る",
+      "broken": []
+    },
+    {
+      "fixture": "audit-office-0-water1",
+      "i": 5,
+      "name": "白墨を取る",
+      "broken": []
+    },
+    {
+      "fixture": "audit-office-0-water1",
+      "i": 6,
+      "name": "桟橋へ戻る",
+      "broken": []
+    },
+    {
+      "fixture": "audit-office-1-water1",
+      "i": 0,
+      "name": "連絡桟橋へ →",
+      "broken": []
+    },
+    {
+      "fixture": "audit-office-1-water1",
+      "i": 1,
+      "name": "壁の配管図を調べる",
+      "broken": []
+    },
+    {
+      "fixture": "audit-office-1-water1",
+      "i": 2,
+      "name": "桟橋へ戻る",
+      "broken": []
+    },
+    {
+      "fixture": "audit-workshop-0-water1",
+      "i": 0,
+      "name": "連絡桟橋へ →",
+      "broken": []
+    },
+    {
+      "fixture": "audit-workshop-0-water1",
+      "i": 1,
+      "name": "工具箱を調べる",
+      "broken": []
+    },
+    {
+      "fixture": "audit-workshop-0-water1",
+      "i": 2,
+      "name": "駆動ベルトを取る",
+      "broken": []
+    },
+    {
+      "fixture": "audit-workshop-0-water1",
+      "i": 3,
+      "name": "長い棒を取る",
+      "broken": []
+    },
+    {
+      "fixture": "audit-workshop-0-water1",
+      "i": 4,
+      "name": "桟橋へ戻る",
+      "broken": []
+    },
+    {
+      "fixture": "audit-workshop-1-water1",
+      "i": 0,
+      "name": "連絡桟橋へ →",
+      "broken": []
+    },
+    {
+      "fixture": "audit-workshop-1-water1",
+      "i": 1,
+      "name": "補修板の棚を調べる",
+      "broken": []
+    },
+    {
+      "fixture": "audit-workshop-1-water1",
+      "i": 2,
+      "name": "配管の続きを見る",
+      "broken": []
+    },
+    {
+      "fixture": "audit-workshop-1-water1",
+      "i": 3,
+      "name": "桟橋へ戻る",
+      "broken": []
+    },
+    {
+      "fixture": "audit-pump-0-water1",
+      "i": 0,
+      "name": "連絡桟橋へ →",
+      "broken": []
+    },
+    {
+      "fixture": "audit-pump-0-water1",
+      "i": 1,
+      "name": "三つの弁を調べる",
+      "broken": []
+    },
+    {
+      "fixture": "audit-pump-0-water1",
+      "i": 2,
+      "name": "駆動部を調べる",
+      "broken": []
+    },
+    {
+      "fixture": "audit-pump-0-water1",
+      "i": 3,
+      "name": "吸込み口を調べる",
+      "broken": []
+    },
+    {
+      "fixture": "audit-pump-1-water1",
+      "i": 0,
+      "name": "連絡桟橋へ →",
+      "broken": []
+    },
+    {
+      "fixture": "audit-pump-1-water1",
+      "i": 1,
+      "name": "水位窓を調べる",
+      "broken": []
+    },
+    {
+      "fixture": "audit-pump-1-water1",
+      "i": 2,
+      "name": "桟橋へ戻る",
+      "broken": []
+    },
+    {
+      "fixture": "audit-service-0-water0",
+      "i": 0,
+      "name": "連絡桟橋へ →",
+      "broken": []
+    },
+    {
+      "fixture": "audit-service-0-water0",
+      "i": 1,
+      "name": "浮体の固定具を調べる",
+      "broken": []
+    },
+    {
+      "fixture": "audit-service-0-water0",
+      "i": 2,
+      "name": "浮体の割れ目を調べる",
+      "broken": []
+    },
+    {
+      "fixture": "audit-service-1-water0",
+      "i": 0,
+      "name": "連絡桟橋へ →",
+      "broken": []
+    },
+    {
+      "fixture": "audit-service-1-water0",
+      "i": 1,
+      "name": "船具ケースを調べる",
+      "broken": []
+    },
+    {
+      "fixture": "audit-service-1-water0",
+      "i": 2,
+      "name": "水路の奥を見る",
+      "broken": []
+    },
+    {
+      "fixture": "audit-service-1-water0",
+      "i": 3,
+      "name": "岸へ上がる",
+      "broken": []
+    },
+    {
+      "fixture": "waiting-closed",
+      "i": 0,
+      "name": "戸の留め金を調べる",
+      "broken": []
+    },
+    {
+      "fixture": "waiting-closed",
+      "i": 1,
+      "name": "窓の外を見る",
+      "broken": []
+    },
+    {
+      "fixture": "audit-waiting-1-water1",
+      "i": 0,
+      "name": "向こうの通路を調べる",
+      "broken": []
+    },
+    {
+      "fixture": "audit-waiting-1-water1",
+      "i": 1,
+      "name": "窓の外を見る",
+      "broken": []
+    },
+    {
+      "fixture": "audit-concourse-0-water1",
+      "i": 0,
+      "name": "← 船溜まりへ",
+      "broken": []
+    },
+    {
+      "fixture": "audit-concourse-0-water1",
+      "i": 1,
+      "name": "待合室へ",
+      "broken": []
+    },
+    {
+      "fixture": "audit-concourse-0-water1",
+      "i": 2,
+      "name": "下の整備通路へ",
+      "broken": []
+    },
+    {
+      "fixture": "audit-concourse-0-water1",
+      "i": 3,
+      "name": "船溜まりへ",
+      "broken": []
+    },
+    {
+      "fixture": "audit-concourse-0-water1",
+      "i": 4,
+      "name": "待合室と案内柱を見比べる",
+      "broken": []
+    },
+    {
+      "fixture": "audit-concourse-0-water1",
+      "i": 5,
+      "name": "上の通路へ",
+      "broken": []
+    },
+    {
+      "fixture": "audit-concourse-1-water1",
+      "i": 0,
+      "name": "← 船溜まりへ",
+      "broken": []
+    },
+    {
+      "fixture": "audit-concourse-1-water1",
+      "i": 1,
+      "name": "事務室へ",
+      "broken": []
+    },
+    {
+      "fixture": "audit-concourse-1-water1",
+      "i": 2,
+      "name": "整備工房へ",
+      "broken": []
+    },
+    {
+      "fixture": "audit-concourse-1-water1",
+      "i": 3,
+      "name": "ポンプ室へ",
+      "broken": []
+    },
+    {
+      "fixture": "audit-concourse-1-water1",
+      "i": 4,
+      "name": "陸側へ",
+      "broken": []
+    },
+    {
+      "fixture": "audit-lookout-0-water2",
+      "i": 0,
+      "name": "待合室へ →",
+      "broken": []
+    },
+    {
+      "fixture": "audit-lookout-0-water2",
+      "i": 1,
+      "name": "測量図を調べる",
+      "broken": []
+    },
+    {
+      "fixture": "audit-lookout-0-water2",
+      "i": 2,
+      "name": "船灯のガラスを取る",
+      "broken": []
+    },
+    {
+      "fixture": "audit-lookout-0-water2",
+      "i": 3,
+      "name": "待合室へ戻る",
+      "broken": []
+    },
+    {
+      "fixture": "audit-lookout-1-water2",
+      "i": 0,
+      "name": "待合室へ →",
+      "broken": []
+    },
+    {
+      "fixture": "audit-lookout-1-water2",
+      "i": 1,
+      "name": "見通し標を調べる",
+      "broken": []
+    },
+    {
+      "fixture": "audit-dock-0-water1",
+      "i": 0,
+      "name": "連絡桟橋へ →",
+      "broken": []
+    },
+    {
+      "fixture": "audit-dock-0-water1",
+      "i": 1,
+      "name": "船を調べる",
+      "broken": []
+    },
+    {
+      "fixture": "audit-dock-0-water1",
+      "i": 2,
+      "name": "船台のくぼみを調べる",
+      "broken": []
+    },
+    {
+      "fixture": "audit-dock-0-water1",
+      "i": 3,
+      "name": "岸壁の水位目盛を調べる",
+      "broken": []
+    },
+    {
+      "fixture": "audit-dock-0-water1",
+      "i": 4,
+      "name": "桟橋へ戻る",
+      "broken": []
+    },
+    {
+      "fixture": "audit-dock-1-water1",
+      "i": 0,
+      "name": "連絡桟橋へ →",
+      "broken": []
+    },
+    {
+      "fixture": "audit-dock-1-water1",
+      "i": 1,
+      "name": "水門の閂を調べる",
+      "broken": []
+    },
+    {
+      "fixture": "audit-dock-1-water1",
+      "i": 2,
+      "name": "船灯を調べる",
+      "broken": []
+    },
+    {
+      "fixture": "audit-dock-1-water1",
+      "i": 3,
+      "name": "船に乗る",
+      "broken": []
+    }
+  ]
+}

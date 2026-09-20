@@ -8,6 +8,8 @@ import { raised, boatReady, type Detail, type Room } from "../game/model";
 import { Hit, Photo, Pickup } from "./Primitives";
 import type { ControlProps } from "./PumpControls";
 import { SeaScene, SurveyMarkers } from "./Navigation";
+import { DockView } from "./DockView";
+import { Patch } from "./RepairControls";
 import { beltGeometry } from "./SmallPuzzles";
 import {
   TrayMiniature,
@@ -56,59 +58,40 @@ export function Scene({ game: g, send }: ControlProps) {
   };
   return (
     <>
-      <Photo
-        src={scene(g.face ? back[g.room] : front[g.room])}
-        alt=""
-        style={
-          g.room === "dock" && g.face
-            ? { transform: "scale(1.5)", transformOrigin: "65% 35%" }
-            : undefined
-        }
-      />
-      {g.room === "dock" && (
-        <>
-          {g.water === 2 && !boatReady(g) && (
-            <Photo
-              src={scene("dock-high")}
-              style={{
-                clipPath: "polygon(20% 65%,62% 65%,62% 100%,20% 100%)",
-                ...(g.face
-                  ? { transform: "scale(1.5)", transformOrigin: "65% 35%" }
-                  : {}),
-              }}
-            />
-          )}
-          {g.gateOpen && (
-            <Photo
-              src={scene("dock-high-open")}
-              style={{
-                clipPath: "polygon(55% 10%,77% 10%,77% 38%,55% 38%)",
-                ...(g.face
-                  ? { transform: "scale(1.5)", transformOrigin: "65% 35%" }
-                  : {}),
-              }}
-            />
-          )}
-          <img
-            src={mechanism("boat-lamp")}
-            alt=""
-            style={{
-              position: "absolute",
-              left: g.face ? "63.5%" : "64%",
-              top: `${(g.face ? 38 : 37) + (g.water === 2 && !boatReady(g) ? (g.face ? 9 : 6) : 0)}%`,
-              width: g.face ? "6%" : "4%",
-              height: g.face ? "10.5%" : "7%",
-              objectFit: "contain",
-              filter: g.lampLit
-                ? "brightness(1.5) drop-shadow(0 0 8px #ffd079)"
-                : "brightness(.55)",
-              pointerEvents: "none",
-            }}
-          />
-        </>
+      {(["dock", "office", "workshop", "pump", "service"] as Room[]).includes(
+        g.room,
+      ) && (
+        <button className="passage-link exit" onClick={go("concourse")}>
+          連絡桟橋へ →
+        </button>
+      )}
+      {g.room === "lookout" && (
+        <button className="passage-link exit" onClick={go("waiting")}>
+          待合室へ →
+        </button>
+      )}
+      {g.room === "concourse" && (
+        <button className="passage-link dock" onClick={go("dock")}>
+          ← 船溜まりへ
+        </button>
+      )}
+      {g.room === "dock" ? (
+        <DockView
+          game={g}
+          style={
+            g.face
+              ? { transform: "scale(1.5)", transformOrigin: "65% 35%" }
+              : undefined
+          }
+        />
+      ) : (
+        <Photo src={scene(g.face ? back[g.room] : front[g.room])} alt="" />
       )}
       {g.room === "service" && g.face === 0 && (
         <>
+          <div className="room-patch-model" inert aria-hidden="true">
+            <Patch game={g} send={() => {}} />
+          </div>
           {g.pins[0] && (
             <Photo
               src={scene("service")}
@@ -121,27 +104,32 @@ export function Scene({ game: g, send }: ControlProps) {
               style={{ clipPath: "polygon(35% 0,53% 0,53% 100%,35% 100%)" }}
             />
           )}
-          {g.patchMounted && (
-            <img
-              src={itemImage("patch")}
-              alt=""
-              style={{
-                position: "absolute",
-                left: "67%",
-                top: "23%",
-                width: "15%",
-                height: "27%",
-                objectFit: "fill",
-                transform: "rotate(90deg)",
-                filter: "brightness(.62)",
-                pointerEvents: "none",
-              }}
-            />
+          {g.support.map(
+            (load, i) =>
+              load > 0 && (
+                <Photo
+                  key={i}
+                  src={scene("service-loaded")}
+                  style={{
+                    clipPath:
+                      i === 0
+                        ? "polygon(24% 34%,33% 34%,33% 37%,24% 37%)"
+                        : "polygon(38% 33%,48% 33%,48% 36%,38% 36%)",
+                    opacity: load / 2,
+                  }}
+                />
+              ),
           )}
         </>
       )}
       {g.room === "service" && g.face === 1 && (
         <>
+          {g.caseOpen && (
+            <Photo
+              src={scene("service-end")}
+              style={{ clipPath: "polygon(52% 29%,70% 29%,70% 60%,52% 60%)" }}
+            />
+          )}
           {[4, 2.75, 1.5].map((size, i) => (
             <img
               key={i}
@@ -348,7 +336,7 @@ export function Scene({ game: g, send }: ControlProps) {
           <>
             <Hit
               label="待合室へ"
-              x={41}
+              x={24}
               y={raised(g) ? 19 : 30}
               w={10}
               h={raised(g) ? 25 : 25}
@@ -371,7 +359,7 @@ export function Scene({ game: g, send }: ControlProps) {
               onClick={go("dock")}
             />
             <Hit
-              label="案内柱を調べる"
+              label="待合室と案内柱を見比べる"
               x={12}
               y={7}
               w={7}
@@ -725,7 +713,7 @@ export function Scene({ game: g, send }: ControlProps) {
               onClick={inspect("trace")}
             />
             <Hit
-              label="水面からの深さを調べる"
+              label="岸壁の水位目盛を調べる"
               x={84}
               y={24}
               w={8}

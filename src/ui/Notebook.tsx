@@ -56,7 +56,9 @@ export function Notebook({ game: g }: { game: Game }) {
                   ) : opened === "pipe-map" ? (
                     <PipeDrawing />
                   ) : opened === "chart" ? (
-                    <HarborDrawing game={g} />
+                    <HarborDrawing
+                      game={{ ...g, chartMarks: record?.chartMarks ?? [] }}
+                    />
                   ) : (
                     <HullDrawing showWater={false} />
                   )}

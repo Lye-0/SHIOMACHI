@@ -5,6 +5,7 @@ import { projection } from "../game/bearings";
 import { Photo, Hit, Icon } from "./Primitives";
 import { HarborDrawing, HullDrawing, chartPoints } from "./drawings";
 import type { ControlProps } from "./PumpControls";
+import { DockView } from "./DockView";
 import { MeasureMarks } from "./MeasureMarks";
 
 const markerNames: Record<string, string> = {
@@ -86,7 +87,10 @@ export function Survey({ game: g, send }: ControlProps) {
 export function Chart({ game: g, send }: ControlProps) {
   return (
     <>
-      <Photo src={closeup("empty-desk")} />
+      <Photo
+        src={scene("lookout")}
+        style={{ filter: "brightness(.45) blur(2px)" }}
+      />
       <div
         className="rotatable-document"
         style={{
@@ -135,17 +139,14 @@ export function Chart({ game: g, send }: ControlProps) {
 export function Trace({ game: g, send, selected }: ControlProps) {
   return (
     <>
-      <Photo
-        src={closeup(
-          g.water === 0
-            ? "trace"
-            : g.water === 1
-              ? "trace-mid"
-              : g.gateOpen
-                ? "trace-high-open"
-                : "trace-high",
-        )}
-        alt="船台のくぼみ"
+      <div className="trace-surroundings">
+        <DockView game={g} />
+      </div>
+      <Photo src={closeup("trace")} style={{ clipPath: "inset(85% 0 0 0)" }} />
+      <img
+        className="trace-cradle"
+        src={mechanism("cradle")}
+        alt="岸上に置かれた予備船台のくぼみ"
       />
       <Hit
         label="木型の輪郭を写し取る"
@@ -163,58 +164,59 @@ export function Trace({ game: g, send, selected }: ControlProps) {
     </>
   );
 }
-export function Depth({ game: g, send }: ControlProps) {
-  const [view, setView] = useState<"boat" | "measure">("boat");
-  const onBoat = g.water === 2 && boatReady(g);
-  if (view === "boat")
-    return (
-      <>
-        <Photo
-          src={
-            g.water === 1
-              ? scene("dock-mid")
-              : closeup(
-                  g.water === 2
-                    ? onBoat
-                      ? "boat-floating"
-                      : "boat-flooded"
-                    : "boat-outside",
-                )
-          }
-        />
-        <button className="view-turn" onClick={() => setView("measure")}>
-          棒と木型を見る
-          <Icon name="right" />
-        </button>
-        {g.water === 2 && boatReady(g) && (
-          <Hit
-            label="船の水線を記録する"
-            x={22}
-            y={30}
-            w={54}
-            h={45}
-            onClick={() => send({ type: "record", id: "waterline" })}
-          />
-        )}
-      </>
-    );
+export function Depth({ game: g }: ControlProps) {
   return (
     <>
-      <Photo src={closeup(onBoat ? "boat-floating" : "paper-desk")} />
-      {g.tracing && (
-        <div className={`depth-template ${onBoat ? "on-boat" : ""}`}>
+      <Photo
+        src={closeup(`gauge-${["low", "mid", "high"][g.water]}`)}
+        alt="岸壁に固定された水位目盛と水面"
+        style={{
+          transform: "scale(2)",
+          transformOrigin: `100% ${[95, 85, 65][g.water]}%`,
+        }}
+      />
+      <p className="observation-caption">岸壁に固定された目盛と、水面。</p>
+    </>
+  );
+}
+export function Draft({ game: g, send, selected }: ControlProps) {
+  const [paper, setPaper] = useState(false),
+    [rod, setRod] = useState(false);
+  return (
+    <>
+      <Photo
+        src={closeup("boat-floating")}
+        alt="船尾側から見た、浮かんだ船と水線"
+      />
+      {paper && g.tracing && (
+        <div className="depth-template on-boat">
           <HullDrawing showWater={false} />
         </div>
       )}
-      {g.items.rod === "inventory" ? (
-        <MeasureMarks game={g} send={send} onBoat={onBoat} />
-      ) : (
-        <p className="quiet-caption">まっすぐな棒を、置けそうだ。</p>
+      {rod && g.items.rod === "inventory" && (
+        <MeasureMarks game={g} send={send} onBoat />
       )}
-      <button className="view-turn" onClick={() => setView("boat")}>
-        船を見る
-        <Icon name="right" />
-      </button>
+      {selected === "rod" && !rod && (
+        <Hit
+          label="船べりに棒を添える"
+          x={75}
+          y={15}
+          w={23}
+          h={65}
+          onClick={() => setRod(true)}
+        />
+      )}
+      <div className="observation-actions">
+        {g.tracing && (
+          <button aria-pressed={paper} onClick={() => setPaper(!paper)}>
+            {paper ? "写しをしまう" : "記録帳の写しを重ねる"}
+          </button>
+        )}
+        {rod && <button onClick={() => setRod(false)}>棒をしまう</button>}
+        <button onClick={() => send({ type: "record", id: "waterline" })}>
+          水線を記録する
+        </button>
+      </div>
     </>
   );
 }
@@ -242,7 +244,11 @@ export function SeaScene({ game: g, send }: ControlProps) {
                 className="sea-marker"
                 src={mechanism(markerNames[node] ?? "marker-light")}
                 alt=""
-                style={{ left: `${x}%`, top: "34%" }}
+                style={{
+                  left: `${x}%`,
+                  top: "34%",
+                  width: node === "F" ? "16%" : undefined,
+                }}
               />
               <Hit
                 label={`${choices.length === 1 ? "正面" : i === 0 ? "左" : i === choices.length - 1 ? "右" : "中央"}の水路へ進む`}

@@ -1,7 +1,12 @@
 import { raised, type Game } from "../game/model";
 
 export function waitingSceneName(g: Game, face = g.face) {
-  if (face === 1) return raised(g) ? "waiting-rear-high" : "waiting-rear";
+  if (face === 1)
+    return raised(g)
+      ? g.visited.includes("lookout")
+        ? "waiting-rear-high-open"
+        : "waiting-rear-high"
+      : "waiting-rear";
   if (!g.shutterOpen) return "waiting-front";
   return raised(g) ? "waiting-front-open-high" : "waiting-front-open";
 }
