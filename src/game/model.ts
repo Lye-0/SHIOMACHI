@@ -104,6 +104,11 @@ export interface Game {
   rodMark: number;
   waterMark: number;
   gateOpen: boolean;
+  boarded: boolean;
+  routePlan: string[];
+  voyageFailure: "" | "shallow" | "beam" | "heading";
+  failureLeg: number;
+  navigationVersion: 2;
   atSea: boolean;
   seaNode: string;
   seaHistory: string[];
@@ -169,6 +174,11 @@ export function newGame(): Game {
     rodMark: 0,
     waterMark: 0,
     gateOpen: false,
+    boarded: false,
+    routePlan: [],
+    voyageFailure: "",
+    failureLeg: -1,
+    navigationVersion: 2,
     atSea: false,
     seaNode: "S",
     seaHistory: ["S"],
@@ -292,19 +302,24 @@ export function canSlide(
       return false;
   return true;
 }
+// Elevations in metres relative to the same datum as water level III (3m).
 export const channels = [
-  ["S", "A", 2.7, false],
-  ["A", "T", 2.2, false],
-  ["S", "B", 2.2, false],
-  ["B", "C", 2.1, false],
-  ["B", "D", 2.7, false],
-  ["C", "E", 2.2, false],
-  ["C", "F", 2.2, true],
-  ["E", "T", 2.2, false],
-  ["D", "T", 2.7, false],
-  ["F", "T", 2.2, false],
-  ["X", "A", 2.2, false],
-  ["X", "B", 2.7, false],
+  ["S", "A", 2.54, false],
+  ["A", "T", 2.44, false],
+  ["S", "B", 2.44, false],
+  ["B", "C", 2.46, false],
+  ["B", "D", 2.52, false],
+  ["C", "E", 2.42, false],
+  ["C", "F", 2.4, true],
+  ["E", "G", 2.47, false],
+  ["E", "F", 2.51, false],
+  ["G", "H", 2.45, false],
+  ["G", "T", 2.52, false],
+  ["H", "T", 2.44, false],
+  ["D", "T", 2.44, false],
+  ["F", "T", 2.44, false],
+  ["X", "A", 2.44, false],
+  ["X", "B", 2.52, false],
 ] as const;
 export const seaNames: Record<string, string> = {
   S: "渡船場",
@@ -315,6 +330,8 @@ export const seaNames: Record<string, string> = {
   E: "三角の標",
   F: "松の小島",
   X: "古い船着き場",
+  G: "白い岩柱",
+  H: "低い岩のアーチ",
   T: "沖の灯",
 };
 
@@ -366,6 +383,11 @@ export type Action =
   | { type: "rodMark"; value: number }
   | { type: "waterMark"; value: number }
   | { type: "gate" }
+  | { type: "board" }
+  | { type: "disembark" }
+  | { type: "routePoint"; node: string }
+  | { type: "routeUndo" }
+  | { type: "routeClear" }
   | { type: "depart" }
   | { type: "sail"; node: string }
   | { type: "returnDock" }

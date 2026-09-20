@@ -25,6 +25,43 @@ type Fixture = {
 };
 const fixtures: Fixture[] = [
   {
+    id: "voyage-plan",
+    room: "dock",
+    ready: true,
+    patch: { boarded: true, gateOpen: true, lampLit: true },
+  },
+  {
+    id: "voyage-shallow",
+    room: "dock",
+    ready: true,
+    patch: {
+      boarded: true,
+      atSea: true,
+      voyageFailure: "shallow",
+      seaNode: "D",
+      failureLeg: 1,
+    },
+  },
+  {
+    id: "voyage-beam",
+    room: "dock",
+    ready: true,
+    patch: {
+      boarded: true,
+      atSea: true,
+      voyageFailure: "beam",
+      seaNode: "F",
+      failureLeg: 2,
+    },
+  },
+  {
+    id: "voyage-success",
+    room: "dock",
+    ready: true,
+    patch: { boarded: true, atSea: true, ended: true, seaNode: "T" },
+  },
+
+  {
     id: "pontoon-operation",
     room: "service",
     detail: "supports",

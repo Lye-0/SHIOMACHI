@@ -906,3 +906,107 @@
   border-radius: 4px;
   font-size: 14px;
 }
+
+.route-planner {
+  position: absolute;
+  inset: 5% 1% 0;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 180px;
+  grid-template-rows: 1fr auto;
+  gap: 12px;
+  background: #d4bb8c;
+  color: #392c1b;
+  padding: 3% 2% 2%;
+  box-shadow: 0 8px 35px #0009;
+  overflow: auto;
+  background-size: 140% 125%;
+  background-position: center;
+}
+.route-paper {
+  display: flex;
+  align-items: center;
+  min-width: 0;
+}
+.route-paper svg {
+  width: 100%;
+  height: 100%;
+  mix-blend-mode: multiply;
+}
+.route-planner > p {
+  grid-column: 1/-1;
+  margin: 0;
+  font-size: 13px;
+  text-align: center;
+  color: #392c1b;
+}
+.sounding-detail {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 13px;
+  padding: 8px;
+}
+.route-planner .sounding-detail {
+  border-left: 1px solid #80694b55;
+}
+.sounding-detail svg {
+  width: 100%;
+  max-height: 300px;
+}
+.sounding-detail small {
+  font-size: 11px;
+}
+.sounding-target {
+  cursor: zoom-in;
+}
+.sounding-target:hover {
+  stroke: #a3512d;
+  stroke-width: 2;
+}
+.sounding-target:focus,
+.route-planner .map-mark:focus {
+  outline: 2px solid #80592d;
+}
+.route-planner .map-mark:hover {
+  stroke: #9b4e2c;
+  stroke-width: 2;
+}
+.chart-sounding {
+  position: absolute;
+  right: 4%;
+  top: 10%;
+  width: 220px;
+  background: #dfcba5;
+  color: #392c1b;
+  padding: 15px;
+  z-index: 10;
+}
+.chart-sounding button {
+  width: 100%;
+  margin-top: 12px;
+}
+.voyage-result {
+  position: absolute;
+  bottom: 4%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: max-content;
+  max-width: 90%;
+  padding: 8px 20px;
+  background: #0b2029df;
+  color: #eadbc0;
+  text-align: center;
+}
+@media (max-width: 900px) {
+  .route-planner {
+    grid-template-columns: minmax(0, 1fr) 115px;
+    gap: 6px;
+  }
+  .route-planner > p {
+    font-size: 11px;
+  }
+  .sounding-detail svg {
+    max-height: 230px;
+  }
+}

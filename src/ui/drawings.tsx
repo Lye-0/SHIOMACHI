@@ -161,6 +161,8 @@ export function Landmark({
     D: "M-15-13h30v6h-30ZM-11-7v20M11-7v20",
     E: "M0-15-13 8h26ZM0 8v9",
     F: "M-17 13Q0 3 17 13ZM-10 9V-2m-5 1 5-6 5 6M0 7V-10m-6 2 6-8 6 8M10 9V-2m-5 1 5-6 5 6",
+    G: "M-8 14-5-14 5-16 9 14Z",
+    H: "M-17 14Q-17-16 0-16T17 14H8Q8-6 0-6T-8 14Z",
     T: "M-6 13-3-10h6l3 23ZM-6-10l6-6 6 6M-10-3h-7M10-3h7",
   };
   return (
@@ -176,24 +178,39 @@ export function Landmark({
     </g>
   );
 }
+export const chartLabel = (node: string) =>
+  node === "S" ? "船着き場 1" : node === "X" ? "船着き場 2" : seaNames[node];
+export function channelPath(a: string, b: string) {
+  if ((a === "D" && b === "T") || (b === "D" && a === "T"))
+    return "M500 560C820 590 1160 580 1140 220";
+  if ((a === "A" && b === "T") || (b === "A" && a === "T"))
+    return "M280 100C680 -10 1080 0 1140 220";
+  if ((a === "X" && b === "A") || (b === "X" && a === "A"))
+    return "M70 520C8 480 8 370 8 200C8 8 280 0 280 100";
+  return `M${chartPoints[a].join(" ")}L${chartPoints[b].join(" ")}`;
+}
 export function HarborDrawing({
   game: g,
   mark,
   flat = false,
+  route,
+  onChannel,
 }: {
+  route?: string[];
+  onChannel?: (a: string, b: string) => void;
   game?: Game;
   mark?: (node: string) => void;
   flat?: boolean;
 }) {
   return (
     <svg
-      viewBox="0 0 900 600"
+      viewBox="0 0 1200 600"
       preserveAspectRatio={flat ? "none" : "xMidYMid meet"}
       className="ink-drawing harbor-drawing"
       aria-label="水路と海底断面の測量図"
     >
       <g fill="none" stroke="currentColor" strokeWidth="1.5">
-        <path d="M50 80q100-60 171 20l45 110 61-80q72-38 133-22l70-39 34 65 85-102 200-4M41 556l188-14 90 39 182-7 113-69 110 34 132-31" />
+        <path d="M50 80q100-60 171 20l45 110 61-80q72-38 133-22l70-39 34 65 85-102 500-4M41 556l188-14 90 39 182-7 113-69 110 34 432-31" />
         {channels.map(([a, b, z], i) => {
           const [ax, ay] = chartPoints[a],
             [bx, by] = chartPoints[b],
@@ -209,17 +226,35 @@ export function HarborDrawing({
                 : a === "A" && b === "T"
                   ? 65
                   : (ay + by) / 2,
-            depth = Math.round((3 - z) * 10);
-          const d =
-            a === "A" && b === "T"
-              ? `M${ax} ${ay}C680 -10 855 10 ${bx} ${by}`
-              : a === "X" && b === "A"
-                ? "M70 520C8 480 8 370 8 200C8 8 280 0 280 100"
-                : `M${ax} ${ay}L${bx} ${by}`;
+            depth = Math.round((3 - z) * 100);
+          const d = channelPath(a, b);
+          const offset: Record<string, [number, number]> = {
+            "D:T": [930, 535],
+            "F:T": [970, 315],
+            "G:H": [920, 210],
+          };
+          const center = offset[`${a}:${b}`] ?? [x, y];
           return (
             <g key={i}>
               <path d={d} strokeDasharray="5 4" opacity=".5" />
-              <g transform={`translate(${x} ${y})`}>
+              <g
+                transform={`translate(${center[0]} ${center[1]})`}
+                role={onChannel ? "button" : undefined}
+                tabIndex={onChannel ? 0 : undefined}
+                aria-label={
+                  onChannel
+                    ? `${chartLabel(a)}から${chartLabel(b)}の水深を拡大`
+                    : undefined
+                }
+                onClick={() => onChannel?.(a, b)}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter" || e.key === " ") {
+                    e.preventDefault();
+                    onChannel?.(a, b);
+                  }
+                }}
+                className={onChannel ? "sounding-target" : undefined}
+              >
                 <rect
                   x="-25"
                   y="-33"
@@ -229,15 +264,18 @@ export function HarborDrawing({
                   stroke="none"
                 />
                 <path
-                  d={`M-21-28H21M-20 ${-28 + depth * 6}H20`}
+                  d={`M-21-28H21M-20 ${-28 + depth * 0.8}H20`}
                   strokeWidth="2"
                 />
                 <path
-                  d={`M-18-28v${depth * 6}M18-28v${depth * 6}`}
+                  d={`M-18-28v${depth * 0.8}M18-28v${depth * 0.8}`}
                   strokeWidth=".65"
                 />
                 {Array.from({ length: depth - 1 }, (_, n) => (
-                  <path key={n} d={`M-18 ${-22 + n * 6}h7`} />
+                  <path
+                    key={n}
+                    d={`M-18 ${-28 + (n + 1) * 0.8}h${(n + 1) % 5 === 0 ? 10 : 4}`}
+                  />
                 ))}
               </g>
             </g>
@@ -262,13 +300,36 @@ export function HarborDrawing({
             }}
             className={mark ? "map-mark" : ""}
           >
+            {mark && (
+              <circle
+                cx={x}
+                cy={y}
+                r="40"
+                fill="transparent"
+                stroke="none"
+                pointerEvents="all"
+              />
+            )}
             <circle cx={x} cy={y} r="27" fill="#fff" stroke="none" />
-            <Landmark node={node} x={x} y={y} />
-            {g?.chartMarks.includes(node) && (
+            <Landmark node={node} x={x} y={y} size={node === "T" ? 28 : 18} />
+            {(route?.includes(node) ||
+              (!route && g?.chartMarks.includes(node))) && (
               <circle cx={x} cy={y} r="27" stroke="#884c35" strokeWidth="2" />
             )}
           </g>
         ))}
+        {route &&
+          route
+            .slice(1)
+            .map((node, i) => (
+              <path
+                key={`route-${i}`}
+                d={channelPath(route[i], node)}
+                stroke="#884c35"
+                strokeWidth="4"
+                pointerEvents="none"
+              />
+            ))}
         {g &&
           Array.from(
             { length: Math.floor(g.chartMarks.length / 2) },
@@ -294,8 +355,8 @@ export function HarborDrawing({
         <path d="M618 546h105m-105-5v10m35-10v10m35-10v10m35-10v10" />
       </g>
       <g fill="currentColor" fontFamily="serif">
-        <text x="618" y="576" fontSize="18">
-          一目盛 十糎
+        <text x="618" y="576" fontSize="15">
+          一目盛 一糎・長線 五糎
         </text>
         <text x="380" y="35" fontSize="20">
           渡船場 測量図
@@ -308,7 +369,13 @@ export function HarborDrawing({
   );
 }
 
-export function HullDrawing({ showWater = true }: { showWater?: boolean }) {
+export function HullDrawing({
+  showWater = true,
+  showScale = true,
+}: {
+  showWater?: boolean;
+  showScale?: boolean;
+}) {
   return (
     <svg
       viewBox="0 0 800 450"
@@ -329,23 +396,29 @@ export function HullDrawing({ showWater = true }: { showWater?: boolean }) {
             stroke="#476364"
           />
         )}
-        <path d="M716 175V340" />
-        {Array.from({ length: 9 }, (_, i) => (
-          <path
-            key={i}
-            d={`M${i % 2 ? 713 : 707} ${hull.keel - i * hull.step}h${i % 2 ? 12 : 18}`}
-          />
-        ))}
+        {showScale && (
+          <>
+            <path d="M716 175V340" />
+            {Array.from({ length: 81 }, (_, i) => (
+              <path
+                key={i}
+                d={`M${i % 5 ? 714 : 707} ${hull.keel - (i * hull.step) / 10}h${i % 5 ? 8 : 18}`}
+              />
+            ))}
+          </>
+        )}
       </g>
-      <text
-        x="710"
-        y="358"
-        fill="currentColor"
-        fontFamily="serif"
-        fontSize="16"
-      >
-        十糎
-      </text>
+      {showScale && (
+        <text
+          x="710"
+          y="358"
+          fill="currentColor"
+          fontFamily="serif"
+          fontSize="16"
+        >
+          一糎
+        </text>
+      )}
     </svg>
   );
 }

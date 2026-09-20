@@ -102,25 +102,24 @@ export function hintFor(g: Game): Hint {
       "船は沖の灯まで辿り着いた。",
       "今回の脱出は完了している。",
     );
-  if (g.atSea) {
-    const next: Record<string, string> = {
-      S: "輪の標",
-      B: "割れた岬",
-      C: "三角の標",
-      E: "沖の灯",
-      F: "沖の灯",
-      A: "渡船場",
-      D: "輪の標",
-      X: "二本杭",
-    };
+  if (g.atSea)
     return stage(
-      "sail-" + g.seaNode,
-      "水路を進む",
-      "記録帳の測量図と、今いる標を見比べる。",
-      "船底に必要な深さを確保し、水中の梁がある枝を避ける。",
-      `ここからは「${next[g.seaNode] ?? "沖の灯"}」へ進める。`,
+      "voyage-return",
+      "航路を見直す",
+      g.voyageFailure === "beam"
+        ? "岬と松の小島の間に梁があった。"
+        : "船底が浅瀬に触れた。",
+      "船着き場へ戻ると、引いた航路は残っている。",
+      "出発位置と、船底より深い水路を測量図で確かめ直す。",
     );
-  }
+  if (g.boarded)
+    return stage(
+      "voyage-plan",
+      "船上の測量図",
+      "二本杭と輪の標が、船首の先に見える。",
+      "見通し線で船着き場を確かめ、水深の断面を拡大して比べる。",
+      "割れた岬と松の小島の間には梁がある。沖の灯まで一本の航路を引いて出港する。",
+    );
   if (!g.shutterOpen) {
     if (g.shutter.every(Boolean))
       return stage(
@@ -433,7 +432,7 @@ export function hintFor(g: Game): Hint {
       "観測室の図で、同じ見通し線の二つの標を順に選ぶ。",
       "二本杭と三角、輪と石の門の二組を結ぶ。線の交点が今いる船着き場になる。",
     );
-  if (g.rodMark !== 0 || g.waterMark !== 5 || !g.records.waterline) {
+  if (g.rodMark !== 0 || g.waterMark !== 50 || !g.records.waterline) {
     if (g.items.hook === "inventory")
       return stage(
         "hook-separate",
@@ -447,7 +446,7 @@ export function hintFor(g: Game): Hint {
       "船底の深さ",
       "船台で写した形を、浮かんだ船に重ねる。",
       "船を調べて写しを重ね、棒を選んで船べりに添える。",
-      "白い印を船底、青い印を水線へ合わせる。船底は0、水線は5目盛。50cmより深い水路を選ぶ。",
+      "白い印を船底、青い印を水線へ合わせる。船底は0、水線は50目盛。50cmより深い水路を選ぶ。",
     );
   }
   if (!g.gateOpen)
@@ -463,6 +462,6 @@ export function hintFor(g: Game): Hint {
     "出航の準備ができた",
     "船の補修、船灯、水門の準備は済んでいる。",
     "記録帳の測量図で、深さと梁の位置を確かめる。",
-    "船溜まりの「船に乗る」から出航する。",
+    "船に乗り、景色と測量図を照合して沖の灯まで航路を引く。",
   );
 }

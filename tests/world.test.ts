@@ -285,27 +285,44 @@ describe("短問と出航", () => {
       walk("S", ["S"]);
       return found;
     }
-    expect(paths()).toEqual(["SBCET"]);
+    expect(paths()).toEqual(["SBCEGHT"]);
     expect(paths(false, true)).toHaveLength(2);
     expect(paths(true, false).length).toBeGreaterThan(1);
   });
-  it("誤った分岐から正しい分岐へ続けて進め、未読でも脱出できる", () => {
-    const g = newGame();
-    g.boatInside = g.boatOutside = g.boatDry = g.lampLit = g.gateOpen = true;
+  it("出港後の連打では分岐を進めず、帰還して航路を引き直す", () => {
+    let g = newGame();
     g.water = 2;
-    const final = run(
+    g.boatInside = g.boatOutside = g.boatDry = g.lampLit = g.gateOpen = true;
+    g = run(
       g,
+      { type: "board" },
+      ...["S", "A", "T"].map(
+        (node) => ({ type: "routePoint", node }) as Action,
+      ),
       { type: "depart" },
-      { type: "sail", node: "A" },
-      { type: "sail", node: "B" },
-      { type: "sail", node: "C" },
-      { type: "sail", node: "F" },
-      { type: "sail", node: "E" },
-      { type: "sail", node: "T" },
     );
-    expect(final.ended).toBe(true);
-    expect(final.seen).toEqual([]);
-    expect(final.seaHistory).toEqual(["S", "B", "C", "E", "T"]);
+    expect(g.voyageFailure).toBe("shallow");
+    expect(g.failureLeg).toBe(0);
+    const stopped = run(
+      g,
+      { type: "sail", node: "B" },
+      { type: "routePoint", node: "B" },
+      { type: "depart" },
+    );
+    expect(stopped.seaNode).toBe("A");
+    expect(stopped.ended).toBe(false);
+    g = run(g, { type: "returnDock" });
+    expect(g.routePlan).toEqual(["S", "A", "T"]);
+    g = run(
+      g,
+      { type: "routeClear" },
+      ...["S", "B", "C", "E", "G", "H", "T"].map(
+        (node) => ({ type: "routePoint", node }) as Action,
+      ),
+      { type: "depart" },
+    );
+    expect(g.ended).toBe(true);
+    expect(g.seen).toEqual([]);
   });
 });
 describe("保存", () => {

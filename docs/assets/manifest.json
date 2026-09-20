@@ -359,16 +359,6 @@
     "height": 941,
     "status": "verified-integration"
   },
-  "scenes/sea-night": {
-    "path": "assets/scenes/sea-night.webp",
-    "source": "exec-1a1fe6e0-6d32-4b50-8db9-39eb930840bf.png",
-    "generator": "built-in image_gen",
-    "sourceWidth": 1672,
-    "sourceHeight": 941,
-    "width": 1672,
-    "height": 941,
-    "status": "verified-integration"
-  },
   "closeups/drawer": {
     "path": "assets/closeups/drawer.webp",
     "source": "exec-f1789170-9b98-4303-99ac-723f8d2b26a4.png",
@@ -621,13 +611,13 @@
   },
   "scenes/shore-low": {
     "path": "assets/scenes/shore-low.webp",
-    "source": "exec-9d064960-b6f2-4e83-84e7-d6e1d5d209d4.png",
+    "source": "exec-cc7f033f-0786-4e6a-b22a-9756d0a286a8.png",
     "generator": "built-in image_gen",
     "sourceWidth": 1672,
     "sourceHeight": 941,
     "width": 1672,
     "height": 941,
-    "status": "verified-integration"
+    "status": "verified-in-browser"
   },
   "scenes/dock-high": {
     "path": "assets/scenes/dock-high.webp",
@@ -719,36 +709,6 @@
     "height": 1214,
     "status": "verified-integration"
   },
-  "mechanisms/marker-rock": {
-    "path": "assets/mechanisms/marker-rock.webp",
-    "source": "exec-36839205-50f3-4526-aa4b-741473ef7b71.png",
-    "generator": "built-in image_gen",
-    "sourceWidth": 1536,
-    "sourceHeight": 1024,
-    "width": 1536,
-    "height": 1024,
-    "status": "verified-integration"
-  },
-  "mechanisms/marker-islet": {
-    "path": "assets/mechanisms/marker-islet.webp",
-    "source": "exec-225e77a4-00a8-42c7-9a65-76d8e84d786d.png",
-    "generator": "built-in image_gen",
-    "sourceWidth": 1536,
-    "sourceHeight": 1024,
-    "width": 1536,
-    "height": 1024,
-    "status": "verified-integration"
-  },
-  "mechanisms/marker-light": {
-    "path": "assets/mechanisms/marker-light.webp",
-    "source": "exec-b056aaf7-c1fb-4640-8edb-620ca2923fb5.png",
-    "generator": "built-in image_gen",
-    "sourceWidth": 1024,
-    "sourceHeight": 1536,
-    "width": 1024,
-    "height": 1536,
-    "status": "verified-integration"
-  },
   "closeups/lantern-glass": {
     "path": "assets/closeups/lantern-glass.webp",
     "source": "exec-f309d150-7973-4ea1-af6f-950c3ffc27dc.png",
@@ -762,16 +722,6 @@
   "scenes/dock-high-flooded": {
     "path": "assets/scenes/dock-high-flooded.webp",
     "source": "exec-15506782-8e6f-4c32-b622-813de4d5dd30.png",
-    "generator": "built-in image_gen",
-    "sourceWidth": 1672,
-    "sourceHeight": 941,
-    "width": 1672,
-    "height": 941,
-    "status": "verified-integration"
-  },
-  "scenes/ending": {
-    "path": "assets/scenes/ending.webp",
-    "source": "exec-b2d870c4-d962-4efc-9ac0-bb4e50808623.png",
     "generator": "built-in image_gen",
     "sourceWidth": 1672,
     "sourceHeight": 941,
@@ -847,16 +797,6 @@
     "sourceHeight": 941,
     "width": 1672,
     "height": 941,
-    "status": "verified-integration"
-  },
-  "mechanisms/marker-landing": {
-    "path": "assets/mechanisms/marker-landing.webp",
-    "source": "exec-26bd4a7b-fad9-4272-820f-f83f9d729d3c.png",
-    "generator": "built-in image_gen",
-    "sourceWidth": 1536,
-    "sourceHeight": 1024,
-    "width": 1536,
-    "height": 1024,
     "status": "verified-integration"
   },
   "closeups/boat-floating": {
@@ -1097,6 +1037,86 @@
     "sourceHeight": 1024,
     "width": 1536,
     "height": 1024,
+    "status": "verified-in-browser"
+  },
+  "scenes/voyage-moored": {
+    "path": "assets/scenes/voyage-moored.webp",
+    "source": "exec-54664646-8cdf-4ba9-ab4e-2819c584f8c1.png",
+    "generator": "built-in image_gen",
+    "sourceWidth": 1672,
+    "sourceHeight": 941,
+    "width": 1672,
+    "height": 941,
+    "status": "verified-in-browser"
+  },
+  "scenes/voyage-twin": {
+    "path": "assets/scenes/voyage-twin.webp",
+    "source": "exec-629955ba-9c60-4edc-ba88-57198bd93f04.png",
+    "generator": "built-in image_gen",
+    "sourceWidth": 1672,
+    "sourceHeight": 941,
+    "width": 1672,
+    "height": 941,
+    "status": "verified-in-browser"
+  },
+  "scenes/voyage-gate": {
+    "path": "assets/scenes/voyage-gate.webp",
+    "source": "exec-a11d5f51-86ca-45d9-a6bd-a28c28447fd6.png",
+    "generator": "built-in image_gen",
+    "sourceWidth": 1672,
+    "sourceHeight": 941,
+    "width": 1672,
+    "height": 941,
+    "status": "verified-in-browser"
+  },
+  "scenes/voyage-islet": {
+    "path": "assets/scenes/voyage-islet.webp",
+    "source": "exec-9cd6f15c-6b37-4e16-b960-569bf21fe64b.png",
+    "generator": "built-in image_gen",
+    "sourceWidth": 1672,
+    "sourceHeight": 941,
+    "width": 1672,
+    "height": 941,
+    "status": "verified-in-browser"
+  },
+  "scenes/voyage-beam": {
+    "path": "assets/scenes/voyage-beam.webp",
+    "source": "exec-322d3354-3b1c-4e9d-9e79-263f18d223ee.png",
+    "generator": "built-in image_gen",
+    "sourceWidth": 1672,
+    "sourceHeight": 941,
+    "width": 1672,
+    "height": 941,
+    "status": "verified-in-browser"
+  },
+  "scenes/voyage-light": {
+    "path": "assets/scenes/voyage-light.webp",
+    "source": "exec-2ea84603-952b-43b0-a19a-2ac5908a0ddc.png",
+    "generator": "built-in image_gen",
+    "sourceWidth": 1672,
+    "sourceHeight": 941,
+    "width": 1672,
+    "height": 941,
+    "status": "verified-in-browser"
+  },
+  "scenes/voyage-entrance": {
+    "path": "assets/scenes/voyage-entrance.webp",
+    "source": "exec-09142076-4f26-4239-8473-7b11d31f0ece.png",
+    "generator": "built-in image_gen",
+    "sourceWidth": 1672,
+    "sourceHeight": 941,
+    "width": 1672,
+    "height": 941,
+    "status": "verified-in-browser"
+  },
+  "scenes/voyage-arrived": {
+    "path": "assets/scenes/voyage-arrived.webp",
+    "source": "exec-19f548ce-8219-497a-99b9-2652c12f2026.png",
+    "generator": "built-in image_gen",
+    "sourceWidth": 1672,
+    "sourceHeight": 941,
+    "width": 1672,
+    "height": 941,
     "status": "verified-in-browser"
   }
 }

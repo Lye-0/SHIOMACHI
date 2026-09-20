@@ -1,10 +1,15 @@
 import { SceneAction } from "./ActionBar";
 import { useState } from "react";
 import { closeup, scene, mechanism, itemImage } from "../content/assets";
-import { boatReady, channels, type Item } from "../game/model";
+import { channels } from "../game/model";
 import { projection } from "../game/bearings";
-import { Photo, Hit, Icon } from "./Primitives";
-import { HarborDrawing, HullDrawing, chartPoints } from "./drawings";
+import { Photo, Hit } from "./Primitives";
+import {
+  HarborDrawing,
+  HullDrawing,
+  chartPoints,
+  chartLabel,
+} from "./drawings";
 import type { ControlProps } from "./PumpControls";
 import { DockView } from "./DockView";
 import { MeasureMarks } from "./MeasureMarks";
@@ -12,12 +17,8 @@ import { MeasureMarks } from "./MeasureMarks";
 const markerNames: Record<string, string> = {
   A: "marker-twin",
   B: "marker-ring",
-  C: "marker-rock",
   D: "marker-gate",
   E: "marker-triangle",
-  F: "marker-islet",
-  T: "marker-light",
-  X: "marker-landing",
 };
 export function SurveyFrame({ position }: { position: number }) {
   return (
@@ -80,6 +81,7 @@ export function Survey({ game: g, send }: ControlProps) {
   );
 }
 export function Chart({ game: g, send }: ControlProps) {
+  const [section, setSection] = useState<[string, string]>();
   return (
     <>
       <Photo
@@ -100,10 +102,17 @@ export function Chart({ game: g, send }: ControlProps) {
         <div className="document-ink chart-sheet">
           <HarborDrawing
             game={g}
+            onChannel={(a, b) => setSection([a, b])}
             mark={(node) => send({ type: "chartMark", node })}
           />
         </div>
       </div>
+      {section && (
+        <div className="chart-sounding">
+          <Sounding a={section[0]} b={section[1]} />
+          <button onClick={() => setSection(undefined)}>断面を閉じる</button>
+        </div>
+      )}
       <button
         className="paper-turn"
         aria-label="測量図を回す"
@@ -150,7 +159,7 @@ export function Trace({ game: g, send, selected }: ControlProps) {
       )}
       {g.tracing && (
         <div className="tracing-in-hand">
-          <HullDrawing showWater={false} />
+          <HullDrawing showWater={false} showScale={false} />
         </div>
       )}
     </>
@@ -182,7 +191,7 @@ export function Draft({ game: g, send, selected }: ControlProps) {
       />
       {paper && g.tracing && (
         <div className="depth-template on-boat">
-          <HullDrawing showWater={false} />
+          <HullDrawing showWater={false} showScale={false} />
         </div>
       )}
       {rod && g.items.rod === "inventory" && (
@@ -211,63 +220,157 @@ export function Draft({ game: g, send, selected }: ControlProps) {
     </>
   );
 }
+export function Sounding({ a, b }: { a: string; b: string }) {
+  const edge = channels.find(
+    ([x, y]) => (x === a && y === b) || (y === a && x === b),
+  );
+  if (!edge) return null;
+  const depth = Math.round((3 - edge[2]) * 100);
+  return (
+    <div className="sounding-detail">
+      <span>
+        {chartLabel(a)} — {chartLabel(b)}
+      </span>
+      <svg
+        viewBox="0 0 230 300"
+        role="img"
+        aria-label="水面から海底までの拡大断面。小目盛り1cm、長線5cm"
+      >
+        <g stroke="currentColor" fill="none">
+          <path d="M50 30H200M65 30V270" />
+          {Array.from({ length: 81 }, (_, i) => (
+            <path key={i} d={`M65 ${30 + i * 3}h${i % 5 === 0 ? 20 : 9}`} />
+          ))}
+          <path d={`M65 ${30 + depth * 3}H200`} strokeWidth="3" />
+        </g>
+        <g fill="currentColor" fontSize="13">
+          <text x="100" y="22">
+            Ⅲ 水面
+          </text>
+          <text x="110" y={48 + depth * 3}>
+            海底
+          </text>
+          {[0, 10, 20, 30, 40, 50, 60, 70, 80].map((i) => (
+            <text key={i} x="32" y={34 + i * 3}>
+              {i}
+            </text>
+          ))}
+        </g>
+      </svg>
+      <small>小目盛り 1cm ／ 長線 5cm</small>
+    </div>
+  );
+}
 export function SeaScene({ game: g, send }: ControlProps) {
-  const next = channels
-    .filter(([a, b]) => a === g.seaNode || b === g.seaNode)
-    .map(([a, b]) => (a === g.seaNode ? b : a))
-    .filter((n) => n !== "S");
-  const previous =
-    g.seaHistory.length > 1 ? g.seaHistory[g.seaHistory.length - 2] : "S";
-  const choices = next.filter((n) => n !== previous);
+  const [chart, setChart] = useState(false);
+  const [section, setSection] = useState<[string, string]>();
+  const failureImage =
+    g.voyageFailure === "beam"
+      ? "voyage-beam"
+      : g.voyageFailure === "heading"
+        ? "voyage-entrance"
+        : ({
+            A: "voyage-twin",
+            D: "voyage-gate",
+            F: "voyage-islet",
+            T: "voyage-light",
+          }[g.seaNode] ?? "voyage-entrance");
+  if (g.atSea)
+    return (
+      <>
+        <Photo
+          src={scene(g.ended ? "voyage-arrived" : failureImage)}
+          alt={
+            g.ended
+              ? "灯台を越え、開けた海へ出た船"
+              : "計画した航路の途中で止まった船"
+          }
+        />
+        <div className="voyage-result">
+          <p>
+            {g.ended
+              ? "岩場が途切れた。目の前に、海が開けている。"
+              : g.voyageFailure === "beam"
+                ? "水面のすぐ下に、太い梁がある。ここは通れない。"
+                : "船底に、浅瀬が触れた。船を止めた。"}
+          </p>
+        </div>
+        <SceneAction
+          onClick={() => {
+            setChart(false);
+            send({ type: "returnDock" });
+          }}
+        >
+          {g.ended ? "出港前の渡船場へ" : "船着き場へ引き返す"}
+        </SceneAction>
+      </>
+    );
   return (
     <>
       <Photo
-        src={scene(g.ended ? "ending" : "sea-night")}
-        alt="船首から望む水路"
+        src={scene("voyage-moored")}
+        alt="停泊中の船から、二本杭と輪の標、沖の灯を望む"
       />
-      {!g.ended &&
-        choices.map((node, i) => {
-          const x =
-            choices.length === 1 ? 50 : 22 + (i * 56) / (choices.length - 1);
-          return (
-            <div key={node}>
-              <img
-                className="sea-marker"
-                src={mechanism(markerNames[node] ?? "marker-light")}
-                alt=""
-                style={{
-                  left: `${x}%`,
-                  top: "34%",
-                  width: node === "F" ? "16%" : undefined,
-                }}
-              />
-              <button
-                className="sea-choice"
-                style={{ left: `${x}%` }}
-                aria-label={`${choices.length === 1 ? "正面" : i === 0 ? "左" : i === choices.length - 1 ? "右" : "中央"}の水路へ進む`}
-                onClick={() => send({ type: "sail", node })}
-              >
-                この水路へ →
-              </button>
-            </div>
-          );
-        })}
-      {g.ended ? (
-        <div className="ending-copy">
-          <span>潮待ち</span>
-          <p>灯がひとつ、遠ざかった。</p>
-          <button onClick={() => send({ type: "returnDock" })}>
-            出航前の渡船場へ
-          </button>
-        </div>
-      ) : (
-        <SceneAction
-          className="sea-return"
-          onClick={() => send({ type: "returnDock" })}
+      {chart && (
+        <div
+          className="route-planner"
+          style={{ backgroundImage: `url(${closeup("paper-desk")})` }}
         >
-          渡船場へ戻る
-        </SceneAction>
+          <div className="route-paper">
+            <HarborDrawing
+              game={g}
+              route={g.routePlan}
+              mark={(node) => {
+                const prev = g.routePlan.at(-1);
+                send({ type: "routePoint", node });
+                if (
+                  prev &&
+                  channels.some(
+                    ([a, b]) =>
+                      (a === prev && b === node) || (b === prev && a === node),
+                  )
+                )
+                  setSection([prev, node]);
+              }}
+              onChannel={(a, b) => setSection([a, b])}
+            />
+          </div>
+          {section ? (
+            <Sounding a={section[0]} b={section[1]} />
+          ) : (
+            <div className="sounding-detail">水深の断面を選んで拡大</div>
+          )}
+          <p>船着き場から標を順につなぐ。水深の断面を選ぶと拡大。</p>
+        </div>
       )}
+      <SceneAction onClick={() => setChart(!chart)}>
+        {chart ? "景色を見る" : "測量図に航路を引く"}
+      </SceneAction>
+      {chart && (
+        <>
+          <SceneAction
+            onClick={() => send({ type: "routeUndo" })}
+            disabled={!g.routePlan.length}
+          >
+            一つ戻す
+          </SceneAction>
+          <SceneAction
+            onClick={() => send({ type: "routeClear" })}
+            disabled={!g.routePlan.length}
+          >
+            航路を消す
+          </SceneAction>
+        </>
+      )}
+      <SceneAction
+        onClick={() => send({ type: "depart" })}
+        disabled={g.routePlan.at(-1) !== "T"}
+      >
+        この航路で出港する
+      </SceneAction>
+      <SceneAction onClick={() => send({ type: "disembark" })}>
+        岸へ戻る
+      </SceneAction>
     </>
   );
 }

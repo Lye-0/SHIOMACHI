@@ -6,7 +6,9 @@ export const chartPoints: Record<string, [number, number]> = {
   D: [500, 560],
   E: [720, 180],
   F: [700, 360],
-  T: [850, 300],
+  G: [900, 80],
+  H: [1020, 400],
+  T: [1140, 220],
   X: [70, 520],
 };
 export const observer = chartPoints.S;

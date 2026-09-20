@@ -15,7 +15,6 @@ import { Soundscape } from "../game/audio";
 import { itemImage, scene } from "../content/assets";
 import { Icon, Photo, ItemArt } from "./Primitives";
 import { Scene } from "./Scene";
-import { DockView } from "./DockView";
 import { SeaScene } from "./Navigation";
 import { Details } from "./Details";
 import { Notebook } from "./Notebook";
@@ -296,7 +295,9 @@ export function App() {
           <ActionBar>
             <section
               className="stage"
-              aria-label={g.atSea ? "水路" : roomNames[g.room]}
+              aria-label={
+                g.atSea ? "水路" : g.boarded ? "停泊中の船" : roomNames[g.room]
+              }
             >
               {g.detail ? (
                 <Details game={g} send={send} selected={selected} />
@@ -327,7 +328,11 @@ export function App() {
                   </button>
                 </div>
                 <span className="room-name">
-                  {g.atSea ? "水路" : roomNames[g.room]}
+                  {g.atSea
+                    ? "水路"
+                    : g.boarded
+                      ? "停泊中の船"
+                      : roomNames[g.room]}
                 </span>
                 <div className="hud-actions">
                   <button
@@ -383,7 +388,7 @@ export function App() {
                 <div className={`scene-transition ${transition.kind}`}>
                   {transition.departure ? (
                     <>
-                      <DockView game={transition.departure} />
+                      <Photo src={scene("voyage-moored")} />
                       <div
                         className="world-frame after"
                         inert

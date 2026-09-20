@@ -29,8 +29,6 @@
     "dock-high",
     "dock-high-flooded",
     "shore-low",
-    "sea-night",
-    "ending",
     "landward",
     "service-loaded",
     "waiting-rear-high-open",
@@ -39,7 +37,15 @@
     "service-released",
     "service-free",
     "service-patched",
-    "service-dry"
+    "service-dry",
+    "voyage-moored",
+    "voyage-twin",
+    "voyage-gate",
+    "voyage-islet",
+    "voyage-beam",
+    "voyage-light",
+    "voyage-entrance",
+    "voyage-arrived"
   ],
   "closeups": [
     "shutter-base",
@@ -108,12 +114,8 @@
     "boat-lamp",
     "marker-twin",
     "marker-ring",
-    "marker-rock",
     "marker-gate",
     "marker-triangle",
-    "marker-islet",
-    "marker-light",
-    "marker-landing",
     "cradle",
     "boat-lamp-bare"
   ]

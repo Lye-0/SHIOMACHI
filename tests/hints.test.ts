@@ -31,7 +31,7 @@ function ready(): Game {
     lensClean: true,
     lampLit: true,
     rodMark: 0,
-    waterMark: 5,
+    waterMark: 50,
     gateOpen: true,
   });
   Object.assign(g.items, {
@@ -164,12 +164,12 @@ describe("現在の進行から次の手がかりを選ぶ", () => {
     g.records.chart.chartMarks = ["A", "B", "D", "E"];
     expect(hintFor(g).id).toBe("chart-lines");
     g.records.chart.chartMarks = ["D", "B", "E", "A"];
-    g.waterMark = 4;
+    g.waterMark = 40;
     g.items.hook = "inventory";
     expect(hintFor(g).id).toBe("hook-separate");
     g.items.hook = "absent";
     expect(hintFor(g).id).toBe("draft");
-    g.waterMark = 5;
+    g.waterMark = 50;
     expect(hintFor(g).id).toBe("depart");
   });
   it("水門と出航後の現在位置、脱出完了を区別する", () => {
@@ -179,15 +179,10 @@ describe("現在の進行から次の手がかりを選ぶ", () => {
     g.gateOpen = true;
     expect(hintFor(g).id).toBe("depart");
     g.atSea = true;
-    for (const [node, next] of [
-      ["S", "輪の標"],
-      ["B", "割れた岬"],
-      ["C", "三角の標"],
-      ["E", "沖の灯"],
-    ]) {
-      g.seaNode = node;
-      expect(hintFor(g).steps.at(-1)).toContain(next);
-    }
+    expect(hintFor(g).id).toBe("voyage-return");
+    g.atSea = false;
+    g.boarded = true;
+    expect(hintFor(g).id).toBe("voyage-plan");
     g.ended = true;
     expect(hintFor(g).id).toBe("ended");
   });

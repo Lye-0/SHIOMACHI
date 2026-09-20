@@ -12,7 +12,7 @@ export function MeasureMarks({
   const scale = onBoat ? 1 : 0.7,
     top = onBoat ? 0 : 12,
     keel = top + ((scale * hull.keel) / hull.height) * 100,
-    step = ((scale * hull.step) / hull.height) * 100;
+    step = ((scale * hull.step) / 10 / hull.height) * 100;
   const move = (
     e: PointerEvent<HTMLButtonElement>,
     type: "rodMark" | "waterMark",
@@ -22,7 +22,7 @@ export function MeasureMarks({
     const y = ((e.clientY - rect.top) / rect.height) * 100;
     send({
       type,
-      value: Math.max(0, Math.min(8, Math.round((keel - y) / step))),
+      value: Math.max(0, Math.min(80, Math.round((keel - y) / step))),
     });
   };
   return (
@@ -37,14 +37,40 @@ export function MeasureMarks({
             : { left: "73.9%", top: "13.4%", height: "49.28%" }
         }
       />
+      <svg
+        className="measure-ticks"
+        viewBox="0 0 100 100"
+        preserveAspectRatio="none"
+        style={{
+          position: "absolute",
+          inset: 0,
+          width: "100%",
+          height: "100%",
+          pointerEvents: "none",
+        }}
+        aria-hidden="true"
+      >
+        {Array.from({ length: 81 }, (_, i) => (
+          <line
+            key={i}
+            x1={onBoat ? 88.9 : 74.7}
+            x2={(onBoat ? 88.9 : 74.7) + (i % 5 === 0 ? 1.3 : 0.65)}
+            y1={keel - i * step}
+            y2={keel - i * step}
+            stroke="#eadbc0"
+            strokeWidth={i % 5 === 0 ? 0.1 : 0.055}
+          />
+        ))}
+      </svg>
       {(["rodMark", "waterMark"] as const).map((type, i) => (
         <button
           key={type}
           role="slider"
           aria-label={i ? "水線の印を動かす" : "船底の印を動かす"}
           aria-valuemin={0}
-          aria-valuemax={8}
+          aria-valuemax={80}
           aria-valuenow={g[type]}
+          aria-valuetext={`${g[type]} cm`}
           className={`measure-grip ${i ? "water" : ""}`}
           style={{
             top: `${keel - g[type] * step}%`,
@@ -67,7 +93,7 @@ export function MeasureMarks({
         </button>
       ))}
       <p className={`measure-key ${onBoat ? "on-water" : ""}`}>
-        白は船底、青は水線。
+        白は船底、青は水線。差 {Math.abs(g.waterMark - g.rodMark)} cm
       </p>
     </>
   );

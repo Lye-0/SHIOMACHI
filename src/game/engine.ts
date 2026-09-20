@@ -68,6 +68,10 @@ export function act(previous: Game, action: Action): Result {
       break;
     case "visit":
     case "mapTravel":
+      if (g.atSea) {
+        say("船着き場へ引き返したい。");
+        break;
+      }
       if (action.type === "mapTravel") {
         const blocked = mapTravelBlock(g, action.room);
         if (blocked) {
@@ -87,6 +91,7 @@ export function act(previous: Game, action: Action): Result {
         say("向こうの敷居には、まだ届かない。");
         break;
       }
+      g.boarded = false;
       g.room = action.room;
       g.face = 0;
       g.detail = null;
@@ -463,10 +468,10 @@ export function act(previous: Game, action: Action): Result {
       }
       break;
     case "rodMark":
-      g.rodMark = Math.max(0, Math.min(8, action.value));
+      g.rodMark = Math.max(0, Math.min(80, action.value));
       break;
     case "waterMark":
-      g.waterMark = Math.max(0, Math.min(8, action.value));
+      g.waterMark = Math.max(0, Math.min(80, action.value));
       break;
     case "gate":
       if (g.gateOpen) {
@@ -478,46 +483,114 @@ export function act(previous: Game, action: Action): Result {
         say("内と外の水が、静かにつながった。", "water");
       }
       break;
-    case "depart":
-      if (!boatReady(g)) say("船底に、水が溜まっている。", "water");
-      else if (g.water !== 2) say("船の下に、まだ船台が触れている。");
-      else if (!g.gateOpen) say("海側の水門が閉じている。");
-      else if (!g.lampLit) say("標識が、闇に沈んでいる。");
-      else {
-        g.atSea = true;
+    case "board":
+      if (!boatReady(g) || g.water !== 2) {
+        say("船がまだ浮かべられない。");
+        break;
+      }
+      if (!g.gateOpen || !g.lampLit) {
+        say("水門と船灯を確かめたい。");
+        break;
+      }
+      g.boarded = true;
+      g.detail = null;
+      g.room = "dock";
+      break;
+    case "disembark":
+      if (!g.atSea) {
+        g.boarded = false;
         g.detail = null;
-        g.seaNode = "S";
-        g.seaHistory = ["S"];
-        result.transition = "depart";
       }
       break;
-    case "sail": {
-      if (!g.atSea || g.ended) break;
-      const edge = channels.find(
-        ([a, b]) =>
-          (a === g.seaNode && b === action.node) ||
-          (b === g.seaNode && a === action.node),
-      );
-      if (!edge) break;
-      if (edge[3]) {
-        say("水のすぐ下を、太い梁が塞いでいる。", "water");
+    case "routePoint": {
+      if (!g.boarded || g.atSea || !Object.hasOwn(seaNames, action.node)) break;
+      const tail = g.routePlan.at(-1);
+      if (!tail) {
+        if (action.node === "S" || action.node === "X")
+          g.routePlan = [action.node];
+        else say("船着き場から線を引く。");
         break;
       }
-      if (3 - edge[2] < boatDraft - 1e-9) {
-        say("船底に、浅瀬が触れた。船を止め、引き返した。", "water");
-        break;
-      }
-      g.seaNode = action.node;
-      g.seaHistory.push(action.node);
-      result.sound = "water";
-      if (action.node === "T") {
-        g.ended = true;
-        say("岸の灯が、遠ざかる。", "water");
-      }
+      if (tail === "T" || g.routePlan.includes(action.node)) break;
+      if (
+        channels.some(
+          ([a, b]) =>
+            (a === tail && b === action.node) ||
+            (b === tail && a === action.node),
+        )
+      )
+        g.routePlan.push(action.node);
+      else say("点線でつながった標を選ぶ。");
       break;
     }
+    case "routeUndo":
+      if (g.boarded && !g.atSea) g.routePlan.pop();
+      break;
+    case "routeClear":
+      if (g.boarded && !g.atSea) g.routePlan = [];
+      break;
+    case "depart": {
+      if (g.atSea) break;
+      if (
+        !g.boarded ||
+        !boatReady(g) ||
+        g.water !== 2 ||
+        !g.gateOpen ||
+        !g.lampLit
+      ) {
+        say("船と水門、船灯を確かめたい。");
+        break;
+      }
+      if (g.routePlan.at(-1) !== "T" || g.routePlan.length < 2) {
+        say("沖の灯まで、航路を引きたい。");
+        break;
+      }
+      g.atSea = true;
+      g.detail = null;
+      g.ended = false;
+      g.voyageFailure = "";
+      g.failureLeg = -1;
+      g.seaHistory = ["S"];
+      // A course plotted from the other landing has a translated departure bearing:
+      // the first leg crosses the shoal beside this harbor mouth, not the planned channel.
+      if (g.routePlan[0] !== "S") {
+        g.voyageFailure = "heading";
+        g.failureLeg = 0;
+        g.seaNode = "S";
+      } else
+        for (let i = 1; i < g.routePlan.length; i++) {
+          const from = g.routePlan[i - 1],
+            to = g.routePlan[i];
+          const edge = channels.find(
+            ([a, b]) => (a === from && b === to) || (b === from && a === to),
+          );
+          if (!edge) {
+            g.voyageFailure = "heading";
+            g.failureLeg = i - 1;
+            g.seaNode = from;
+            break;
+          }
+          if (edge[3] || 3 - edge[2] <= boatDraft + 1e-9) {
+            g.voyageFailure = edge[3] ? "beam" : "shallow";
+            g.failureLeg = i - 1;
+            g.seaNode = to;
+            break;
+          }
+          g.seaHistory.push(to);
+          g.seaNode = to;
+        }
+      if (!g.voyageFailure) g.ended = true;
+      result.transition = "depart";
+      result.sound = "water";
+      break;
+    }
+    case "sail":
+      break; // Legacy incremental navigation cannot bypass a plotted voyage.
     case "returnDock":
       g.atSea = false;
+      g.boarded = true;
+      g.voyageFailure = "";
+      g.failureLeg = -1;
       g.ended = false;
       g.seaNode = "S";
       g.seaHistory = ["S"];
@@ -538,6 +611,57 @@ export function parseSave(raw: string | null): Game | null {
     const g = input as Game,
       base = newGame();
     g.records ??= {};
+    if (!("navigationVersion" in input)) {
+      g.navigationVersion = 2;
+      g.boarded = false;
+      g.routePlan = [];
+      g.voyageFailure = "";
+      g.failureLeg = -1;
+      g.rodMark *= 10;
+      g.waterMark *= 10;
+      if (g.atSea && !g.ended) {
+        g.atSea = false;
+        g.boarded = true;
+        g.room = "dock";
+        g.detail = null;
+        g.seaNode = "S";
+        g.seaHistory = ["S"];
+      }
+    }
+    if (
+      !Number.isInteger(g.failureLeg) ||
+      g.failureLeg < -1 ||
+      g.failureLeg > 10
+    )
+      return null;
+    if (
+      g.navigationVersion !== 2 ||
+      !["", "shallow", "beam", "heading"].includes(g.voyageFailure)
+    )
+      return null;
+    if (
+      !Array.isArray(g.routePlan) ||
+      g.routePlan.length > 11 ||
+      !g.routePlan.every(
+        (n) => typeof n === "string" && Object.hasOwn(seaNames, n),
+      ) ||
+      new Set(g.routePlan).size !== g.routePlan.length
+    )
+      return null;
+    if (g.routePlan.length && !["S", "X"].includes(g.routePlan[0])) return null;
+    if (
+      g.routePlan.some(
+        (n, i) =>
+          i > 0 &&
+          !channels.some(
+            ([a, b]) =>
+              (a === n && b === g.routePlan[i - 1]) ||
+              (b === n && a === g.routePlan[i - 1]),
+          ),
+      )
+    )
+      return null;
+
     // Older saves did not track removed pins as inventory. Restore ownership.
     if (g.items && typeof g.items === "object" && Array.isArray(g.pins))
       g.items.lockingPins = g.pins.some((p) => p === false)
@@ -579,8 +703,8 @@ export function parseSave(raw: string | null): Game | null {
       !integer(g.patchTurn, 0, 3) ||
       !integer(g.mapTurn, 0, 3) ||
       !integer(g.surveyPosition, 0, 4) ||
-      !integer(g.rodMark, 0, 8) ||
-      !integer(g.waterMark, 0, 8)
+      !integer(g.rodMark, 0, 80) ||
+      !integer(g.waterMark, 0, 80)
     )
       return null;
     if (

@@ -20,7 +20,7 @@ import {
 } from "./Miniatures";
 
 export function Scene({ game: g, send }: ControlProps) {
-  if (g.atSea) return <SeaScene game={g} send={send} />;
+  if (g.atSea || g.boarded) return <SeaScene game={g} send={send} />;
   const inspect = (detail: Detail) => () => send({ type: "inspect", detail });
   const go = (room: Room) => () => send({ type: "visit", room });
   const front: Record<Room, string> = {
@@ -703,7 +703,7 @@ export function Scene({ game: g, send }: ControlProps) {
           />
           <SceneAction
             className="passage-link dock"
-            onClick={() => send({ type: "depart" })}
+            onClick={() => send({ type: "board" })}
           >
             船に乗る
           </SceneAction>

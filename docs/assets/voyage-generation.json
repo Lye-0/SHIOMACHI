@@ -1,0 +1,82 @@
+{
+  "date": "2026-09-20",
+  "generator": "built-in image_gen",
+  "jobs": [
+    [
+      "voyage-moored",
+      "Still tied to harbor timber jetty, visible mooring rope in lower left, seated bow view through fully open stone harbor gate at left/right frame edges. Beyond mouth TWO tall bare timber navigation piles on LEFT rocky shoal, a single circular iron ring navigation marker on RIGHT rock. Small triangle marker far behind left pair; stone arch far behind right ring. Far distant bright white lighthouse at opening to sea on right horizon. All plausible scale, embedded bases and reflections. No random objects in open water."
+    ],
+    [
+      "voyage-twin",
+      "Boat stopped at very shallow rock shelf beside TWO old upright timber piles on left shore. Foreground visible submerged rock just below clear dark water in bow lamp. Channel beyond narrows, distant white lighthouse. No collision damage. Close boat viewpoint, harbor is behind."
+    ],
+    [
+      "voyage-gate",
+      "Boat stopped before a weathered STONE ARCH attached to right rocky shore, shallow flat rock shelf visible beneath clear water directly ahead bow. Shore bends left, distant lighthouse partly hidden. Arch real grounded architecture not floating object."
+    ],
+    [
+      "voyage-islet",
+      "Boat approaches small island with THREE pine trees grouped on central rock shore. Shallow rocks visible below foreground water; dark angular cracked headland on left. Rightward side channel opens toward lighthouse, no floating props."
+    ],
+    [
+      "voyage-beam",
+      "Boat halted before massive fallen timber beam across narrow channel from distinctive split rock headland on LEFT to small THREE-PINE island on RIGHT. Beam partly submerged but visible in warm bow lantern, too shallow to pass over. Real natural continuous geography, no detached icons."
+    ],
+    [
+      "voyage-light",
+      "Boat halted on shallow pale rock shelf near white lighthouse at outlet of rocky bay. Lighthouse solidly built on rocky headland at right, bright warm light casts long reflection. Open sea beyond but near shallow shelf blocks direct shortcut. No land under boat, submerged rock visible at front."
+    ],
+    [
+      "voyage-entrance",
+      "Boat stopped at shallow rubble along harbor mouth, two similar wooden jetties visible diagonally behind, twin piles far LEFT and circular ring far RIGHT. Clear submerged rocks at bow, heading visibly toward shoreline rather than open channel. No damage."
+    ],
+    [
+      "voyage-arrived",
+      "Boat has passed the lighthouse on right rocky headland and leaves narrow harbor for vast open sea at dawn. Close same wooden bow at bottom, bright lighthouse to right behind shoulder, distant offshore horizon central and expansive. Light reflection leads outward, subtle warm dawn, satisfying quiet escape, no text."
+    ]
+  ],
+  "selected": [
+    {
+      "asset": "scenes/voyage-moored",
+      "source": "exec-54664646-8cdf-4ba9-ab4e-2819c584f8c1.png"
+    },
+    {
+      "asset": "scenes/voyage-twin",
+      "source": "exec-629955ba-9c60-4edc-ba88-57198bd93f04.png"
+    },
+    {
+      "asset": "scenes/voyage-gate",
+      "source": "exec-a11d5f51-86ca-45d9-a6bd-a28c28447fd6.png"
+    },
+    {
+      "asset": "scenes/voyage-islet",
+      "source": "exec-9cd6f15c-6b37-4e16-b960-569bf21fe64b.png"
+    },
+    {
+      "asset": "scenes/voyage-beam",
+      "source": "exec-322d3354-3b1c-4e9d-9e79-263f18d223ee.png"
+    },
+    {
+      "asset": "scenes/voyage-light",
+      "source": "exec-2ea84603-952b-43b0-a19a-2ac5908a0ddc.png"
+    },
+    {
+      "asset": "scenes/voyage-entrance",
+      "source": "exec-09142076-4f26-4239-8473-7b11d31f0ece.png"
+    },
+    {
+      "asset": "scenes/voyage-arrived",
+      "source": "exec-19f548ce-8219-497a-99b9-2652c12f2026.png"
+    },
+    {
+      "asset": "scenes/shore-low",
+      "source": "exec-cc7f033f-0786-4e6a-b22a-9756d0a286a8.png"
+    }
+  ],
+  "refinements": [
+    "voyage-moored: 二本杭の三角帽子を除去、奥の石の門を矩形へ統一",
+    "voyage-gate: 丸い石積みアーチを白い矩形の標へ変更",
+    "voyage-entrance: 新しい停泊景色を参照し、方向を誤った浅瀬の景色に統一",
+    "shore-low: 航行時の梁画像から同じ岬・三本松と低水位の梁を岸側から描写"
+  ]
+}
