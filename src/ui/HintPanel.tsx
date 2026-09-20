@@ -1,9 +1,12 @@
 import { useState } from "react";
-import { hintFor } from "../content/hints";
+import { hintFor, type Hint } from "../content/hints";
 import type { Game } from "../game/model";
 export function HintPanel({ game }: { game: Game }) {
-  const [step, setStep] = useState(0),
-    hint = hintFor(game);
+  const hint = hintFor(game);
+  return <HintSteps key={hint.id} hint={hint} />;
+}
+function HintSteps({ hint }: { hint: Hint }) {
+  const [step, setStep] = useState(0);
   return (
     <>
       <span className="eyebrow">A LITTLE HELP</span>
