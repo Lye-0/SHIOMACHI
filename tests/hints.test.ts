@@ -180,7 +180,8 @@ describe("現在の進行から次の手がかりを選ぶ", () => {
     g.records.chart.chartMarks = ["D", "B", "E", "A"];
     g.waterMark = 40;
     g.items.hook = "inventory";
-    expect(hintFor(g).id).toBe("hook-separate");
+    expect(hintFor(g).id).toBe("draft");
+    expect(hintFor(g).steps.join()).not.toContain("分離");
     g.items.hook = "absent";
     expect(hintFor(g).id).toBe("draft");
     g.waterMark = 50;

@@ -122,7 +122,7 @@ export function Notebook({ game: g }: { game: Game }) {
             <p>
               {record?.draftMarks
                 ? `計測した印の間隔：${Math.abs(record.draftMarks[1] - record.draftMarks[0])} cm（白：船底／青：水線）`
-                : "船の水線の記録。船尾で写しを重ね、棒を添えて測ると、計測した印もここに残る。"}
+                : "船の水線の記録。船尾で「船底の深さを測る」を選ぶと、計測した印もここに残る。"}
             </p>
           )}
           <button className="text-button" onClick={() => setOpened(undefined)}>

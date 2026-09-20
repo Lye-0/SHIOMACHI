@@ -26,6 +26,29 @@ type Fixture = {
 };
 const fixtures: Fixture[] = [
   {
+    id: "draft-hook-simple",
+    room: "dock",
+    detail: "boat",
+    ready: true,
+    patch: {
+      tracing: true,
+      items: {
+        ...newGame().items,
+        hook: "inventory",
+        rod: "absent",
+        tracingPaper: "inventory",
+      },
+    },
+  },
+  {
+    id: "trace-acquire",
+    room: "dock",
+    detail: "trace",
+    patch: { items: { ...newGame().items, chalk: "inventory" } },
+    selected: "chalk",
+  },
+
+  {
     id: "pump-jacks-raised",
     room: "pump",
     detail: "pipes",
@@ -528,6 +551,7 @@ function create(f: Fixture) {
       boatDry: true,
     });
   Object.assign(g, f.patch);
+  if (g.tracing) g.items.tracingPaper = "inventory";
   g.items.lockingPins = g.pins.some((p) => !p) ? "inventory" : "absent";
   if (f.id.endsWith("-operation")) {
     g.items.crank = "inventory";
@@ -641,6 +665,14 @@ export function VisualLab() {
         {g.items.lockingPins === "inventory" && (
           <div style={{ width: 64, height: 64 }}>
             <ItemArt item="lockingPins" game={g} />
+          </div>
+        )}
+        {g.items.tracingPaper === "inventory" && (
+          <div
+            style={{ width: 64, height: 64 }}
+            aria-label="所持した船底の写し"
+          >
+            <ItemArt item="tracingPaper" game={g} />
           </div>
         )}
         <button onClick={() => setNotes(true)}>検証記録帳</button>

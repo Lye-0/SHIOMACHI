@@ -29,11 +29,23 @@ export function MeasureMarks({
     <>
       <img
         className="measure-rod-photo"
-        src={itemImage("rod")}
-        alt="測深棒"
+        src={itemImage(g.items.hook === "inventory" ? "hook" : "rod")}
+        alt={
+          g.items.hook === "inventory"
+            ? "鉤を付けたまま、直線の軸で測る"
+            : "測深棒"
+        }
         style={
           onBoat
-            ? { left: "87.75%", top: "2%", height: "70.4%" }
+            ? g.items.hook === "inventory"
+              ? {
+                  left: "75.45%",
+                  top: "2%",
+                  height: "70.4%",
+                  width: "26.4%",
+                  objectFit: "fill",
+                }
+              : { left: "87.75%", top: "2%", height: "70.4%" }
             : { left: "73.9%", top: "13.4%", height: "49.28%" }
         }
       />

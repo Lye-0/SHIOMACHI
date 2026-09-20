@@ -131,10 +131,12 @@ export function BoatRepair({ game: g, send, selected }: ControlProps) {
           />
         )}
         {g.water === 2 && boatReady(g) ? (
-          <SceneAction className="view-turn" onClick={() => setStern(!stern)}>
-            {stern ? "船の側面へ" : "船尾側へ回る"}
-            <Icon name="right" />
-          </SceneAction>
+          !stern && (
+            <SceneAction className="view-turn" onClick={() => setStern(!stern)}>
+              船尾側へ回る
+              <Icon name="right" />
+            </SceneAction>
+          )
         ) : (
           <p className="observation-caption">
             {g.water === 1

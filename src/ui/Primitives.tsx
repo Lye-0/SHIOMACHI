@@ -1,3 +1,4 @@
+import { HullDrawing } from "./drawings";
 import { useContext, type CSSProperties, type ReactNode } from "react";
 import { StageWidth } from "./ActionBar";
 import { itemImage, mechanism } from "../content/assets";
@@ -14,6 +15,15 @@ export function ItemArt({
   className?: string;
   style?: CSSProperties;
 }) {
+  if (item === "tracingPaper")
+    return (
+      <span
+        className={`item-art item-tracing-paper ${className}`}
+        style={style}
+      >
+        <HullDrawing showWater={false} showScale={false} />
+      </span>
+    );
   const kind =
     item === "keyBow"
       ? "key-bow"

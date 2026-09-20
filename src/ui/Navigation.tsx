@@ -135,6 +135,7 @@ export function Chart({ game: g, send }: ControlProps) {
   );
 }
 export function Trace({ game: g, send, selected }: ControlProps) {
+  const [taken, setTaken] = useState(false);
   return (
     <>
       <div className="trace-surroundings">
@@ -154,11 +155,14 @@ export function Trace({ game: g, send, selected }: ControlProps) {
           w={88}
           h={53}
           shape="0,0 6,0 10,17 25,45 50,63 75,45 91,15 96,0 100,0 100,100 0,100"
-          onClick={() => send({ type: "trace", tool: selected })}
+          onClick={() => {
+            send({ type: "trace", tool: selected });
+            setTaken(selected === "chalk" && g.items.chalk === "inventory");
+          }}
         />
       )}
-      {g.tracing && (
-        <div className="tracing-in-hand">
+      {taken && g.tracing && (
+        <div className="tracing-in-hand tracing-acquired">
           <HullDrawing showWater={false} showScale={false} />
         </div>
       )}
@@ -181,59 +185,44 @@ export function Depth({ game: g }: ControlProps) {
   );
 }
 export function Draft({ game: g, send }: ControlProps) {
-  const [paper, setPaper] = useState(false),
-    [rod, setRod] = useState(false);
+  const [measuring, setMeasuring] = useState(false);
+  const ready =
+    g.tracing && (g.items.rod === "inventory" || g.items.hook === "inventory");
   return (
     <>
       <Photo
         src={closeup("boat-floating")}
         alt="船尾側から見た、浮かんだ船と水線"
       />
-      {paper && g.tracing && (
-        <div className="depth-template on-boat">
-          <HullDrawing showWater={false} showScale={false} />
-        </div>
-      )}
-      {rod && g.items.rod === "inventory" && (
-        <MeasureMarks game={g} send={send} onBoat />
-      )}
-      {!g.tracing && (
-        <p className="observation-caption">
-          船台の輪郭の写しがあれば、水中の船底まで比べられそうだ。
-        </p>
-      )}
-      <div className="observation-actions">
-        {g.items.rod === "inventory" && !rod && (
+      {measuring && ready ? (
+        <>
+          <div className="depth-template on-boat">
+            <HullDrawing showWater={false} showScale={false} />
+          </div>
+          <MeasureMarks game={g} send={send} onBoat />
+        </>
+      ) : (
+        <>
           <SceneAction
             onClick={() => {
-              setRod(true);
-              setPaper(g.tracing);
-              send({ type: "measureDraft" });
+              if (ready) {
+                setMeasuring(true);
+                send({ type: "measureDraft" });
+              }
             }}
+            disabled={!ready}
           >
-            棒を添えて測る
+            船底の深さを測る
           </SceneAction>
-        )}
-        {g.items.hook === "inventory" && !rod && (
-          <SceneAction onClick={() => send({ type: "separate", item: "hook" })}>
-            鉤から棒を外す
-          </SceneAction>
-        )}
-        {g.items.rod !== "inventory" && g.items.hook !== "inventory" && (
-          <p className="observation-caption">
-            長い棒を添えれば、水面から船底までを測れそうだ。
-          </p>
-        )}
-
-        {g.tracing && (
-          <SceneAction aria-pressed={paper} onClick={() => setPaper(!paper)}>
-            {paper ? "写しをしまう" : "記録帳の写しを重ねる"}
-          </SceneAction>
-        )}
-        {rod && (
-          <SceneAction onClick={() => setRod(false)}>棒をしまう</SceneAction>
-        )}
-      </div>
+          {!ready && (
+            <p className="observation-caption">
+              {!g.tracing
+                ? "船台で船底の写しを取れば、水中の形を比べられそうだ。"
+                : "長い棒か鉤があれば、水線と船底の間隔を測れそうだ。"}
+            </p>
+          )}
+        </>
+      )}
     </>
   );
 }

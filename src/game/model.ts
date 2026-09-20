@@ -46,7 +46,8 @@ export type Item =
   | "boatKit"
   | "lens"
   | "chalk"
-  | "lockingPins";
+  | "lockingPins"
+  | "tracingPaper";
 export type Place =
   | "tray"
   | "lock"
@@ -200,6 +201,7 @@ export function newGame(): Game {
       lens: "shelf",
       chalk: "desk",
       lockingPins: "absent",
+      tracingPaper: "absent",
     },
     seen: [],
     records: {},
@@ -255,6 +257,7 @@ export const itemNames: Record<Item, string> = {
   lens: "船灯のガラス",
   chalk: "白墨",
   lockingPins: "固定ピン",
+  tracingPaper: "船底の写し",
 };
 
 export interface Block {

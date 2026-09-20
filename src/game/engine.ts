@@ -38,7 +38,7 @@ function recordObserved(g: Game, action?: Action) {
     ...g.records[id],
     ...(id === "waterline" &&
     g.tracing &&
-    g.items.rod === "inventory" &&
+    (g.items.rod === "inventory" || g.items.hook === "inventory") &&
     action &&
     ["measureDraft", "rodMark", "waterMark"].includes(action.type)
       ? { draftMarks: [g.rodMark, g.waterMark] as [number, number] }
@@ -475,8 +475,9 @@ export function act(previous: Game, action: Action): Result {
         say("船底に沿った、深いくぼみがある。");
       else {
         g.tracing = true;
+        g.items.tracingPaper = "inventory";
         remember("tracing");
-        say("くぼみの輪郭を、記録帳の紙に写した。", "wood");
+        say("船底の輪郭を写し取り、手元にしまった。", "wood");
       }
       break;
     case "measureDraft":
@@ -681,6 +682,8 @@ export function parseSave(raw: string | null): Game | null {
     )
       return null;
 
+    if (g.items && typeof g.items === "object")
+      g.items.tracingPaper = g.tracing ? "inventory" : "absent";
     // Older saves did not track removed pins as inventory. Restore ownership.
     if (g.items && typeof g.items === "object" && Array.isArray(g.pins))
       g.items.lockingPins = g.pins.some((p) => p === false)

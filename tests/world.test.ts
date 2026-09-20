@@ -325,6 +325,46 @@ describe("短問と出航", () => {
   });
 });
 describe("保存", () => {
+  it("写し取りで持ち物に入り、旧セーブの写しも所持品へ補完する", () => {
+    let g = newGame();
+    g.room = "dock";
+    g.detail = "trace";
+    g.items.chalk = "inventory";
+    g = run(g, { type: "trace", tool: "chalk" });
+    expect(g.items.tracingPaper).toBe("inventory");
+    expect(g.records.tracing).toBeDefined();
+    const old = JSON.parse(JSON.stringify(g));
+    delete old.items.tracingPaper;
+    expect(parseSave(JSON.stringify(old))?.items.tracingPaper).toBe(
+      "inventory",
+    );
+  });
+  it("鉤を分離せず計測でき、所持状態と前回の印を維持する", () => {
+    let g = newGame();
+    Object.assign(g, {
+      room: "dock",
+      detail: "boat",
+      water: 2,
+      tracing: true,
+      boatInside: true,
+      boatOutside: true,
+      boatDry: true,
+    });
+    g.items.hook = "inventory";
+    g.items.rod = "absent";
+    g = run(g, { type: "measureDraft" }, { type: "waterMark", value: 49 });
+    expect(g.records.waterline.draftMarks).toEqual([0, 49]);
+    expect(g.items.hook).toBe("inventory");
+    expect(g.items.rod).toBe("absent");
+    g = run(
+      g,
+      { type: "back" },
+      { type: "inspect", detail: "boat" },
+      { type: "measureDraft" },
+    );
+    expect(g.waterMark).toBe(49);
+    expect(g.records.waterline.draftMarks).toEqual([0, 49]);
+  });
   it("喫水の計測した印を自動記録し、再観察や保存再開でも保持する", () => {
     let g = newGame();
     Object.assign(g, {
