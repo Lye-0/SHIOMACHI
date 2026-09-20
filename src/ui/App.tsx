@@ -292,13 +292,28 @@ export function App() {
               <Scene game={g} send={send} selected={selected} />
             )}
             <header className="hud">
-              <button
-                className="icon-button"
-                aria-label="メニュー"
-                onClick={() => setPanel("menu")}
-              >
-                <Icon name="menu" />
-              </button>
+              <div className="hud-actions">
+                <button
+                  className="icon-button"
+                  aria-label="メニュー"
+                  onClick={() => setPanel("menu")}
+                >
+                  <Icon name="menu" />
+                </button>
+                <button
+                  className="icon-button targets-toggle"
+                  aria-label="操作する場所を表示"
+                  aria-pressed={outlines}
+                  title={
+                    outlines
+                      ? "操作する場所を非表示にする"
+                      : "操作する場所を表示"
+                  }
+                  onClick={() => setOutlines((value) => !value)}
+                >
+                  <Icon name="eye" />
+                </button>
+              </div>
               <span className="room-name">{roomNames[g.room]}</span>
               <button
                 className="icon-button"
@@ -457,14 +472,6 @@ export function App() {
                     type="checkbox"
                     checked={sound}
                     onChange={(e) => setSound(e.target.checked)}
-                  />
-                </label>
-                <label className="setting">
-                  操作する場所を表示
-                  <input
-                    type="checkbox"
-                    checked={outlines}
-                    onChange={(e) => setOutlines(e.target.checked)}
                   />
                 </label>
                 <button className="menu-row" onClick={() => setPanel("hint")}>

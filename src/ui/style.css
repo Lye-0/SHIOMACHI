@@ -97,6 +97,21 @@ img {
 .hud > * {
   pointer-events: auto;
 }
+.hud-actions {
+  display: flex;
+  gap: 8px;
+}
+.hud .room-name {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+.targets-toggle[aria-pressed="true"] {
+  color: #fff0bb;
+  background: #635b35e6;
+  box-shadow: inset 0 0 0 1px #ebd698;
+}
 .icon-button {
   width: 42px;
   height: 42px;
