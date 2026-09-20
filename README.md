@@ -1,61 +1,9 @@
 # 潮待ち — SHIOMACHI
 
-夜の渡船場を舞台にした、写真調の脱出ゲーム。水位を変え、浮桟橋を修復し、岸の見通しと船の深さから帰り道を探します。
+謎解きゲーム３
 
-8エリアを行き来する長編構成です。小さな道具のパズルと、複数の場所を結び付ける推理を組み合わせています。説明文は控えめで、必要なときだけ段階式のヒントを開けます。
+夜の渡船場を舞台にした、写真調の脱出ゲーム。水位を変え、浮桟橋を修復し、岸の見通しと船の深さから帰り道を探す。
 
-## 起動
+## DEPLOYMENT
 
-mise を導入した環境で、このディレクトリを開いて実行します。Node と pnpm のバージョンは `mise.toml` に固定しています。
-
-```powershell
-mise trust
-mise install
-pnpm install --frozen-lockfile
-pnpm dev
-```
-
-開発用: http://localhost:5197/
-
-```powershell
-pnpm test
-pnpm check:assets
-pnpm build
-pnpm preview
-```
-
-完成版の確認用: http://localhost:4197/
-
-## GitHub Pages
-
-`main` への push で `.github/workflows/pages.yml` が起動します。テスト・画像検査・ビルドが成功すると、`dist` を GitHub Pages へ公開します。
-
-リポジトリの Settings → Pages → Build and deployment の Source は **GitHub Actions** に設定します。公開先のパスは `configure-pages` の結果を Vite の `--base` に渡すため、リポジトリ配下の URL にも対応します。Node と pnpm はローカルと同じ固定バージョンを使います。
-
-参考: [GitHub Pages のカスタムワークフロー](https://docs.github.com/en/pages/getting-started-with-github-pages/using-custom-workflows-with-github-pages)
-
-## 操作と保存
-
-- 写真の物をクリックして調べます。画面下で道具を選び、使う場所をクリックします。
-- 道具右下の「＋」で拡大し、組合せ・分離を行います。
-- 観察した手掛かりは記録帳へ自動で残ります。紙片の図面は完成時に記録され、観測位置や測量図の線は観察中の変更に合わせて更新されます。現物の操作は現場で行います。
-- 画面右上のマップで、訪問済みの部屋・現在地・通路のつながりを確認できます。通れない通路は×、片方向の移動は矢印で示します。
-- 左上の目のボタンで操作箇所の表示を切り替えます。メニューから音、段階式ヒント、セーブの書出し・読込みを利用できます。
-- ブラウザへ自動保存します。URLのホストとポートが異なる場合、保存領域も別になります。
-- マウスまたはタッチで操作できます。キーボードは Tab／Enter、拡大画面を閉じる Escape、スライダーの矢印キーに対応します。
-- 細部の観察にはパソコンの横長画面を推奨します。
-
-## 制作・検証資料
-
-- `docs/design/implementation.md`: 状態と物理的な整合性の設計
-- `docs/qa/verification.md`: 通しプレイ・状態別画像・検証範囲
-- `docs/qa/consistency-audit.md`: 全景・接写・進行状態の整合性点検
-- `docs/assets/manifest.json`: 採用した画像の出典と寸法
-- `docs/assets/generation-log.json`: 追加生成・修正のプロンプト
-- `docs/assets/consistency-generation.json`: 整合性修正で使用した生成プロンプト
-
-画像は `public/assets/scenes`、`closeups`、`items`、`mechanisms` に整理しています。実行時に画像生成サービスへの接続は不要です。候補画像は公開資産に含めません。
-
-開発時のみ `?qa=visual` で保存データに触れない状態別描画検証を開けます。製品ビルドには含まれません。
-
-想定プレイ時間150〜240分は企画上の目標です。作者による通し検証は実施していますが、初見の人による所要時間・難易度評価は未実施です。
+https://lye-0.github.io/SHIOMACHI/
