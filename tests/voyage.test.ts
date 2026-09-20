@@ -66,7 +66,7 @@ describe("一括航路", () => {
     expect(back.routePlan).toEqual(path);
     expect(back.boarded).toBe(true);
   });
-  it("未完の線・切れた線・循環を受け付けない", () => {
+  it("未完と不連続を拒否し、選択済みの標ならそこまで戻す", () => {
     let g = ready();
     g = act(g, { type: "routePoint", node: "C" }).game;
     expect(g.routePlan).toEqual([]);
@@ -77,7 +77,6 @@ describe("一括航路", () => {
     g = act(g, { type: "routePoint", node: "B" }).game;
     expect(act(g, { type: "routePoint", node: "S" }).game.routePlan).toEqual([
       "S",
-      "B",
     ]);
   });
   it("計測値は情報であり誤入力を船の物理的な喫水に使わない", () => {
@@ -113,4 +112,16 @@ describe("一括航路", () => {
     for (const routePlan of [["S", "T"], ["S", "B", "S"], ["oops"]])
       expect(parseSave(JSON.stringify({ ...g, routePlan }))).toBeNull();
   });
+});
+
+it("完成した航路も途中の標まで戻して修正できる", () => {
+  const g = plot(["S", "B", "C", "E", "G", "H", "T"]);
+  const back = act(g, { type: "routePoint", node: "C" }).game;
+  expect(back.routePlan).toEqual(["S", "B", "C"]);
+  expect(act(back, { type: "routePoint", node: "F" }).game.routePlan).toEqual([
+    "S",
+    "B",
+    "C",
+    "F",
+  ]);
 });

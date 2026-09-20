@@ -515,7 +515,12 @@ export function act(previous: Game, action: Action): Result {
         else say("船着き場から線を引く。");
         break;
       }
-      if (tail === "T" || g.routePlan.includes(action.node)) break;
+      const existing = g.routePlan.indexOf(action.node);
+      if (existing >= 0) {
+        g.routePlan = g.routePlan.slice(0, existing + 1);
+        break;
+      }
+      if (tail === "T") break;
       if (
         channels.some(
           ([a, b]) =>

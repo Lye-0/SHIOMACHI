@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { channels, seaNames, type Game } from "../game/model";
 import { hull } from "../game/hull";
 import { chartPoints } from "../game/bearings";
@@ -208,6 +209,18 @@ export function HarborDrawing({
   mark?: (node: string) => void;
   flat?: boolean;
 }) {
+  const [hovered, setHovered] = useState<string>();
+  const tail = route?.at(-1);
+  const adjacent = (node: string) =>
+    !!tail &&
+    tail !== "T" &&
+    channels.some(
+      ([a, b]) => (a === tail && b === node) || (b === tail && a === node),
+    );
+  const selectable = (node: string) =>
+    !route ||
+    route.includes(node) ||
+    (!tail ? node === "S" || node === "X" : adjacent(node));
   return (
     <svg
       viewBox="0 0 1200 600"
@@ -243,63 +256,97 @@ export function HarborDrawing({
           return (
             <g key={i}>
               <path d={d} strokeDasharray="5 4" opacity=".5" />
-              <g
-                transform={`translate(${center[0]} ${center[1]})`}
-                role={onChannel ? "button" : undefined}
-                tabIndex={onChannel ? 0 : undefined}
-                aria-label={
-                  onChannel
-                    ? `${chartLabel(a)}から${chartLabel(b)}の水深を拡大`
-                    : undefined
-                }
-                onClick={() => onChannel?.(a, b)}
-                onKeyDown={(e) => {
-                  if (e.key === "Enter" || e.key === " ") {
-                    e.preventDefault();
-                    onChannel?.(a, b);
+              {!route && (
+                <g
+                  transform={`translate(${center[0]} ${center[1]})`}
+                  role={onChannel ? "button" : undefined}
+                  tabIndex={onChannel ? 0 : undefined}
+                  aria-label={
+                    onChannel
+                      ? `${chartLabel(a)}から${chartLabel(b)}の水深を拡大`
+                      : undefined
                   }
-                }}
-                className={onChannel ? "sounding-target" : undefined}
-              >
-                <rect
-                  x="-25"
-                  y="-33"
-                  width="50"
-                  height="72"
-                  fill="#fff"
-                  stroke="none"
-                />
-                <path
-                  d={`M-21-28H21M-20 ${-28 + depth * 0.8}H20`}
-                  strokeWidth="2"
-                />
-                <path
-                  d={`M-18-28v${depth * 0.8}M18-28v${depth * 0.8}`}
-                  strokeWidth=".65"
-                />
-                {Array.from({ length: depth - 1 }, (_, n) => (
-                  <path
-                    key={n}
-                    d={`M-18 ${-28 + (n + 1) * 0.8}h${(n + 1) % 5 === 0 ? 10 : 4}`}
+                  onClick={() => onChannel?.(a, b)}
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter" || e.key === " ") {
+                      e.preventDefault();
+                      onChannel?.(a, b);
+                    }
+                  }}
+                  className={onChannel ? "sounding-target" : undefined}
+                >
+                  <rect
+                    x="-25"
+                    y="-33"
+                    width="50"
+                    height="72"
+                    fill="#fff"
+                    stroke="none"
                   />
-                ))}
-              </g>
+                  <path
+                    d={`M-21-28H21M-20 ${-28 + depth * 0.8}H20`}
+                    strokeWidth="2"
+                  />
+                  <path
+                    d={`M-18-28v${depth * 0.8}M18-28v${depth * 0.8}`}
+                    strokeWidth=".65"
+                  />
+                  {Array.from({ length: depth - 1 }, (_, n) => (
+                    <path
+                      key={n}
+                      d={`M-18 ${-28 + (n + 1) * 0.8}h${(n + 1) % 5 === 0 ? 10 : 4}`}
+                    />
+                  ))}
+                </g>
+              )}
+              {route && (
+                <path
+                  d={d}
+                  className="route-channel-hit"
+                  stroke="transparent"
+                  strokeWidth="24"
+                  pointerEvents="stroke"
+                  role="button"
+                  tabIndex={0}
+                  aria-label={`${chartLabel(a)}から${chartLabel(b)}の水深を拡大`}
+                  onClick={() => onChannel?.(a, b)}
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter" || e.key === " ") {
+                      e.preventDefault();
+                      onChannel?.(a, b);
+                    }
+                  }}
+                >
+                  <title>
+                    {chartLabel(a)} — {chartLabel(b)}：水深を見る
+                  </title>
+                </path>
+              )}
             </g>
           );
         })}
         {Object.entries(chartPoints).map(([node, [x, y]]) => (
           <g
             key={node}
-            onClick={() => mark?.(node)}
+            onClick={() => selectable(node) && mark?.(node)}
             role={mark ? "button" : undefined}
-            tabIndex={mark ? 0 : undefined}
+            tabIndex={mark && selectable(node) ? 0 : -1}
+            aria-disabled={mark ? !selectable(node) : undefined}
+            onMouseEnter={() => setHovered(node)}
+            onMouseLeave={() => setHovered(undefined)}
+            onFocus={() => setHovered(node)}
+            onBlur={() => setHovered(undefined)}
             aria-label={
               mark
                 ? `${node === "S" ? "船着き場 1" : node === "X" ? "船着き場 2" : seaNames[node]}を測量図で選ぶ`
                 : undefined
             }
             onKeyDown={(e) => {
-              if (mark && (e.key === "Enter" || e.key === " ")) {
+              if (
+                mark &&
+                selectable(node) &&
+                (e.key === "Enter" || e.key === " ")
+              ) {
                 e.preventDefault();
                 mark(node);
               }
@@ -310,13 +357,49 @@ export function HarborDrawing({
               <circle
                 cx={x}
                 cy={y}
-                r="40"
+                r={route ? 48 : 40}
                 fill="transparent"
                 stroke="none"
                 pointerEvents="all"
               />
             )}
             <circle cx={x} cy={y} r="27" fill="#fff" stroke="none" />
+            {route && selectable(node) && !route.includes(node) && (
+              <circle
+                cx={x}
+                cy={y}
+                r="34"
+                stroke="#785d3b"
+                strokeWidth="2"
+                opacity=".55"
+              />
+            )}
+            {route && tail === node && (
+              <circle cx={x} cy={y} r="36" stroke="#884c35" strokeWidth="3" />
+            )}
+            {route && hovered === node && (
+              <g pointerEvents="none">
+                <rect
+                  x={Math.min(1080, Math.max(5, x - 65))}
+                  y={y < 75 ? y + 45 : y - 72}
+                  width="130"
+                  height="28"
+                  rx="3"
+                  fill="#ead6af"
+                  stroke="none"
+                />
+                <text
+                  x={Math.min(1145, Math.max(70, x))}
+                  y={y < 75 ? y + 65 : y - 52}
+                  textAnchor="middle"
+                  fill="currentColor"
+                  stroke="none"
+                  fontSize="18"
+                >
+                  {chartLabel(node)}
+                </text>
+              </g>
+            )}
             <Landmark node={node} x={x} y={y} size={node === "T" ? 28 : 18} />
             {(route?.includes(node) ||
               (!route && g?.chartMarks.includes(node))) && (
@@ -324,6 +407,20 @@ export function HarborDrawing({
             )}
           </g>
         ))}
+        {route &&
+          tail &&
+          hovered &&
+          !route.includes(hovered) &&
+          adjacent(hovered) && (
+            <path
+              className="route-preview"
+              d={channelPath(tail, hovered)}
+              stroke="#884c35"
+              strokeWidth="3"
+              strokeDasharray="8 7"
+              pointerEvents="none"
+            />
+          )}
         {route &&
           route
             .slice(1)

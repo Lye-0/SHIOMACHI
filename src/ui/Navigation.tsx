@@ -263,6 +263,7 @@ export function Sounding({ a, b }: { a: string; b: string }) {
 }
 export function SeaScene({ game: g, send }: ControlProps) {
   const [chart, setChart] = useState(false);
+  const [soundingOpen, setSoundingOpen] = useState(false);
   const [section, setSection] = useState<[string, string]>();
   const failureImage =
     g.voyageFailure === "beam"
@@ -322,8 +323,15 @@ export function SeaScene({ game: g, send }: ControlProps) {
               route={g.routePlan}
               mark={(node) => {
                 const prev = g.routePlan.at(-1);
+                const existing = g.routePlan.indexOf(node);
                 send({ type: "routePoint", node });
-                if (
+                if (existing >= 0) {
+                  setSection(
+                    existing > 0
+                      ? [g.routePlan[existing - 1], node]
+                      : undefined,
+                  );
+                } else if (
                   prev &&
                   channels.some(
                     ([a, b]) =>
@@ -335,42 +343,87 @@ export function SeaScene({ game: g, send }: ControlProps) {
               onChannel={(a, b) => setSection([a, b])}
             />
           </div>
-          {section ? (
-            <Sounding a={section[0]} b={section[1]} />
-          ) : (
-            <div className="sounding-detail">水深の断面を選んで拡大</div>
+          <aside
+            className={`route-soundings ${soundingOpen ? "open" : ""}`}
+            aria-label="水深の確認"
+          >
+            {section ? (
+              <Sounding a={section[0]} b={section[1]} />
+            ) : (
+              <p>水路の線を選ぶと、水深を確認できます。</p>
+            )}
+            <button
+              className="sounding-close"
+              onClick={() => setSoundingOpen(false)}
+            >
+              水深を閉じる
+            </button>
+          </aside>
+          <div className="route-edit-tools">
+            {g.routePlan.length > 0 && (
+              <>
+                <button
+                  onClick={() => {
+                    send({ type: "routeUndo" });
+                    setSection(
+                      g.routePlan.length > 2
+                        ? [
+                            g.routePlan[g.routePlan.length - 3],
+                            g.routePlan[g.routePlan.length - 2],
+                          ]
+                        : undefined,
+                    );
+                  }}
+                >
+                  ↶ 戻す
+                </button>
+                <button
+                  onClick={() => {
+                    send({ type: "routeClear" });
+                    setSection(undefined);
+                    setSoundingOpen(false);
+                  }}
+                >
+                  引き直す
+                </button>
+              </>
+            )}
+          </div>
+          {section && (
+            <button
+              className="sounding-expand"
+              onClick={() => setSoundingOpen(true)}
+            >
+              水深を見る
+            </button>
           )}
-          <p>船着き場から標を順につなぐ。水深の断面を選ぶと拡大。</p>
+          <p>標を順につなぐ。選んだ標を押すと、そこまで戻る。</p>
         </div>
       )}
-      <SceneAction onClick={() => setChart(!chart)}>
-        {chart ? "景色を見る" : "測量図に航路を引く"}
-      </SceneAction>
-      {chart && (
+      {chart ? (
         <>
           <SceneAction
-            onClick={() => send({ type: "routeUndo" })}
-            disabled={!g.routePlan.length}
+            onClick={() => {
+              setChart(false);
+              setSoundingOpen(false);
+            }}
           >
-            一つ戻す
+            図を閉じる
           </SceneAction>
-          <SceneAction
-            onClick={() => send({ type: "routeClear" })}
-            disabled={!g.routePlan.length}
-          >
-            航路を消す
+          {g.routePlan.at(-1) === "T" && (
+            <SceneAction onClick={() => send({ type: "depart" })}>
+              この航路で出港する
+            </SceneAction>
+          )}
+        </>
+      ) : (
+        <>
+          <SceneAction onClick={() => setChart(true)}>航路図を開く</SceneAction>
+          <SceneAction onClick={() => send({ type: "disembark" })}>
+            岸へ戻る
           </SceneAction>
         </>
       )}
-      <SceneAction
-        onClick={() => send({ type: "depart" })}
-        disabled={g.routePlan.at(-1) !== "T"}
-      >
-        この航路で出港する
-      </SceneAction>
-      <SceneAction onClick={() => send({ type: "disembark" })}>
-        岸へ戻る
-      </SceneAction>
     </>
   );
 }

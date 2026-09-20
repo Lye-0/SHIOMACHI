@@ -912,7 +912,7 @@
   inset: 5% 1% 0;
   display: grid;
   grid-template-columns: minmax(0, 1fr) 180px;
-  grid-template-rows: 1fr auto;
+  grid-template-rows: minmax(0, 1fr) auto;
   gap: 12px;
   background: #d4bb8c;
   color: #392c1b;
@@ -926,6 +926,7 @@
   display: flex;
   align-items: center;
   min-width: 0;
+  min-height: 0;
 }
 .route-paper svg {
   width: 100%;
@@ -965,7 +966,7 @@
   stroke-width: 2;
 }
 .sounding-target:focus,
-.route-planner .map-mark:focus {
+.route-planner .map-mark:focus-visible {
   outline: 2px solid #80592d;
 }
 .route-planner .map-mark:hover {
@@ -1008,5 +1009,98 @@
   }
   .sounding-detail svg {
     max-height: 230px;
+  }
+}
+
+.route-edit-tools {
+  position: absolute;
+  left: 24px;
+  top: 14px;
+  display: flex;
+  gap: 16px;
+}
+.route-edit-tools button {
+  background: transparent;
+  border: 0;
+  color: #513a20;
+  padding: 8px 10px;
+  min-height: 40px;
+  font-size: 13px;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+.route-soundings {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+.route-soundings > p {
+  font-size: 13px;
+  line-height: 1.8;
+  text-align: center;
+}
+.sounding-expand,
+.sounding-close {
+  display: none;
+}
+.route-channel-hit {
+  cursor: zoom-in;
+}
+.route-channel-hit:hover,
+.route-channel-hit:focus-visible {
+  stroke: #9e79592a;
+  outline: none;
+}
+.route-planner .map-mark[aria-disabled="true"] {
+  cursor: default;
+}
+.route-planner .map-mark[aria-disabled="true"]:hover {
+  stroke: currentColor;
+  stroke-width: 1.5;
+}
+@media (max-width: 900px) {
+  .route-planner {
+    grid-template-columns: minmax(0, 1fr);
+    padding-top: 40px;
+  }
+  .route-soundings {
+    display: none;
+  }
+  .route-soundings.open {
+    display: flex;
+    position: absolute;
+    z-index: 30;
+    inset: 6px 8px 6px auto;
+    width: 210px;
+    background: #e4cfa5;
+    box-shadow: 0 3px 20px #0007;
+    overflow: auto;
+  }
+  .sounding-expand {
+    display: block;
+    position: absolute;
+    right: 14px;
+    top: 10px;
+    padding: 8px 12px;
+    background: #dfc9a0;
+    color: #392c1b;
+    border: 1px solid #80694b;
+    min-height: 40px;
+  }
+  .sounding-close {
+    display: block;
+    background: transparent;
+    color: #392c1b;
+    border: 0;
+    padding: 10px;
+    min-height: 40px;
+  }
+  .route-edit-tools {
+    top: 10px;
+    left: 12px;
+    gap: 4px;
+  }
+  .route-soundings .sounding-detail svg {
+    max-height: 200px;
   }
 }
