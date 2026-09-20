@@ -1,0 +1,44 @@
+[
+  {
+    "prompt": "Edit this game background precisely. Remove ONLY the open exterior doorway behind the desk at x58-77%, y0-55%, including its frame and blue outdoor view. Replace it with continuous solid aged green plaster and matching wood wainscot, smoothly connecting the existing back wall. This is the rear wall of a single-entry office: there must be NO doorway on this wall. Keep camera, composition, desk, CLOSED drawer, blank paper, lamp, chair, windows on LEFT and shelves on RIGHT pixel-aligned and unchanged. Photorealistic, same lighting, 16:9. No added objects, text or UI.",
+    "source": "C:\\Users\\kawau\\.codex\\generated_images\\01a0ba30-de75-7b40-a770-22321b967a82\\exec-33d8acc0-68dc-460e-a83d-facfef7166e5.png",
+    "selection": "selected",
+    "asset": "scenes/office",
+    "generator": "built-in image_gen"
+  },
+  {
+    "prompt": "Precisely edit this game background: eliminate ONLY the entire exterior opening and jamb along far LEFT x0-19%, replacing it with a solid aged plaster interior side wall/corner and worn interior floor consistent with the workshop. No exterior doorway, no window there, no blue outdoor scenery. This view faces the back workbench, with the room's only entrance behind the camera. Preserve the workbench, vise, wooden tray, shelf, wrenches, hanging lamp and right rack in EXACT same positions and size. Preserve composition, camera, lighting, photorealism,16:9. No new objects or UI.",
+    "source": "C:\\Users\\kawau\\.codex\\generated_images\\01a0ba30-de75-7b40-a770-22321b967a82\\exec-9ce8e159-b440-437e-9273-9c26c66edd3c.png",
+    "selection": "selected",
+    "asset": "scenes/workshop",
+    "generator": "built-in image_gen"
+  },
+  {
+    "prompt": "Image1 is edit target (open drawer), image2 is matching CLOSED drawer reference with CORRECT rear wall. Change ONLY the exterior doorway behind desk in image1: replace its frame and blue exterior with the exact continuous aged green plaster and wood wainscot rear wall of image2. Keep image1's OPEN drawer, empty drawer interior, desk,paper,lamp,chair,windows,shelves,camera,lighting and all coordinates unchanged. No doorway on rear wall. Photorealistic 16:9.",
+    "source": "C:\\Users\\kawau\\.codex\\generated_images\\01a0ba30-de75-7b40-a770-22321b967a82\\exec-d1a4bca3-c99e-43b3-a854-16692d25ceda.png",
+    "selection": "selected",
+    "asset": "scenes/office-open",
+    "generator": "built-in image_gen"
+  },
+  {
+    "prompt": "Image1 is edit target office entrance wall. Image2 is reference ONLY for the leftmost green six-pane office entry door. Keep image1 camera, wall, framed blank board at x23-54%, shelves LEFT, windows RIGHT, doorway opening x63-84% exactly positioned. Make its single door leaf visibly aged GREEN painted wood with SIX glass panes (2 columns by3 rows) matching leftmost door in image2; door leaf is open along right jamb. Remove foreground desk, paper and chair along bottom/left and reveal worn wooden floor across the room to doorway. The one desk is behind camera, so none in this view. Keep outdoor pier view. No extra doorway or new objects, no text, photorealistic16:9.",
+    "source": "C:\\Users\\kawau\\.codex\\generated_images\\01a0ba30-de75-7b40-a770-22321b967a82\\exec-9fe10e40-65f3-436c-9b13-9cc91f56a4cd.png",
+    "selection": "selected",
+    "asset": "scenes/office-shelves",
+    "generator": "built-in image_gen"
+  },
+  {
+    "prompt": "Image1 is edit target workshop entrance wall. Image2 reference ONLY middle wide weathered wooden double-door entrance. Keep image1 rack at left, blank diagram board at x44-65%, lamp,pipes,walls and camera exactly unchanged. Adjust only doorway x77-97%: same single entrance with weathered wooden DOUBLE door leaves, opened against both jambs, matching middle entrance in image2. Dark aged wood plank leaves with cross bracing, no glass. Preserve doorway position and exterior pier. Do not add another opening. Photorealistic16:9, no text/UI.",
+    "source": "C:\\Users\\kawau\\.codex\\generated_images\\01a0ba30-de75-7b40-a770-22321b967a82\\exec-fcf950e9-726e-4cf7-ad10-8a1f58b3c579.png",
+    "selection": "selected",
+    "asset": "scenes/workshop-rack",
+    "generator": "built-in image_gen"
+  },
+  {
+    "prompt": "Image1 is edit target: concourse exterior with three room entrances. Image2 is office interior reference, image3 workshop interior reference. Change ONLY the glimpses of interior through LEFTMOST green glazed office door and MIDDLE wooden double doors in image1, keeping facade, all doors and frames, rightmost pump room, exterior, camera and lighting untouched. Through LEFT doorway show the same rear office green wall, wooden desk with small warm desk lamp on LEFT, chair and shelves on RIGHT as image2 at natural far distance. Through MIDDLE doorway show same rear workbench with wooden tray, wrenches hung above bench, warm lamp high RIGHT and tall shelving RIGHT as image3. These are single-entry rooms: no secondary door visible behind either room. Narrow occlusion by existing door leaves is correct. Do not enlarge or move portals. Photorealistic16:9, no UI/text.",
+    "source": "C:\\Users\\kawau\\.codex\\generated_images\\01a0ba30-de75-7b40-a770-22321b967a82\\exec-6b27f50c-0322-4576-82ca-0ecddd50700c.png",
+    "selection": "selected",
+    "asset": "scenes/concourse-doors",
+    "generator": "built-in image_gen"
+  }
+]

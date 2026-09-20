@@ -131,7 +131,7 @@
   },
   "scenes/office": {
     "path": "assets/scenes/office.webp",
-    "source": "exec-bbf2fc72-55b2-47d4-b490-c79df241c502.png",
+    "source": "exec-33d8acc0-68dc-460e-a83d-facfef7166e5.png",
     "generator": "built-in image_gen",
     "sourceWidth": 1672,
     "sourceHeight": 941,
@@ -141,7 +141,7 @@
   },
   "scenes/workshop": {
     "path": "assets/scenes/workshop.webp",
-    "source": "exec-f3ccc9fb-a85d-4438-af07-6c5ab8dfebc2.png",
+    "source": "exec-9ce8e159-b440-437e-9273-9c26c66edd3c.png",
     "generator": "built-in image_gen",
     "sourceWidth": 1672,
     "sourceHeight": 941,
@@ -301,7 +301,7 @@
   },
   "scenes/concourse-doors": {
     "path": "assets/scenes/concourse-doors.webp",
-    "source": "exec-84b21b4a-2b03-468c-9e55-dba0827be6c5.png",
+    "source": "exec-6b27f50c-0322-4576-82ca-0ecddd50700c.png",
     "generator": "built-in image_gen",
     "sourceWidth": 1672,
     "sourceHeight": 941,
@@ -311,7 +311,7 @@
   },
   "scenes/office-shelves": {
     "path": "assets/scenes/office-shelves.webp",
-    "source": "exec-c1b06ed4-1ada-4e1f-9e3a-de8ced72a0c1.png",
+    "source": "exec-9fe10e40-65f3-436c-9b13-9cc91f56a4cd.png",
     "generator": "built-in image_gen",
     "sourceWidth": 1672,
     "sourceHeight": 941,
@@ -321,7 +321,7 @@
   },
   "scenes/workshop-rack": {
     "path": "assets/scenes/workshop-rack.webp",
-    "source": "exec-299b588c-942c-44c4-bdaa-d4f78b501546.png",
+    "source": "exec-fcf950e9-726e-4cf7-ad10-8a1f58b3c579.png",
     "generator": "built-in image_gen",
     "sourceWidth": 1672,
     "sourceHeight": 941,
@@ -541,7 +541,7 @@
   },
   "scenes/office-open": {
     "path": "assets/scenes/office-open.webp",
-    "source": "exec-e9ff9f8e-4b9a-493b-8671-760e966f1384.png",
+    "source": "exec-d1a4bca3-c99e-43b3-a854-16692d25ceda.png",
     "generator": "built-in image_gen",
     "sourceWidth": 1672,
     "sourceHeight": 941,

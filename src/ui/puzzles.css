@@ -856,14 +856,15 @@
 }
 .room-open-tray {
   position: absolute;
-  left: 49%;
-  top: 49%;
-  width: 10%;
-  height: 4%;
+  left: 40%;
+  top: 50%;
+  width: 9%;
+  height: 3.5%;
   background: #241c10;
   transform: skewX(-28deg);
   display: flex;
   pointer-events: none;
+  z-index: 3;
   box-shadow: 1px 3px 3px #0008;
 }
 .room-open-tray img {

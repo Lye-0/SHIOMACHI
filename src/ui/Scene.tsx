@@ -61,8 +61,17 @@ export function Scene({ game: g, send }: ControlProps) {
       {(["dock", "office", "workshop", "pump", "service"] as Room[]).includes(
         g.room,
       ) && (
-        <button className="passage-link exit" onClick={go("concourse")}>
-          連絡桟橋へ →
+        <button
+          className="passage-link exit"
+          onClick={
+            (g.room === "office" || g.room === "workshop") && g.face === 0
+              ? () => send({ type: "face" })
+              : go("concourse")
+          }
+        >
+          {(g.room === "office" || g.room === "workshop") && g.face === 0
+            ? "入口を振り返る"
+            : "連絡桟橋へ →"}
         </button>
       )}
       {g.room === "lookout" && (
@@ -447,14 +456,6 @@ export function Scene({ game: g, send }: ControlProps) {
                 onClick={() => send({ type: "take", item: "chalk" })}
               />
             )}
-            <Hit
-              label="桟橋へ戻る"
-              x={60}
-              y={5}
-              w={15}
-              h={47}
-              onClick={go("concourse")}
-            />
           </>
         ) : (
           <>
@@ -509,14 +510,6 @@ export function Scene({ game: g, send }: ControlProps) {
                 onClick={() => send({ type: "take", item: "rod" })}
               />
             )}
-            <Hit
-              label="桟橋へ戻る"
-              x={1}
-              y={8}
-              w={15}
-              h={72}
-              onClick={go("concourse")}
-            />
           </>
         ) : (
           <>
