@@ -1045,11 +1045,14 @@
 }
 .route-channel-hit {
   cursor: zoom-in;
-}
-.route-channel-hit:hover,
-.route-channel-hit:focus-visible {
-  stroke: #9e79592a;
+  /* SVG focus outlines enclose the whole route segment, including empty sea. */
   outline: none;
+}
+.route-channel-hit:hover {
+  stroke: #9e79592a;
+}
+.route-channel-hit:focus-visible {
+  stroke: #80592d80;
 }
 .route-planner .map-mark[aria-disabled="true"] {
   cursor: default;
