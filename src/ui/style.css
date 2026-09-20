@@ -361,7 +361,7 @@ img {
 .nav {
   position: absolute;
   z-index: 20;
-  color: #ece8db9c;
+  color: #fff3d5;
   display: grid;
   place-items: center;
   transition:
@@ -381,14 +381,33 @@ img {
 .nav.left,
 .nav.right {
   top: 44%;
-  width: 48px;
+  width: 52px;
   height: 78px;
+  background: #102127f2;
+  border: 1px solid #d6bc80;
+  border-radius: 8px;
+  box-shadow: 0 3px 14px #0009;
+}
+.nav.left svg,
+.nav.right svg {
+  width: 32px;
+  height: 36px;
+  stroke-width: 2.5;
+}
+.nav.left:hover,
+.nav.right:hover {
+  background: #34474a;
+  color: #fff;
+}
+.nav:focus-visible {
+  outline: 3px solid #fff3d5;
+  outline-offset: 3px;
 }
 .nav.left {
-  left: 0;
+  left: 8px;
 }
 .nav.right {
-  right: 0;
+  right: 8px;
 }
 .nav.back {
   bottom: 5px;
@@ -971,8 +990,8 @@ img {
   }
   .nav.left,
   .nav.right {
-    width: 34px;
-    height: 60px;
+    width: 44px;
+    height: 64px;
   }
   .inventory {
     height: 76px;
