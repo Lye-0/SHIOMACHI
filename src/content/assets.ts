@@ -18,7 +18,7 @@ const aliases: Record<string, string> = {
   "closeups/shutter-open": "scenes/waiting-front-open",
   "closeups/shutter-open-high": "scenes/waiting-front-open-high",
   "closeups/key-empty": "closeups/key",
-  "closeups/patch-dry": "closeups/patch",
+  "scenes/service-base": "scenes/service",
   "closeups/belt": "closeups/belt-base",
   "closeups/boat-flooded": "scenes/dock-high-flooded",
 };

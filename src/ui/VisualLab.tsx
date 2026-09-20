@@ -1,8 +1,10 @@
+import { ItemArt } from "./Primitives";
 import { ActionBar, SceneAction } from "./ActionBar";
 import { useState } from "react";
 import { act } from "../game/engine";
 import {
   newGame,
+  itemNames,
   type Game,
   type Item,
   type Room,
@@ -22,6 +24,20 @@ type Fixture = {
   ready?: boolean;
 };
 const fixtures: Fixture[] = [
+  {
+    id: "pontoon-operation",
+    room: "service",
+    detail: "supports",
+    patch: { water: 0 },
+    selected: "crank",
+  },
+  {
+    id: "patch-operation",
+    room: "service",
+    detail: "patch",
+    patch: { water: 0 },
+    selected: "patch",
+  },
   { id: "waiting-closed", room: "waiting", patch: { shutterOpen: false } },
   { id: "waiting-open", room: "waiting" },
   { id: "waiting-raised", room: "waiting", ready: true },
@@ -397,6 +413,41 @@ fixtures.push(
     patch: { water: 0 },
   },
 );
+// Exhaustive independent left/right support states and captive-bolt states.
+for (let left = 0; left < 4; left++)
+  for (let right = 0; right < 4; right++) {
+    const patch: Partial<Game> = {
+      water: 0,
+      pins: [left < 2, right < 2],
+      support: [
+        left === 1 || left === 2 ? 2 : 0,
+        right === 1 || right === 2 ? 2 : 0,
+      ],
+    };
+    fixtures.push({
+      id: `pontoon-wide-${left}-${right}`,
+      room: "service",
+      patch,
+    });
+    fixtures.push({
+      id: `pontoon-detail-${left}-${right}`,
+      room: "service",
+      detail: "supports",
+      patch,
+    });
+  }
+for (let mask = 0; mask < 16; mask++)
+  fixtures.push({
+    id: `patch-bolts-${mask}`,
+    room: "service",
+    detail: "patch",
+    patch: {
+      water: 0,
+      patchMounted: true,
+      patchTurn: 1,
+      patchBolts: [0, 1, 2, 3].map((i) => !!(mask & (1 << i))),
+    },
+  });
 function create(f: Fixture) {
   const g = newGame();
   Object.assign(g, {
@@ -420,21 +471,31 @@ function create(f: Fixture) {
       boatDry: true,
     });
   Object.assign(g, f.patch);
+  g.items.lockingPins = g.pins.some((p) => !p) ? "inventory" : "absent";
+  if (f.id.endsWith("-operation")) {
+    g.items.crank = "inventory";
+    g.items.patch = "inventory";
+    g.items.pliers = "inventory";
+  }
   return g;
 }
 export function VisualLab() {
+  const [selected, setSelected] = useState<Item | undefined>(
+    fixtures[0].selected,
+  );
   const [message, setMessage] = useState("");
   const [index, setIndex] = useState(0),
     [g, setGame] = useState(() => create(fixtures[0]));
   const choose = (n: number) => {
     setIndex(n);
+    setSelected(fixtures[n].selected);
     setGame(create(fixtures[n]));
     setMessage("");
   };
   const fixture = fixtures[index];
   const props = {
     game: g,
-    selected: fixture.selected,
+    selected,
     send: (a: Parameters<typeof act>[1]) => {
       const result = act(g, a);
       setGame(result.game);
@@ -485,6 +546,30 @@ export function VisualLab() {
         <button onClick={() => choose((index + 1) % fixtures.length)}>
           次の場面
         </button>
+        <select
+          aria-label="検証用の道具"
+          value={selected ?? ""}
+          onChange={(e) => setSelected((e.target.value as Item) || undefined)}
+        >
+          <option value="">道具なし</option>
+          {(Object.keys(g.items) as Item[])
+            .filter((i) => g.items[i] === "inventory")
+            .map((i) => (
+              <option key={i} value={i}>
+                {itemNames[i]}
+              </option>
+            ))}
+        </select>
+        <output aria-label="固定ピンの所持数">
+          {g.items.lockingPins === "inventory"
+            ? g.pins.filter((p) => !p).length
+            : 0}
+        </output>
+        {g.items.lockingPins === "inventory" && (
+          <div style={{ width: 64, height: 64 }}>
+            <ItemArt item="lockingPins" game={g} />
+          </div>
+        )}
         <small>保存領域を使用しない描画検証</small>
       </div>
     </main>

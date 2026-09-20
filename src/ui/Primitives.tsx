@@ -44,6 +44,9 @@ export function ItemArt({
         )}
         alt=""
       />
+      {item === "lockingPins" && game && (
+        <span className="pin-count">×{game.pins.filter((p) => !p).length}</span>
+      )}
     </span>
   );
 }
@@ -212,7 +215,7 @@ function pickupShape(item: Item, w: number, h: number, stageWidth: number) {
     belt: [1.5, 0.025, 0.223, 0.977, 0.778],
     rod: [2 / 3, 0.473, 0.011, 0.529, 0.989],
     hookTip: [1, 0.217, 0.03, 0.819, 0.944],
-    patch: [1, 0.026, 0.177, 0.975, 0.816],
+    patch: [1, 0.078, 0.169, 0.925, 0.836],
     boatKit: [1.5, 0.059, 0.102, 0.943, 0.886],
     lens: [1, 0.027, 0.03, 0.973, 0.967],
     chalk: [1, 0.102, 0.161, 0.921, 0.889],

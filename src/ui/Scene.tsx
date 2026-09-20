@@ -10,7 +10,7 @@ import { Hit, Photo, Pickup } from "./Primitives";
 import type { ControlProps } from "./PumpControls";
 import { SeaScene, SurveyMarkers } from "./Navigation";
 import { DockView } from "./DockView";
-import { Patch } from "./RepairControls";
+import { ServiceView } from "./PontoonView";
 import { beltGeometry } from "./SmallPuzzles";
 import {
   TrayMiniature,
@@ -36,7 +36,7 @@ export function Scene({ game: g, send }: ControlProps) {
     office: g.drawerOpen ? "office-open" : "office",
     workshop: "workshop",
     pump: "pump",
-    service: g.pins.some((pin) => !pin) ? "service-pins-out" : "service",
+    service: "service",
     lookout: "lookout",
     dock:
       g.water === 0
@@ -67,13 +67,18 @@ export function Scene({ game: g, send }: ControlProps) {
           onClick={
             (g.room === "office" || g.room === "workshop") && g.face === 0
               ? () => send({ type: "face" })
-              : go("concourse")
+              : go(g.room === "service" ? "waiting" : "concourse")
           }
         >
           {(g.room === "office" || g.room === "workshop") && g.face === 0
             ? "入口を振り返る"
-            : "連絡桟橋へ →"}
+            : g.room === "service"
+              ? "待合室へ ↑"
+              : "連絡桟橋へ →"}
         </SceneAction>
+      )}
+      {g.room === "waiting" && g.shutterOpen && g.water === 0 && (
+        <SceneAction onClick={go("service")}>床下へ降りる ↓</SceneAction>
       )}
       {g.room === "lookout" && (
         <SceneAction className="passage-link exit" onClick={go("waiting")}>
@@ -87,43 +92,10 @@ export function Scene({ game: g, send }: ControlProps) {
       )}
       {g.room === "dock" ? (
         <DockView game={g} />
+      ) : g.room === "service" && g.face === 0 ? (
+        <ServiceView game={g} />
       ) : (
         <Photo src={scene(g.face ? back[g.room] : front[g.room])} alt="" />
-      )}
-      {g.room === "service" && g.face === 0 && (
-        <>
-          <div className="room-patch-model" inert aria-hidden="true">
-            <Patch game={g} send={() => {}} />
-          </div>
-          {g.pins[0] && (
-            <Photo
-              src={scene("service")}
-              style={{ clipPath: "polygon(0 0,35% 0,35% 100%,0 100%)" }}
-            />
-          )}
-          {g.pins[1] && (
-            <Photo
-              src={scene("service")}
-              style={{ clipPath: "polygon(35% 0,53% 0,53% 100%,35% 100%)" }}
-            />
-          )}
-          {g.support.map(
-            (load, i) =>
-              load > 0 && (
-                <Photo
-                  key={i}
-                  src={scene("service-loaded")}
-                  style={{
-                    clipPath:
-                      i === 0
-                        ? "polygon(24% 34%,33% 34%,33% 37%,24% 37%)"
-                        : "polygon(38% 33%,48% 33%,48% 36%,38% 36%)",
-                    opacity: load / 2,
-                  }}
-                />
-              ),
-          )}
-        </>
       )}
       {g.room === "service" && g.face === 1 && (
         <>
@@ -346,11 +318,11 @@ export function Scene({ game: g, send }: ControlProps) {
               onClick={go("waiting")}
             />
             <Hit
-              label="下の整備通路へ"
-              x={71}
-              y={47}
-              w={12}
-              h={25}
+              label="待合室の床下へ"
+              x={18}
+              y={56}
+              w={14}
+              h={22}
               onClick={go("service")}
             />
             <Hit
@@ -595,10 +567,10 @@ export function Scene({ game: g, send }: ControlProps) {
           <>
             <Hit
               label="浮体の固定具を調べる"
-              x={23.5}
-              y={34.5}
-              w={26}
-              h={39}
+              x={20}
+              y={22}
+              w={31}
+              h={54}
               onClick={inspect("supports")}
             />
             <Hit
@@ -630,12 +602,12 @@ export function Scene({ game: g, send }: ControlProps) {
               onClick={inspect("shore")}
             />
             <Hit
-              label="岸へ上がる"
+              label="待合室へ上がる"
               x={82}
               y={27}
               w={16}
               h={63}
-              onClick={go("concourse")}
+              onClick={go("waiting")}
             />
           </>
         ))}

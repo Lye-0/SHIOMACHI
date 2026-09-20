@@ -9,50 +9,64 @@ export function PontoonDrawing({ flat = false }: { flat?: boolean } = {}) {
       viewBox="0 0 600 600"
       preserveAspectRatio={flat ? "none" : "xMidYMid meet"}
       className="ink-drawing"
-      aria-label="案内柱を上下する桟橋の断面図"
+      aria-label="待合室の密閉箱、案内柱と別置きの支持ねじの断面図"
     >
       <g fill="none" stroke="currentColor" strokeWidth="2">
         <rect x="24" y="24" width="552" height="552" strokeWidth=".6" />
-        <path d="M45 90H555M45 340H555" strokeWidth=".6" />
-        <path d="M75 310H530V145H495V310M145 110V310M160 110V310M385 110V310M400 110V310" />
-        <path d="M124 230H422V246H124ZM177 246V274H370V246" />
+        <path d="M45 90H555M45 330H555M140 112V310M152 112V310M390 112V310M402 112V310M160 218V150L270 114 380 150V218ZM177 165h40v28h-40zM320 165h40v53M155 218H385V266Q270 278 155 266ZM385 218 495 170V310H530V145H495" />
         <path
-          d="M124 163H422V179H124ZM177 179V207H370V179"
-          strokeDasharray="7 7"
+          d="M80 255q15-8 30 0t30 0t30 0t30 0t30 0t30 0t30 0t30 0t30 0t30 0t30 0t30 0"
+          strokeWidth="1"
         />
-        <path
-          d="M80 253q12-8 24 0t24 0t24 0t24 0t24 0t24 0t24 0t24 0t24 0t24 0t24 0t24 0t24 0t24 0t24 0t24 0"
-          strokeWidth="1.3"
-        />
-        <path d="M422 231 495 170M422 164H495M110 293V246H126M410 293V246H426" />
-        <path d="M86 382H245V404H86ZM124 404V485M190 404V485M100 485H222V510H100Z" />
-        <rect x="137" y="425" width="70" height="17" />
-        <circle cx="209" cy="433" r="12" />
-        <path d="M157 465V526M149 470l16-4M149 478l16-4M149 486l16-4M149 494l16-4M149 502l16-4" />
-        <path d="M337 382H509V404H337ZM381 404V485M449 404V485M350 485H480V510H350Z" />
-        <path d="M408 406V527M399 417l17-4M399 426l17-4M399 435l17-4M399 444l17-4M399 453l17-4M399 462l17-4M399 471l17-4M399 480l17-4M399 489l17-4" />
-        <circle cx="449" cy="433" r="12" />
-        <path d="M474 434H536M525 428l11 6-11 6" />
-        <path d="M277 444h35m-10-8 10 8-10 8" />
+        <path d="M160 184H380V232H160ZM385 184H495" strokeDasharray="6 6" />
+        {[0, 1, 2].map((i) => (
+          <g key={i} transform={`translate(${62 + i * 172} 355)`}>
+            <path d="M0 0H140V32H0ZM22 8V168H38V8M38 40h40v22H38M110 68v55M98 80l24-5m-24 16 24-5m-24 16 24-5m-24 16 24-5M88 123h44v39H88ZM80 162h62v8H80" />
+            <path
+              d={
+                i === 1
+                  ? "M92 34h36v8H92ZM110 42V68"
+                  : "M92 48h36v8H92ZM110 56V68"
+              }
+            />
+            {i === 0 ? (
+              <path d="M12 49H77m-4-7v15" strokeWidth="6" />
+            ) : (
+              <>
+                <circle cx="54" cy="50" r="6" />
+                <path d="M4 50h12m0-5-7 5 7 5" />
+              </>
+            )}
+          </g>
+        ))}
       </g>
-      <g fill="currentColor" fontFamily="serif" fontSize="16">
+      <g fill="currentColor" fontFamily="serif" fontSize="15">
         <text x="47" y="61">
-          係留桟橋　断面
+          待合室　床下断面
         </text>
-        <text x="51" y="184">
+        <text x="238" y="170">
+          待合室
+        </text>
+        <text x="226" y="254">
+          密閉箱
+        </text>
+        <text x="52" y="188">
           Ⅲ
         </text>
-        <text x="51" y="250">
+        <text x="52" y="253">
           Ⅱ
         </text>
-        <text x="51" y="301">
+        <text x="52" y="302">
           Ⅰ
         </text>
-        <text x="89" y="550">
-          荷重受け
-        </text>
-        <text x="360" y="550">
+        <text x="67" y="550">
           固定ピン
+        </text>
+        <text x="229" y="550">
+          支持ねじで受ける
+        </text>
+        <text x="409" y="550">
+          ねじを離す
         </text>
       </g>
     </svg>

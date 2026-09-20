@@ -191,19 +191,6 @@ img {
 .gate-miniature > .photo {
   object-fit: fill;
 }
-.room-patch-model {
-  position: absolute;
-  left: 53.36%;
-  top: 17.6%;
-  width: 42.7%;
-  height: 42.7%;
-  transform: scaleY(1.258);
-  transform-origin: top left;
-  pointer-events: none;
-}
-.room-patch-model > .photo {
-  clip-path: url(#patch-hardware);
-}
 .observation-caption {
   position: absolute;
   bottom: 65px;

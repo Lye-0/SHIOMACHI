@@ -13,8 +13,8 @@ const positions: Record<Room, [number, number]> = {
   concourse: [240, 205],
   waiting: [80, 315],
   dock: [400, 315],
-  lookout: [80, 450],
-  service: [400, 450],
+  lookout: [240, 450],
+  service: [80, 450],
 };
 const links: [Room, Room][] = [
   ["concourse", "office"],
@@ -22,7 +22,7 @@ const links: [Room, Room][] = [
   ["concourse", "pump"],
   ["concourse", "waiting"],
   ["concourse", "dock"],
-  ["concourse", "service"],
+  ["waiting", "service"],
   ["waiting", "lookout"],
   ["concourse", "lookout"],
 ];
@@ -90,11 +90,7 @@ export function AreaMap({
                 className={closed ? "map-link closed" : "map-link"}
               >
                 <path
-                  d={
-                    oneWay
-                      ? "M225 235 V405 H105 L80 423"
-                      : `M${x1} ${y1} L${x2} ${y2}`
-                  }
+                  d={oneWay ? "M240 235 V423" : `M${x1} ${y1} L${x2} ${y2}`}
                   markerEnd={oneWay ? "url(#map-arrow)" : undefined}
                 />
                 {closed && (

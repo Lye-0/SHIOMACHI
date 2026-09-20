@@ -21,7 +21,6 @@
     "service",
     "service-end",
     "service-end-open",
-    "service-pins-out",
     "lookout",
     "lookout-window",
     "survey-sea",
@@ -36,7 +35,11 @@
     "service-loaded",
     "waiting-rear-high-open",
     "dock-low-repaired",
-    "dock-mid-repaired"
+    "dock-mid-repaired",
+    "service-released",
+    "service-free",
+    "service-patched",
+    "service-dry"
   ],
   "closeups": [
     "shutter-base",
@@ -50,7 +53,6 @@
     "pipes",
     "strainer",
     "strainer-clear",
-    "supports",
     "supports-loaded",
     "supports-released",
     "supports-free",
@@ -73,10 +75,13 @@
     "gauge-low",
     "gauge-mid",
     "gauge-high",
-    "supports-half",
     "gate-low",
     "gate-high",
-    "gate-open"
+    "gate-open",
+    "supports-base",
+    "patch-mounted",
+    "patch-tight",
+    "patch-drained"
   ],
   "items": [
     "pliers",
@@ -91,7 +96,8 @@
     "lens",
     "lens-clean",
     "patch",
-    "boat-kit"
+    "boat-kit",
+    "locking-pins"
   ],
   "mechanisms": [
     "valve-wheel",

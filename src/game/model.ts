@@ -45,7 +45,8 @@ export type Item =
   | "patch"
   | "boatKit"
   | "lens"
-  | "chalk";
+  | "chalk"
+  | "lockingPins";
 export type Place =
   | "tray"
   | "lock"
@@ -187,6 +188,7 @@ export function newGame(): Game {
       boatKit: "case",
       lens: "shelf",
       chalk: "desk",
+      lockingPins: "absent",
     },
     seen: [],
     records: {},
@@ -206,7 +208,7 @@ export function mapTravelBlock(g: Game, room: Room): string | null {
   if (g.atSea || g.ended) return "航行中はマップから移動できません";
   if (!g.visited.includes(room) && room !== g.room) return "まだ訪れていません";
   if (room !== "waiting" && !g.shutterOpen) return "待合室の戸が閉じています";
-  if (room === "service" && g.water !== 0) return "整備通路は水の中です";
+  if (room === "service" && g.water !== 0) return "床下の足場は水の中です";
   if (room === "lookout" && !raised(g)) return "観測室の敷居に届きません";
   return null;
 }
@@ -223,7 +225,7 @@ export const roomNames: Record<Room, string> = {
   office: "事務室",
   workshop: "整備工房",
   pump: "ポンプ室",
-  service: "整備通路",
+  service: "待合室の床下",
   lookout: "観測室",
   dock: "船溜まり",
 };
@@ -238,10 +240,11 @@ export const itemNames: Record<Item, string> = {
   rod: "長い棒",
   hookTip: "鉤の先端",
   hook: "長柄の鉤",
-  patch: "浮体の補修板",
+  patch: "浮体の補修セット",
   boatKit: "船の補修具",
   lens: "船灯のガラス",
   chalk: "白墨",
+  lockingPins: "固定ピン",
 };
 
 export interface Block {

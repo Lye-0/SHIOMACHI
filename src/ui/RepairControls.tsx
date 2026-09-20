@@ -1,3 +1,4 @@
+import { PatchView, patchBoltCenters } from "./PontoonView";
 import { SceneAction } from "./ActionBar";
 import { useState } from "react";
 import { closeup, itemImage, mechanism, scene } from "../content/assets";
@@ -32,93 +33,85 @@ export function Strainer({ game: g, send, selected }: ControlProps) {
 }
 
 export function Patch({ game: g, send, selected }: ControlProps) {
-  const holes = [
-    [40.6, 17.3],
-    [57, 17.3],
-    [40.6, 53.8],
-    [57, 53.8],
-  ];
+  const [fitting, setFitting] = useState(false);
+  const preview = fitting && selected === "patch" && !g.patchMounted;
   return (
     <>
-      <svg width="0" height="0" aria-hidden="true">
-        <defs>
-          <clipPath id="patch-hardware" clipPathUnits="objectBoundingBox">
-            <rect x=".735" y=".115" width=".16" height=".5" />
-            <ellipse cx=".806" cy=".789" rx=".055" ry=".09" />
-          </clipPath>
-        </defs>
-      </svg>
-      <Photo
-        src={closeup(g.tankDry ? "patch-dry" : "patch")}
-        alt="浮体の割れ目と取り付け穴"
-      />
-      {!g.tankDry && <div className="tank-water" aria-hidden="true" />}
-      {selected === "patch" && !g.patchMounted && (
-        <Hit
-          label="手元の補修板を回す"
-          x={5}
-          y={37}
-          w={26}
-          h={46}
-          onClick={() => send({ type: "patchRotate" })}
-          className="patch-preview"
-        >
+      <PatchView game={g} />
+      {preview &&
+        (g.patchTurn % 2 === 1 ? (
+          <Photo
+            src={closeup("patch-mounted")}
+            alt="四つの穴に合わせたボルト付き補修板"
+          />
+        ) : (
           <img
+            className="patch-fitting"
             src={itemImage("patch")}
-            alt=""
+            alt="割れ目に当てたボルト付き補修板"
             style={{ transform: `rotate(${g.patchTurn * 90}deg)` }}
           />
-          <span>↻</span>
-        </Hit>
-      )}
-      {g.patchMounted && (
-        <div className="installed-patch">
-          <img
-            src={itemImage("patch")}
-            alt=""
-            style={{ transform: `rotate(${g.patchTurn * 90}deg)` }}
-          />
-        </div>
-      )}
-      {!g.patchMounted ? (
+        ))}
+      {!g.patchMounted && !preview && (
         <Hit
           label="割れ目に補修板を当てる"
-          x={38}
-          y={14}
-          w={21}
-          h={43}
-          onClick={() => send({ type: "mountPatch", tool: selected })}
+          x={40}
+          y={30}
+          w={20}
+          h={34}
+          onClick={() =>
+            selected === "patch" && g.items.patch === "inventory"
+              ? setFitting(true)
+              : send({ type: "mountPatch", tool: selected })
+          }
         />
-      ) : (
-        holes.map(([x, y], i) => (
-          <Hit
-            key={i}
-            label={`補修板のボルト ${i + 1} を締める`}
-            x={x - 2.5}
-            y={y - 4.4}
-            w={5}
-            h={8.8}
-            className={`photo-bolt ${g.patchBolts[i] ? "tight" : ""}`}
-            onClick={() =>
-              send({ type: "patchBolt", index: i, tool: selected })
-            }
-          >
-            <span
-              style={{ backgroundImage: `url(${mechanism("valve-wheel")})` }}
-            />
-          </Hit>
-        ))
       )}
+      {preview && (
+        <>
+          <SceneAction onClick={() => send({ type: "patchRotate" })}>
+            補修板を回す ↻
+          </SceneAction>
+          <SceneAction
+            onClick={() => send({ type: "mountPatch", tool: selected })}
+          >
+            穴を合わせて取り付ける
+          </SceneAction>
+        </>
+      )}
+      {g.patchMounted &&
+        patchBoltCenters.map(
+          ([x, y], i) =>
+            !g.patchBolts[i] && (
+              <Hit
+                key={i}
+                label={`補修板のボルト ${i + 1} を締める`}
+                x={x - 2.5}
+                y={y - 4.4}
+                w={5}
+                h={8.8}
+                shape="ellipse"
+                onClick={() =>
+                  send({ type: "patchBolt", index: i, tool: selected })
+                }
+              />
+            ),
+        )}
       {!g.tankDry && (
         <Hit
-          label="浮体の排水栓を引く"
-          x={78}
-          y={73}
-          w={7}
-          h={13}
-          shape="ellipse"
+          label="浮体の排水コックを開く"
+          x={77}
+          y={63}
+          w={8}
+          h={12}
           onClick={() => send({ type: "drainTank" })}
         />
+      )}
+      {g.patchMounted && (
+        <p className="mechanical-note">
+          {g.tankDry
+            ? "水位管が空になった。"
+            : `締めたボルト ${g.patchBolts.filter(Boolean).length} / 4`}
+        </p>
       )}
     </>
   );

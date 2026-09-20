@@ -357,3 +357,64 @@ describe("見通し線", () => {
     }
   });
 });
+
+describe("床下の固定具と補修セット", () => {
+  it("荷重を受けた側だけ抜け、抜いたピンの所持と完了状態を維持する", () => {
+    let g = newGame();
+    g.water = 0;
+    g.items.crank = "inventory";
+    expect(act(g, { type: "pin", index: 0 }).game.pins).toEqual([true, true]);
+    for (const index of [0, 1]) {
+      g = run(
+        g,
+        { type: "support", index, direction: 1, tool: "crank" },
+        { type: "pin", index },
+      );
+      expect(g.items.lockingPins).toBe("inventory");
+      expect(g.pins.filter((p) => !p)).toHaveLength(index + 1);
+      g = run(g, { type: "support", index, direction: -1, tool: "crank" });
+      const again = act(g, { type: "pin", index });
+      expect(again.message).toContain("抜いてある");
+      expect(again.game.pins[index]).toBe(false);
+    }
+    expect(freePontoon(g)).toBe(true);
+  });
+  it("旧セーブの抜去済みピンを復元し、未抜去なら所持に加えない", () => {
+    for (const pins of [
+      [true, true],
+      [false, true],
+      [false, false],
+    ]) {
+      const g = newGame();
+      g.pins = pins;
+      const raw = JSON.parse(JSON.stringify(g));
+      delete raw.items.lockingPins;
+      const loaded = parseSave(JSON.stringify(raw));
+      expect(loaded?.items.lockingPins).toBe(
+        pins.every(Boolean) ? "absent" : "inventory",
+      );
+      expect(loaded?.pins).toEqual(pins);
+    }
+  });
+  it("向きを合わせて取り付け、四本の締結後だけ排水できる", () => {
+    let g = newGame();
+    g.water = 0;
+    g.items.patch = "inventory";
+    g.items.pliers = "inventory";
+    g = run(g, { type: "mountPatch", tool: "patch" });
+    expect(g.patchMounted).toBe(false);
+    g = run(g, { type: "patchRotate" }, { type: "mountPatch", tool: "patch" });
+    expect(g.items.patch).toBe("installed");
+    g = run(g, { type: "drainTank" });
+    expect(g.tankDry).toBe(false);
+    for (let index = 0; index < 4; index++)
+      g = run(g, { type: "patchBolt", index, tool: "pliers" });
+    g = run(
+      g,
+      { type: "patchBolt", index: 0, tool: "pliers" },
+      { type: "drainTank" },
+    );
+    expect(g.patchBolts).toEqual([true, true, true, true]);
+    expect(g.tankDry).toBe(true);
+  });
+});

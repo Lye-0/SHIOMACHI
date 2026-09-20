@@ -282,72 +282,12 @@
   clip-path: polygon(10% 5%, 70% 0, 100% 14%, 87% 100%, 0 90%);
   box-shadow: 3px 3px 3px #000;
 }
-.tank-water {
-  position: absolute;
-  left: 77%;
-  top: 24%;
-  width: 11.5%;
-  height: 25%;
-  background: linear-gradient(#6d918b66 2px, #283f3fa8 4px);
-  pointer-events: none;
-  z-index: 3;
-  box-shadow: inset 0 0 12px #030e12;
-}
 .ring-control img {
   width: 100%;
   height: 100%;
   object-fit: contain;
   filter: brightness(0.78) drop-shadow(1px 2px 2px #000b);
   transition: transform 0.3s;
-}
-.patch-preview img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  filter: drop-shadow(4px 8px 6px #0008);
-  transition: transform 0.25s;
-}
-.patch-preview span {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  background: #182527cc;
-  border-radius: 50%;
-  padding: 3px 9px;
-  font-size: 20px;
-}
-.installed-patch {
-  position: absolute;
-  left: 35.22%;
-  top: 2.865%;
-  width: 27.16%;
-  height: 65.37%;
-  z-index: 4;
-  pointer-events: none;
-}
-.installed-patch img {
-  width: 100%;
-  height: 100%;
-  object-fit: fill;
-  filter: brightness(0.75) drop-shadow(2px 3px 2px #000b);
-}
-.photo-bolt {
-  z-index: 5;
-  border-radius: 50%;
-  filter: drop-shadow(2px 3px 2px #000b);
-}
-.photo-bolt span {
-  display: block;
-  width: 100%;
-  height: 100%;
-  background-size: 430%;
-  background-position: center;
-  clip-path: polygon(25% 8%, 75% 8%, 100% 50%, 75% 92%, 25% 92%, 0 50%);
-  filter: brightness(0.7);
-  transition: transform 0.2s;
-}
-.photo-bolt.tight span {
-  transform: rotate(45deg) scale(0.88);
 }
 .view-turn {
   position: absolute;
@@ -890,33 +830,6 @@
 .pickup .item-art.item-hook > img {
   object-fit: cover;
 }
-.crank-in-use {
-  position: absolute;
-  width: 16%;
-  height: 28.4%;
-  object-fit: contain;
-  transform-origin: 15% 80%;
-  animation: crank-turn 0.65s ease;
-  z-index: 8;
-  pointer-events: none;
-  filter: brightness(0.7) drop-shadow(2px 4px 2px #000a);
-}
-@keyframes crank-turn {
-  0% {
-    transform: rotate(-15deg);
-    opacity: 0;
-  }
-  15% {
-    opacity: 1;
-  }
-  85% {
-    opacity: 1;
-  }
-  100% {
-    transform: rotate(80deg);
-    opacity: 0;
-  }
-}
 .carriage-grip {
   position: absolute;
   left: 50%;
@@ -935,4 +848,61 @@
   width: 26px;
   height: 26px;
   filter: brightness(0.85);
+}
+
+.crank-seated {
+  position: absolute;
+  width: 14%;
+  height: 24.8889%;
+  object-fit: contain;
+  transform-origin: 7.2% 78%;
+  pointer-events: none;
+}
+.crank-seated.turning {
+  animation: seated-turn 850ms ease-in-out both;
+}
+.crank-seated.reverse {
+  animation-direction: reverse;
+}
+@keyframes seated-turn {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+.patch-fitting {
+  position: absolute;
+  left: 36.5%;
+  top: 24.4%;
+  width: 26%;
+  height: 46.2222%;
+  object-fit: contain;
+  pointer-events: none;
+  transition: transform 0.25s;
+}
+.mechanical-note {
+  position: absolute;
+  bottom: 2%;
+  left: 50%;
+  transform: translateX(-50%);
+  margin: 0;
+  padding: 0.65em 1em;
+  background: #0b2028e8;
+  color: #eadbc0;
+  font-size: clamp(12px, 1.3vw, 17px);
+  white-space: nowrap;
+  pointer-events: none;
+}
+.pin-count {
+  position: absolute;
+  right: 4%;
+  bottom: 4%;
+  padding: 0.1em 0.4em;
+  background: #0b2028;
+  color: #ffe2aa;
+  border: 1px solid #a88c51;
+  border-radius: 4px;
+  font-size: 14px;
 }

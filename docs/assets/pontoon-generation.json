@@ -1,0 +1,252 @@
+{
+  "date": "2026-09-20",
+  "purpose": "待合室の床下・固定ピン・補修セットの構造整合",
+  "selected": [
+    {
+      "asset": "scenes/concourse-low",
+      "source": "exec-6d5df770-320c-4bd8-b9eb-b00b82dcafd7.png"
+    },
+    {
+      "asset": "scenes/concourse-mid",
+      "source": "exec-3ed1ad14-726c-4051-aea2-4b24872bf48c.png"
+    },
+    {
+      "asset": "scenes/concourse-high",
+      "source": "exec-8c0cd908-2afc-47fa-8771-3c7e0a21adab.png"
+    },
+    {
+      "asset": "scenes/service-loaded",
+      "source": "exec-e5bb30eb-ac18-40a5-a566-bb4727ea7e7e.png"
+    },
+    {
+      "asset": "scenes/service-released",
+      "source": "exec-bf84d37c-ad58-47c3-a093-7f3866bcf8d8.png"
+    },
+    {
+      "asset": "scenes/service-free",
+      "source": "exec-dec0db04-8202-4eb7-bdd9-b4f167c1d843.png"
+    },
+    {
+      "asset": "scenes/service-patched",
+      "source": "exec-23ab4439-b2a1-4973-86a9-b7cfef17ce3b.png"
+    },
+    {
+      "asset": "scenes/service-dry",
+      "source": "exec-590b16db-eb9b-425c-bdc8-d594e76a919e.png"
+    },
+    {
+      "asset": "scenes/service-end",
+      "source": "exec-4197386f-8859-47e9-b7ed-3cf0174d712a.png"
+    },
+    {
+      "asset": "scenes/service-end-open",
+      "source": "exec-6395bddd-0f42-41f6-8bf9-6c7852707e21.png"
+    },
+    {
+      "asset": "scenes/concourse-high-held",
+      "source": "exec-29273c8c-6cca-4fe3-bfb0-1d7b8cc15cf4.png"
+    },
+    {
+      "asset": "scenes/service",
+      "source": "exec-1d587097-75a5-4d52-8b86-14b8f8daa8e2.png"
+    },
+    {
+      "asset": "closeups/supports-base",
+      "source": "exec-1221e1bf-47d2-4c74-b904-d6cc10ea5e4c.png"
+    },
+    {
+      "asset": "closeups/supports-loaded",
+      "source": "exec-3a39bcbe-9fb3-4b46-a874-26986e55af92.png"
+    },
+    {
+      "asset": "closeups/supports-free",
+      "source": "exec-8bfec519-7802-4b7f-a01c-51c758c157d4.png"
+    },
+    {
+      "asset": "closeups/supports-released",
+      "source": "exec-4ce23dc0-097d-4b23-86e0-ea06d0aac164.png"
+    },
+    {
+      "asset": "closeups/patch",
+      "source": "exec-52955610-f5f6-4304-8298-f9e392821e19.png"
+    },
+    {
+      "asset": "closeups/patch-mounted",
+      "source": "exec-e2bf06b1-1ff4-4583-b3a6-b407cd8713f4.png"
+    },
+    {
+      "asset": "closeups/patch-tight",
+      "source": "exec-b5b6dc31-b7bc-4ebf-91a2-7a65d842c2ac.png"
+    },
+    {
+      "asset": "closeups/patch-drained",
+      "source": "exec-9c70aa22-661c-4623-969e-a7e8d853b803.png"
+    },
+    {
+      "asset": "items/patch",
+      "source": "exec-13e01a9c-060f-47ab-a199-4b59422ac00f.png"
+    },
+    {
+      "asset": "items/locking-pins",
+      "source": "exec-d0d05dae-bff6-43e3-b733-f8295c6e5920.png"
+    }
+  ],
+  "iterations": [
+    {
+      "name": "concourse-low",
+      "refs": [
+        "C:\\Users\\kawau\\dev\\Game\\SHIOMACHI\\public\\assets\\scenes\\concourse-low.webp"
+      ],
+      "prompt": "Precise architectural edit for photoreal escape game. Preserve the exact wooden waiting hut, its windows and door, tall vertical guide piles, hinged gangway, distant shore and right upper landing. LOW WATER. Make the waiting hut CLEARLY sit on a continuous deep SEALED STEEL PONTOON BOX (not thin platform or solid foundation) directly under its entire floor: aged muted blue-green hull with welded seams, rounded lower edges, buoyant barge-like box spanning x18-55%, y54-73%. Keep wet bottom above low water. At LEFT front corner of the hut add a visible short metal stair descending from its deck to a fixed maintenance catwalk wrapping under its left edge, allowing access to underside of this hut; catwalk goes to underfloor machinery. Clearly show this route x16-27%,y58-86%. Remove the misleading lower walkway along RIGHT concrete building wall, replacing with plain seawall. Upper right walkway stays. Same camera and 16:9 framing, atmospheric twilight, no labels/UI/text. Structural realism."
+    },
+    {
+      "name": "service",
+      "refs": [
+        "C:\\Users\\kawau\\dev\\Game\\SHIOMACHI\\public\\assets\\scenes\\service.webp"
+      ],
+      "prompt": "Rebuild this photoreal underfloor maintenance scene, same dusk mood and 16:9. This is DIRECTLY UNDER the wooden waiting hut, not a concrete-wall corridor. Upper edge shows underside timber floor joists resting on a deep sealed muted blue-green steel pontoon box. Hull extends across x23-94%, y9-73%, with visibly rounded bottom edge and welded seams, gap below bottom so clearly a box. Left edge catwalk returns up toward hut. Two FIXED vertical guide columns at x27% and43%. EACH has a clevis bracket with horizontal steel locking pin at y38% connecting fixed guide to hull lug. A separate brass screw jack sits immediately RIGHT of each guide at x33% and49%, its square crank socket at y70%; jack stem must NEVER intersect locking pin. Jack supports hull lifting pad at y48%, currently a tiny gap beneath pad. On hull at x69-83%,y27-59%, one short vertical crack, four threaded mounting holes around it. At x88%,y40%, a narrow vertical glass sight tube flush mounted with dark turquoise water inside; small drain valve directly below at y65%. All metal hardware realistically attached flush. Fixed stone/grated walkway foreground; no unrelated masonry tank/wall, no giant crossing rods, no loose crank, no added UI/text. Make connections and timber-over-hull relationship unmistakable."
+    },
+    {
+      "name": "supports-base",
+      "refs": [
+        "C:\\Users\\kawau\\dev\\Game\\SHIOMACHI\\public\\assets\\scenes\\service.webp"
+      ],
+      "prompt": "Create dedicated photoreal frontal close-up of TWO separate pontoon maintenance stations below timber waiting-room floor, side by side in one 16:9 image. NOT copy the physically impossible crossing pin/thread assembly of reference; reference is only material/lighting. Steel blue-green sealed hull occupies back upper half, wooden joists visible across top. Station1: fixed dark guide column at x23%, clevis bracket connecting guide to hull lug at x23%,y34%, horizontal removable locking pin through ONLY bracket/lug, with short end and pull-ring on its right. Separate brass screw jack at x35%, below neighboring hull lifting pad, square drive socket front at x35%,y75%. Station2 same geometry at x66% guide, x78% jack. Neither pin touches a screw. Fixed stone bases under jacks, hull lug welded solidly, clevis U forks on stationary guides. Both jacks lowered with 2cm visible gap beneath lifting pads at y53%; locking pins fully inserted. Two pin pull-ring centers x27%,y34% and70%,y34%. Jack square sockets x35%,y75% and78%,y75%. Consistent realistic bronze/iron, wet harbor undercroft, warm lamp right, diffuse cool left. No crank in sockets. No labels/UI/text. Composition aligned for selectable mechanical parts, whole two mechanisms in frame."
+    },
+    {
+      "name": "service-v2",
+      "refs": [
+        "C:\\Users\\kawau\\.codex\\generated_images\\01a0ba30-de75-7b40-a770-22321b967a82\\exec-d2d673b7-8bba-4082-842d-aa22f51a8235.png",
+        "C:\\Users\\kawau\\.codex\\generated_images\\01a0ba30-de75-7b40-a770-22321b967a82\\exec-1221e1bf-47d2-4c74-b904-d6cc10ea5e4c.png"
+      ],
+      "prompt": "Image1 edit target. Image2 is authoritative reference for correct mechanical arrangement. Change ONLY two locking-pin and jack head assemblies in image1. REMOVE horizontal brass cylinders that incorrectly cross the threaded screw stems. Each jack must end in a flat circular lifting cap, separated by a small gap from hull pad. Attach a SEPARATE clevis bracket and short removable pin with pull-ring on the fixed black guide column to the LEFT of each jack, ABOVE the lifting cap. Match image2 exactly: pins connect guide to welded vertical hull lug, jacks stand beside columns, no pin intersects screw. Preserve entire image1 hull, wood floor joists, crack and four holes, glass tube, drain, walkway, camera and lighting. Glass sight tube should be clear dark EMPTY glass, water added dynamically. 16:9."
+    },
+    {
+      "name": "patch",
+      "refs": [
+        "C:\\Users\\kawau\\.codex\\generated_images\\01a0ba30-de75-7b40-a770-22321b967a82\\exec-d2d673b7-8bba-4082-842d-aa22f51a8235.png"
+      ],
+      "prompt": "Dedicated front-facing close-up of the blue-green sealed pontoon hull below timber waiting room floor in reference. Photoreal16:9. Show solid continuous weathered painted STEEL wall, welded seams and slight rounded bottom corner; timber joists at very top. One vertical crack centered x50%, y43%, with FOUR threaded mounting holes x42%,58%, y25%,60%. At right x79%, narrow flush-mounted brass-and-glass vertical sight tube extending y22-66%, EMPTY clear dark glass, no water (dynamic overlay). A small drain cock attached at x79%,y79%, connected through hull, with short side handle. No other pipes/holes/loose fasteners, no plaster, no pasted inserts. Warm lamp lighting upperright and dim coolleft, all fixtures attached naturally. Crack area fully readable, no UI/text."
+    },
+    {
+      "name": "pin-item",
+      "prompt": "Photoreal inventory cutout of ONE short heavy steel maintenance locking pin for a pontoon guide clevis: weathered dull steel cylindrical shaft horizontal, flat round head on right with hinged brass pull-ring, small chamfered tip left. Shaft about 20cm long, 3cm diameter. Match rusted harbor equipment, realistic subtle side lighting, entire object centered with modest transparent margin. TRUE transparent background, no ground, no text, no extra objects. Landscape 3:2."
+    },
+    {
+      "name": "patch-kit",
+      "prompt": "Photoreal inventory asset, TRUE transparent background. One rectangular aged muted blue-green steel repair plate, landscape orientation 3:2, slightly rounded corners. Four corner captive hex-head bolts ALREADY attached to the plate, visibly retained in holes with thin black rubber gasket behind edge. Plate nearly front facing with only slight edge thickness. Realistic weathered harbor equipment, dull metal, soft neutralwarm illumination. Entire plate centered, no extra loose parts, no text, no board underneath. This is one complete repair kit containing plate, gasket and four retained bolts."
+    },
+    {
+      "name": "concourse-mid",
+      "refs": [
+        "C:\\Users\\kawau\\.codex\\generated_images\\01a0ba30-de75-7b40-a770-22321b967a82\\exec-6d5df770-320c-4bd8-b9eb-b00b82dcafd7.png"
+      ],
+      "prompt": "Exact state variant of image. Raise ONLY water to y72% of canvas, submerging the bottom of pontoon box and bottom of underfloor stairs/catwalk. Keep hut, steel hull, all tall piles, upper and main gangways, camera, lighting, stone walls EXACTLY fixed. This is middle water; lower maintenance catwalk is flooded and inaccessible. Same16:9, no text."
+    },
+    {
+      "name": "concourse-high-held",
+      "refs": [
+        "C:\\Users\\kawau\\.codex\\generated_images\\01a0ba30-de75-7b40-a770-22321b967a82\\exec-6d5df770-320c-4bd8-b9eb-b00b82dcafd7.png"
+      ],
+      "prompt": "Exact state variant. Raise ONLY water to y58% canvas, fully submerging lower catwalk and lower stairs and most sealed steel pontoon box, but water stays below hut floor. Hut is still PINNED at SAME original height. Keep all hut geometry/windows/door, tall guide columns, gangway and camera pixel-aligned. No floating debris, no text.16:9."
+    },
+    {
+      "name": "supports-loaded",
+      "refs": [
+        "C:\\Users\\kawau\\.codex\\generated_images\\01a0ba30-de75-7b40-a770-22321b967a82\\exec-1221e1bf-47d2-4c74-b904-d6cc10ea5e4c.png"
+      ],
+      "prompt": "Mechanical state edit of exactly this image. Extend BOTH screw jack lifting heads vertically by the small gap until their flat caps press tightly against the underside of the hull pads. Locking pins and clevises remain fully inserted and unchanged. Keep bases, sockets, guide columns, timber, hull, camera and all other geometry identical. Only increase jack stem/cap height a few centimeters to close gaps. No crank.16:9."
+    },
+    {
+      "name": "supports-free",
+      "refs": [
+        "C:\\Users\\kawau\\.codex\\generated_images\\01a0ba30-de75-7b40-a770-22321b967a82\\exec-1221e1bf-47d2-4c74-b904-d6cc10ea5e4c.png"
+      ],
+      "prompt": "Exact mechanical state edit. Remove ONLY both horizontal locking pins AND their pull-rings completely from their clevis brackets. Leave the same U-shaped fork ears and the welded hull lugs with EMPTY round holes, same shapes, nothing crossing the space. Pin extraction must not remove/morph the brackets or create horizontal hollow cylinders. Keep lowered jacks including their small gap, columns, hull, joists, background, lighting and camera pixel-aligned. No loose pins in scene.16:9."
+    },
+    {
+      "name": "patch-mounted",
+      "refs": [
+        "C:\\Users\\kawau\\.codex\\generated_images\\01a0ba30-de75-7b40-a770-22321b967a82\\exec-52955610-f5f6-4304-8298-f9e392821e19.png",
+        "C:\\Users\\kawau\\.codex\\generated_images\\01a0ba30-de75-7b40-a770-22321b967a82\\exec-dd83d6d9-92da-486e-80a0-e97dd27f289d.png"
+      ],
+      "prompt": "Image1 target hull closeup. Image2 reference repair kit. Fit the same blue-green plate VERTICALLY and FLUSH over image1 crack, covering all four threaded holes and entire crack, gasket compressed behind plate. Four captive hex bolts aligned exactly with existing hole centers (around x44,56 and y35,59), lightly seated with visible small collars, not tightened. Plate spans approximately x39-61%,y28-66%. All bolts were already part of kit. Match hull lighting, distance and texture. Preserve all other image1 content pixel-aligned: timber, tube, drain cock, hull boundary, camera. No UI/text.16:9."
+    },
+    {
+      "name": "concourse-high-held-v2",
+      "refs": [
+        "C:\\Users\\kawau\\dev\\Game\\SHIOMACHI\\public\\assets\\scenes\\concourse-high-held.webp",
+        "C:\\Users\\kawau\\.codex\\generated_images\\01a0ba30-de75-7b40-a770-22321b967a82\\exec-6d5df770-320c-4bd8-b9eb-b00b82dcafd7.png"
+      ],
+      "prompt": "Image1 is authoritative high-water target. Preserve its EXACT DRY wooden walking surface of main gangway and hut deck, waterline, hut height, guide columns, camera and background. Image2 only reference for the new blue-green sealed pontoon underneath hut and LEFT underfloor stair access. Add only a very narrow visible strip of same blue-green hull beneath hut deck, most submerged. Left stair/catwalk is fully underwater at this level. No lower catwalk on right seawall. Do NOT cover the main gangway boards with water. Do NOT raise hut. Photoreal16:9 same composition."
+    },
+    {
+      "name": "concourse-high",
+      "refs": [
+        "C:\\Users\\kawau\\dev\\Game\\SHIOMACHI\\public\\assets\\scenes\\concourse-high.webp",
+        "C:\\Users\\kawau\\.codex\\generated_images\\01a0ba30-de75-7b40-a770-22321b967a82\\exec-6d5df770-320c-4bd8-b9eb-b00b82dcafd7.png"
+      ],
+      "prompt": "Image1 authoritative HIGH WATER RAISED HUT target. Keep its exact raised hut position, dry main gangway, guide piles, water surface, upper right landing, camera and illumination. Image2 reference only for hull design and LEFT underfloor stairs. Replace grey foundation-like platform directly under hut with same SEALED BLUE-GREEN steel pontoon box with rounded bottom and welded seams, emerging above water under raised hut. The maintenance catwalk/stair lower part is flooded; keep a short top section of left underfloor stair beneath hut corner continuing into water, not another main entrance. No lower right-side walkway. Everything remains physically connected, hull rises WITH hut.16:9, no text."
+    },
+    {
+      "name": "supports-released",
+      "refs": [
+        "C:\\Users\\kawau\\.codex\\generated_images\\01a0ba30-de75-7b40-a770-22321b967a82\\exec-8bfec519-7802-4b7f-a01c-51c758c157d4.png"
+      ],
+      "prompt": "Exact state variant. Both locking pins remain REMOVED, empty clevis ears unchanged. Extend only BOTH jack stem/caps upward to CLOSE the small gaps to hull lifting pads. Same camera, jack bases, square sockets, empty pinholes and columns; no new parts, no crank.16:9."
+    },
+    {
+      "name": "service-free",
+      "refs": [
+        "C:\\Users\\kawau\\.codex\\generated_images\\01a0ba30-de75-7b40-a770-22321b967a82\\exec-8a3843fb-18cf-4bef-b749-b2537a01a45f.png"
+      ],
+      "prompt": "Precise state edit of this SAME photo. Remove both short horizontal locking pins AND pull rings from their separate guide-column clevis brackets (one small far left and one nearer center-left), leaving existing fork ears and hull lugs with empty round holes. No other parts removed, no hollow pipe cylinders. Lower both jack top caps about2cm so a clear small gap appears under hull pads. Keep entire rest image pixel-aligned, same camera, hull, crack, gauge, drain, joists and catwalk.16:9."
+    },
+    {
+      "name": "patch-tight",
+      "refs": [
+        "C:\\Users\\kawau\\.codex\\generated_images\\01a0ba30-de75-7b40-a770-22321b967a82\\exec-e2bf06b1-1ff4-4583-b3a6-b407cd8713f4.png"
+      ],
+      "prompt": "Exact state variant. Tighten all FOUR captive bolts on fitted patch: heads sit snugly against washers and turn hex orientation slightly, no exposed threaded collar. Compress gasket evenly flush. Keep same plate position, size, weathering and entire hull/photo pixel aligned. No crack visible. Tube still same filled level.16:9."
+    },
+    {
+      "name": "patch-kit-v2",
+      "refs": [
+        "C:\\Users\\kawau\\.codex\\generated_images\\01a0ba30-de75-7b40-a770-22321b967a82\\exec-e2bf06b1-1ff4-4583-b3a6-b407cd8713f4.png"
+      ],
+      "prompt": "Extract ONLY the fitted repair plate with its four captive corner bolts and thin black gasket from the photo, as a photoreal inventory cutout. Preserve exact plate shape, proportions, paint wear, bolts. Rotate extracted object 90degrees into LANDSCAPE orientation (slightly wider than tall, not a long oblong). Show it detached in isolation on TRUE transparent background, no hull/background/water/shadows outside object. All four bolts remain captive in plate. Center whole object with 10%transparent margin. Squarecanvas."
+    }
+  ],
+  "additionalIterations": [
+    {
+      "name": "service-base",
+      "ref": "service-v2",
+      "prompt": "Exact state edit. Keep both locking pins inserted. Lower BOTH screw jack caps only 2cm to leave a clear small air gap under hull pads. Everything else pixel aligned, camera unchanged."
+    },
+    {
+      "name": "service-loaded",
+      "ref": "service-v2",
+      "prompt": "Exact state edit. Keep both locking pins inserted. BOTH screw jack caps press firmly upward against hull lifting pads, no gap. Change only caps and screw extension, same sockets and entire photo."
+    },
+    {
+      "name": "service-released",
+      "ref": "service-free",
+      "prompt": "Exact state edit. Keep both locking pins removed and empty clevis holes unchanged. Raise BOTH jack caps to firmly touch hull lifting pads, no gap. Only screw extension/caps change, entire photo pixel aligned."
+    },
+    {
+      "name": "service-patched",
+      "ref": "service-v2",
+      "extra": "patch-mounted",
+      "prompt": "Edit image1 only. Add the same fitted blue-green repair plate from image2 flush over crack on hull at x68-76%, y26-49%. Four captive bolts align four original holes. Match perspective/lighting, no pasted edges. Preserve all other image1 geometry exactly."
+    },
+    {
+      "name": "patch-drained",
+      "ref": "patch-tight",
+      "prompt": "Exact state edit. Empty water from the glass sight tube at right; now clear dark glass with inside back visible and NO horizontal waterline. Turn small drain cock handle a quarter turn to open. Keep patch four bolts, hull, camera and entire photo unchanged."
+    }
+  ],
+  "notes": [
+    "後続差分: service-dry は service-patched の排水後、service-end/open は床下帰路の整合、concourse-mid-v2 は渡り板を乾いたまま水位だけ変更。",
+    "スクリーンショットによる目視確認で中水位初稿を棄却。候補は最終整理で削除。"
+  ]
+}

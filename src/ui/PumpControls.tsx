@@ -1,3 +1,4 @@
+import { SupportsView } from "./PontoonView";
 import { useEffect, useRef, useState } from "react";
 import { closeup, itemImage } from "../content/assets";
 import {
@@ -102,71 +103,81 @@ export function Pipes({ game: g, send }: ControlProps) {
 }
 
 export function Supports({ game: g, send, selected }: ControlProps) {
-  const [turning, setTurning] = useState<number>(),
-    timer = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
+  const [socket, setSocket] = useState<number>();
+  const [turning, setTurning] = useState<{
+    index: number;
+    direction: 1 | -1;
+  }>();
+  const timer = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
   useEffect(() => () => clearTimeout(timer.current), []);
   const turn = (index: number) => {
-    send({
-      type: "support",
-      index,
-      direction: g.support[index] === 2 ? -1 : 1,
-      tool: selected,
-    });
-    if (selected === "crank") {
-      clearTimeout(timer.current);
-      setTurning(index);
-      timer.current = setTimeout(() => setTurning(undefined), 650);
+    if (turning) return;
+    const direction = g.support[index] === 2 ? -1 : 1;
+    if (
+      selected !== "crank" ||
+      g.items.crank !== "inventory" ||
+      g.water !== 0
+    ) {
+      send({ type: "support", index, direction, tool: selected });
+      return;
     }
+    setSocket(index);
+    setTurning({ index, direction });
+    timer.current = setTimeout(() => {
+      send({ type: "support", index, direction, tool: "crank" });
+      setTurning(undefined);
+    }, 850);
   };
-  const photoFor = (i: number) =>
-    g.pins[i]
-      ? g.support[i] === 2
-        ? "supports-loaded"
-        : g.support[i] === 1
-          ? "supports-half"
-          : "supports"
-      : g.support[i] === 2
-        ? "supports-released"
-        : "supports-free";
   return (
     <>
-      <Photo src={closeup(photoFor(0))} alt="浮体を支えるねじと固定ピン" />
-      <Photo
-        src={closeup(photoFor(1))}
-        style={{
-          maskImage: "linear-gradient(to right, transparent 49%, black 51%)",
-        }}
-      />
-      {[29.5, 72].map((x, i) => (
+      <SupportsView game={g} />
+      {[35, 80].map((x, i) => (
         <span key={i}>
-          {turning === i && (
+          {socket === i && selected === "crank" && (
             <img
-              className="crank-in-use"
+              className={
+                "crank-seated " +
+                (turning
+                  ? "turning " + (turning.direction < 0 ? "reverse" : "")
+                  : "")
+              }
               src={itemImage("crank")}
-              alt=""
-              style={{ left: `${x - 2.4}%`, top: "56%" }}
+              alt="軸穴に差し込んだクランク"
+              style={{
+                left: x - 14 * 0.072 + "%",
+                top: 67.5 - ((14 * 16) / 9) * 0.78 + "%",
+              }}
             />
           )}
           <Hit
-            label={`${i ? "右" : "左"}の支持ねじを回す`}
-            x={x - 6}
-            y={70}
-            w={12}
-            h={18}
+            label={(i ? "右" : "左") + "の支持ねじを回す"}
+            x={x - 3}
+            y={63}
+            w={6}
+            h={10}
+            disabled={!!turning}
             onClick={() => turn(i)}
           />
           {g.pins[i] && (
             <Hit
-              label={`${i ? "右" : "左"}の固定ピンを引く`}
-              x={i ? 64 : 11}
-              y={27}
-              w={27}
-              h={16}
+              label={(i ? "右" : "左") + "の固定ピンを引く"}
+              x={i ? 69.5 : 20.5}
+              y={25}
+              w={i ? 10 : 10}
+              h={10}
+              disabled={!!turning}
               onClick={() => send({ type: "pin", index: i })}
             />
           )}
         </span>
       ))}
+      <p className="mechanical-note">
+        {g.pins.every((p) => !p)
+          ? g.support.every((p) => p === 0)
+            ? "固定ピンは手元にある。支持ねじも離れた。"
+            : "固定ピンは手元にある。箱は支持ねじに載っている。"
+          : "柱のピンが、床下の箱を留めている。"}
+      </p>
     </>
   );
 }

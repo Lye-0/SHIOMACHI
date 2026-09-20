@@ -604,6 +604,17 @@ export function App() {
               <>
                 <h2>{itemNames[inspected]}</h2>
                 <ItemArt className="item-large" item={inspected} game={g} />
+                {inspected === "lockingPins" && (
+                  <p>
+                    待合室を案内柱に固定していたピン。
+                    {g.pins.filter((p) => !p).length}本、手元にある。
+                  </p>
+                )}
+                {inspected === "patch" && (
+                  <p>
+                    補修板、ゴムパッキン、脱落防止のボルト4本が一組になっている。
+                  </p>
+                )}
                 {inspected === "hook" && (
                   <button
                     className="menu-row"

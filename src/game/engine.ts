@@ -333,17 +333,25 @@ export function act(previous: Game, action: Action): Result {
       break;
     case "pin":
       if (badIndex(action.index, 2) || g.water !== 0) break;
+      if (!g.pins[action.index]) {
+        say("固定ピンは抜いてある。持ち物に入っている。");
+        break;
+      }
       if (g.support[action.index] !== 2) say("荷重が掛かり、抜けない。");
       else {
-        g.pins[action.index] = !g.pins[action.index];
-        result.sound = "metal";
+        g.pins[action.index] = false;
+        g.items.lockingPins = "inventory";
+        say(
+          `固定ピンを抜き、手に取った。${g.pins.filter((p) => !p).length}本。`,
+          "take",
+        );
       }
       break;
     case "patchRotate":
       if (!g.patchMounted) g.patchTurn = (g.patchTurn + 1) % 4;
       break;
     case "mountPatch":
-      if (g.water !== 0) break;
+      if (g.water !== 0 || g.patchMounted) break;
       if (action.tool !== "patch" || !use("patch"))
         say("割れ目の周りに、四つの穴がある。");
       else if (g.patchTurn % 2 !== 1) say("穴が、合わない。");
@@ -358,7 +366,7 @@ export function act(previous: Game, action: Action): Result {
       if (action.tool !== "pliers" || !use("pliers"))
         say("ボルトは、まだ緩い。");
       else {
-        g.patchBolts[action.index] = !g.patchBolts[action.index];
+        g.patchBolts[action.index] = true;
         result.sound = "metal";
       }
       break;
@@ -530,6 +538,11 @@ export function parseSave(raw: string | null): Game | null {
     const g = input as Game,
       base = newGame();
     g.records ??= {};
+    // Older saves did not track removed pins as inventory. Restore ownership.
+    if (g.items && typeof g.items === "object" && Array.isArray(g.pins))
+      g.items.lockingPins = g.pins.some((p) => p === false)
+        ? "inventory"
+        : "absent";
     if (
       g.version !== 1 ||
       !Object.hasOwn(roomNames, g.room) ||
