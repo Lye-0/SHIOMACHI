@@ -60,6 +60,7 @@ export function act(previous: Game, action: Action): Result {
       if (!g.visited.includes(g.room)) g.visited.push(g.room);
       break;
     case "face":
+      if (g.room === "dock") break;
       g.face = g.face === 0 ? 1 : 0;
       g.detail = null;
       break;
@@ -636,6 +637,7 @@ export function parseSave(raw: string | null): Game | null {
       g.room = "waiting";
       g.detail = null;
     }
+    if (g.room === "dock") g.face = 0;
     return g;
   } catch {
     return null;

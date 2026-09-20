@@ -17,6 +17,20 @@ function run(g: Game, ...actions: Action[]) {
   return actions.reduce((state, a) => act(state, a).game, g);
 }
 describe("物理状態と情報を分離する", () => {
+  it("船溜まりは左右で拡大せず、旧裏向きセーブも進行を保持して全景に戻す", () => {
+    const g = newGame();
+    g.room = "dock";
+    expect(run(g, { type: "face" }).face).toBe(0);
+    g.face = 1;
+    g.detail = "gate";
+    g.boatOutside = true;
+    const restored = parseSave(JSON.stringify(g));
+    expect(restored?.face).toBe(0);
+    expect(restored?.detail).toBe("gate");
+    expect(restored?.boatOutside).toBe(true);
+    g.room = "office";
+    expect(run(g, { type: "face" }).face).toBe(0);
+  });
   it("船灯のつまみはガラスを清掃せず、取り付け後もガラスを拭いて点灯できる", () => {
     const g = newGame();
     g.items.lens = "inventory";

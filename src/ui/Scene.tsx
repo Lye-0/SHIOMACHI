@@ -76,14 +76,7 @@ export function Scene({ game: g, send }: ControlProps) {
         </button>
       )}
       {g.room === "dock" ? (
-        <DockView
-          game={g}
-          style={
-            g.face
-              ? { transform: "scale(1.5)", transformOrigin: "65% 35%" }
-              : undefined
-          }
-        />
+        <DockView game={g} />
       ) : (
         <Photo src={scene(g.face ? back[g.room] : front[g.room])} alt="" />
       )}
@@ -693,70 +686,56 @@ export function Scene({ game: g, send }: ControlProps) {
             />
           </>
         ))}
-      {g.room === "dock" &&
-        (g.face === 0 ? (
-          <>
-            <Hit
-              label="船を調べる"
-              x={8}
-              y={33}
-              w={60}
-              h={28}
-              onClick={inspect("boat")}
-            />
-            <Hit
-              label="船台のくぼみを調べる"
-              x={22}
-              y={75}
-              w={44}
-              h={15}
-              onClick={inspect("trace")}
-            />
-            <Hit
-              label="岸壁の水位目盛を調べる"
-              x={84}
-              y={24}
-              w={8}
-              h={33}
-              onClick={inspect("depth")}
-            />
-            <Hit
-              label="桟橋へ戻る"
-              x={91}
-              y={58}
-              w={8}
-              h={32}
-              onClick={go("concourse")}
-            />
-          </>
-        ) : (
-          <>
-            <Hit
-              label="水門の閂を調べる"
-              x={52}
-              y={5}
-              w={28}
-              h={33}
-              onClick={inspect("gate")}
-            />
-            <Hit
-              label="船灯を調べる"
-              x={61}
-              y={36}
-              w={11}
-              h={17}
-              onClick={inspect("lantern")}
-            />
-            <Hit
-              label="船に乗る"
-              x={16}
-              y={42}
-              w={40}
-              h={22}
-              onClick={() => send({ type: "depart" })}
-            />
-          </>
-        ))}
+      {g.room === "dock" && (
+        <>
+          <Hit
+            label="船を調べる"
+            x={8}
+            y={33}
+            w={55}
+            h={28}
+            onClick={inspect("boat")}
+          />
+          <Hit
+            label="船台のくぼみを調べる"
+            x={22}
+            y={75}
+            w={44}
+            h={15}
+            onClick={inspect("trace")}
+          />
+          <Hit
+            label="岸壁の水位目盛を調べる"
+            x={84}
+            y={24}
+            w={8}
+            h={33}
+            onClick={inspect("depth")}
+          />
+          <Hit
+            label="水門の閂を調べる"
+            x={55}
+            y={10}
+            w={23}
+            h={28}
+            onClick={inspect("gate")}
+          />
+          <Hit
+            label="船灯を調べる"
+            x={63}
+            y={35 + (g.water === 2 && !boatReady(g) ? 6 : 0)}
+            w={7}
+            h={12}
+            onClick={inspect("lantern")}
+          />
+          <button
+            className="passage-link dock"
+            onClick={() => send({ type: "depart" })}
+          >
+            船に乗る
+          </button>
+        </>
+      )}
     </>
   );
 }

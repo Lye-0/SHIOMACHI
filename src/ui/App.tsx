@@ -220,13 +220,14 @@ export function App() {
         !panel &&
         !g.detail &&
         !g.atSea &&
+        g.room !== "dock" &&
         (e.key === "ArrowLeft" || e.key === "ArrowRight")
       )
         send({ type: "face" });
     };
     window.addEventListener("keydown", key);
     return () => window.removeEventListener("keydown", key);
-  }, [home, panel, g.detail, g.atSea, send]);
+  }, [home, panel, g.detail, g.atSea, g.room, send]);
   const begin = () => {
     send({ type: "start" });
     setHome(false);
@@ -343,7 +344,7 @@ export function App() {
                 </button>
               </div>
             </header>
-            {!g.detail && !g.atSea && (
+            {!g.detail && !g.atSea && g.room !== "dock" && (
               <>
                 <button
                   className="nav left"
@@ -379,17 +380,7 @@ export function App() {
               <div className={`scene-transition ${transition.kind}`}>
                 {transition.departure ? (
                   <>
-                    <DockView
-                      game={transition.departure}
-                      style={
-                        transition.departure.face
-                          ? {
-                              transform: "scale(1.5)",
-                              transformOrigin: "65% 35%",
-                            }
-                          : undefined
-                      }
-                    />
+                    <DockView game={transition.departure} />
                     <div className="world-frame after" inert aria-hidden="true">
                       <SeaScene game={g} send={() => {}} />
                     </div>
