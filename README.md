@@ -26,6 +26,14 @@ pnpm preview
 
 完成版の確認用: http://localhost:4197/
 
+## GitHub Pages
+
+`main` への push で `.github/workflows/pages.yml` が起動します。テスト・画像検査・ビルドが成功すると、`dist` を GitHub Pages へ公開します。
+
+リポジトリの Settings → Pages → Build and deployment の Source は **GitHub Actions** に設定します。公開先のパスは `configure-pages` の結果を Vite の `--base` に渡すため、リポジトリ配下の URL にも対応します。Node と pnpm はローカルと同じ固定バージョンを使います。
+
+参考: [GitHub Pages のカスタムワークフロー](https://docs.github.com/en/pages/getting-started-with-github-pages/using-custom-workflows-with-github-pages)
+
 ## 操作と保存
 
 - 写真の物をクリックして調べます。画面下で道具を選び、使う場所をクリックします。
