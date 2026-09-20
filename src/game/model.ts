@@ -202,6 +202,14 @@ export const soundPontoon = (g: Game) =>
   g.patchMounted && g.patchBolts.every(Boolean) && g.tankDry;
 export const raised = (g: Game) =>
   g.water === 2 && freePontoon(g) && soundPontoon(g);
+export function mapTravelBlock(g: Game, room: Room): string | null {
+  if (g.atSea || g.ended) return "航行中はマップから移動できません";
+  if (!g.visited.includes(room) && room !== g.room) return "まだ訪れていません";
+  if (room !== "waiting" && !g.shutterOpen) return "待合室の戸が閉じています";
+  if (room === "service" && g.water !== 0) return "整備通路は水の中です";
+  if (room === "lookout" && !raised(g)) return "観測室の敷居に届きません";
+  return null;
+}
 export const boatReady = (g: Game) =>
   g.boatInside && g.boatOutside && g.boatDry;
 export const paperComplete = (g: Game) =>
@@ -310,6 +318,7 @@ export const seaNames: Record<string, string> = {
 export type Action =
   | { type: "start" }
   | { type: "visit"; room: Room }
+  | { type: "mapTravel"; room: Room }
   | { type: "face" }
   | { type: "inspect"; detail: Detail }
   | { type: "back" }

@@ -1,14 +1,18 @@
 import type { CSSProperties } from "react";
-import { scene, mechanism, itemImage } from "../content/assets";
+import { scene, mechanism } from "../content/assets";
 import { boatReady, type Game } from "../game/model";
 import { Photo } from "./Primitives";
 import { GateView } from "./GateView";
 
 export const dockSceneName = (g: Game) =>
   g.water === 0
-    ? "dock-low"
+    ? g.boatOutside
+      ? "dock-low-repaired"
+      : "dock-low"
     : g.water === 1
-      ? "dock-mid"
+      ? g.boatOutside
+        ? "dock-mid-repaired"
+        : "dock-mid"
       : boatReady(g)
         ? "dock-high"
         : "dock-high-flooded";
@@ -35,20 +39,6 @@ export function DockView({
       <div className="gate-miniature" aria-hidden="true">
         <GateView game={g} />
       </div>
-      {g.boatOutside && !sunk && (
-        <span
-          className="world-overlay item-art kit-left"
-          style={{
-            left: g.water === 2 ? "30.6%" : "32.3%",
-            top: "45.5%",
-            width: "10%",
-            height: "10%",
-            filter: "brightness(.65)",
-          }}
-        >
-          <img src={itemImage("boatKit")} alt="" />
-        </span>
-      )}
       <img
         className="world-overlay"
         src={mechanism(g.lampMounted ? "boat-lamp" : "boat-lamp-bare")}

@@ -1,4 +1,5 @@
-import type { CSSProperties, ReactNode } from "react";
+import { useContext, type CSSProperties, type ReactNode } from "react";
+import { StageWidth } from "./ActionBar";
 import { itemImage, mechanism } from "../content/assets";
 import { itemNames, type Item, type Game } from "../game/model";
 
@@ -79,6 +80,7 @@ export function Hit({
   className = "",
   style,
   disabled = false,
+  shape,
 }: {
   label: string;
   x: number;
@@ -90,24 +92,80 @@ export function Hit({
   className?: string;
   style?: CSSProperties;
   disabled?: boolean;
+  /** Polygon points in the button's 0–100 coordinates, or an ellipse. */
+  shape?: string;
 }) {
+  const stageWidth = useContext(StageWidth);
+  const padX = Math.max(0.7, ((38 / stageWidth) * 100 - w) / 2);
+  const padY = Math.max(
+    (0.7 * 16) / 9,
+    (((38 / stageWidth) * 100 * 16) / 9 - h) / 2,
+  );
+  const left = Math.max(0, x - padX),
+    top = Math.max(0, y - padY);
+  const width = Math.min(100, x + w + padX) - left;
+  const height = Math.min(100, y + h + padY) - top;
   return (
     <button
       type="button"
       aria-label={label}
       title={label}
-      className={`hit ${className}`}
+      className={`hit ${shape ? "shaped-hit" : ""} ${className}`}
       disabled={disabled}
       style={{
-        left: `${x}%`,
-        top: `${y}%`,
-        width: `${w}%`,
-        height: `${h}%`,
+        left: `${left}%`,
+        top: `${top}%`,
+        width: `${width}%`,
+        height: `${height}%`,
+        ...(shape
+          ? {
+              clipPath:
+                shape === "ellipse"
+                  ? "ellipse(50% 50% at 50% 50%)"
+                  : `polygon(${shape
+                      .split(" ")
+                      .map((p) =>
+                        p
+                          .split(",")
+                          .map((n) => n + "%")
+                          .join(" "),
+                      )
+                      .join(",")})`,
+            }
+          : {}),
         ...style,
       }}
       onClick={onClick}
     >
-      {children}
+      {children && (
+        <div
+          className="hit-contents"
+          style={{
+            position: "absolute",
+            left: `${((x - left) / width) * 100}%`,
+            top: `${((y - top) / height) * 100}%`,
+            width: `${(w / width) * 100}%`,
+            height: `${(h / height) * 100}%`,
+            pointerEvents: "none",
+          }}
+        >
+          {children}
+        </div>
+      )}
+      {shape && (
+        <svg
+          className="hit-outline"
+          viewBox="0 0 100 100"
+          preserveAspectRatio="none"
+          aria-hidden="true"
+        >
+          {shape === "ellipse" ? (
+            <ellipse cx="50" cy="50" rx="49.5" ry="49.5" />
+          ) : (
+            <polygon points={shape} />
+          )}
+        </svg>
+      )}
     </button>
   );
 }
@@ -126,6 +184,7 @@ export function Pickup({
   h: number;
   onClick: () => void;
 }) {
+  const stageWidth = useContext(StageWidth);
   return (
     <Hit
       label={`${itemNames[item]}を取る`}
@@ -135,10 +194,55 @@ export function Pickup({
       h={h}
       onClick={onClick}
       className="pickup"
+      shape={pickupShape(item, w, h, stageWidth)}
     >
       <ItemArt item={item} />
     </Hit>
   );
+}
+// Bounds of the visible art, measured from the selected transparent assets.
+// Preserve the photograph's scale; trim only the button's transparent margins.
+function pickupShape(item: Item, w: number, h: number, stageWidth: number) {
+  const bounds: Partial<
+    Record<Item, [number, number, number, number, number]>
+  > = {
+    pliers: [1, 0.064, 0.035, 0.957, 0.959],
+    keyJig: [1, 0.052, 0.287, 0.953, 0.74],
+    crank: [1, 0.033, 0.157, 0.981, 0.841],
+    belt: [1.5, 0.025, 0.223, 0.977, 0.778],
+    rod: [2 / 3, 0.473, 0.011, 0.529, 0.989],
+    hookTip: [1, 0.217, 0.03, 0.819, 0.944],
+    patch: [1, 0.026, 0.177, 0.975, 0.816],
+    boatKit: [1.5, 0.059, 0.102, 0.943, 0.886],
+    lens: [1, 0.027, 0.03, 0.973, 0.967],
+    chalk: [1, 0.102, 0.161, 0.921, 0.889],
+  };
+  if (item === "keyBow") return "20,22 88,22 88,79 20,79";
+  const b = bounds[item];
+  if (!b) return undefined;
+  const [aspect, left, top, right, bottom] = b;
+  const boxWidth = (w * 16) / 9;
+  const scale =
+    item === "rod"
+      ? Math.max(boxWidth / aspect, h)
+      : Math.min(boxWidth / aspect, h);
+  const rw = (scale * aspect) / boxWidth,
+    rh = scale / h;
+  const cx = (1 - rw) / 2 + ((left + right) / 2) * rw,
+    cy = (1 - rh) / 2 + ((top + bottom) / 2) * rh;
+  const halfW = Math.max(
+    ((right - left) * rw) / 2 + 0.5 / w,
+    ((19 / stageWidth) * 100) / w,
+  );
+  const halfH = Math.max(
+    ((bottom - top) * rh) / 2 + 0.9 / h,
+    ((19 / stageWidth) * 100 * 16) / 9 / h,
+  );
+  const x1 = Math.max(0, cx - halfW) * 100,
+    x2 = Math.min(1, cx + halfW) * 100;
+  const y1 = Math.max(0, cy - halfH) * 100,
+    y2 = Math.min(1, cy + halfH) * 100;
+  return `${x1},${y1} ${x2},${y1} ${x2},${y2} ${x1},${y2}`;
 }
 export function Wheel({
   x,
@@ -164,6 +268,7 @@ export function Wheel({
       h={(size * 16) / 9}
       onClick={onClick}
       className="wheel"
+      shape="ellipse"
     >
       <img
         draggable={false}

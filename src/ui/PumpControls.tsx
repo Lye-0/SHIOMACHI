@@ -155,14 +155,16 @@ export function Supports({ game: g, send, selected }: ControlProps) {
             h={18}
             onClick={() => turn(i)}
           />
-          <Hit
-            label={`${i ? "右" : "左"}の固定ピンを引く`}
-            x={i ? 64 : 11}
-            y={27}
-            w={27}
-            h={16}
-            onClick={() => send({ type: "pin", index: i })}
-          />
+          {g.pins[i] && (
+            <Hit
+              label={`${i ? "右" : "左"}の固定ピンを引く`}
+              x={i ? 64 : 11}
+              y={27}
+              w={27}
+              h={16}
+              onClick={() => send({ type: "pin", index: i })}
+            />
+          )}
         </span>
       ))}
     </>

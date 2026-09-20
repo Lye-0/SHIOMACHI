@@ -7,6 +7,7 @@ import {
   filling,
   has,
   itemNames,
+  mapTravelBlock,
   newGame,
   paperComplete,
   raised,
@@ -66,6 +67,14 @@ export function act(previous: Game, action: Action): Result {
       g.started = true;
       break;
     case "visit":
+    case "mapTravel":
+      if (action.type === "mapTravel") {
+        const blocked = mapTravelBlock(g, action.room);
+        if (blocked) {
+          say(blocked);
+          break;
+        }
+      }
       if (action.room !== "waiting" && !g.shutterOpen) {
         say("戸が閉じている。");
         break;
@@ -170,6 +179,10 @@ export function act(previous: Game, action: Action): Result {
       } else say("横の取り出し口まで、通らない。", "wood");
       break;
     case "extractKey":
+      if (g.keyTurn) {
+        say("錠はすでに外れている。");
+        break;
+      }
       if (action.tool === "pliers" && use("pliers") && !g.keyExtracted) {
         g.keyExtracted = true;
         g.items.keyTip = "inventory";
@@ -182,6 +195,10 @@ export function act(previous: Game, action: Action): Result {
         );
       break;
     case "turnKey":
+      if (g.keyTurn) {
+        say("錠はすでに外れている。");
+        break;
+      }
       if (action.tool === "key" && use("key")) {
         g.keyTurn = 1;
         say("錠が外れた。");

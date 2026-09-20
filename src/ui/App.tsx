@@ -1,3 +1,4 @@
+import { ActionBar, SceneAction, HideSceneActions } from "./ActionBar";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { act, parseSave } from "../game/engine";
 import {
@@ -137,7 +138,8 @@ export function App() {
     const r = act(previous, a);
     state.current = r.game;
     if (a.type !== "tick") setGame(r.game);
-    if (["visit", "face", "back"].includes(a.type)) setSelected(undefined);
+    if (["visit", "mapTravel", "face", "back"].includes(a.type))
+      setSelected(undefined);
     if (r.message) {
       setToast(r.message);
       clearTimeout(toastTimer.current);
@@ -291,137 +293,145 @@ export function App() {
         </section>
       ) : (
         <>
-          <section
-            className="stage"
-            aria-label={g.atSea ? "水路" : roomNames[g.room]}
-          >
-            {g.detail ? (
-              <Details game={g} send={send} selected={selected} />
-            ) : (
-              <Scene game={g} send={send} selected={selected} />
-            )}
-            <header className="hud">
-              <div className="hud-actions">
-                <button
-                  className="icon-button"
-                  aria-label="メニュー"
-                  onClick={() => setPanel("menu")}
+          <ActionBar>
+            <section
+              className="stage"
+              aria-label={g.atSea ? "水路" : roomNames[g.room]}
+            >
+              {g.detail ? (
+                <Details game={g} send={send} selected={selected} />
+              ) : (
+                <Scene game={g} send={send} selected={selected} />
+              )}
+              <header className="hud">
+                <div className="hud-actions">
+                  <button
+                    className="icon-button"
+                    aria-label="メニュー"
+                    onClick={() => setPanel("menu")}
+                  >
+                    <Icon name="menu" />
+                  </button>
+                  <button
+                    className="icon-button targets-toggle"
+                    aria-label="操作する場所を表示"
+                    aria-pressed={outlines}
+                    title={
+                      outlines
+                        ? "操作する場所を非表示にする"
+                        : "操作する場所を表示"
+                    }
+                    onClick={() => setOutlines((value) => !value)}
+                  >
+                    <Icon name="eye" />
+                  </button>
+                </div>
+                <span className="room-name">
+                  {g.atSea ? "水路" : roomNames[g.room]}
+                </span>
+                <div className="hud-actions">
+                  <button
+                    className="icon-button"
+                    aria-label="マップ"
+                    title="マップ"
+                    onClick={() => setPanel("map")}
+                  >
+                    <Icon name="map" />
+                  </button>
+                  <button
+                    className="icon-button"
+                    aria-label="記録帳"
+                    onClick={() => setPanel("book")}
+                  >
+                    <Icon name="book" />
+                  </button>
+                </div>
+              </header>
+              {!g.detail && !g.atSea && g.room !== "dock" && (
+                <>
+                  <button
+                    className="nav left"
+                    aria-label="左を見る"
+                    onClick={() => send({ type: "face" })}
+                  >
+                    <Icon name="left" />
+                  </button>
+                  <button
+                    className="nav right"
+                    aria-label="右を見る"
+                    onClick={() => send({ type: "face" })}
+                  >
+                    <Icon name="right" />
+                  </button>
+                </>
+              )}
+              {g.detail && (
+                <SceneAction
+                  aria-label="部屋へ戻る"
+                  onClick={() => send({ type: "back" })}
                 >
-                  <Icon name="menu" />
-                </button>
-                <button
-                  className="icon-button targets-toggle"
-                  aria-label="操作する場所を表示"
-                  aria-pressed={outlines}
-                  title={
-                    outlines
-                      ? "操作する場所を非表示にする"
-                      : "操作する場所を表示"
-                  }
-                  onClick={() => setOutlines((value) => !value)}
-                >
-                  <Icon name="eye" />
-                </button>
-              </div>
-              <span className="room-name">
-                {g.atSea ? "水路" : roomNames[g.room]}
-              </span>
-              <div className="hud-actions">
-                <button
-                  className="icon-button"
-                  aria-label="マップ"
-                  title="マップ"
-                  onClick={() => setPanel("map")}
-                >
-                  <Icon name="map" />
-                </button>
-                <button
-                  className="icon-button"
-                  aria-label="記録帳"
-                  onClick={() => setPanel("book")}
-                >
-                  <Icon name="book" />
-                </button>
-              </div>
-            </header>
-            {!g.detail && !g.atSea && g.room !== "dock" && (
-              <>
-                <button
-                  className="nav left"
-                  aria-label="左を見る"
-                  onClick={() => send({ type: "face" })}
-                >
-                  <Icon name="left" />
-                </button>
-                <button
-                  className="nav right"
-                  aria-label="右を見る"
-                  onClick={() => send({ type: "face" })}
-                >
-                  <Icon name="right" />
-                </button>
-              </>
-            )}
-            {g.detail && (
-              <button
-                className="nav back"
-                aria-label="部屋へ戻る"
-                onClick={() => send({ type: "back" })}
-              >
-                <Icon name="back" />
-              </button>
-            )}
-            {toast && (
-              <p role="status" className="toast">
-                {toast}
-              </p>
-            )}
-            {transition && (
-              <div className={`scene-transition ${transition.kind}`}>
-                {transition.departure ? (
-                  <>
-                    <DockView game={transition.departure} />
-                    <div className="world-frame after" inert aria-hidden="true">
-                      <SeaScene game={g} send={() => {}} />
-                    </div>
-                  </>
-                ) : (
-                  <>
-                    <Photo src={scene(transition.from)} />
-                    <Photo src={scene(transition.to)} className="after" />
-                  </>
-                )}
-                <button
-                  className="transition-skip"
-                  aria-label="場面の変化を閉じる"
-                  onClick={() => setTransition(undefined)}
-                >
-                  ›
-                </button>
-              </div>
-            )}
-            {isLab && (
-              <nav className="lab">
-                <span>検証用</span>
-                <button onClick={() => send({ type: "visit", room: "pump" })}>
-                  ポンプ
-                </button>
-                <button
-                  onClick={() => send({ type: "visit", room: "concourse" })}
-                >
-                  桟橋
-                </button>
-                <button
-                  onClick={() => {
-                    send({ type: "visit", room: "service" });
-                    send({ type: "inspect", detail: "supports" });
-                  }}
-                >
-                  支持具
-                </button>
-              </nav>
-            )}
-          </section>
+                  <Icon name="back" />
+                  部屋へ戻る
+                </SceneAction>
+              )}
+              {toast && (
+                <p role="status" className="toast">
+                  {toast}
+                </p>
+              )}
+              {transition && (
+                <div className={`scene-transition ${transition.kind}`}>
+                  {transition.departure ? (
+                    <>
+                      <DockView game={transition.departure} />
+                      <div
+                        className="world-frame after"
+                        inert
+                        aria-hidden="true"
+                      >
+                        <HideSceneActions>
+                          <SeaScene game={g} send={() => {}} />
+                        </HideSceneActions>
+                      </div>
+                    </>
+                  ) : (
+                    <>
+                      <Photo src={scene(transition.from)} />
+                      <Photo src={scene(transition.to)} className="after" />
+                    </>
+                  )}
+                  <button
+                    className="transition-skip"
+                    aria-label="場面の変化を閉じる"
+                    onClick={() => setTransition(undefined)}
+                  >
+                    ›
+                  </button>
+                </div>
+              )}
+              {isLab && (
+                <nav className="lab">
+                  <span>検証用</span>
+                  <button onClick={() => send({ type: "visit", room: "pump" })}>
+                    ポンプ
+                  </button>
+                  <button
+                    onClick={() => send({ type: "visit", room: "concourse" })}
+                  >
+                    桟橋
+                  </button>
+                  <button
+                    onClick={() => {
+                      send({ type: "visit", room: "service" });
+                      send({ type: "inspect", detail: "supports" });
+                    }}
+                  >
+                    支持具
+                  </button>
+                </nav>
+              )}
+            </section>
+          </ActionBar>
           <footer className="inventory" aria-label="持ち物">
             <span className="inventory-line" />
             {inventory.length === 0 && (
@@ -581,7 +591,15 @@ export function App() {
               </>
             )}
             {panel === "book" && <Notebook game={g} />}
-            {panel === "map" && <AreaMap game={g} />}
+            {panel === "map" && (
+              <AreaMap
+                game={g}
+                onTravel={(room) => {
+                  send({ type: "mapTravel", room });
+                  setPanel(null);
+                }}
+              />
+            )}
             {panel === "item" && inspected && (
               <>
                 <h2>{itemNames[inspected]}</h2>

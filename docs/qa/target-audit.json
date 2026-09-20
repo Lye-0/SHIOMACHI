@@ -1,0 +1,2582 @@
+{
+  "viewport": {
+    "width": 1280,
+    "height": 820
+  },
+  "states": [
+    {
+      "label": "waiting-closed",
+      "hits": [
+        {
+          "label": "戸の留め金を調べる",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "窓の外を見る",
+          "outside": false,
+          "reachable": true
+        }
+      ]
+    },
+    {
+      "label": "waiting-open",
+      "hits": [
+        {
+          "label": "桟橋へ",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "窓の外を見る",
+          "outside": false,
+          "reachable": true
+        }
+      ]
+    },
+    {
+      "label": "waiting-raised",
+      "hits": [
+        {
+          "label": "桟橋へ",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "窓の外を見る",
+          "outside": false,
+          "reachable": true
+        }
+      ]
+    },
+    {
+      "label": "waiting-rear-raised",
+      "hits": [
+        {
+          "label": "向こうの通路を調べる",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "窓の外を見る",
+          "outside": false,
+          "reachable": true
+        }
+      ]
+    },
+    {
+      "label": "hub-low",
+      "hits": [
+        {
+          "label": "待合室へ",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "下の整備通路へ",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "待合室と案内柱を見比べる",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "上の通路へ",
+          "outside": false,
+          "reachable": true
+        }
+      ]
+    },
+    {
+      "label": "hub-mid",
+      "hits": [
+        {
+          "label": "待合室へ",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "下の整備通路へ",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "待合室と案内柱を見比べる",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "上の通路へ",
+          "outside": false,
+          "reachable": true
+        }
+      ]
+    },
+    {
+      "label": "hub-high-held",
+      "hits": [
+        {
+          "label": "待合室へ",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "下の整備通路へ",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "待合室と案内柱を見比べる",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "上の通路へ",
+          "outside": false,
+          "reachable": true
+        }
+      ]
+    },
+    {
+      "label": "hub-high-raised",
+      "hits": [
+        {
+          "label": "待合室へ",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "下の整備通路へ",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "待合室と案内柱を見比べる",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "上の通路へ",
+          "outside": false,
+          "reachable": true
+        }
+      ]
+    },
+    {
+      "label": "office-drawer-items",
+      "hits": [
+        {
+          "label": "引き出しを調べる",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "右の引き手を調べる",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "紙片を調べる",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "折れた鍵を取る",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "白墨を取る",
+          "outside": false,
+          "reachable": true
+        }
+      ]
+    },
+    {
+      "label": "office-paper",
+      "hits": [
+        {
+          "label": "図面の紙片 1 を選ぶ",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "図面の紙片 1 を回す",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "図面の紙片 2 を選ぶ",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "図面の紙片 2 を回す",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "図面の紙片 3 を選ぶ",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "図面の紙片 3 を回す",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "図面の紙片 4 を選ぶ",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "図面の紙片 4 を回す",
+          "outside": false,
+          "reachable": true
+        }
+      ]
+    },
+    {
+      "label": "office-shelves",
+      "hits": [
+        {
+          "label": "壁の配管図を調べる",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "桟橋へ戻る",
+          "outside": false,
+          "reachable": true
+        }
+      ]
+    },
+    {
+      "label": "workshop-tools",
+      "hits": [
+        {
+          "label": "工具箱を調べる",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "駆動ベルトを取る",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "長い棒を取る",
+          "outside": false,
+          "reachable": true
+        }
+      ]
+    },
+    {
+      "label": "workshop-rack",
+      "hits": [
+        {
+          "label": "補修板の棚を調べる",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "配管の続きを見る",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "桟橋へ戻る",
+          "outside": false,
+          "reachable": true
+        }
+      ]
+    },
+    {
+      "label": "pump-start",
+      "hits": [
+        {
+          "label": "三つの弁を調べる",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "駆動部を調べる",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "吸込み口を調べる",
+          "outside": false,
+          "reachable": true
+        }
+      ]
+    },
+    {
+      "label": "pump-running",
+      "hits": [
+        {
+          "label": "三つの弁を調べる",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "駆動部を調べる",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "吸込み口を調べる",
+          "outside": false,
+          "reachable": true
+        }
+      ]
+    },
+    {
+      "label": "pump-level-high",
+      "hits": [
+        {
+          "label": "水位窓を調べる",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "桟橋へ戻る",
+          "outside": false,
+          "reachable": true
+        }
+      ]
+    },
+    {
+      "label": "service-one-pin",
+      "hits": [
+        {
+          "label": "浮体の固定具を調べる",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "浮体の割れ目を調べる",
+          "outside": false,
+          "reachable": true
+        }
+      ]
+    },
+    {
+      "label": "service-repaired",
+      "hits": [
+        {
+          "label": "浮体の固定具を調べる",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "浮体の割れ目を調べる",
+          "outside": false,
+          "reachable": true
+        }
+      ]
+    },
+    {
+      "label": "supports-one-loaded",
+      "hits": [
+        {
+          "label": "左の支持ねじを回す",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "左の固定ピンを引く",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "右の支持ねじを回す",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "右の固定ピンを引く",
+          "outside": false,
+          "reachable": true
+        }
+      ]
+    },
+    {
+      "label": "supports-one-released",
+      "hits": [
+        {
+          "label": "左の支持ねじを回す",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "右の支持ねじを回す",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "右の固定ピンを引く",
+          "outside": false,
+          "reachable": true
+        }
+      ]
+    },
+    {
+      "label": "case-closed",
+      "hits": [
+        {
+          "label": "外の環を回す",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "中の環を回す",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "内の環を回す",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "留め爪を抜く",
+          "outside": false,
+          "reachable": true
+        }
+      ]
+    },
+    {
+      "label": "case-open",
+      "hits": [
+        {
+          "label": "船の補修具を取る",
+          "outside": false,
+          "reachable": true
+        }
+      ]
+    },
+    {
+      "label": "case-open-room",
+      "hits": [
+        {
+          "label": "船具ケースを調べる",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "水路の奥を見る",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "岸へ上がる",
+          "outside": false,
+          "reachable": true
+        }
+      ]
+    },
+    {
+      "label": "lookout-lens",
+      "hits": [
+        {
+          "label": "測量図を調べる",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "船灯のガラスを取る",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "待合室へ戻る",
+          "outside": false,
+          "reachable": true
+        }
+      ]
+    },
+    {
+      "label": "lookout-window",
+      "hits": [
+        {
+          "label": "見通し標を調べる",
+          "outside": false,
+          "reachable": true
+        }
+      ]
+    },
+    {
+      "label": "survey-offset",
+      "hits": [
+        {
+          "label": "観測窓の位置 1",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "観測窓の位置 2",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "観測窓の位置 3",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "観測窓の位置 4",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "観測窓の位置 5",
+          "outside": false,
+          "reachable": true
+        }
+      ]
+    },
+    {
+      "label": "survey-aligned",
+      "hits": [
+        {
+          "label": "観測窓の位置 1",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "観測窓の位置 2",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "観測窓の位置 3",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "観測窓の位置 4",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "観測窓の位置 5",
+          "outside": false,
+          "reachable": true
+        }
+      ]
+    },
+    {
+      "label": "chart-bearings",
+      "hits": [
+        {
+          "label": "測量図を回す",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "線を消す",
+          "outside": false,
+          "reachable": true
+        }
+      ]
+    },
+    {
+      "label": "dock-low",
+      "hits": [
+        {
+          "label": "船を調べる",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "船台のくぼみを調べる",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "岸壁の水位目盛を調べる",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "水門の閂を調べる",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "船灯を調べる",
+          "outside": false,
+          "reachable": true
+        }
+      ]
+    },
+    {
+      "label": "dock-mid",
+      "hits": [
+        {
+          "label": "船を調べる",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "船台のくぼみを調べる",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "岸壁の水位目盛を調べる",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "水門の閂を調べる",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "船灯を調べる",
+          "outside": false,
+          "reachable": true
+        }
+      ]
+    },
+    {
+      "label": "dock-high-flooded",
+      "hits": [
+        {
+          "label": "船を調べる",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "船台のくぼみを調べる",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "岸壁の水位目盛を調べる",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "水門の閂を調べる",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "船灯を調べる",
+          "outside": false,
+          "reachable": true
+        }
+      ]
+    },
+    {
+      "label": "dock-high-repaired",
+      "hits": [
+        {
+          "label": "船を調べる",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "船台のくぼみを調べる",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "岸壁の水位目盛を調べる",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "水門の閂を調べる",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "船灯を調べる",
+          "outside": false,
+          "reachable": true
+        }
+      ]
+    },
+    {
+      "label": "dock-gate-open",
+      "hits": [
+        {
+          "label": "船を調べる",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "船台のくぼみを調べる",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "岸壁の水位目盛を調べる",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "水門の閂を調べる",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "船灯を調べる",
+          "outside": false,
+          "reachable": true
+        }
+      ]
+    },
+    {
+      "label": "boat-outside-repaired",
+      "hits": []
+    },
+    {
+      "label": "boat-floating",
+      "hits": []
+    },
+    {
+      "label": "trace-low",
+      "hits": [
+        {
+          "label": "木型の輪郭を写し取る",
+          "outside": false,
+          "reachable": true
+        }
+      ]
+    },
+    {
+      "label": "trace-mid",
+      "hits": [
+        {
+          "label": "木型の輪郭を写し取る",
+          "outside": false,
+          "reachable": true
+        }
+      ]
+    },
+    {
+      "label": "trace-high",
+      "hits": [
+        {
+          "label": "木型の輪郭を写し取る",
+          "outside": false,
+          "reachable": true
+        }
+      ]
+    },
+    {
+      "label": "trace-gate-open",
+      "hits": [
+        {
+          "label": "木型の輪郭を写し取る",
+          "outside": false,
+          "reachable": true
+        }
+      ]
+    },
+    {
+      "label": "lamp-bare",
+      "hits": [
+        {
+          "label": "船灯にガラスを戻す",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "船灯のつまみを回す",
+          "outside": false,
+          "reachable": true
+        }
+      ]
+    },
+    {
+      "label": "lamp-dirty",
+      "hits": [
+        {
+          "label": "船灯のガラスを拭く",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "船灯のつまみを回す",
+          "outside": false,
+          "reachable": true
+        }
+      ]
+    },
+    {
+      "label": "lamp-clean",
+      "hits": [
+        {
+          "label": "船灯のつまみを回す",
+          "outside": false,
+          "reachable": true
+        }
+      ]
+    },
+    {
+      "label": "lamp-lit",
+      "hits": [
+        {
+          "label": "船灯のつまみを回す",
+          "outside": false,
+          "reachable": true
+        }
+      ]
+    },
+    {
+      "label": "gate-pressure",
+      "hits": [
+        {
+          "label": "水門の閂を引く",
+          "outside": false,
+          "reachable": true
+        }
+      ]
+    },
+    {
+      "label": "gate-equal",
+      "hits": [
+        {
+          "label": "水門の閂を引く",
+          "outside": false,
+          "reachable": true
+        }
+      ]
+    },
+    {
+      "label": "gate-open",
+      "hits": []
+    },
+    {
+      "label": "sea-first",
+      "hits": [
+        {
+          "label": "左の水路へ進む",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "右の水路へ進む",
+          "outside": false,
+          "reachable": true
+        }
+      ]
+    },
+    {
+      "label": "sea-branch",
+      "hits": [
+        {
+          "label": "左の水路へ進む",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "中央の水路へ進む",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "右の水路へ進む",
+          "outside": false,
+          "reachable": true
+        }
+      ]
+    },
+    {
+      "label": "sea-beam",
+      "hits": [
+        {
+          "label": "左の水路へ進む",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "右の水路へ進む",
+          "outside": false,
+          "reachable": true
+        }
+      ]
+    },
+    {
+      "label": "ending",
+      "hits": [
+        {
+          "label": "出航前の渡船場へ",
+          "outside": false,
+          "reachable": true
+        }
+      ]
+    },
+    {
+      "label": "audit-waiting-0-water0",
+      "hits": [
+        {
+          "label": "桟橋へ",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "窓の外を見る",
+          "outside": false,
+          "reachable": true
+        }
+      ]
+    },
+    {
+      "label": "audit-waiting-0-water1",
+      "hits": [
+        {
+          "label": "桟橋へ",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "窓の外を見る",
+          "outside": false,
+          "reachable": true
+        }
+      ]
+    },
+    {
+      "label": "audit-waiting-0-water2",
+      "hits": [
+        {
+          "label": "桟橋へ",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "窓の外を見る",
+          "outside": false,
+          "reachable": true
+        }
+      ]
+    },
+    {
+      "label": "audit-waiting-1-water0",
+      "hits": [
+        {
+          "label": "向こうの通路を調べる",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "窓の外を見る",
+          "outside": false,
+          "reachable": true
+        }
+      ]
+    },
+    {
+      "label": "audit-waiting-1-water1",
+      "hits": [
+        {
+          "label": "向こうの通路を調べる",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "窓の外を見る",
+          "outside": false,
+          "reachable": true
+        }
+      ]
+    },
+    {
+      "label": "audit-waiting-1-water2",
+      "hits": [
+        {
+          "label": "向こうの通路を調べる",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "窓の外を見る",
+          "outside": false,
+          "reachable": true
+        }
+      ]
+    },
+    {
+      "label": "audit-concourse-0-water0",
+      "hits": [
+        {
+          "label": "待合室へ",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "下の整備通路へ",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "待合室と案内柱を見比べる",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "上の通路へ",
+          "outside": false,
+          "reachable": true
+        }
+      ]
+    },
+    {
+      "label": "audit-concourse-0-water1",
+      "hits": [
+        {
+          "label": "待合室へ",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "下の整備通路へ",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "待合室と案内柱を見比べる",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "上の通路へ",
+          "outside": false,
+          "reachable": true
+        }
+      ]
+    },
+    {
+      "label": "audit-concourse-0-water2",
+      "hits": [
+        {
+          "label": "待合室へ",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "下の整備通路へ",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "待合室と案内柱を見比べる",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "上の通路へ",
+          "outside": false,
+          "reachable": true
+        }
+      ]
+    },
+    {
+      "label": "audit-concourse-1-water0",
+      "hits": [
+        {
+          "label": "事務室へ",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "整備工房へ",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "ポンプ室へ",
+          "outside": false,
+          "reachable": true
+        }
+      ]
+    },
+    {
+      "label": "audit-concourse-1-water1",
+      "hits": [
+        {
+          "label": "事務室へ",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "整備工房へ",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "ポンプ室へ",
+          "outside": false,
+          "reachable": true
+        }
+      ]
+    },
+    {
+      "label": "audit-concourse-1-water2",
+      "hits": [
+        {
+          "label": "事務室へ",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "整備工房へ",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "ポンプ室へ",
+          "outside": false,
+          "reachable": true
+        }
+      ]
+    },
+    {
+      "label": "audit-office-0-water0",
+      "hits": [
+        {
+          "label": "机の鍵穴を調べる",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "引き出しを調べる",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "右の引き手を調べる",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "紙片を調べる",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "折れた鍵を取る",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "白墨を取る",
+          "outside": false,
+          "reachable": true
+        }
+      ]
+    },
+    {
+      "label": "audit-office-0-water1",
+      "hits": [
+        {
+          "label": "机の鍵穴を調べる",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "引き出しを調べる",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "右の引き手を調べる",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "紙片を調べる",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "折れた鍵を取る",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "白墨を取る",
+          "outside": false,
+          "reachable": true
+        }
+      ]
+    },
+    {
+      "label": "audit-office-0-water2",
+      "hits": [
+        {
+          "label": "机の鍵穴を調べる",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "引き出しを調べる",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "右の引き手を調べる",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "紙片を調べる",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "折れた鍵を取る",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "白墨を取る",
+          "outside": false,
+          "reachable": true
+        }
+      ]
+    },
+    {
+      "label": "audit-office-1-water0",
+      "hits": [
+        {
+          "label": "壁の配管図を調べる",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "桟橋へ戻る",
+          "outside": false,
+          "reachable": true
+        }
+      ]
+    },
+    {
+      "label": "audit-office-1-water1",
+      "hits": [
+        {
+          "label": "壁の配管図を調べる",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "桟橋へ戻る",
+          "outside": false,
+          "reachable": true
+        }
+      ]
+    },
+    {
+      "label": "audit-office-1-water2",
+      "hits": [
+        {
+          "label": "壁の配管図を調べる",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "桟橋へ戻る",
+          "outside": false,
+          "reachable": true
+        }
+      ]
+    },
+    {
+      "label": "audit-workshop-0-water0",
+      "hits": [
+        {
+          "label": "工具箱を調べる",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "駆動ベルトを取る",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "長い棒を取る",
+          "outside": false,
+          "reachable": true
+        }
+      ]
+    },
+    {
+      "label": "audit-workshop-0-water1",
+      "hits": [
+        {
+          "label": "工具箱を調べる",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "駆動ベルトを取る",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "長い棒を取る",
+          "outside": false,
+          "reachable": true
+        }
+      ]
+    },
+    {
+      "label": "audit-workshop-0-water2",
+      "hits": [
+        {
+          "label": "工具箱を調べる",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "駆動ベルトを取る",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "長い棒を取る",
+          "outside": false,
+          "reachable": true
+        }
+      ]
+    },
+    {
+      "label": "audit-workshop-1-water0",
+      "hits": [
+        {
+          "label": "補修板の棚を調べる",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "配管の続きを見る",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "桟橋へ戻る",
+          "outside": false,
+          "reachable": true
+        }
+      ]
+    },
+    {
+      "label": "audit-workshop-1-water1",
+      "hits": [
+        {
+          "label": "補修板の棚を調べる",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "配管の続きを見る",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "桟橋へ戻る",
+          "outside": false,
+          "reachable": true
+        }
+      ]
+    },
+    {
+      "label": "audit-workshop-1-water2",
+      "hits": [
+        {
+          "label": "補修板の棚を調べる",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "配管の続きを見る",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "桟橋へ戻る",
+          "outside": false,
+          "reachable": true
+        }
+      ]
+    },
+    {
+      "label": "audit-pump-0-water0",
+      "hits": [
+        {
+          "label": "三つの弁を調べる",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "駆動部を調べる",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "吸込み口を調べる",
+          "outside": false,
+          "reachable": true
+        }
+      ]
+    },
+    {
+      "label": "audit-pump-0-water1",
+      "hits": [
+        {
+          "label": "三つの弁を調べる",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "駆動部を調べる",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "吸込み口を調べる",
+          "outside": false,
+          "reachable": true
+        }
+      ]
+    },
+    {
+      "label": "audit-pump-0-water2",
+      "hits": [
+        {
+          "label": "三つの弁を調べる",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "駆動部を調べる",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "吸込み口を調べる",
+          "outside": false,
+          "reachable": true
+        }
+      ]
+    },
+    {
+      "label": "audit-pump-1-water0",
+      "hits": [
+        {
+          "label": "水位窓を調べる",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "桟橋へ戻る",
+          "outside": false,
+          "reachable": true
+        }
+      ]
+    },
+    {
+      "label": "audit-pump-1-water1",
+      "hits": [
+        {
+          "label": "水位窓を調べる",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "桟橋へ戻る",
+          "outside": false,
+          "reachable": true
+        }
+      ]
+    },
+    {
+      "label": "audit-pump-1-water2",
+      "hits": [
+        {
+          "label": "水位窓を調べる",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "桟橋へ戻る",
+          "outside": false,
+          "reachable": true
+        }
+      ]
+    },
+    {
+      "label": "audit-service-0-water0",
+      "hits": [
+        {
+          "label": "浮体の固定具を調べる",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "浮体の割れ目を調べる",
+          "outside": false,
+          "reachable": true
+        }
+      ]
+    },
+    {
+      "label": "audit-service-1-water0",
+      "hits": [
+        {
+          "label": "船具ケースを調べる",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "水路の奥を見る",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "岸へ上がる",
+          "outside": false,
+          "reachable": true
+        }
+      ]
+    },
+    {
+      "label": "audit-lookout-0-water2",
+      "hits": [
+        {
+          "label": "測量図を調べる",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "船灯のガラスを取る",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "待合室へ戻る",
+          "outside": false,
+          "reachable": true
+        }
+      ]
+    },
+    {
+      "label": "audit-lookout-1-water2",
+      "hits": [
+        {
+          "label": "見通し標を調べる",
+          "outside": false,
+          "reachable": true
+        }
+      ]
+    },
+    {
+      "label": "audit-dock-0-water0",
+      "hits": [
+        {
+          "label": "船を調べる",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "船台のくぼみを調べる",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "岸壁の水位目盛を調べる",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "水門の閂を調べる",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "船灯を調べる",
+          "outside": false,
+          "reachable": true
+        }
+      ]
+    },
+    {
+      "label": "audit-dock-0-water1",
+      "hits": [
+        {
+          "label": "船を調べる",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "船台のくぼみを調べる",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "岸壁の水位目盛を調べる",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "水門の閂を調べる",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "船灯を調べる",
+          "outside": false,
+          "reachable": true
+        }
+      ]
+    },
+    {
+      "label": "audit-dock-0-water2",
+      "hits": [
+        {
+          "label": "船を調べる",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "船台のくぼみを調べる",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "岸壁の水位目盛を調べる",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "水門の閂を調べる",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "船灯を調べる",
+          "outside": false,
+          "reachable": true
+        }
+      ]
+    },
+    {
+      "label": "audit-dock-1-water0",
+      "hits": [
+        {
+          "label": "船を調べる",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "船台のくぼみを調べる",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "岸壁の水位目盛を調べる",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "水門の閂を調べる",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "船灯を調べる",
+          "outside": false,
+          "reachable": true
+        }
+      ]
+    },
+    {
+      "label": "audit-dock-1-water1",
+      "hits": [
+        {
+          "label": "船を調べる",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "船台のくぼみを調べる",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "岸壁の水位目盛を調べる",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "水門の閂を調べる",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "船灯を調べる",
+          "outside": false,
+          "reachable": true
+        }
+      ]
+    },
+    {
+      "label": "audit-dock-1-water2",
+      "hits": [
+        {
+          "label": "船を調べる",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "船台のくぼみを調べる",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "岸壁の水位目盛を調べる",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "水門の閂を調べる",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "船灯を調べる",
+          "outside": false,
+          "reachable": true
+        }
+      ]
+    },
+    {
+      "label": "audit-detail-shutter",
+      "hits": [
+        {
+          "label": "桟橋へ出る",
+          "outside": false,
+          "reachable": true
+        }
+      ]
+    },
+    {
+      "label": "audit-detail-tray",
+      "hits": [
+        {
+          "label": "工具の受け台",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "長い収納材",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "上の収納材",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "中央の収納材",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "下の収納材",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "右の収納材",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "左の収納材",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "底の収納材",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "工具の受け台を引き出す",
+          "outside": false,
+          "reachable": true
+        }
+      ]
+    },
+    {
+      "label": "audit-detail-key",
+      "hits": [
+        {
+          "label": "錠の中の鍵を抜く",
+          "outside": false,
+          "reachable": true
+        }
+      ]
+    },
+    {
+      "label": "audit-detail-drawer",
+      "hits": [
+        {
+          "label": "引き出しを開ける",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "右の引き手を動かす",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "引き出しの錠に道具を使う",
+          "outside": false,
+          "reachable": true
+        }
+      ]
+    },
+    {
+      "label": "audit-detail-diagram",
+      "hits": [
+        {
+          "label": "図面の紙片 1 を選ぶ",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "図面の紙片 1 を回す",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "図面の紙片 2 を選ぶ",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "図面の紙片 2 を回す",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "図面の紙片 3 を選ぶ",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "図面の紙片 3 を回す",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "図面の紙片 4 を選ぶ",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "図面の紙片 4 を回す",
+          "outside": false,
+          "reachable": true
+        }
+      ]
+    },
+    {
+      "label": "audit-detail-belt",
+      "hits": [
+        {
+          "label": "滑車 1 にベルトを掛ける",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "滑車 2 にベルトを掛ける",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "滑車 3 にベルトを掛ける",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "滑車 4 にベルトを掛ける",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "駆動軸を手で回す",
+          "outside": false,
+          "reachable": true
+        }
+      ]
+    },
+    {
+      "label": "audit-detail-pipes",
+      "hits": [
+        {
+          "label": "左の弁を回す",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "中央の弁を回す",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "右の弁を回す",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "浮きの留め位置 低",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "浮きの留め位置 中",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "浮きの留め位置 高",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "操作盤の押釦",
+          "outside": false,
+          "reachable": true
+        }
+      ]
+    },
+    {
+      "label": "audit-detail-strainer",
+      "hits": [
+        {
+          "label": "吸込み口の奥へ道具を伸ばす",
+          "outside": false,
+          "reachable": true
+        }
+      ]
+    },
+    {
+      "label": "audit-detail-supports",
+      "hits": [
+        {
+          "label": "左の支持ねじを回す",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "左の固定ピンを引く",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "右の支持ねじを回す",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "右の固定ピンを引く",
+          "outside": false,
+          "reachable": true
+        }
+      ]
+    },
+    {
+      "label": "audit-detail-patch",
+      "hits": [
+        {
+          "label": "割れ目に補修板を当てる",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "浮体の排水栓を引く",
+          "outside": false,
+          "reachable": true
+        }
+      ]
+    },
+    {
+      "label": "audit-detail-rings",
+      "hits": [
+        {
+          "label": "外の環を回す",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "中の環を回す",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "内の環を回す",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "留め爪を抜く",
+          "outside": false,
+          "reachable": true
+        }
+      ]
+    },
+    {
+      "label": "audit-detail-rack",
+      "hits": [
+        {
+          "label": "浮体の補修板を取る",
+          "outside": false,
+          "reachable": true
+        }
+      ]
+    },
+    {
+      "label": "audit-detail-survey",
+      "hits": [
+        {
+          "label": "観測窓の位置 1",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "観測窓の位置 2",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "観測窓の位置 3",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "観測窓の位置 4",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "観測窓の位置 5",
+          "outside": false,
+          "reachable": true
+        }
+      ]
+    },
+    {
+      "label": "audit-detail-chart",
+      "hits": [
+        {
+          "label": "測量図を回す",
+          "outside": false,
+          "reachable": true
+        }
+      ]
+    },
+    {
+      "label": "audit-detail-trace",
+      "hits": [
+        {
+          "label": "木型の輪郭を写し取る",
+          "outside": false,
+          "reachable": true
+        }
+      ]
+    },
+    {
+      "label": "audit-detail-depth",
+      "hits": []
+    },
+    {
+      "label": "audit-detail-boat",
+      "hits": []
+    },
+    {
+      "label": "audit-detail-lantern",
+      "hits": [
+        {
+          "label": "船灯にガラスを戻す",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "船灯のつまみを回す",
+          "outside": false,
+          "reachable": true
+        }
+      ]
+    },
+    {
+      "label": "audit-detail-gate",
+      "hits": [
+        {
+          "label": "水門の閂を引く",
+          "outside": false,
+          "reachable": true
+        }
+      ]
+    },
+    {
+      "label": "audit-detail-landward",
+      "hits": []
+    },
+    {
+      "label": "audit-boat-water0-repaired",
+      "hits": []
+    },
+    {
+      "label": "audit-depth-water0-repaired",
+      "hits": []
+    },
+    {
+      "label": "audit-trace-water0-repaired",
+      "hits": [
+        {
+          "label": "木型の輪郭を写し取る",
+          "outside": false,
+          "reachable": true
+        }
+      ]
+    },
+    {
+      "label": "audit-boat-water1-repaired",
+      "hits": []
+    },
+    {
+      "label": "audit-depth-water1-repaired",
+      "hits": []
+    },
+    {
+      "label": "audit-trace-water1-repaired",
+      "hits": [
+        {
+          "label": "木型の輪郭を写し取る",
+          "outside": false,
+          "reachable": true
+        }
+      ]
+    },
+    {
+      "label": "audit-boat-water2-repaired",
+      "hits": []
+    },
+    {
+      "label": "audit-depth-water2-repaired",
+      "hits": []
+    },
+    {
+      "label": "audit-trace-water2-repaired",
+      "hits": [
+        {
+          "label": "木型の輪郭を写し取る",
+          "outside": false,
+          "reachable": true
+        }
+      ]
+    },
+    {
+      "label": "audit-support-mid",
+      "hits": [
+        {
+          "label": "左の支持ねじを回す",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "左の固定ピンを引く",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "右の支持ねじを回す",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "右の固定ピンを引く",
+          "outside": false,
+          "reachable": true
+        }
+      ]
+    },
+    {
+      "label": "audit-patch-one-bolt",
+      "hits": [
+        {
+          "label": "補修板のボルト 1 を締める",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "補修板のボルト 2 を締める",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "補修板のボルト 3 を締める",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "補修板のボルト 4 を締める",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "浮体の排水栓を引く",
+          "outside": false,
+          "reachable": true
+        }
+      ]
+    },
+    {
+      "label": "audit-draft-tools",
+      "hits": []
+    },
+    {
+      "label": "audit-case-taken",
+      "hits": []
+    },
+    {
+      "label": "audit-drawer-one-taken",
+      "hits": [
+        {
+          "label": "引き出しを閉じる",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "右の引き手を動かす",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "鉤の先端を取る",
+          "outside": false,
+          "reachable": true
+        }
+      ]
+    },
+    {
+      "label": "audit-drawer-empty",
+      "hits": [
+        {
+          "label": "引き出しを閉じる",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "右の引き手を動かす",
+          "outside": false,
+          "reachable": true
+        }
+      ]
+    },
+    {
+      "label": "audit-waiting-rear-open",
+      "hits": [
+        {
+          "label": "向こうの通路を調べる",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "窓の外を見る",
+          "outside": false,
+          "reachable": true
+        }
+      ]
+    },
+    {
+      "label": "audit-service-load-left",
+      "hits": [
+        {
+          "label": "浮体の固定具を調べる",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "浮体の割れ目を調べる",
+          "outside": false,
+          "reachable": true
+        }
+      ]
+    },
+    {
+      "label": "audit-service-load-right",
+      "hits": [
+        {
+          "label": "浮体の固定具を調べる",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "浮体の割れ目を調べる",
+          "outside": false,
+          "reachable": true
+        }
+      ]
+    },
+    {
+      "label": "audit-service-load-both",
+      "hits": [
+        {
+          "label": "浮体の固定具を調べる",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "浮体の割れ目を調べる",
+          "outside": false,
+          "reachable": true
+        }
+      ]
+    },
+    {
+      "label": "audit-sea-A",
+      "hits": [
+        {
+          "label": "左の水路へ進む",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "右の水路へ進む",
+          "outside": false,
+          "reachable": true
+        }
+      ]
+    },
+    {
+      "label": "audit-sea-D",
+      "hits": [
+        {
+          "label": "左の水路へ進む",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "右の水路へ進む",
+          "outside": false,
+          "reachable": true
+        }
+      ]
+    },
+    {
+      "label": "audit-sea-E",
+      "hits": [
+        {
+          "label": "左の水路へ進む",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "右の水路へ進む",
+          "outside": false,
+          "reachable": true
+        }
+      ]
+    },
+    {
+      "label": "audit-sea-F",
+      "hits": [
+        {
+          "label": "左の水路へ進む",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "右の水路へ進む",
+          "outside": false,
+          "reachable": true
+        }
+      ]
+    },
+    {
+      "label": "audit-sea-X",
+      "hits": [
+        {
+          "label": "左の水路へ進む",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "右の水路へ進む",
+          "outside": false,
+          "reachable": true
+        }
+      ]
+    },
+    {
+      "label": "targets-shutter-latches",
+      "hits": [
+        {
+          "label": "上の留め金を動かす",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "中の留め金を動かす",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "下の留め金を動かす",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "戸を開く",
+          "outside": false,
+          "reachable": true
+        }
+      ]
+    },
+    {
+      "label": "targets-office-unlocked",
+      "hits": [
+        {
+          "label": "引き出しを調べる",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "右の引き手を調べる",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "紙片を調べる",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "折れた鍵を取る",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "白墨を取る",
+          "outside": false,
+          "reachable": true
+        }
+      ]
+    },
+    {
+      "label": "targets-office-open",
+      "hits": [
+        {
+          "label": "引き出しを調べる",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "右の引き手を調べる",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "紙片を調べる",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "折れた鍵を取る",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "白墨を取る",
+          "outside": false,
+          "reachable": true
+        }
+      ]
+    },
+    {
+      "label": "targets-key-unlocked",
+      "hits": []
+    },
+    {
+      "label": "targets-rack-taken",
+      "hits": [
+        {
+          "label": "配管の続きを見る",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "桟橋へ戻る",
+          "outside": false,
+          "reachable": true
+        }
+      ]
+    },
+    {
+      "label": "targets-belt-tested",
+      "hits": [
+        {
+          "label": "駆動軸を手で回す",
+          "outside": false,
+          "reachable": true
+        }
+      ]
+    },
+    {
+      "label": "targets-strainer-clear",
+      "hits": []
+    },
+    {
+      "label": "targets-boat-repair",
+      "hits": [
+        {
+          "label": "外側から補修具を当てる",
+          "outside": false,
+          "reachable": true
+        }
+      ]
+    },
+    {
+      "label": "targets-patch-drained",
+      "hits": [
+        {
+          "label": "補修板のボルト 1 を締める",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "補修板のボルト 2 を締める",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "補修板のボルト 3 を締める",
+          "outside": false,
+          "reachable": true
+        },
+        {
+          "label": "補修板のボルト 4 を締める",
+          "outside": false,
+          "reachable": true
+        }
+      ]
+    }
+  ]
+}

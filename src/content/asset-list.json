@@ -34,7 +34,9 @@
     "ending",
     "landward",
     "service-loaded",
-    "waiting-rear-high-open"
+    "waiting-rear-high-open",
+    "dock-low-repaired",
+    "dock-mid-repaired"
   ],
   "closeups": [
     "shutter-base",

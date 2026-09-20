@@ -1,3 +1,4 @@
+import { ActionBar, SceneAction } from "./ActionBar";
 import { useState } from "react";
 import { act } from "../game/engine";
 import {
@@ -341,6 +342,61 @@ for (const seaNode of ["A", "D", "E", "F", "X"])
     ready: true,
     patch: { atSea: true, seaNode, seaHistory: ["S", seaNode] },
   });
+fixtures.push(
+  {
+    id: "targets-shutter-latches",
+    room: "waiting",
+    detail: "shutter",
+    patch: { shutterOpen: false },
+  },
+  {
+    id: "targets-office-unlocked",
+    room: "office",
+    patch: { keyTurn: 1, keyExtracted: true },
+  },
+  {
+    id: "targets-office-open",
+    room: "office",
+    patch: { keyTurn: 1, drawerOpen: true },
+  },
+  {
+    id: "targets-key-unlocked",
+    room: "office",
+    detail: "key",
+    patch: { keyTurn: 1, keyExtracted: true },
+  },
+  {
+    id: "targets-rack-taken",
+    room: "workshop",
+    face: 1,
+    patch: { items: { ...newGame().items, patch: "inventory" } },
+  },
+  {
+    id: "targets-belt-tested",
+    room: "pump",
+    detail: "belt",
+    patch: { beltTested: true },
+  },
+  {
+    id: "targets-strainer-clear",
+    room: "pump",
+    detail: "strainer",
+    patch: { strainerClear: true },
+  },
+  {
+    id: "targets-boat-repair",
+    room: "dock",
+    detail: "boat",
+    patch: { water: 0 },
+  },
+  {
+    id: "targets-patch-drained",
+    room: "service",
+    detail: "patch",
+    ready: true,
+    patch: { water: 0 },
+  },
+);
 function create(f: Fixture) {
   const g = newGame();
   Object.assign(g, {
@@ -387,27 +443,28 @@ export function VisualLab() {
   };
   return (
     <main className="app">
-      <section className="stage" aria-label={fixture.id}>
-        {g.detail ? (
-          <Details key={fixture.id} {...props} />
-        ) : (
-          <Scene {...props} />
-        )}
-        {g.detail && (
-          <button
-            className="nav back"
-            aria-label="部屋へ戻る"
-            onClick={() => props.send({ type: "back" })}
-          >
-            ⌄
-          </button>
-        )}
-        {message && (
-          <p className="toast" role="status">
-            {message}
-          </p>
-        )}
-      </section>
+      <ActionBar>
+        <section className="stage" aria-label={fixture.id}>
+          {g.detail ? (
+            <Details key={fixture.id} {...props} />
+          ) : (
+            <Scene {...props} />
+          )}
+          {g.detail && (
+            <SceneAction
+              aria-label="部屋へ戻る"
+              onClick={() => props.send({ type: "back" })}
+            >
+              ⌄ 部屋へ戻る
+            </SceneAction>
+          )}
+          {message && (
+            <p className="toast" role="status">
+              {message}
+            </p>
+          )}
+        </section>
+      </ActionBar>
       <div
         style={{ height: 88, display: "flex", alignItems: "center", gap: 20 }}
       >

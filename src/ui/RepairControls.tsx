@@ -1,3 +1,4 @@
+import { SceneAction } from "./ActionBar";
 import { useState } from "react";
 import { closeup, itemImage, mechanism, scene } from "../content/assets";
 import { boatReady, type Item } from "../game/model";
@@ -16,14 +17,16 @@ export function Strainer({ game: g, send, selected }: ControlProps) {
         src={closeup(g.strainerClear ? "strainer-clear" : "strainer")}
         alt="格子の奥の吸込み口"
       />
-      <Hit
-        label="吸込み口の奥へ道具を伸ばす"
-        x={18}
-        y={15}
-        w={65}
-        h={67}
-        onClick={() => send({ type: "clearStrainer", tool: selected })}
-      />
+      {!g.strainerClear && (
+        <Hit
+          label="吸込み口の奥へ道具を伸ばす"
+          x={49}
+          y={37}
+          w={19}
+          h={30}
+          onClick={() => send({ type: "clearStrainer", tool: selected })}
+        />
+      )}
     </>
   );
 }
@@ -80,10 +83,10 @@ export function Patch({ game: g, send, selected }: ControlProps) {
       {!g.patchMounted ? (
         <Hit
           label="割れ目に補修板を当てる"
-          x={34}
-          y={20}
-          w={32}
-          h={56}
+          x={38}
+          y={14}
+          w={21}
+          h={43}
           onClick={() => send({ type: "mountPatch", tool: selected })}
         />
       ) : (
@@ -106,14 +109,17 @@ export function Patch({ game: g, send, selected }: ControlProps) {
           </Hit>
         ))
       )}
-      <Hit
-        label="浮体の排水栓を引く"
-        x={74}
-        y={69}
-        w={13}
-        h={16}
-        onClick={() => send({ type: "drainTank" })}
-      />
+      {!g.tankDry && (
+        <Hit
+          label="浮体の排水栓を引く"
+          x={78}
+          y={73}
+          w={7}
+          h={13}
+          shape="ellipse"
+          onClick={() => send({ type: "drainTank" })}
+        />
+      )}
     </>
   );
 }
@@ -132,10 +138,10 @@ export function BoatRepair({ game: g, send, selected }: ControlProps) {
           />
         )}
         {g.water === 2 && boatReady(g) ? (
-          <button className="view-turn" onClick={() => setStern(!stern)}>
+          <SceneAction className="view-turn" onClick={() => setStern(!stern)}>
             {stern ? "船の側面へ" : "船尾側へ回る"}
             <Icon name="right" />
-          </button>
+          </SceneAction>
         ) : (
           <p className="observation-caption">
             {g.water === 1
@@ -161,34 +167,37 @@ export function BoatRepair({ game: g, send, selected }: ControlProps) {
       />
       {g.water === 0 && (
         <>
-          <Hit
-            label={
-              side === "inside"
-                ? "内側から補修具を当てる"
-                : "外側から補修具を当てる"
-            }
-            x={30}
-            y={32}
-            w={43}
-            h={40}
-            onClick={() => send({ type: "boatPatch", side, tool: selected })}
-          />
-          <button
+          {!repaired && (
+            <Hit
+              label={
+                side === "inside"
+                  ? "内側から補修具を当てる"
+                  : "外側から補修具を当てる"
+              }
+              x={side === "inside" ? 45.5 : 46}
+              y={side === "inside" ? 50 : 30}
+              w={side === "inside" ? 6 : 8}
+              h={side === "inside" ? 20 : 14}
+              onClick={() => send({ type: "boatPatch", side, tool: selected })}
+            />
+          )}
+          <SceneAction
             className="view-turn"
             onClick={() => setSide(side === "inside" ? "outside" : "inside")}
           >
             {side === "inside" ? "船底へ" : "船内へ"}
             <Icon name="right" />
-          </button>
+          </SceneAction>
         </>
       )}
-      {g.water === 0 && side === "inside" && (
+      {g.water === 0 && side === "inside" && !g.boatDry && (
         <Hit
           label="船の水を汲み出す"
-          x={77}
-          y={56}
-          w={14}
-          h={26}
+          x={70}
+          y={54}
+          w={16}
+          h={27}
+          shape="0,10 28,0 61,10 80,42 63,52 100,90 88,100 52,63 15,63 5,40"
           onClick={() => send({ type: "bailBoat" })}
         />
       )}
@@ -210,26 +219,30 @@ export function Lantern({ game: g, send, selected }: ControlProps) {
         )}
         alt="船首の船灯"
       />
-      <Hit
-        label={g.lampMounted ? "船灯のガラスを拭く" : "船灯にガラスを戻す"}
-        x={34}
-        y={19}
-        w={35}
-        h={51}
-        onClick={() =>
-          send(
-            g.lampMounted
-              ? { type: "cleanLens" }
-              : { type: "mountLamp", tool: selected },
-          )
-        }
-      />
+      {(!g.lampMounted || !g.lensClean) && (
+        <Hit
+          label={g.lampMounted ? "船灯のガラスを拭く" : "船灯にガラスを戻す"}
+          x={30}
+          y={7}
+          w={29}
+          h={54}
+          shape="ellipse"
+          onClick={() =>
+            send(
+              g.lampMounted
+                ? { type: "cleanLens" }
+                : { type: "mountLamp", tool: selected },
+            )
+          }
+        />
+      )}
       <Hit
         label="船灯のつまみを回す"
-        x={61}
-        y={44}
-        w={12}
-        h={16}
+        x={64}
+        y={43}
+        w={6}
+        h={11}
+        shape="ellipse"
         onClick={() => send({ type: "lightLamp" })}
       />
     </>
@@ -240,12 +253,12 @@ export function Gate({ game: g, send }: ControlProps) {
     <>
       <GateView game={g} />
       {g.gateOpen ? (
-        <button
+        <SceneAction
           className="record-button"
           onClick={() => send({ type: "gate" })}
         >
           水門を閉める
-        </button>
+        </SceneAction>
       ) : (
         <Hit
           label="水門の閂を引く"

@@ -1,0 +1,23 @@
+[
+  {
+    "asset": "scenes/dock-low-repaired",
+    "source": "C:\\Users\\kawau\\.codex\\generated_images\\01a0ba30-de75-7b40-a770-22321b967a82\\exec-0b65539b-13a2-436d-8708-795f63076d00.png",
+    "prompt": "Precisely edit this photoreal game background. Replace ONLY the vertical crack on the visible broadside of the boat near x40.5%, y49.5% with a small flat rounded rectangular tarnished bronze repair plate, tightly bolted flush against the curved wooden planking. Plate centered on crack, about 4% canvas width and 8% canvas height, four corner screw heads and a small central threaded nut. Extremely thin dark rubber gasket touching wood, no visible gap, no floating block, no exaggerated 3D side face. Plate shares boat perspective, subtle dull weathering, SAME distance softness and subdued lighting as the wood, realistic contact shadow. Entire crack covered, no residual damage below it. Preserve exact camera, boat silhouette, supports, oars, foreground spare cradle, water level, gate and all background objects. 16:9 same framing. No UI/text.",
+    "generator": "built-in image_gen",
+    "selection": "selected"
+  },
+  {
+    "asset": "scenes/dock-mid-repaired",
+    "source": "C:\\Users\\kawau\\.codex\\generated_images\\01a0ba30-de75-7b40-a770-22321b967a82\\exec-36a91db5-2a57-4dae-bd6a-a491238d1e8f.png",
+    "prompt": "Image1 is the edit target harbor photo at mid water. Image2 is the SAME boat successfully repaired at low water, a reference for the small flush bronze plate only. Add precisely the SAME small flat tarnished bronze repair plate over the visible vertical crack on image1's boat broadside. Match plate size relative to wooden planks and perspective, thin rubber gasket bolted flush with no gap or floating object. The vertical crack is at x40.5% y49.5%. Cover crack fully. Preserve image1's EXACT camera, boat/water height, waterline, supports, oars, gate, foreground spare cradle and ALL other image content. No other modifications, no UI or text. Photorealistic16:9. Use image2 ONLY for plate appearance, do NOT transfer image2 water level.",
+    "generator": "built-in image_gen",
+    "selection": "selected"
+  },
+  {
+    "asset": "scenes/dock-high",
+    "source": "C:\\Users\\kawau\\.codex\\generated_images\\01a0ba30-de75-7b40-a770-22321b967a82\\exec-fecf6525-89e0-4516-a20d-62ec1576d079.png",
+    "prompt": "Image1 is the edit target harbor photo at high water. Image2 is the SAME boat successfully repaired at low water, a reference for the small flush bronze plate only. Add precisely the SAME small flat tarnished bronze repair plate over the visible vertical crack on image1's boat broadside. Match plate size relative to wooden planks and perspective, thin rubber gasket bolted flush with no gap or floating object. The vertical crack is at x39.1% y51%. Cover crack fully. Preserve image1's EXACT camera, boat/water height, waterline, supports, oars, gate, foreground spare cradle and ALL other image content. No other modifications, no UI or text. Photorealistic16:9. Use image2 ONLY for plate appearance, do NOT transfer image2 water level.",
+    "generator": "built-in image_gen",
+    "selection": "selected"
+  }
+]

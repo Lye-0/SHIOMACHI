@@ -1,3 +1,4 @@
+import { SceneAction } from "./ActionBar";
 import { useRef, useState, type CSSProperties, type PointerEvent } from "react";
 import { closeup, itemImage, mechanism } from "../content/assets";
 import { blocks, itemNames, raised, type Item } from "../game/model";
@@ -37,6 +38,7 @@ export function Shutter({ game: g, send }: ControlProps) {
           h={25}
           onClick={() => send({ type: "shutter", index: i })}
           className="slide-bolt"
+          shape="0,50 90,50 90,30 88,22 89,17 94,15 97,20 96,29 95,50 100,50 100,69 0,69"
         >
           <img src={mechanism("slide-bolt")} alt="" />
         </Hit>
@@ -170,14 +172,16 @@ export function Tray({ game: g, send }: ControlProps) {
           ),
         )}
       </div>
-      <Hit
-        label="工具の受け台を引き出す"
-        x={64.5}
-        y={38}
-        w={24}
-        h={14}
-        onClick={() => send({ type: "openTray" })}
-      />
+      {!g.trayOpen && (
+        <Hit
+          label="工具の受け台を引き出す"
+          x={64.5}
+          y={38}
+          w={5}
+          h={14}
+          onClick={() => send({ type: "openTray" })}
+        />
+      )}
       {g.trayOpen && (
         <>
           <div className="withdrawn-carriage" />
@@ -207,19 +211,23 @@ export function KeyLock({ game: g, send, selected }: ControlProps) {
         src={closeup(g.keyExtracted ? "key-empty" : "key-broken")}
         alt={g.keyExtracted ? "先端を抜いた机の錠" : "折れた鍵が残る、机の錠"}
       />
-      <Hit
-        label={g.keyExtracted ? "鍵を差して回す" : "錠の中の鍵を抜く"}
-        x={37}
-        y={24}
-        w={26}
-        h={52}
-        onClick={() =>
-          send({
-            type: g.keyExtracted ? "turnKey" : "extractKey",
-            tool: selected,
-          })
-        }
-      />
+      {!g.keyTurn && (
+        <Hit
+          label={g.keyExtracted ? "鍵を差して回す" : "錠の中の鍵を抜く"}
+          x={43.5}
+          y={27}
+          w={12}
+          h={39}
+          shape="20,0 80,0 100,20 78,37 78,100 21,100 21,37 0,20"
+          onClick={() =>
+            send({
+              type: g.keyExtracted ? "turnKey" : "extractKey",
+              tool: selected,
+            })
+          }
+        />
+      )}
+      {!!g.keyTurn && <p className="observation-caption">錠は外れている。</p>}
     </>
   );
 }
@@ -230,15 +238,25 @@ export function Drawer({ game: g, send, selected }: ControlProps) {
         src={closeup(g.drawerOpen ? "drawer-open" : "drawer")}
         alt="机の引き出し"
       />
-      <Hit
-        label={g.drawerOpen ? "引き出しを閉じる" : "引き出しを開ける"}
-        x={13}
-        y={g.drawerOpen ? 72 : 56}
-        w={73}
-        h={16}
-        onClick={() => send({ type: "openDrawer" })}
-      />
-      {!g.drawerOpen && (
+      {[0, 1].map((i) => (
+        <Hit
+          key={i}
+          label={
+            i
+              ? "右の引き手を動かす"
+              : g.drawerOpen
+                ? "引き出しを閉じる"
+                : "引き出しを開ける"
+          }
+          x={g.drawerOpen ? (i ? 72 : 13) : i ? 70 : 15.5}
+          y={g.drawerOpen ? 74 : 48}
+          w={g.drawerOpen ? 15 : 14}
+          h={13}
+          shape="50,0 80,10 100,70 100,100 0,100 0,70 20,10"
+          onClick={() => send({ type: "openDrawer" })}
+        />
+      ))}
+      {!g.drawerOpen && !g.keyTurn && (
         <Hit
           label="引き出しの錠に道具を使う"
           x={45}
@@ -408,17 +426,19 @@ export function Belt({ game: g, send }: ControlProps) {
           strokeLinejoin="round"
         />
       </svg>
-      {pulleyPoints.map(([x, y], i) => (
-        <Hit
-          key={i}
-          label={`滑車 ${i + 1} にベルトを掛ける`}
-          x={x - 8}
-          y={y - 12}
-          w={16}
-          h={24}
-          onClick={() => send({ type: "beltPin", index: i })}
-        />
-      ))}
+      {!g.beltTested &&
+        pulleyPoints.map(([x, y], i) => (
+          <Hit
+            key={i}
+            label={`滑車 ${i + 1} にベルトを掛ける`}
+            x={x - 5}
+            y={y - 8.8889}
+            w={10}
+            h={17.7778}
+            shape="ellipse"
+            onClick={() => send({ type: "beltPin", index: i })}
+          />
+        ))}
       <Hit
         label="駆動軸を手で回す"
         x={7}
@@ -428,12 +448,12 @@ export function Belt({ game: g, send }: ControlProps) {
         onClick={() => send({ type: "beltTest" })}
       />
       {g.beltMounted && !g.beltTested && (
-        <button
+        <SceneAction
           className="record-button"
           onClick={() => send({ type: "beltReset" })}
         >
           ベルトを外す
-        </button>
+        </SceneAction>
       )}
     </>
   );
@@ -451,6 +471,7 @@ export function Rings({ game: g, send }: ControlProps) {
             <Hit
               key={i}
               className="ring-control"
+              shape="ellipse"
               label={`${["外", "中", "内"][i]}の環を回す`}
               x={50 - size / 2}
               y={47 - (size * 16) / 18}

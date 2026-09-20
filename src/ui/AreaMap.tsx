@@ -1,4 +1,10 @@
-import { raised, roomNames, type Game, type Room } from "../game/model";
+import {
+  raised,
+  mapTravelBlock,
+  roomNames,
+  type Game,
+  type Room,
+} from "../game/model";
 
 const positions: Record<Room, [number, number]> = {
   office: [80, 65],
@@ -21,7 +27,13 @@ const links: [Room, Room][] = [
   ["concourse", "lookout"],
 ];
 
-export function AreaMap({ game: g }: { game: Game }) {
+export function AreaMap({
+  game: g,
+  onTravel,
+}: {
+  game: Game;
+  onTravel: (room: Room) => void;
+}) {
   const known = new Set([...g.visited, g.room]);
   const rows = [...known].map((room) => positions[room][1]);
   const top = Math.min(...rows) - 65;
@@ -49,7 +61,7 @@ export function AreaMap({ game: g }: { game: Game }) {
       <svg
         className="area-map"
         viewBox={`0 ${top} 480 ${height}`}
-        role="img"
+        role="group"
         aria-label={`訪れた場所のつながり。現在地：${g.atSea ? "渡船場の沖" : roomNames[g.room]}`}
       >
         <defs>
@@ -102,12 +114,31 @@ export function AreaMap({ game: g }: { game: Game }) {
           .map((room) => {
             const [x, y] = positions[room],
               current = !g.atSea && g.room === room;
+            const reason = mapTravelBlock(g, room);
+            const unavailable = !!reason || current;
+            const travel = () => {
+              if (!unavailable) onTravel(room);
+            };
             return (
               <g
                 key={room}
                 transform={`translate(${x} ${y})`}
                 className={`map-room ${current ? "current" : ""}`}
+                role="button"
+                tabIndex={unavailable ? -1 : 0}
+                aria-label={`${roomNames[room]}${current ? "（現在地）" : reason ? `（${reason}）` : "へ移動"}`}
+                aria-disabled={unavailable}
+                onClick={travel}
+                onKeyDown={(event) => {
+                  if (event.key === "Enter" || event.key === " ") {
+                    event.preventDefault();
+                    travel();
+                  }
+                }}
               >
+                <title>
+                  {current ? "現在地" : (reason ?? "クリックして移動")}
+                </title>
                 <rect x="-65" y="-27" width="130" height="54" rx="5" />
                 <text textAnchor="middle" y="7">
                   {roomNames[room]}
@@ -125,7 +156,7 @@ export function AreaMap({ game: g }: { game: Game }) {
           })}
       </svg>
       <p className="map-note">
-        訪れた場所を記録した概略図です。×
+        訪れた場所を選ぶと移動できます。×
         は今は通れない通路。矢印は片方向の移動です。
       </p>
       {g.atSea && (

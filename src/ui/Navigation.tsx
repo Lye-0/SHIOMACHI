@@ -1,3 +1,4 @@
+import { SceneAction } from "./ActionBar";
 import { useState } from "react";
 import { closeup, scene, mechanism, itemImage } from "../content/assets";
 import { boatReady, channels, type Item } from "../game/model";
@@ -136,14 +137,17 @@ export function Trace({ game: g, send, selected }: ControlProps) {
         src={mechanism("cradle")}
         alt="岸上に置かれた予備船台のくぼみ"
       />
-      <Hit
-        label="木型の輪郭を写し取る"
-        x={19}
-        y={20}
-        w={63}
-        h={58}
-        onClick={() => send({ type: "trace", tool: selected })}
-      />
+      {!g.tracing && (
+        <Hit
+          label="木型の輪郭を写し取る"
+          x={6}
+          y={35}
+          w={88}
+          h={53}
+          shape="0,0 6,0 10,17 25,45 50,63 75,45 91,15 96,0 100,0 100,100 0,100"
+          onClick={() => send({ type: "trace", tool: selected })}
+        />
+      )}
       {g.tracing && (
         <div className="tracing-in-hand">
           <HullDrawing showWater={false} />
@@ -187,20 +191,22 @@ export function Draft({ game: g, send, selected }: ControlProps) {
       {selected === "rod" && !rod && (
         <Hit
           label="船べりに棒を添える"
-          x={75}
-          y={15}
-          w={23}
-          h={65}
+          x={86}
+          y={28}
+          w={5}
+          h={38}
           onClick={() => setRod(true)}
         />
       )}
       <div className="observation-actions">
         {g.tracing && (
-          <button aria-pressed={paper} onClick={() => setPaper(!paper)}>
+          <SceneAction aria-pressed={paper} onClick={() => setPaper(!paper)}>
             {paper ? "写しをしまう" : "記録帳の写しを重ねる"}
-          </button>
+          </SceneAction>
         )}
-        {rod && <button onClick={() => setRod(false)}>棒をしまう</button>}
+        {rod && (
+          <SceneAction onClick={() => setRod(false)}>棒をしまう</SceneAction>
+        )}
       </div>
     </>
   );
@@ -235,14 +241,14 @@ export function SeaScene({ game: g, send }: ControlProps) {
                   width: node === "F" ? "16%" : undefined,
                 }}
               />
-              <Hit
-                label={`${choices.length === 1 ? "正面" : i === 0 ? "左" : i === choices.length - 1 ? "右" : "中央"}の水路へ進む`}
-                x={x - 12}
-                y={35}
-                w={24}
-                h={47}
+              <button
+                className="sea-choice"
+                style={{ left: `${x}%` }}
+                aria-label={`${choices.length === 1 ? "正面" : i === 0 ? "左" : i === choices.length - 1 ? "右" : "中央"}の水路へ進む`}
                 onClick={() => send({ type: "sail", node })}
-              />
+              >
+                この水路へ →
+              </button>
             </div>
           );
         })}
@@ -255,12 +261,12 @@ export function SeaScene({ game: g, send }: ControlProps) {
           </button>
         </div>
       ) : (
-        <button
+        <SceneAction
           className="sea-return"
           onClick={() => send({ type: "returnDock" })}
         >
           渡船場へ戻る
-        </button>
+        </SceneAction>
       )}
     </>
   );

@@ -651,7 +651,7 @@
   },
   "scenes/dock-high": {
     "path": "assets/scenes/dock-high.webp",
-    "source": "exec-5e2c8101-c720-4334-9168-92915dd60c81.png",
+    "source": "exec-fecf6525-89e0-4516-a20d-62ec1576d079.png",
     "generator": "built-in image_gen",
     "sourceWidth": 1672,
     "sourceHeight": 941,
@@ -1012,6 +1012,26 @@
   "closeups/gate-open": {
     "path": "assets/closeups/gate-open.webp",
     "source": "exec-a58ae7c7-837f-47a8-b970-a82f03732d18.png",
+    "generator": "built-in image_gen",
+    "sourceWidth": 1672,
+    "sourceHeight": 941,
+    "width": 1672,
+    "height": 941,
+    "status": "verified-integration"
+  },
+  "scenes/dock-low-repaired": {
+    "path": "assets/scenes/dock-low-repaired.webp",
+    "source": "exec-0b65539b-13a2-436d-8708-795f63076d00.png",
+    "generator": "built-in image_gen",
+    "sourceWidth": 1672,
+    "sourceHeight": 941,
+    "width": 1672,
+    "height": 941,
+    "status": "verified-integration"
+  },
+  "scenes/dock-mid-repaired": {
+    "path": "assets/scenes/dock-mid-repaired.webp",
+    "source": "exec-36a91db5-2a57-4dae-bd6a-a491238d1e8f.png",
     "generator": "built-in image_gen",
     "sourceWidth": 1672,
     "sourceHeight": 941,

@@ -1,3 +1,4 @@
+import { SceneAction } from "./ActionBar";
 import {
   scene,
   itemImage,
@@ -61,7 +62,7 @@ export function Scene({ game: g, send }: ControlProps) {
       {(["dock", "office", "workshop", "pump", "service"] as Room[]).includes(
         g.room,
       ) && (
-        <button
+        <SceneAction
           className="passage-link exit"
           onClick={
             (g.room === "office" || g.room === "workshop") && g.face === 0
@@ -72,17 +73,17 @@ export function Scene({ game: g, send }: ControlProps) {
           {(g.room === "office" || g.room === "workshop") && g.face === 0
             ? "入口を振り返る"
             : "連絡桟橋へ →"}
-        </button>
+        </SceneAction>
       )}
       {g.room === "lookout" && (
-        <button className="passage-link exit" onClick={go("waiting")}>
+        <SceneAction className="passage-link exit" onClick={go("waiting")}>
           待合室へ →
-        </button>
+        </SceneAction>
       )}
       {g.room === "concourse" && (
-        <button className="passage-link dock" onClick={go("dock")}>
+        <SceneAction className="passage-link dock" onClick={go("dock")}>
           ← 船溜まりへ
-        </button>
+        </SceneAction>
       )}
       {g.room === "dock" ? (
         <DockView game={g} />
@@ -298,10 +299,10 @@ export function Scene({ game: g, send }: ControlProps) {
           <>
             <Hit
               label={g.shutterOpen ? "桟橋へ" : "戸の留め金を調べる"}
-              x={49}
-              y={24}
-              w={24}
-              h={59}
+              x={53}
+              y={19}
+              w={16}
+              h={57}
               onClick={g.shutterOpen ? go("concourse") : inspect("shutter")}
             />
             <Hit
@@ -317,10 +318,10 @@ export function Scene({ game: g, send }: ControlProps) {
           <>
             <Hit
               label="向こうの通路を調べる"
-              x={56}
-              y={23}
-              w={17}
-              h={54}
+              x={58}
+              y={19}
+              w={13}
+              h={58}
               onClick={go("lookout")}
             />
             <Hit
@@ -338,27 +339,19 @@ export function Scene({ game: g, send }: ControlProps) {
           <>
             <Hit
               label="待合室へ"
-              x={24}
-              y={raised(g) ? 19 : 30}
-              w={10}
-              h={raised(g) ? 25 : 25}
+              x={26}
+              y={raised(g) ? 20 : 30}
+              w={5.5}
+              h={23}
               onClick={go("waiting")}
             />
             <Hit
               label="下の整備通路へ"
-              x={69}
-              y={54}
-              w={17}
-              h={22}
+              x={71}
+              y={47}
+              w={12}
+              h={25}
               onClick={go("service")}
-            />
-            <Hit
-              label="船溜まりへ"
-              x={2}
-              y={53}
-              w={13}
-              h={30}
-              onClick={go("dock")}
             />
             <Hit
               label="待合室と案内柱を見比べる"
@@ -381,53 +374,59 @@ export function Scene({ game: g, send }: ControlProps) {
           <>
             <Hit
               label="事務室へ"
-              x={10}
-              y={20}
-              w={23}
-              h={65}
+              x={20.8}
+              y={26.7}
+              w={11}
+              h={41.5}
               onClick={go("office")}
             />
             <Hit
               label="整備工房へ"
-              x={40}
-              y={20}
-              w={22}
-              h={65}
+              x={39.2}
+              y={26}
+              w={23}
+              h={43}
               onClick={go("workshop")}
             />
             <Hit
               label="ポンプ室へ"
-              x={70}
-              y={20}
-              w={20}
-              h={65}
+              x={71}
+              y={26}
+              w={16.5}
+              h={44}
               onClick={go("pump")}
             />
-            <button className="shore-exit" onClick={inspect("landward")}>
+            <SceneAction className="shore-exit" onClick={inspect("landward")}>
               陸側へ
-            </button>
+            </SceneAction>
           </>
         ))}
       {g.room === "office" &&
         (g.face === 0 ? (
           <>
             <PaperMiniature game={g} />
-            <Hit
-              label="机の鍵穴を調べる"
-              x={46}
-              y={78}
-              w={6}
-              h={7}
-              onClick={inspect("key")}
-            />
-            <Hit
-              label="引き出しを調べる"
-              x={14}
-              y={85}
-              w={72}
-              h={9}
-              onClick={inspect("drawer")}
-            />
+            {!g.keyTurn && !g.drawerOpen && (
+              <Hit
+                label="机の鍵穴を調べる"
+                x={47.6}
+                y={79}
+                w={2.8}
+                h={5}
+                onClick={inspect("key")}
+              />
+            )}
+            {[0, 1].map((i) => (
+              <Hit
+                key={i}
+                label={i ? "右の引き手を調べる" : "引き出しを調べる"}
+                x={g.drawerOpen ? (i ? 72 : 19.5) : i ? 69.5 : 23.5}
+                y={g.drawerOpen ? 90.7 : 80.8}
+                w={g.drawerOpen ? 7 : 6.2}
+                h={g.drawerOpen ? 7 : 6}
+                shape="50,0 78,12 100,70 100,100 0,100 0,70 22,12"
+                onClick={inspect("drawer")}
+              />
+            ))}
             <Hit
               label="紙片を調べる"
               x={32}
@@ -462,18 +461,18 @@ export function Scene({ game: g, send }: ControlProps) {
             <PipeMiniature className="office-pipes" />
             <Hit
               label="壁の配管図を調べる"
-              x={23}
-              y={12}
-              w={31}
-              h={34}
+              x={23.3}
+              y={10}
+              w={30.5}
+              h={36}
               onClick={inspect("shore")}
             />
             <Hit
               label="桟橋へ戻る"
-              x={70}
-              y={15}
-              w={23}
-              h={71}
+              x={62.5}
+              y={7.5}
+              w={19}
+              h={75}
               onClick={go("concourse")}
             />
           </>
@@ -484,10 +483,11 @@ export function Scene({ game: g, send }: ControlProps) {
             <TrayMiniature game={g} />
             <Hit
               label="工具箱を調べる"
-              x={23}
-              y={46}
-              w={29}
-              h={23}
+              x={23.5}
+              y={46.5}
+              w={28.8}
+              h={19}
+              shape="14,0 100,0 98,96 0,100 0,37"
               onClick={inspect("tray")}
             />
             {g.items.belt === "bench" && (
@@ -514,20 +514,22 @@ export function Scene({ game: g, send }: ControlProps) {
         ) : (
           <>
             <PipeMiniature className="workshop-pipes" />
-            <Hit
-              label="補修板の棚を調べる"
-              x={14}
-              y={26}
-              w={26}
-              h={41}
-              onClick={inspect("rack")}
-            />
+            {g.items.patch === "rack" && (
+              <Hit
+                label="補修板の棚を調べる"
+                x={19}
+                y={44}
+                w={13}
+                h={15}
+                onClick={inspect("rack")}
+              />
+            )}
             <Hit
               label="配管の続きを見る"
-              x={41}
-              y={8}
-              w={35}
-              h={30}
+              x={44.4}
+              y={16}
+              w={19}
+              h={29}
               onClick={inspect("shore")}
             />
             <Hit
@@ -545,26 +547,26 @@ export function Scene({ game: g, send }: ControlProps) {
           <>
             <Hit
               label="三つの弁を調べる"
-              x={14}
-              y={22}
-              w={36}
-              h={46}
+              x={14.2}
+              y={23}
+              w={35}
+              h={44.5}
               onClick={inspect("pipes")}
             />
             <Hit
               label="駆動部を調べる"
-              x={52}
-              y={54}
-              w={28}
-              h={32}
+              x={52.3}
+              y={53.5}
+              w={25}
+              h={25}
               onClick={inspect("belt")}
             />
             <Hit
               label="吸込み口を調べる"
-              x={86}
-              y={51}
-              w={12}
-              h={34}
+              x={89}
+              y={54}
+              w={9}
+              h={28}
               onClick={inspect("strainer")}
             />
           </>
@@ -572,18 +574,18 @@ export function Scene({ game: g, send }: ControlProps) {
           <>
             <Hit
               label="水位窓を調べる"
-              x={22}
-              y={20}
-              w={22}
-              h={57}
+              x={24.3}
+              y={21}
+              w={8.3}
+              h={43}
               onClick={inspect("window")}
             />
             <Hit
               label="桟橋へ戻る"
-              x={62}
-              y={16}
-              w={28}
-              h={74}
+              x={70}
+              y={20}
+              w={19}
+              h={63}
               onClick={go("concourse")}
             />
           </>
@@ -593,18 +595,18 @@ export function Scene({ game: g, send }: ControlProps) {
           <>
             <Hit
               label="浮体の固定具を調べる"
-              x={11}
-              y={35}
-              w={38}
-              h={43}
+              x={23.5}
+              y={34.5}
+              w={26}
+              h={39}
               onClick={inspect("supports")}
             />
             <Hit
               label="浮体の割れ目を調べる"
-              x={52}
-              y={34}
-              w={30}
-              h={39}
+              x={68}
+              y={24.5}
+              w={24}
+              h={41}
               onClick={inspect("patch")}
             />
           </>
@@ -612,26 +614,27 @@ export function Scene({ game: g, send }: ControlProps) {
           <>
             <Hit
               label="船具ケースを調べる"
-              x={17}
-              y={49}
-              w={31}
-              h={29}
+              x={10.8}
+              y={g.caseOpen ? 29 : 50}
+              w={32}
+              h={g.caseOpen ? 54 : 32}
               onClick={inspect("rings")}
             />
             <Hit
               label="水路の奥を見る"
-              x={49}
-              y={19}
-              w={25}
-              h={46}
+              x={52}
+              y={33}
+              w={23}
+              h={38}
+              shape="0,100 0,38 8,16 27,4 50,0 72,4 91,16 100,38 100,100"
               onClick={inspect("shore")}
             />
             <Hit
               label="岸へ上がる"
-              x={79}
-              y={18}
-              w={17}
-              h={67}
+              x={82}
+              y={27}
+              w={16}
+              h={63}
               onClick={go("concourse")}
             />
           </>
@@ -642,10 +645,11 @@ export function Scene({ game: g, send }: ControlProps) {
             <MapMiniature game={g} />
             <Hit
               label="測量図を調べる"
-              x={20}
-              y={51}
-              w={45}
-              h={32}
+              x={18}
+              y={55}
+              w={47}
+              h={22}
+              shape="0,25 68,0 100,49 0,100"
               onClick={inspect("chart")}
             />
             {g.items.lens === "shelf" && (
@@ -660,10 +664,10 @@ export function Scene({ game: g, send }: ControlProps) {
             )}
             <Hit
               label="待合室へ戻る"
-              x={83}
-              y={66}
-              w={13}
-              h={22}
+              x={87.5}
+              y={22}
+              w={12.5}
+              h={63}
               onClick={go("waiting")}
             />
           </>
@@ -671,10 +675,10 @@ export function Scene({ game: g, send }: ControlProps) {
           <>
             <Hit
               label="見通し標を調べる"
-              x={12}
-              y={14}
+              x={13}
+              y={8}
               w={76}
-              h={66}
+              h={49}
               onClick={inspect("survey")}
             />
           </>
@@ -684,49 +688,53 @@ export function Scene({ game: g, send }: ControlProps) {
           <Hit
             label="船を調べる"
             x={8}
-            y={33}
-            w={55}
-            h={28}
+            y={g.water === 2 && !boatReady(g) ? 40 : 33}
+            w={61}
+            h={g.water === 2 && !boatReady(g) ? 17 : 27}
+            shape="0,0 18,16 67,21 100,15 95,83 53,100 9,78"
             onClick={inspect("boat")}
           />
           <Hit
             label="船台のくぼみを調べる"
             x={22}
-            y={75}
-            w={44}
-            h={15}
+            y={68}
+            w={39}
+            h={31}
+            shape="7,0 12,3 20,30 36,48 55,58 73,55 86,40 94,20 98,20 100,96 0,82"
             onClick={inspect("trace")}
           />
           <Hit
             label="岸壁の水位目盛を調べる"
-            x={84}
-            y={24}
-            w={8}
-            h={33}
+            x={87.7}
+            y={26}
+            w={1.8}
+            h={27}
             onClick={inspect("depth")}
           />
           <Hit
             label="水門の閂を調べる"
-            x={55}
-            y={10}
-            w={23}
-            h={28}
+            x={57.8}
+            y={13}
+            w={17.6}
+            h={23.4}
+            shape="0,19 15,7 50,0 85,7 100,19 100,100 0,100"
             onClick={inspect("gate")}
           />
           <Hit
             label="船灯を調べる"
-            x={63}
-            y={35 + (g.water === 2 && !boatReady(g) ? 6 : 0)}
-            w={7}
-            h={12}
+            x={64}
+            y={37 + (g.water === 2 && !boatReady(g) ? 6 : 0)}
+            w={4}
+            h={7}
+            shape="25,0 70,0 100,29 86,77 66,85 66,100 20,100 20,77 0,53 0,23"
             onClick={inspect("lantern")}
           />
-          <button
+          <SceneAction
             className="passage-link dock"
             onClick={() => send({ type: "depart" })}
           >
             船に乗る
-          </button>
+          </SceneAction>
         </>
       )}
     </>
