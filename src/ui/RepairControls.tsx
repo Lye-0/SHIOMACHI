@@ -280,14 +280,6 @@ export function Shore({ game: g, send }: ControlProps) {
           src={scene("shore-low")}
           alt="水が引いた水路の向こうにある倒れた梁"
         />
-        <Hit
-          label="水路の障害物を記録する"
-          x={18}
-          y={17}
-          w={65}
-          h={65}
-          onClick={() => send({ type: "record", id: "fallen-beam" })}
-        />
       </>
     );
   return (
@@ -298,12 +290,6 @@ export function Shore({ game: g, send }: ControlProps) {
       <div className="document-ink">
         <PipeDrawing />
       </div>
-      <button
-        className="record-button"
-        onClick={() => send({ type: "record", id: "pipe-map" })}
-      >
-        記録に挟む
-      </button>
     </>
   );
 }

@@ -8,6 +8,7 @@ import {
   has,
   itemNames,
   newGame,
+  paperComplete,
   raised,
   ringAligned,
   roomNames,
@@ -18,6 +19,29 @@ import {
   type Result,
 } from "./model";
 import { boatDraft } from "./hull";
+
+/** Record only what the current observation reveals, without a separate save action. */
+function recordObserved(g: Game) {
+  let id: string | undefined;
+  if (g.detail === "diagram" && paperComplete(g)) id = "diagram";
+  if (g.detail === "window" && g.room === "concourse") id = "pontoon";
+  if (g.detail === "shore")
+    id = g.room === "service" ? "fallen-beam" : "pipe-map";
+  if (g.detail === "survey") id = "bearings";
+  if (g.detail === "chart") id = "chart";
+  if (g.detail === "trace" && g.tracing) id = "tracing";
+  if (g.detail === "boat" && g.water === 2 && boatReady(g)) id = "waterline";
+  if (!id) return;
+  g.records ??= {};
+  g.records[id] = {
+    water: g.water,
+    view: g.surveyPosition,
+    mapTurn: g.mapTurn,
+    raised: raised(g),
+    ...(id === "chart" ? { chartMarks: [...g.chartMarks] } : {}),
+  };
+  if (!g.seen.includes(id)) g.seen.push(id);
+}
 
 export function act(previous: Game, action: Action): Result {
   const g = structuredClone(previous);
@@ -476,6 +500,7 @@ export function act(previous: Game, action: Action): Result {
       g.detail = null;
       break;
   }
+  recordObserved(g);
   return result;
 }
 

@@ -17,6 +17,63 @@ function run(g: Game, ...actions: Action[]) {
   return actions.reduce((state, a) => act(state, a).game, g);
 }
 describe("物理状態と情報を分離する", () => {
+  it("見た手掛かりを操作不要で記録し、未完成の図面は解答を先に見せない", () => {
+    let g = newGame();
+    g.room = "office";
+    g = run(g, { type: "inspect", detail: "diagram" });
+    expect(g.records.diagram).toBeUndefined();
+    g.papers = [0, 1, 2, 3];
+    g.paperTurns = [0, 0, 0, 3];
+    g = run(g, { type: "paperRotate", index: 3 });
+    expect(g.records.diagram).toBeDefined();
+    for (const [room, detail, id] of [
+      ["office", "shore", "pipe-map"],
+      ["service", "shore", "fallen-beam"],
+      ["concourse", "window", "pontoon"],
+      ["lookout", "survey", "bearings"],
+      ["lookout", "chart", "chart"],
+    ] as const) {
+      g.room = room;
+      g = run(g, { type: "inspect", detail });
+      expect(g.records[id]).toBeDefined();
+    }
+    g.room = "dock";
+    g.items.chalk = "inventory";
+    g = run(
+      g,
+      { type: "inspect", detail: "trace" },
+      { type: "trace", tool: "chalk" },
+    );
+    expect(g.records.tracing).toBeDefined();
+    g.water = 2;
+    g.boatInside = g.boatOutside = g.boatDry = true;
+    g = run(g, { type: "inspect", detail: "boat" });
+    expect(g.records.waterline.water).toBe(2);
+  });
+  it("観察中の変更は自動で更新し、他の場所への移動や保存再開では記録を維持する", () => {
+    let g = newGame();
+    g.room = "lookout";
+    g = run(
+      g,
+      { type: "inspect", detail: "survey" },
+      { type: "surveyPosition", value: 2 },
+    );
+    expect(g.records.bearings.view).toBe(2);
+    g = run(
+      g,
+      { type: "inspect", detail: "chart" },
+      { type: "chartMark", node: "A" },
+      { type: "chartMark", node: "E" },
+    );
+    expect(g.records.chart.chartMarks).toEqual(["A", "E"]);
+    g = run(g, { type: "back" });
+    g.chartMarks = [];
+    expect(g.records.chart.chartMarks).toEqual(["A", "E"]);
+    expect(parseSave(JSON.stringify(g))?.records.chart.chartMarks).toEqual([
+      "A",
+      "E",
+    ]);
+  });
   it("船溜まりは左右で拡大せず、旧裏向きセーブも進行を保持して全景に戻す", () => {
     const g = newGame();
     g.room = "dock";

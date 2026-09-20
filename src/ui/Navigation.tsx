@@ -75,12 +75,6 @@ export function Survey({ game: g, send }: ControlProps) {
           />
         ))}
       </div>
-      <button
-        className="record-button"
-        onClick={() => send({ type: "record", id: "bearings" })}
-      >
-        景色を記録する
-      </button>
     </>
   );
 }
@@ -127,12 +121,6 @@ export function Chart({ game: g, send }: ControlProps) {
       {g.chartMarks.length % 2 === 1 && (
         <p className="chart-guide">もう一つの標を選ぶ。</p>
       )}
-      <button
-        className="record-button"
-        onClick={() => send({ type: "record", id: "chart" })}
-      >
-        記録に挟む
-      </button>
     </>
   );
 }
@@ -213,9 +201,6 @@ export function Draft({ game: g, send, selected }: ControlProps) {
           </button>
         )}
         {rod && <button onClick={() => setRod(false)}>棒をしまう</button>}
-        <button onClick={() => send({ type: "record", id: "waterline" })}>
-          水線を記録する
-        </button>
       </div>
     </>
   );

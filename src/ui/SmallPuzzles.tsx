@@ -1,12 +1,6 @@
 import { useRef, useState, type CSSProperties, type PointerEvent } from "react";
 import { closeup, itemImage, mechanism } from "../content/assets";
-import {
-  blocks,
-  itemNames,
-  paperComplete,
-  raised,
-  type Item,
-} from "../game/model";
+import { blocks, itemNames, raised, type Item } from "../game/model";
 import { Hit, Photo, Pickup } from "./Primitives";
 import type { ControlProps } from "./PumpControls";
 import { PontoonDrawing } from "./drawings";
@@ -323,14 +317,6 @@ export function Diagram({ game: g, send }: ControlProps) {
           </div>
         ))}
       </div>
-      {paperComplete(g) && (
-        <button
-          className="record-button"
-          onClick={() => send({ type: "record", id: "diagram" })}
-        >
-          記録に挟む
-        </button>
-      )}
     </>
   );
 }

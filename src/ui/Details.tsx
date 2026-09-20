@@ -1,5 +1,5 @@
 import { closeup, scene, waitingSceneName } from "../content/assets";
-import { Photo, Hit } from "./Primitives";
+import { Photo } from "./Primitives";
 import { Pipes, Supports, type ControlProps } from "./PumpControls";
 import {
   Shutter,
@@ -23,7 +23,7 @@ import { Survey, Chart, Trace, Depth } from "./Navigation";
 import { raised } from "../game/model";
 
 export function Details(props: ControlProps) {
-  const { game: g, send } = props;
+  const { game: g } = props;
   if (g.detail === "landward")
     return (
       <Photo src={scene("landward")} alt="中央が崩れ、水で隔てられた陸への橋" />
@@ -93,16 +93,6 @@ export function Details(props: ControlProps) {
                   : "concourse-mid",
             )}
             style={{ transform: "scale(1.5)", transformOrigin: "18% 30%" }}
-          />
-        )}
-        {g.room === "concourse" && (
-          <Hit
-            label="柱と渡り板を記録する"
-            x={12}
-            y={8}
-            w={50}
-            h={70}
-            onClick={() => send({ type: "record", id: "pontoon" })}
           />
         )}
       </>
