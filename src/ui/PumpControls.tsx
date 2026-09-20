@@ -174,8 +174,8 @@ export function Supports({ game: g, send, selected }: ControlProps) {
       <p className="mechanical-note">
         {g.pins.every((p) => !p)
           ? g.support.every((p) => p === 0)
-            ? "固定ピンは手元にある。支持ねじも離れた。"
-            : "固定ピンは手元にある。箱は支持ねじに載っている。"
+            ? "固定ピンは両方とも抜けた。"
+            : "固定ピンは両方とも抜けた。ねじは下から支えている。"
           : "柱のピンが、床下の箱を留めている。"}
       </p>
     </>

@@ -208,8 +208,7 @@ export function newGame(): Game {
   };
 }
 export const has = (g: Game, item: Item) => g.items[item] === "inventory";
-export const freePontoon = (g: Game) =>
-  g.pins.every((p) => !p) && g.support.every((p) => p === 0);
+export const freePontoon = (g: Game) => g.pins.every((p) => !p);
 export const soundPontoon = (g: Game) =>
   g.patchMounted && g.patchBolts.every(Boolean) && g.tankDry;
 export const raised = (g: Game) =>

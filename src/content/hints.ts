@@ -276,14 +276,6 @@ export function hintFor(g: Game): Hint {
   }
   if (!freePontoon(g)) {
     const i = g.pins.findIndex(Boolean);
-    if (i < 0)
-      return stage(
-        "supports-lower",
-        "荷重を支えるねじ",
-        "固定ピンは両方とも抜けている。",
-        "支持ねじが上がっていると、浮体はまだ自由に動けない。",
-        "待合室の床下でクランクを使い、上がった支持ねじを両側とも戻す。",
-      );
     const side = i === 0 ? "左" : "右";
     return stage(
       "supports-" + i + "-" + g.support[i],
@@ -293,7 +285,7 @@ export function hintFor(g: Game): Hint {
         ? "ねじで荷重を受けているので、ピンを抜ける。"
         : "ピンを引く前に、横にある支持ねじで荷重を受ける。",
       g.support[i] === 2
-        ? `${side}の水平なピンを引き、クランクで支持ねじを戻す。`
+        ? `${side}の水平なピンを引く。`
         : `クランクを選び、${side}の四角い軸穴を回してからピンを引く。`,
     );
   }

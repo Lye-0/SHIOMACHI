@@ -25,6 +25,25 @@ type Fixture = {
 };
 const fixtures: Fixture[] = [
   {
+    id: "pump-jacks-raised",
+    room: "pump",
+    detail: "pipes",
+    ready: true,
+    patch: {
+      water: 0,
+      target: 2,
+      valves: [false, true, false],
+      support: [2, 2],
+    },
+  },
+  {
+    id: "diagram-complete",
+    room: "office",
+    detail: "diagram",
+    patch: { papers: [0, 1, 2, 3], paperTurns: [0, 0, 0, 0] },
+  },
+
+  {
     id: "voyage-plan",
     room: "dock",
     ready: true,

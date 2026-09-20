@@ -21,10 +21,16 @@ export function PontoonDrawing({ flat = false }: { flat?: boolean } = {}) {
         <path d="M160 184H380V232H160ZM385 184H495" strokeDasharray="6 6" />
         {[0, 1, 2].map((i) => (
           <g key={i} transform={`translate(${62 + i * 172} 355)`}>
-            <path d="M0 0H140V32H0ZM22 8V168H38V8M38 40h40v22H38M110 68v55M98 80l24-5m-24 16 24-5m-24 16 24-5m-24 16 24-5M88 123h44v39H88ZM80 162h62v8H80" />
+            <path d="M22 8V168H38V8M110 68v55M98 80l24-5m-24 16 24-5m-24 16 24-5m-24 16 24-5M88 123h44v39H88ZM80 162h62v8H80" />
+            <g transform={i === 2 ? "translate(0 -20)" : undefined}>
+              <path d="M0 0H140V32H0ZM38 40h40v22H38" />
+            </g>
+            {i === 2 && (
+              <path d="M2 72q10-5 20 0t20 0t20 0t20 0t20 0t20 0M148 32V-10m-5 7 5-7 5 7" />
+            )}
             <path
               d={
-                i === 1
+                i !== 0
                   ? "M92 34h36v8H92ZM110 42V68"
                   : "M92 48h36v8H92ZM110 56V68"
               }
@@ -33,8 +39,8 @@ export function PontoonDrawing({ flat = false }: { flat?: boolean } = {}) {
               <path d="M12 49H77m-4-7v15" strokeWidth="6" />
             ) : (
               <>
-                <circle cx="54" cy="50" r="6" />
-                <path d="M4 50h12m0-5-7 5 7 5" />
+                <circle cx="54" cy={i === 2 ? 30 : 50} r="6" />
+                {i === 1 && <path d="M4 50h12m0-5-7 5 7 5" />}
               </>
             )}
           </g>
@@ -63,10 +69,10 @@ export function PontoonDrawing({ flat = false }: { flat?: boolean } = {}) {
           固定ピン
         </text>
         <text x="229" y="550">
-          支持ねじで受ける
+          荷重を受け、抜く
         </text>
         <text x="409" y="550">
-          ねじを離す
+          水位とともに浮く
         </text>
       </g>
     </svg>

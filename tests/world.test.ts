@@ -190,7 +190,7 @@ describe("物理状態と情報を分離する", () => {
     const closed = run(g, { type: "gate" }, { type: "pump" });
     expect(closed.water).toBe(0);
   });
-  it("固定具の荷重を受け、ピンを抜き、支持脚を戻して初めて自由になる", () => {
+  it("固定具の荷重を受けてピンを抜くと、支持ねじを戻さなくても自由になる", () => {
     const g = newGame();
     g.water = 0;
     g.items.crank = "inventory";
@@ -203,11 +203,10 @@ describe("物理状態と情報を分離する", () => {
             { type: "support", index, direction: 1, tool: "crank" },
             { type: "support", index, direction: 1, tool: "crank" },
             { type: "pin", index },
-            { type: "support", index, direction: -1, tool: "crank" },
-            { type: "support", index, direction: -1, tool: "crank" },
           ] as Action[],
       ),
     );
+    expect(released.support).toEqual([2, 2]);
     expect(freePontoon(released)).toBe(true);
   });
   it("取り忘れた物はその場に残り、取得と開錠を混同しない", () => {
@@ -454,4 +453,40 @@ describe("床下の固定具と補修セット", () => {
     expect(g.patchBolts).toEqual([true, true, true, true]);
     expect(g.tankDry).toBe(true);
   });
+});
+
+it("全ての支持ねじ高さで抜去状態を判定し、補修・排水後の注水で浮く", () => {
+  for (const left of [0, 1, 2])
+    for (const right of [0, 1, 2])
+      for (const pins of [
+        [true, true],
+        [true, false],
+        [false, true],
+        [false, false],
+      ]) {
+        const g = newGame();
+        Object.assign(g, {
+          room: "pump",
+          water: 0,
+          target: 2,
+          valves: [false, true, false],
+          support: [left, right],
+          pins,
+          patchMounted: true,
+          patchBolts: [true, true, true, true],
+          tankDry: true,
+        });
+        const result = act(g, { type: "pump" });
+        const freed = pins.every((p) => !p);
+        expect(raised(result.game)).toBe(freed);
+        expect(result.transition).toBe(freed ? "rise" : "water");
+        expect(result.game.support).toEqual([left, right]);
+        const restored = parseSave(JSON.stringify(result.game))!;
+        expect(raised(restored)).toBe(freed);
+        expect(restored.support).toEqual([left, right]);
+        expect(raised({ ...result.game, tankDry: false })).toBe(false);
+        expect(
+          raised({ ...result.game, patchBolts: [true, false, true, true] }),
+        ).toBe(false);
+      }
 });

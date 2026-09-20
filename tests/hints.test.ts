@@ -124,11 +124,25 @@ describe("現在の進行から次の手がかりを選ぶ", () => {
       expect(hintFor(g).id).toBe("pipes");
     },
   );
-  it("ピンを抜いた後に支持ねじだけ残っている状態を扱う", () => {
-    const g = ready();
-    g.water = 0;
-    g.support = [0, 2];
-    expect(hintFor(g).id).toBe("supports-lower");
+  it("抜去後は支持ねじの高さに関係なく補修や注水へ案内する", () => {
+    for (const support of [
+      [0, 0],
+      [0, 2],
+      [2, 0],
+      [2, 2],
+    ]) {
+      const g = ready();
+      g.water = 0;
+      g.support = support;
+      g.tankDry = false;
+      expect(hintFor(g).id).toBe("tank-drain");
+      g.tankDry = true;
+      const baseline = { ...g, support: [0, 0] };
+      expect(hintFor(g)).toEqual(hintFor(baseline));
+      expect(hintFor(g).steps.join()).not.toContain("支持ねじ");
+      g.water = 2;
+      expect(hintFor(g).id).toBe("depart");
+    }
   });
   it("補修板の固定と排水、船の片側修理と水汲みを区別する", () => {
     const g = ready();
