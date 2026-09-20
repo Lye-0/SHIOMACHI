@@ -22,7 +22,7 @@ import {
 import { boatDraft } from "./hull";
 
 /** Record only what the current observation reveals, without a separate save action. */
-function recordObserved(g: Game) {
+function recordObserved(g: Game, action?: Action) {
   let id: string | undefined;
   if (g.detail === "diagram" && paperComplete(g)) id = "diagram";
   if (g.detail === "window" && g.room === "concourse") id = "pontoon";
@@ -35,6 +35,14 @@ function recordObserved(g: Game) {
   if (!id) return;
   g.records ??= {};
   g.records[id] = {
+    ...g.records[id],
+    ...(id === "waterline" &&
+    g.tracing &&
+    g.items.rod === "inventory" &&
+    action &&
+    ["measureDraft", "rodMark", "waterMark"].includes(action.type)
+      ? { draftMarks: [g.rodMark, g.waterMark] as [number, number] }
+      : {}),
     water: g.water,
     view: g.surveyPosition,
     mapTurn: g.mapTurn,
@@ -471,6 +479,8 @@ export function act(previous: Game, action: Action): Result {
         say("くぼみの輪郭を、記録帳の紙に写した。", "wood");
       }
       break;
+    case "measureDraft":
+      break;
     case "rodMark":
       g.rodMark = Math.max(0, Math.min(80, action.value));
       break;
@@ -607,7 +617,7 @@ export function act(previous: Game, action: Action): Result {
       g.detail = null;
       break;
   }
-  recordObserved(g);
+  recordObserved(g, action);
   return result;
 }
 
@@ -782,6 +792,10 @@ export function parseSave(raw: string | null): Game | null {
           integer(r.water, 0, 2) &&
           integer(r.view, 0, 4) &&
           integer(r.mapTurn, 0, 3) &&
+          (r.draftMarks === undefined ||
+            (Array.isArray(r.draftMarks) &&
+              r.draftMarks.length === 2 &&
+              r.draftMarks.every((n) => integer(n, 0, 80)))) &&
           (r.chartMarks === undefined ||
             (Array.isArray(r.chartMarks) &&
               r.chartMarks.every(

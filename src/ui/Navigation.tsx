@@ -180,7 +180,7 @@ export function Depth({ game: g }: ControlProps) {
     </>
   );
 }
-export function Draft({ game: g, send, selected }: ControlProps) {
+export function Draft({ game: g, send }: ControlProps) {
   const [paper, setPaper] = useState(false),
     [rod, setRod] = useState(false);
   return (
@@ -197,17 +197,34 @@ export function Draft({ game: g, send, selected }: ControlProps) {
       {rod && g.items.rod === "inventory" && (
         <MeasureMarks game={g} send={send} onBoat />
       )}
-      {selected === "rod" && !rod && (
-        <Hit
-          label="船べりに棒を添える"
-          x={86}
-          y={28}
-          w={5}
-          h={38}
-          onClick={() => setRod(true)}
-        />
+      {!g.tracing && (
+        <p className="observation-caption">
+          船台の輪郭の写しがあれば、水中の船底まで比べられそうだ。
+        </p>
       )}
       <div className="observation-actions">
+        {g.items.rod === "inventory" && !rod && (
+          <SceneAction
+            onClick={() => {
+              setRod(true);
+              setPaper(g.tracing);
+              send({ type: "measureDraft" });
+            }}
+          >
+            棒を添えて測る
+          </SceneAction>
+        )}
+        {g.items.hook === "inventory" && !rod && (
+          <SceneAction onClick={() => send({ type: "separate", item: "hook" })}>
+            鉤から棒を外す
+          </SceneAction>
+        )}
+        {g.items.rod !== "inventory" && g.items.hook !== "inventory" && (
+          <p className="observation-caption">
+            長い棒を添えれば、水面から船底までを測れそうだ。
+          </p>
+        )}
+
         {g.tracing && (
           <SceneAction aria-pressed={paper} onClick={() => setPaper(!paper)}>
             {paper ? "写しをしまう" : "記録帳の写しを重ねる"}

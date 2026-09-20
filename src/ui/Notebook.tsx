@@ -1,3 +1,4 @@
+import { hull } from "../game/hull";
 import { useState } from "react";
 import type { Game } from "../game/model";
 import { Photo, Icon } from "./Primitives";
@@ -18,7 +19,7 @@ const labels: Record<string, string> = {
   bearings: "見通し標",
   chart: "古い測量図",
   tracing: "船台の輪郭",
-  waterline: "浮かんだ船の水線",
+  waterline: "船の水線と喫水の計測",
 };
 export function Notebook({ game: g }: { game: Game }) {
   const [opened, setOpened] = useState<string>();
@@ -82,8 +83,48 @@ export function Notebook({ game: g }: { game: Game }) {
             {opened === "bearings" && (
               <SurveyFrame position={record?.view ?? 2} />
             )}
-            {opened === "waterline" && <Photo src={closeup("boat-floating")} />}
+            {opened === "waterline" && (
+              <>
+                <Photo src={closeup("boat-floating")} />
+                {record?.draftMarks && (
+                  <>
+                    <div className="depth-template on-boat">
+                      <HullDrawing showWater={false} showScale={false} />
+                    </div>
+                    <svg
+                      viewBox="0 0 800 450"
+                      style={{
+                        position: "absolute",
+                        inset: 0,
+                        width: "100%",
+                        height: "100%",
+                      }}
+                      aria-label="計測時に付けた船底と水線の印"
+                    >
+                      {record.draftMarks.map((mark, i) => (
+                        <line
+                          key={i}
+                          x1="650"
+                          x2="770"
+                          y1={hull.keel - (mark * hull.step) / 10}
+                          y2={hull.keel - (mark * hull.step) / 10}
+                          stroke={i ? "#75bdce" : "#fff2c7"}
+                          strokeWidth="2"
+                        />
+                      ))}
+                    </svg>
+                  </>
+                )}
+              </>
+            )}
           </div>
+          {opened === "waterline" && (
+            <p>
+              {record?.draftMarks
+                ? `計測した印の間隔：${Math.abs(record.draftMarks[1] - record.draftMarks[0])} cm（白：船底／青：水線）`
+                : "船の水線の記録。船尾で写しを重ね、棒を添えて測ると、計測した印もここに残る。"}
+            </p>
+          )}
           <button className="text-button" onClick={() => setOpened(undefined)}>
             一覧へ戻る
           </button>

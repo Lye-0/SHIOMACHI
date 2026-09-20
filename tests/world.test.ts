@@ -325,6 +325,35 @@ describe("短問と出航", () => {
   });
 });
 describe("保存", () => {
+  it("喫水の計測した印を自動記録し、再観察や保存再開でも保持する", () => {
+    let g = newGame();
+    Object.assign(g, {
+      room: "dock",
+      detail: "boat",
+      water: 2,
+      tracing: true,
+      boatInside: true,
+      boatOutside: true,
+      boatDry: true,
+    });
+    g.items.rod = "inventory";
+    g = run(
+      g,
+      { type: "measureDraft" },
+      { type: "rodMark", value: 0 },
+      { type: "waterMark", value: 47 },
+    );
+    expect(g.records.waterline.draftMarks).toEqual([0, 47]);
+    g = run(g, { type: "back" }, { type: "inspect", detail: "boat" });
+    expect(parseSave(JSON.stringify(g))?.records.waterline.draftMarks).toEqual([
+      0, 47,
+    ]);
+    g = run(g, { type: "waterMark", value: 50 });
+    expect(g.records.waterline.draftMarks).toEqual([0, 50]);
+    const invalid = structuredClone(g);
+    invalid.records.waterline.draftMarks = [0, 100];
+    expect(parseSave(JSON.stringify(invalid))).toBeNull();
+  });
   it("完成した図面は保存再開後も回転・入れ替えできない", () => {
     let g = newGame();
     g.detail = "diagram";

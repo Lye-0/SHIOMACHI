@@ -123,6 +123,7 @@ export interface Game {
       mapTurn: number;
       raised?: boolean;
       chartMarks?: string[];
+      draftMarks?: [number, number];
     }
   >;
   visited: Room[];
@@ -379,6 +380,7 @@ export type Action =
   | { type: "chartMark"; node: string }
   | { type: "chartClear" }
   | { type: "trace"; tool?: Item }
+  | { type: "measureDraft" }
   | { type: "rodMark"; value: number }
   | { type: "waterMark"; value: number }
   | { type: "gate" }

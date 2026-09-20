@@ -1,3 +1,4 @@
+import { Notebook } from "./Notebook";
 import { ItemArt } from "./Primitives";
 import { ActionBar, SceneAction } from "./ActionBar";
 import { useState } from "react";
@@ -536,6 +537,7 @@ function create(f: Fixture) {
   return g;
 }
 export function VisualLab() {
+  const [notes, setNotes] = useState(false);
   const [selected, setSelected] = useState<Item | undefined>(
     fixtures[0].selected,
   );
@@ -560,6 +562,21 @@ export function VisualLab() {
   };
   return (
     <main className="app">
+      {notes && (
+        <div
+          style={{
+            position: "fixed",
+            inset: "4%",
+            background: "#152329",
+            zIndex: 200,
+            overflow: "auto",
+            padding: 24,
+          }}
+        >
+          <Notebook game={g} />
+          <button onClick={() => setNotes(false)}>検証記録帳を閉じる</button>
+        </div>
+      )}
       <ActionBar>
         <section className="stage" aria-label={fixture.id}>
           {g.detail ? (
@@ -626,6 +643,7 @@ export function VisualLab() {
             <ItemArt item="lockingPins" game={g} />
           </div>
         )}
+        <button onClick={() => setNotes(true)}>検証記録帳</button>
         <small>保存領域を使用しない描画検証</small>
       </div>
     </main>
